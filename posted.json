@@ -20,7 +20,8 @@
       "Turning C code into a .exe with VS Code? Like baking a cake",
       "Why does mouseenter differ from mouseover (and mouseleave from mouseout)?",
       "Why can't Python find modules in CGI scripts? Like a kitchen missing the pantry",
-      "Is PYTHONPATH really an environment variable? \u2013 the library shelf analogy"
+      "Is PYTHONPATH really an environment variable? \u2013 the library shelf analogy",
+      "How fuzzy search works in a search engine: like a typo\u2011tolerant library"
     ]
   },
   "uploads": [
@@ -242,6 +243,20 @@
       "tiktok_post_id": "v_inbox_file~v2.7671200821736065046",
       "tiktok_caption": "Is PYTHONPATH Really an Environment Variable? \ud83d\udcda The Library Shelf Analogy\n\nDiscover why PYTHONPATH behaves like a library shelf, not a true environment variable, and how that changes the way you manage imports. We'll break down the analogy and show you the practical impact on your Python projects. Follow for more quick dev insights!\n\n#programming #coding #learntocode #developer #softwareengineering",
       "ts": "2026-08-07T08:18:28"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "How fuzzy search works in a search engine: like a typo\u2011tolerant library",
+      "title": "Typo\u2011Tolerant Search: How Fuzzy Matching Powers Your Queries!",
+      "question": "How fuzzy search works in a search engine: Levenshtein automata and n-gram similarity",
+      "question_id": "reddit:1vg8iyl",
+      "question_url": "https://reddit.com/r/programming/comments/1vg8iyl/how_fuzzy_search_works_in_a_search_engine/",
+      "youtube": "44S91Hlzwnk",
+      "tiktok": true,
+      "tiktok_via": "inbox",
+      "tiktok_post_id": "v_inbox_file~v2.7671383623156910102",
+      "tiktok_caption": "Typo\u2011Tolerant Search: How Fuzzy Matching Powers Your Queries!\n\nDiscover the magic behind fuzzy search and how it corrects misspelled queries on the fly. Watch the algorithm in action and learn to add typo\u2011tolerance to your own projects. Follow for more tech tricks!\n\n#programming #coding #learntocode #developer #softwareengineering",
+      "ts": "2026-08-07T20:07:23"
     }
   ]
 }

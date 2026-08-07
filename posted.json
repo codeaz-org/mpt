@@ -19,7 +19,8 @@
       "Normalize RGB by 255 or 256? The off\u2011by\u2011one that shifts every color",
       "Turning C code into a .exe with VS Code? Like baking a cake",
       "Why does mouseenter differ from mouseover (and mouseleave from mouseout)?",
-      "Why can't Python find modules in CGI scripts? Like a kitchen missing the pantry"
+      "Why can't Python find modules in CGI scripts? Like a kitchen missing the pantry",
+      "Is PYTHONPATH really an environment variable? \u2013 the library shelf analogy"
     ]
   },
   "uploads": [
@@ -227,6 +228,20 @@
       "tiktok_post_id": "6a745ebcf7924f530a5cce73",
       "tiktok_caption": "Why can't Python find modules in CGI scripts? Like a kitchen missing the pantry\n\nWhy can't Python find modules in CGI scripts? Like a kitchen missing the pantry\n\n#programming #coding #learntocode #developer #softwareengineering",
       "ts": "2026-08-06T10:15:21"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Is PYTHONPATH really an environment variable? \u2013 the library shelf analogy",
+      "title": "Is PYTHONPATH Really an Environment Variable? \ud83d\udcda The Library Shelf Analogy",
+      "question": "Is `PYTHONPATH` really an environment variable?",
+      "question_id": "se:76188316",
+      "question_url": "https://stackoverflow.com/questions/76188316/is-pythonpath-really-an-environment-variable",
+      "youtube": "IGthAhZoo6M",
+      "tiktok": true,
+      "tiktok_via": "inbox",
+      "tiktok_post_id": "v_inbox_file~v2.7671200821736065046",
+      "tiktok_caption": "Is PYTHONPATH Really an Environment Variable? \ud83d\udcda The Library Shelf Analogy\n\nDiscover why PYTHONPATH behaves like a library shelf, not a true environment variable, and how that changes the way you manage imports. We'll break down the analogy and show you the practical impact on your Python projects. Follow for more quick dev insights!\n\n#programming #coding #learntocode #developer #softwareengineering",
+      "ts": "2026-08-07T08:18:28"
     }
   ]
 }

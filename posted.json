@@ -21,7 +21,8 @@
       "Why does mouseenter differ from mouseover (and mouseleave from mouseout)?",
       "Why can't Python find modules in CGI scripts? Like a kitchen missing the pantry",
       "Is PYTHONPATH really an environment variable? \u2013 the library shelf analogy",
-      "How fuzzy search works in a search engine: like a typo\u2011tolerant library"
+      "How fuzzy search works in a search engine: like a typo\u2011tolerant library",
+      "Shared lock with Atomics? Like traffic lights synchronizing cars at an intersection"
     ]
   },
   "uploads": [
@@ -257,6 +258,20 @@
       "tiktok_post_id": "v_inbox_file~v2.7671383623156910102",
       "tiktok_caption": "Typo\u2011Tolerant Search: How Fuzzy Matching Powers Your Queries!\n\nDiscover the magic behind fuzzy search and how it corrects misspelled queries on the fly. Watch the algorithm in action and learn to add typo\u2011tolerance to your own projects. Follow for more tech tricks!\n\n#programming #coding #learntocode #developer #softwareengineering",
       "ts": "2026-08-07T20:07:23"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Shared lock with Atomics? Like traffic lights synchronizing cars at an intersection",
+      "title": "Atomic Shared Lock Explained: Traffic Light Sync for Threads!",
+      "question": "How to build a shared lock using Atomics",
+      "question_id": "se:79990737",
+      "question_url": "https://stackoverflow.com/questions/79990737/how-to-build-a-shared-lock-using-atomics",
+      "youtube": "qNURp2CHczc",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6a76df98018a9e80fc8a2c86",
+      "tiktok_caption": "Atomic Shared Lock Explained: Traffic Light Sync for Threads!\n\nDiscover how Atomics can serve as a shared lock, syncing threads just like traffic lights manage cars at an intersection. Watch the demo, then follow for more bite\u2011size coding hacks!\n\n#programming #coding #learntocode #developer #softwareengineering",
+      "ts": "2026-08-08T07:49:41"
     }
   ]
 }

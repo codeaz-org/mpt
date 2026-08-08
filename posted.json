@@ -22,7 +22,8 @@
       "Why can't Python find modules in CGI scripts? Like a kitchen missing the pantry",
       "Is PYTHONPATH really an environment variable? \u2013 the library shelf analogy",
       "How fuzzy search works in a search engine: like a typo\u2011tolerant library",
-      "Shared lock with Atomics? Like traffic lights synchronizing cars at an intersection"
+      "Shared lock with Atomics? Like traffic lights synchronizing cars at an intersection",
+      "Why need Python\u2019s finally clause if code after try works?"
     ]
   },
   "uploads": [
@@ -272,6 +273,20 @@
       "tiktok_post_id": "6a76df98018a9e80fc8a2c86",
       "tiktok_caption": "Atomic Shared Lock Explained: Traffic Light Sync for Threads!\n\nDiscover how Atomics can serve as a shared lock, syncing threads just like traffic lights manage cars at an intersection. Watch the demo, then follow for more bite\u2011size coding hacks!\n\n#programming #coding #learntocode #developer #softwareengineering",
       "ts": "2026-08-08T07:49:41"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Why need Python\u2019s finally clause if code after try works?",
+      "title": "Python\u2019s finally clause: Why you still need it even if code after try runs",
+      "question": "Why do we need the \u201cfinally:\u201d clause in Python, if we can just write code after the \u201ctry:\u201d block?",
+      "question_id": "se:11551996",
+      "question_url": "https://stackoverflow.com/questions/11551996/why-do-we-need-the-finally-clause-in-python-if-we-can-just-write-code-after",
+      "youtube": "hri7dgYux3Y",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6a7787ce9c08137afa1fa9e1",
+      "tiktok_caption": "Python\u2019s finally clause: Why you still need it even if code after try runs\n\nDiscover why the finally block is essential for cleanup, resource release, and guaranteed execution, no matter what happens in the try or except sections. Learn real\u2011world examples that show what can go wrong without it. Follow for more Python tricks and quick coding tips!\n\n#programming #coding #learntocode #developer #softwareengineering",
+      "ts": "2026-08-08T19:47:23"
     }
   ]
 }

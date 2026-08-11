@@ -61,7 +61,8 @@ def generate_narration(text, voice, out_path):
     asyncio.run(go())
     if not out_path.exists() or out_path.stat().st_size < 1000:
         raise RuntimeError(f"edge-tts produced no audio for voice {short_name}")
-    log(f"narration: {out_path.name} ({out_path.stat().st_size // 1024} KB)")
+    log(f"2/4 TTS       -> {out_path.name} ({out_path.stat().st_size // 1024} KB, "
+        f"voice={short_name})")
 
 
 def audio_duration(path):
@@ -102,8 +103,8 @@ def fetch_pexels_vertical(terms, out_path):
                 for chunk in dl.iter_content(1 << 15):
                     f.write(chunk)
             if out_path.stat().st_size > 100_000:
-                log(f"bg video: {out_path.name} from Pexels '{term}' "
-                    f"({out_path.stat().st_size // 1024} KB)")
+                log(f"3/4 bg video  -> {out_path.name} "
+                    f"({out_path.stat().st_size // 1024} KB, term={term!r})")
                 return
     raise RuntimeError(f"no Pexels footage matched any of: {tried}")
 
@@ -143,9 +144,11 @@ def classify_archetype(topic, script, question, niche):
     )
     archetype = (result.get("archetype") or "unknown").strip()
     conf = float(result.get("confidence") or 0)
-    log(f"classified as {archetype} (conf {conf:.2f}): {(result.get('why') or '')[:100]}")
     if archetype not in ARCHETYPES or conf < 0.5:
+        log(f"1/4 classify  -> UNKNOWN ({archetype}, conf {conf:.2f}): "
+            f"{(result.get('why') or '')[:80]}")
         return "unknown"
+    log(f"1/4 classify  -> {archetype} (conf {conf:.2f})")
     return archetype
 
 
@@ -225,7 +228,7 @@ def render(topic, niche, script, question=None):
         fetch_pexels_vertical(terms, bg_path)
         props["bgVideo"] = "bg.mp4"
     except Exception as e:
-        log(f"pexels fetch failed ({type(e).__name__}: {str(e)[:120]}); rendering without bg")
+        log(f"3/4 bg video  -> SKIPPED ({type(e).__name__}: {str(e)[:100]})")
         if bg_path.exists():
             bg_path.unlink()
     props["narration"] = "narration.mp3"
@@ -246,6 +249,6 @@ def render(topic, niche, script, question=None):
         raise RuntimeError(f"remotion render failed:\n{r.stderr[-1500:]}")
     if not out_path.exists():
         raise RuntimeError("remotion finished but produced no mp4")
-    log(f"rendered {archetype}: {out_path.name} "
-        f"({out_path.stat().st_size // (1024*1024)} MB, {props['audioDuration']:.1f}s narration)")
+    log(f"4/4 render    -> {out_path.name} "
+        f"({out_path.stat().st_size // (1024*1024)} MB, {props['audioDuration']:.1f}s)")
     return str(out_path)

@@ -837,20 +837,26 @@ def render_video(topic, niche, script, question=None):
     Both paths return an mp4 path and both run the same duration/audio sanity check
     at the end -- a short narration produced by either shouldn't reach upload."""
     mode = niche.get("video_mode", "stock")
+    nid = niche["id"]
     if mode == "remotion":
+        log(f"[{nid}] ==== RENDER stage (renderer=REMOTION) ====")
         try:
             import remotion_render
             video = remotion_render.render(topic, niche, script, question=question)
             check_rendered_video(video, script)
+            log(f"[{nid}] ==== RENDER done via REMOTION -> {Path(video).name} ====")
             return video
         except Exception as e:
-            log(f"[{niche['id']}] remotion failed ({type(e).__name__}: {str(e)[:160]}); "
-                "falling back to MPT stock render")
+            log(f"[{nid}] REMOTION failed ({type(e).__name__}: {str(e)[:160]})")
+            log(f"[{nid}] ==== FALLBACK to MPT stock render ====")
     elif mode != "stock":
         raise RuntimeError(f"unknown video_mode {mode!r} (only 'stock'/'remotion' supported)")
+    else:
+        log(f"[{nid}] ==== RENDER stage (renderer=MPT stock) ====")
     terms = generate_terms(topic, script, niche)
     video = render_with_fallback(topic, niche, script, terms)
     check_rendered_video(video, script)
+    log(f"[{nid}] ==== RENDER done via MPT -> {Path(video).name} ====")
     return video
 
 

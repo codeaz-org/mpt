@@ -19,6 +19,11 @@ MIN_SCORE = float(os.environ.get("CRITIC_MIN_SCORE", "7"))
 HARD_FLOOR = float(os.environ.get("CRITIC_FLOOR", "6"))
 MAX_ROUNDS = int(os.environ.get("CRITIC_ROUNDS", "4"))
 
+# Default rubric: axes that apply to any script format. A niche can override this via
+# `critic_rubric` if its content shape needs different criteria. The old `mapping` axis
+# was analogy-specific -- it made codeaz's buyer-facing archetypes (cost teardown,
+# workflow demo, business idea) score 1 or 2 and fail the hard floor every time,
+# because those formats have no analogy to map.
 RUBRIC = """You are a harsh script editor for a short-video channel. You did not write this
 script and you gain nothing by approving it. Most drafts should be sent back.
 
@@ -28,13 +33,16 @@ Score each from 1 to 10:
                     neighbouring subject scores 1, however well written.
   hook              Would the first sentence stop someone scrolling? A generic opener
                     ("Have you ever wondered...") scores 3 or less.
-  mapping           Does it name each part of the analogy and say which part of the real
-                    mechanism it stands for? An analogy left unmapped scores 3 or less.
-  accuracy          Is every technical claim true, and does every term belong to this
-                    subject? One borrowed or wrong term caps this at 4.
+  concreteness      Real names, real numbers, real tools -- not "some SaaS apps", "a
+                    lot of money", "certain workflows". Hedged abstractions score 3.
+                    Naming Zapier, GitHub Actions, $29/mo scores 8+.
+  honesty           No invented client names, prices, or case studies. Verifiable
+                    public numbers are fine; fabricated specifics cap this at 2.
+                    A confident sentence that is wrong scores 1.
   specificity       Concrete detail over vague summary. "It can cause problems" scores 2;
                     "the second write silently overwrites the first" scores 9.
-  payoff            Does it end on something a viewer could repeat to a friend?
+  payoff            Does it end on something a viewer could act on, or a takeaway they
+                    could repeat to a friend?
 
 Then decide:
   "publish" only if the scores average at least {min_score}, none is below 6, and
@@ -45,21 +53,28 @@ problems: what is wrong, concretely, quoting the offending phrases.
 fix: direct instructions to the writer for the next attempt. Name what to cut and what
 to add. Do not rewrite the script yourself."""
 
+DEFAULT_AXES = ("answers_question", "hook", "concreteness", "honesty", "specificity", "payoff")
+
 
 def log(msg): print(f"[critic] {msg}", flush=True)
 
 
-def review(topic, script, question=None, min_score=None):
+def review(topic, script, question=None, min_score=None, niche=None):
     """Return (verdict, scores, problems, fix). Never raises on a bad response: a critic
-    that fails must not block the pipeline, it just cannot approve anything either."""
+    that fails must not block the pipeline, it just cannot approve anything either.
+
+    A niche can supply its own rubric via `critic_rubric` (containing `{min_score}`) and
+    its own axes list via `critic_axes`; the JSON schema is built from the axes."""
     min_score = min_score or MIN_SCORE
+    rubric = (niche or {}).get("critic_rubric") or RUBRIC
+    axes = tuple((niche or {}).get("critic_axes") or DEFAULT_AXES)
+    schema_scores = ", ".join(f'"{a}": n' for a in axes)
     asked = f"\n\nThe viewer's question was: {question}" if question else ""
     try:
         result = nim_json(
-            RUBRIC.format(min_score=min_score) +
-            ' JSON schema: {"scores": {"answers_question": n, "hook": n, "mapping": n, '
-            '"accuracy": n, "specificity": n, "payoff": n}, "verdict": "publish"|"revise", '
-            '"problems": ["..."], "fix": "..."}',
+            rubric.format(min_score=min_score) +
+            ' JSON schema: {"scores": {' + schema_scores + '}, '
+            '"verdict": "publish"|"revise", "problems": ["..."], "fix": "..."}',
             f"Topic: {topic}{asked}\n\nScript:\n{script}",
             temperature=0.3,
             max_tokens=1200,

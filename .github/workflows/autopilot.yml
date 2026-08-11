@@ -41,6 +41,44 @@ jobs:
           pip install -r MoneyPrinterTurbo/requirements.txt
           pip install requests google-api-python-client google-auth google-auth-oauthlib
 
+      # Ollama is the LAST-RESORT LLM fallback. Only fires when Groq, NIM, and
+      # OpenRouter are all down or quota-drained. gpt-oss:20b picked because:
+      # (a) strongest open-weight model that fits in ubuntu-latest's 16GB RAM;
+      # (b) MoE architecture (~3.6B active params of 20B) is CPU-fast despite size;
+      # (c) reasoning-capable AND `llm.py` already handles reasoning content;
+      # (d) tuned for structured output -- critic JSON stays reliable.
+      # Weights are ~13GB, cached across runs.
+      - name: Cache Ollama model
+        uses: actions/cache@v4
+        with:
+          path: ~/.ollama/models
+          key: ollama-gpt-oss-20b-v1
+
+      - name: Install, start, and warm Ollama
+        env:
+          # Ollama unloads models after 5 min idle by default. Autopilot may not
+          # reach the Ollama fallback until many minutes into a run, so extend
+          # keep_alive to the full job lifetime -- once we pay the load cost once,
+          # keep the model resident in RAM.
+          OLLAMA_KEEP_ALIVE: "24h"
+        run: |
+          curl -fsSL https://ollama.com/install.sh | sh
+          # Installer tries to enable a systemd service; if that fails on the
+          # runner the binary is still installed and we run it directly.
+          nohup ollama serve > /tmp/ollama.log 2>&1 &
+          for i in 1 2 3 4 5 6 7 8 9 10; do
+            curl -sf http://localhost:11434/api/tags && break
+            sleep 1
+          done
+          ollama pull gpt-oss:20b
+          # Pre-warm: one throwaway inference so the model is loaded into RAM
+          # before autopilot ever calls it. First call after `pull` otherwise
+          # eats a ~15-30s load penalty on CPU-only hosts for a model this size.
+          curl -sf http://localhost:11434/api/generate \
+            -d '{"model":"gpt-oss:20b","prompt":"ok","stream":false,"options":{"num_predict":1}}' \
+            > /dev/null
+          echo "ollama warmed"
+
       - name: Run autopilot
         env:
           NICHES: ${{ github.event.inputs.niches }}
@@ -51,6 +89,9 @@ jobs:
           OPENROUTER_MODEL: ${{ secrets.OPENROUTER_MODEL }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           GROQ_MODEL: ${{ secrets.GROQ_MODEL }}
+          # Ollama runs locally in this runner as last-resort fallback.
+          OLLAMA_URL: http://localhost:11434
+          OLLAMA_MODEL: gpt-oss:20b
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}

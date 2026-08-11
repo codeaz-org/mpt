@@ -62,6 +62,23 @@ def _env(name):
     return "" if value.lower() in ("", "xxxx") else value
 
 
+# Free tiers cap by BOTH per-minute and per-day. The critic loop makes 4+ rapid calls
+# per script (write, review, revise, review) which trips per-minute ceilings even when
+# daily quota is fine. Space calls to the same provider by at least this many seconds
+# to keep 429s out of the log; provider-specific because their limits differ.
+_MIN_INTERVAL = {"groq": 2.5, "nim": 0.5, "openrouter": 1.5, "ollama": 0.0}
+_last_call = {}
+
+
+def _throttle(provider):
+    """Sleep just enough that the next request stays under the provider's per-minute
+    limit. Zero cost when we're already spaced out."""
+    gap = _MIN_INTERVAL.get(provider.name, 1.0)
+    elapsed = time.time() - _last_call.get(provider.name, 0)
+    if elapsed < gap:
+        time.sleep(gap - elapsed)
+
+
 def openrouter_is_free(model):
     """Confirm with OpenRouter that the model really costs nothing. The catalogue is
     public, so this needs no key, and it catches a ':free' id that has been retired or
@@ -118,9 +135,24 @@ def providers():
         else:
             log(f"skipping OpenRouter: {model} is not free. Set OPENROUTER_MODEL to "
                 "one of the ':free' ids listed above.")
+    # Ollama last. Runs locally (or in the GitHub Actions runner during a workflow),
+    # no API key, no quota. Slow on CPU-only hosts, so it only fires when everything
+    # hosted is down or quota-drained. Gated on OLLAMA_URL so it doesn't accidentally
+    # connect to a dev's laptop during a manual run.
+    ollama_url = (os.environ.get("OLLAMA_URL") or "").strip()
+    if ollama_url:
+        if not ollama_url.rstrip("/").endswith("/chat/completions"):
+            ollama_url = ollama_url.rstrip("/") + "/v1/chat/completions"
+        chain.append(Provider(
+            "ollama", ollama_url,
+            # Ollama accepts any Authorization header; a placeholder keeps _ask uniform.
+            "ollama",
+            (os.environ.get("OLLAMA_MODEL") or "").strip() or "llama3.1:8b",  # matches workflow default
+            int(os.environ.get("OLLAMA_ATTEMPTS", "2")),
+        ))
     if not chain:
-        raise RuntimeError("no LLM provider configured: set NIM_API_KEY, "
-                           "OPENROUTER_API_KEY or GROQ_API_KEY")
+        raise RuntimeError("no LLM provider configured: set GROQ_API_KEY, NIM_API_KEY, "
+                           "OPENROUTER_API_KEY, or OLLAMA_URL")
     return chain
 
 
@@ -161,6 +193,7 @@ def _ask(provider, system, user, temperature, max_tokens):
     budget = max_tokens
     for i in range(provider.attempts):
         try:
+            _throttle(provider)
             r = requests.post(
                 provider.url,
                 headers={"Authorization": f"Bearer {provider.key}", **provider.extra_headers},
@@ -181,6 +214,7 @@ def _ask(provider, system, user, temperature, max_tokens):
                 raise _config_error(provider, r.status_code, r.text)
             content, finish, reasoned = _nim_content(r.json())
             if content:
+                _last_call[provider.name] = time.time()
                 return content
             why = ("spent the whole budget reasoning" if reasoned
                    else f"returned no content ({finish})")

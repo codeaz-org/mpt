@@ -338,10 +338,18 @@ def _write_script(topic, niche, feedback=None, drift=(), question=None):
     facts = _facts()
     if facts:
         notes.append(
-            "TRUTH LEDGER -- these are the only things you may cite as this channel's own "
-            "work, and the only concrete numbers you may quote as facts. If a claim is not "
-            "in this ledger, either say 'roughly' or drop it. Do NOT invent client names, "
-            "prices, or case studies.\n\n" + facts)
+            "TRUTH LEDGER -- rules of what you can claim:\n"
+            "  * OWN-WORK claims (things this channel/codeaz built, prices we charged, "
+            "clients we had): ONLY from the ledger below. If it is not in the ledger, do "
+            "not say we did it.\n"
+            "  * PUBLIC FACTS (tool pricing that any user can see on the vendor's website, "
+            "free-tier limits, publicly documented founder revenue, well-known open-source "
+            "projects): allowed, but only if you would bet a paycheck they are correct. "
+            "Prefer naming the specific number ('Zapier free tier = 100 tasks/month') over "
+            "hedging ('some tools charge per task').\n"
+            "  * INVENTED SPECIFICS: never. No made-up client names, no invented dollar "
+            "amounts, no fabricated case studies. If you do not know a number, either use "
+            "a real range you are confident in, or drop the number entirely.\n\n" + facts)
     if question:
         # The writer must see the question, not only the topic. Without it the script
         # answers the topic's phrasing and drifts off what the viewer actually asked.
@@ -393,7 +401,7 @@ def generate_script(topic, niche, question=None):
     def review(t, script, asked, min_score):
         """The critic judges taste; drift is objective, so it overrides an approval.
         A model that has just written about threads will happily approve threads."""
-        verdict, scores, problems, fix = critic.review(t, script, asked, min_score)
+        verdict, scores, problems, fix = critic.review(t, script, asked, min_score, niche=niche)
         bad_hook = weak_hook(script)
         if bad_hook:
             problems = [f"weak hook: {bad_hook}"] + problems

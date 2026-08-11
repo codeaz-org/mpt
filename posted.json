@@ -24,7 +24,8 @@
       "How fuzzy search works in a search engine: like a typo\u2011tolerant library",
       "Shared lock with Atomics? Like traffic lights synchronizing cars at an intersection",
       "Why need Python\u2019s finally clause if code after try works?",
-      "Best $500 Business Investments"
+      "Best $500 Business Investments",
+      "Vercel vs Railway vs Render"
     ]
   },
   "uploads": [
@@ -302,6 +303,20 @@
       "tiktok_post_id": "6a7ad92b4754716e52ff04e9",
       "tiktok_caption": "Boost Biz with $500\n\nDiscover the top business investments that can be made with just $500, from marketing tools to equipment and software. By investing wisely, you can take your business to the next level and increase your revenue, so be sure to follow us for more business tips and tricks to help you succeed.\n\n#automation #smallbiz #startup #nocode #buildinpublic #founder",
       "ts": "2026-08-11T08:11:20"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Vercel vs Railway vs Render",
+      "title": "Vercel vs Railway",
+      "question": "Vercel vs Railway vs Render: Which has the best security?",
+      "question_id": "reddit:1vjyp6s",
+      "question_url": "https://reddit.com/r/Entrepreneur/comments/1vjyp6s/vercel_vs_railway_vs_render_which_has_the_best/",
+      "youtube": "qcrslT5CSMk",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6a7adc63114cb41ef0c4e560",
+      "tiktok_caption": "Vercel vs Railway\n\nDiscover the best platform for your next project with our comparison of Vercel, Railway, and Render. Learn about their features, pricing, and performance to make an informed decision. Follow us for more tech comparisons and tutorials!\n\n#automation #smallbiz #startup #nocode #buildinpublic #founder",
+      "ts": "2026-08-11T08:25:05"
     }
   ]
 }

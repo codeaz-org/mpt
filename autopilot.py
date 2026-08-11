@@ -321,6 +321,22 @@ def _rewrite_hook(script, topic, question=None, attempts=3):
 
 FACTS_FILE = ROOT / "facts.md"
 
+# Product / service names the anti-repetition guard tracks. Anything else the model
+# names is fine to repeat -- we only care about the recurring examples that make
+# consecutive videos sound the same. Case-insensitive substring match on titles is
+# enough; a smarter script tokeniser would be more accurate but this is a nudge,
+# not a filter.
+_TRACKED_TOOLS = (
+    "MPT", "MoneyPrinterTurbo", "this account", "this repo", "our automation",
+    "GitHub Actions", "Zapier", "Make", "Integromat", "n8n", "Pipedream",
+    "IFTTT", "Bubble", "Retool", "Softr", "Glide", "Webflow", "Supabase",
+    "Firebase", "Airtable", "Notion", "Neon", "PlanetScale", "Vercel",
+    "Netlify", "Cloudflare", "Railway", "Fly.io", "Render", "OpenAI",
+    "Anthropic", "Groq", "OpenRouter", "NVIDIA NIM", "Slack", "Discord",
+    "Twilio", "SendGrid", "Resend", "Buffer", "Stripe", "Paddle",
+    "Lemon Squeezy",
+)
+
 
 def _facts():
     """The truth ledger scripts must stick to. Missing file = no facts injected, which
@@ -331,8 +347,29 @@ def _facts():
     return ""
 
 
-def _write_script(topic, niche, feedback=None, drift=(), question=None):
-    """One draft. `feedback` carries the critic's instructions from the previous round."""
+def _recent_tools(state, niche_id, keep=4):
+    """Names of products/services cited in the last N videos for this niche. Fed to
+    the writer as an anti-repetition nudge so consecutive videos don't all lean on
+    'MPT autopilot on GitHub Actions'."""
+    used = []
+    scanned = 0
+    for entry in reversed(state.get("uploads", [])):
+        if entry.get("niche") != niche_id:
+            continue
+        hay = " ".join(str(entry.get(k) or "") for k in ("title", "topic", "question")).lower()
+        for tool in _TRACKED_TOOLS:
+            if tool.lower() in hay and tool not in used:
+                used.append(tool)
+        scanned += 1
+        if scanned >= keep:
+            break
+    return used[:8]
+
+
+def _write_script(topic, niche, feedback=None, drift=(), question=None, recent_tools=()):
+    """One draft. `feedback` carries the critic's instructions from the previous round.
+    `recent_tools` lists product names cited in recent videos so we can nudge the writer
+    to pick a different example this time."""
     system = niche.get("script_prompt", SCRIPT_SYSTEM)
     notes = []
     facts = _facts()
@@ -366,6 +403,14 @@ def _write_script(topic, niche, feedback=None, drift=(), question=None):
     if drift:
         notes.append(f"You also used {', '.join(drift)}, which do not belong to this "
                      "topic. Remove them.")
+    if recent_tools:
+        notes.append(
+            "DO NOT reuse these examples/tools -- they were used in the last few videos and "
+            "the channel is starting to sound repetitive: "
+            + ", ".join(recent_tools) + ". "
+            "Pick a genuinely different concrete example from the ledger (a different "
+            "automation platform, a different backend, a different hosting story). Same "
+            "point, fresh casting.")
     notes = [n for n in notes if n]
     if notes:
         system += "\n\n" + "\n\n".join(notes)
@@ -377,7 +422,7 @@ def _write_script(topic, niche, feedback=None, drift=(), question=None):
     ))
 
 
-def generate_script(topic, niche, question=None):
+def generate_script(topic, niche, question=None, recent_tools=()):
     """Draft, critique, revise, until an editor agent passes it.
 
     A model asked to write and approve its own work approves nearly everything, so the
@@ -386,9 +431,12 @@ def generate_script(topic, niche, question=None):
     state = {"drift": ()}
 
     asked = question.get("title") if isinstance(question, dict) else question
+    if recent_tools:
+        log(f"[{niche['id']}] avoiding recent examples: {', '.join(recent_tools)}")
 
     def write(feedback):
-        script = _write_script(topic, niche, feedback, state["drift"], asked)
+        script = _write_script(topic, niche, feedback, state["drift"], asked,
+                                recent_tools=recent_tools)
         if weak_hook(script):
             script = _rewrite_hook(script, topic, asked)
         state["drift"] = tuple(_drift_terms(script, topic, niche))
@@ -880,7 +928,8 @@ def run_niche(niche, state):
     used = state["topics"].setdefault(niche["id"], [])
     for _ in range(niche.get("videos_per_run", 1)):
         topic, question = pick_topic(niche, used, used_question_ids(state, niche["id"]))
-        script = generate_script(topic, niche, question)
+        script = generate_script(topic, niche, question,
+                                 recent_tools=_recent_tools(state, niche["id"]))
         video = render_video(topic, niche, script, question=question)
         log(f"[{niche['id']}] Video: {video}")
         meta = make_metadata(topic, niche)

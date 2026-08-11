@@ -7,7 +7,7 @@ import {
   AbsoluteFill, Sequence, Audio, staticFile,
   useVideoConfig, useCurrentFrame, interpolate,
 } from "remotion";
-import { Theme, codeazTheme } from "./theme";
+import { BgClip, Theme, codeazTheme } from "./theme";
 import { familyFor } from "./lib/fonts";
 import { Background, Eyebrow } from "./lib/chrome";
 import { HookLine, MetaLine, BigNumber, ListRow } from "./lib/blocks";
@@ -21,7 +21,7 @@ export interface CostTeardownProps {
   freeStack: string[];
   catch: string;
   payoff: string;
-  bgVideo?: string;
+  bgClips?: BgClip[];
   narration?: string;
   audioDuration?: number;
   theme?: Theme;
@@ -104,7 +104,7 @@ export const CostTeardown: React.FC<CostTeardownProps> = (props) => {
   const paidEnd = Math.round(total * 0.30);
   const stackEnd = Math.round(total * 0.67);
   return (
-    <Background theme={theme} bgVideo={props.bgVideo}>
+    <Background theme={theme} bgClips={props.bgClips}>
       {props.narration && <Audio src={staticFile(props.narration)} />}
       <Sequence from={0} durationInFrames={hookEnd}>
         <HookScene text={props.hook} theme={theme} />

@@ -7,7 +7,7 @@ import React from "react";
 import {
   AbsoluteFill, Sequence, Audio, staticFile, useVideoConfig,
 } from "remotion";
-import { Theme, codeazTheme } from "./theme";
+import { BgClip, Theme, codeazTheme } from "./theme";
 import { familyFor } from "./lib/fonts";
 import { Background, Eyebrow } from "./lib/chrome";
 import { HookLine, QuoteCard } from "./lib/blocks";
@@ -17,7 +17,7 @@ export interface RedFlagListProps {
   intro: string;         // "Your dev shop is stalling if they keep saying these things."
   flags: { quote: string; why: string }[];  // exactly 3, ideally
   takeaway: string;
-  bgVideo?: string;
+  bgClips?: BgClip[];
   narration?: string;
   audioDuration?: number;
   theme?: Theme;
@@ -63,7 +63,7 @@ export const RedFlagList: React.FC<RedFlagListProps> = (props) => {
   const introEnd = Math.round(total * 0.15);
   const flagsEnd = Math.round(total * 0.78);
   return (
-    <Background theme={theme} bgVideo={props.bgVideo}>
+    <Background theme={theme} bgClips={props.bgClips}>
       {props.narration && <Audio src={staticFile(props.narration)} />}
       <Sequence from={0} durationInFrames={introEnd}>
         <IntroScene text={props.intro} theme={theme} />

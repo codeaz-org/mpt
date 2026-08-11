@@ -7,7 +7,7 @@ import React from "react";
 import {
   AbsoluteFill, Sequence, Audio, staticFile, useVideoConfig,
 } from "remotion";
-import { Theme, codeazTheme } from "./theme";
+import { BgClip, Theme, codeazTheme } from "./theme";
 import { familyFor } from "./lib/fonts";
 import { Background, Eyebrow } from "./lib/chrome";
 import { HookLine, MetaLine } from "./lib/blocks";
@@ -18,7 +18,7 @@ export interface WorkflowDemoProps {
   steps: { label: string; detail: string }[];   // 3-5 items
   cost: string;                // "$0 / month, one afternoon to build"
   payoff: string;
-  bgVideo?: string;
+  bgClips?: BgClip[];
   narration?: string;
   audioDuration?: number;
   theme?: Theme;
@@ -85,7 +85,7 @@ export const WorkflowDemo: React.FC<WorkflowDemoProps> = (props) => {
   const scenarioEnd = Math.round(total * 0.15);
   const stepsEnd = Math.round(total * 0.72);
   return (
-    <Background theme={theme} bgVideo={props.bgVideo}>
+    <Background theme={theme} bgClips={props.bgClips}>
       {props.narration && <Audio src={staticFile(props.narration)} />}
       <Sequence from={0} durationInFrames={scenarioEnd}>
         <ScenarioScene text={props.scenario} theme={theme} />

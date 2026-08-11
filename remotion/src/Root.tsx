@@ -31,7 +31,9 @@ const costTeardownDefaults: CostTeardownProps = {
   freeStack: ["GitHub Actions cron", "One Python script", "Slack webhook"],
   catch: "Setup takes an afternoon. No UI. You own the ops.",
   payoff: "Want the UI? Keep Zapier. Want to own it? This is a weekend.",
-  bgVideo: "bg-demo.mp4", narration: "narration.mp3", audioDuration: 23,
+  // No bgClips in defaults -- production sets these from Pexels at render time.
+  // For a studio preview WITH bg, drop a vertical mp4 in public/ and add:
+  //   bgClips: [{ file: "your.mp4" }],
   theme: codeazTheme,
 };
 
@@ -45,7 +47,6 @@ const workflowDemoDefaults: WorkflowDemoProps = {
   ],
   cost: "$0 / month, one afternoon to build",
   payoff: "Same alert Zapier charges $29/mo for. You wrote 40 lines of Python.",
-  narration: "workflow-demo.mp3", audioDuration: 30, theme: codeazTheme,
 };
 
 const redFlagListDefaults: RedFlagListProps = {
@@ -56,7 +57,6 @@ const redFlagListDefaults: RedFlagListProps = {
     { quote: "The client changed the requirements.", why: "You didn't. They just discovered scope late." },
   ],
   takeaway: "Ask to see the last commit. If it's a Friday and it's config, run.",
-  narration: "red-flag-list.mp3", audioDuration: 23, theme: codeazTheme,
 };
 
 const statCardDefaults: StatCardProps = {
@@ -65,7 +65,6 @@ const statCardDefaults: StatCardProps = {
   context: "Cost of a single-workflow Zapier subscription for 12 months.",
   source: "Zapier public pricing, 2025",
   payoff: "One Python script, one free GitHub Actions cron, same job. Zero dollars.",
-  narration: "stat-card.mp3", audioDuration: 17, theme: codeazTheme,
 };
 
 const questionAnswerDefaults: QuestionAnswerProps = {
@@ -78,7 +77,6 @@ const questionAnswerDefaults: QuestionAnswerProps = {
   ],
   caveat: "Not sub-minute scheduling, and 6-hour job cap. Everything else fits.",
   payoff: "If your cron runs hourly or daily, GitHub Actions is enough.",
-  narration: "question-answer.mp3", audioDuration: 29, theme: codeazTheme,
 };
 
 const beforeAfterDefaults: BeforeAfterProps = {
@@ -95,7 +93,6 @@ const beforeAfterDefaults: BeforeAfterProps = {
   ],
   saving: "80 min/week",
   payoff: "That's a full workday every month you now spend somewhere else.",
-  narration: "before-after.mp3", audioDuration: 24, theme: codeazTheme,
 };
 
 const buyOrBuildDefaults: BuyOrBuildProps = {

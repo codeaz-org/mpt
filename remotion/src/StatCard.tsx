@@ -6,7 +6,7 @@ import React from "react";
 import {
   AbsoluteFill, Sequence, Audio, staticFile, useVideoConfig,
 } from "remotion";
-import { Theme, codeazTheme } from "./theme";
+import { BgClip, Theme, codeazTheme } from "./theme";
 import { familyFor } from "./lib/fonts";
 import { Background, Eyebrow } from "./lib/chrome";
 import { HookLine, MetaLine, BigNumber } from "./lib/blocks";
@@ -19,7 +19,7 @@ export interface StatCardProps {
   context: string;        // one-line explanation of what the number is
   source?: string;        // "source: Pexels 2025 pricing" or verifiable citation
   payoff: string;
-  bgVideo?: string;
+  bgClips?: BgClip[];
   narration?: string;
   audioDuration?: number;
   theme?: Theme;
@@ -76,7 +76,7 @@ export const StatCard: React.FC<StatCardProps> = (props) => {
   const setupEnd = Math.round(total * 0.20);
   const numberEnd = Math.round(total * 0.72);
   return (
-    <Background theme={theme} bgVideo={props.bgVideo}>
+    <Background theme={theme} bgClips={props.bgClips}>
       {props.narration && <Audio src={staticFile(props.narration)} />}
       <Sequence from={0} durationInFrames={setupEnd}>
         <SetupScene text={props.setup} theme={theme} />

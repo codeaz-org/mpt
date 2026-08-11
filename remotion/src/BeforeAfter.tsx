@@ -7,7 +7,7 @@ import React from "react";
 import {
   AbsoluteFill, Sequence, Audio, staticFile, useVideoConfig,
 } from "remotion";
-import { Theme, codeazTheme } from "./theme";
+import { BgClip, Theme, codeazTheme } from "./theme";
 import { familyFor } from "./lib/fonts";
 import { Background, Eyebrow } from "./lib/chrome";
 import { HookLine, BigNumber } from "./lib/blocks";
@@ -19,7 +19,7 @@ export interface BeforeAfterProps {
   after: { step: string; time: string }[];   // typically 1-2 steps
   saving: string;              // "Saves ~6 hours a week."
   payoff: string;
-  bgVideo?: string;
+  bgClips?: BgClip[];
   narration?: string;
   audioDuration?: number;
   theme?: Theme;
@@ -97,7 +97,7 @@ export const BeforeAfter: React.FC<BeforeAfterProps> = (props) => {
   const processEnd = Math.round(total * 0.15);
   const compareEnd = Math.round(total * 0.72);
   return (
-    <Background theme={theme} bgVideo={props.bgVideo}>
+    <Background theme={theme} bgClips={props.bgClips}>
       {props.narration && <Audio src={staticFile(props.narration)} />}
       <Sequence from={0} durationInFrames={processEnd}>
         <ProcessScene text={props.process} theme={theme} />

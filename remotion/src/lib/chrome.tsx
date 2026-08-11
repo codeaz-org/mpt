@@ -1,31 +1,38 @@
 import React from "react";
 import { AbsoluteFill, Video, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
-import { Theme } from "../theme";
+import { TransitionSeries, linearTiming } from "@remotion/transitions";
+import { fade } from "@remotion/transitions/fade";
+import { BgClip, Theme } from "../theme";
 import { familyFor } from "./fonts";
+
+const TRANSITION_FRAMES = 15;  // ~0.5s crossfade between clips
 
 /**
  * Page chrome shared by every template: dark ink background with an optional
- * cover-fit muted background video, a faint grid backdrop that anchors flat
- * sections, and a thin cobalt "compile bar" at the top of the frame that
- * fills to full over the composition -- lifted from codeaz.org.
+ * multi-clip video montage (crossfaded), a faint grid backdrop, and the
+ * cobalt "compile bar" that fills across the composition -- lifted from
+ * codeaz.org.
+ *
+ * Multi-clip backdrop: autopilot fetches N vertical clips from Pexels using
+ * the topic search terms, and we stitch them with @remotion/transitions so
+ * we always cover the full narration length -- even when no single clip is
+ * long enough. One clip that runs out mid-video is worse than a montage.
  */
 export const Background: React.FC<React.PropsWithChildren<{
   theme: Theme;
-  bgVideo?: string;
-}>> = ({ theme, bgVideo, children }) => {
+  bgClips?: BgClip[];
+}>> = ({ theme, bgClips, children }) => {
+  const { durationInFrames: total } = useVideoConfig();
+  const clips = (bgClips || []).filter((c) => c && c.file);
   return (
     <AbsoluteFill style={{
       backgroundColor: theme.colors.bg,
       fontFamily: familyFor(theme.fonts.body),
       color: theme.colors.fg,
     }}>
-      {bgVideo && (
+      {clips.length > 0 && (
         <AbsoluteFill>
-          <Video
-            src={staticFile(bgVideo)}
-            muted
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
-          />
+          <ClipMontage clips={clips} total={total} />
           <AbsoluteFill style={{ backgroundColor: `${theme.colors.bg}b8` }} />
         </AbsoluteFill>
       )}
@@ -34,11 +41,46 @@ export const Background: React.FC<React.PropsWithChildren<{
           `linear-gradient(${theme.colors.bgAlt} 1px, transparent 1px), ` +
           `linear-gradient(90deg, ${theme.colors.bgAlt} 1px, transparent 1px)`,
         backgroundSize: "80px 80px",
-        opacity: bgVideo ? 0.18 : 0.4,
+        opacity: clips.length > 0 ? 0.18 : 0.4,
       }} />
       <CompileBar theme={theme} />
       {children}
     </AbsoluteFill>
+  );
+};
+
+/** Sequenced multi-clip backdrop with crossfades. Slot durations either come
+ *  from the clip's own `durationInFrames` or are split evenly across `total`
+ *  minus the transitions overhead. Muted -- narration owns the audio track. */
+const ClipMontage: React.FC<{ clips: BgClip[]; total: number }> = ({ clips, total }) => {
+  const n = clips.length;
+  const transitions = Math.max(0, n - 1) * TRANSITION_FRAMES;
+  // Each Sequence must be at least (adjacent transition + 1) frames, else the
+  // TransitionSeries throws. Give every slot a floor of 45 frames (~1.5s).
+  const defaultSlot = Math.max(45, Math.ceil((total + transitions) / n));
+  return (
+    <TransitionSeries>
+      {clips.map((c, i) => {
+        const slot = c.durationInFrames || defaultSlot;
+        return (
+          <React.Fragment key={i}>
+            {i > 0 && (
+              <TransitionSeries.Transition
+                presentation={fade()}
+                timing={linearTiming({ durationInFrames: TRANSITION_FRAMES })}
+              />
+            )}
+            <TransitionSeries.Sequence durationInFrames={slot}>
+              <Video
+                src={staticFile(c.file)}
+                muted
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
+            </TransitionSeries.Sequence>
+          </React.Fragment>
+        );
+      })}
+    </TransitionSeries>
   );
 };
 

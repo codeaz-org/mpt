@@ -7,7 +7,7 @@ import React from "react";
 import {
   AbsoluteFill, Sequence, Audio, staticFile, useVideoConfig,
 } from "remotion";
-import { Theme, codeazTheme } from "./theme";
+import { BgClip, Theme, codeazTheme } from "./theme";
 import { familyFor } from "./lib/fonts";
 import { Background, Eyebrow } from "./lib/chrome";
 import { HookLine, MetaLine, ListRow } from "./lib/blocks";
@@ -19,7 +19,7 @@ export interface QuestionAnswerProps {
   reasoning: string[];        // 2-3 short bullets
   caveat: string;             // honest tradeoff / edge case
   payoff: string;
-  bgVideo?: string;
+  bgClips?: BgClip[];
   narration?: string;
   audioDuration?: number;
   theme?: Theme;
@@ -85,7 +85,7 @@ export const QuestionAnswer: React.FC<QuestionAnswerProps> = (props) => {
   const qEnd = Math.round(total * 0.22);
   const aEnd = Math.round(total * 0.75);
   return (
-    <Background theme={theme} bgVideo={props.bgVideo}>
+    <Background theme={theme} bgClips={props.bgClips}>
       {props.narration && <Audio src={staticFile(props.narration)} />}
       <Sequence from={0} durationInFrames={qEnd}>
         <QuestionScene text={props.question} theme={theme} />

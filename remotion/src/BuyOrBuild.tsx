@@ -7,7 +7,7 @@ import React from "react";
 import {
   AbsoluteFill, Sequence, Audio, staticFile, useVideoConfig,
 } from "remotion";
-import { Theme, codeazTheme } from "./theme";
+import { BgClip, Theme, codeazTheme } from "./theme";
 import { familyFor } from "./lib/fonts";
 import { Background, Eyebrow } from "./lib/chrome";
 import { HookLine } from "./lib/blocks";
@@ -19,7 +19,7 @@ export interface BuyOrBuildProps {
   build: { name: string; cost: string; pros: string[]; cons: string[] };
   recommendation: "buy" | "build";
   payoff: string;
-  bgVideo?: string;
+  bgClips?: BgClip[];
   narration?: string;
   audioDuration?: number;
   theme?: Theme;
@@ -111,7 +111,7 @@ export const BuyOrBuild: React.FC<BuyOrBuildProps> = (props) => {
   const situationEnd = Math.round(total * 0.15);
   const compareEnd = Math.round(total * 0.78);
   return (
-    <Background theme={theme} bgVideo={props.bgVideo}>
+    <Background theme={theme} bgClips={props.bgClips}>
       {props.narration && <Audio src={staticFile(props.narration)} />}
       <Sequence from={0} durationInFrames={situationEnd}>
         <SituationScene text={props.situation} theme={theme} />

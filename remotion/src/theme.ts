@@ -27,6 +27,15 @@ export interface Theme {
   radius: number;        // corner radius for cards / chips
 }
 
+/** One background clip in a sequenced multi-clip backdrop. Autopilot passes
+ *  an array of these -- Pexels vertical clips fetched from the topic terms --
+ *  and Background stitches them with crossfades so we cover the full narration
+ *  even when no single clip is long enough. */
+export interface BgClip {
+  file: string;              // relative filename inside public/
+  durationInFrames?: number; // slot length; if missing, total is split evenly
+}
+
 /** Pulled directly from codeaz.org's :root CSS variables. */
 export const codeazTheme: Theme = {
   colors: {

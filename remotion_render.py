@@ -74,39 +74,79 @@ def audio_duration(path):
 
 # ---- background footage (Pexels vertical) -----------------------------------
 
-def fetch_pexels_vertical(terms, out_path):
-    """Download the best vertical clip matching the topic."""
+PEXELS_SEARCH = "https://api.pexels.com/videos/search"
+FPS = 30
+SLOT_SECONDS = 5.0        # target duration each clip appears on screen
+SLOT_FRAMES = int(SLOT_SECONDS * FPS)
+
+
+def _pexels_search(term, key, per_page=15):
+    r = requests.get(
+        PEXELS_SEARCH, headers={"Authorization": key},
+        params={"query": term, "orientation": "portrait",
+                "per_page": per_page, "size": "medium"}, timeout=30)
+    if r.status_code != 200:
+        log(f"pexels {term!r}: {r.status_code}")
+        return []
+    return r.json().get("videos", [])
+
+
+def _best_vertical_file(video):
+    """Pick the smallest vertical file >= 720p from a Pexels video record."""
+    files = [f for f in video.get("video_files", [])
+             if f.get("width") and 720 <= f["width"] <= 1440
+             and (f.get("height") or 0) >= f.get("width", 0)]
+    files.sort(key=lambda f: f.get("width", 9999))
+    return files[0] if files else None
+
+
+def fetch_pexels_clips(terms, target_seconds, out_dir):
+    """Download enough vertical clips from Pexels to cover `target_seconds` of
+    narration, one clip per SLOT_SECONDS chunk. Returns a list of
+    {'file': relative_name, 'durationInFrames': int} that Remotion stitches
+    with crossfades. Iterates term-by-term so early terms dominate the
+    montage (they matched the topic best)."""
     key = (os.environ.get("PEXELS_API_KEY") or "").strip()
     if not key or key.lower() == "xxxx":
         raise RuntimeError("PEXELS_API_KEY not set")
+    # Add SLOT_SECONDS of headroom so the last transition doesn't clip audio.
+    slots_needed = max(2, int((target_seconds + SLOT_SECONDS) / SLOT_SECONDS))
+    term_list = [t.strip() for t in (terms or "").split(",") if t.strip()]
+    if not term_list:
+        raise RuntimeError("no search terms to fetch clips for")
+
+    downloaded = []           # [{'file': 'bg-1.mp4', 'durationInFrames': 150}, ...]
+    seen_urls = set()
     tried = []
-    for term in [t.strip() for t in (terms or "").split(",") if t.strip()]:
+    for term in term_list:
+        if len(downloaded) >= slots_needed:
+            break
         tried.append(term)
-        r = requests.get(
-            "https://api.pexels.com/videos/search",
-            headers={"Authorization": key},
-            params={"query": term, "orientation": "portrait", "per_page": 15,
-                    "size": "medium"}, timeout=30)
-        if r.status_code != 200:
-            log(f"pexels {term!r}: {r.status_code}")
-            continue
-        for video in r.json().get("videos", []):
-            candidates = [f for f in video.get("video_files", [])
-                          if f.get("width") and 720 <= f["width"] <= 1440
-                          and (f.get("height") or 0) >= f.get("width", 0)]
-            if not candidates:
+        for video in _pexels_search(term, key):
+            if len(downloaded) >= slots_needed:
+                break
+            picked = _best_vertical_file(video)
+            if not picked or picked["link"] in seen_urls:
                 continue
-            dl = requests.get(candidates[0]["link"], timeout=180, stream=True)
+            seen_urls.add(picked["link"])
+            filename = f"bg-{len(downloaded) + 1}.mp4"
+            path = out_dir / filename
+            dl = requests.get(picked["link"], timeout=180, stream=True)
             if dl.status_code != 200:
                 continue
-            with open(out_path, "wb") as f:
+            with open(path, "wb") as f:
                 for chunk in dl.iter_content(1 << 15):
                     f.write(chunk)
-            if out_path.stat().st_size > 100_000:
-                log(f"3/4 bg video  -> {out_path.name} "
-                    f"({out_path.stat().st_size // 1024} KB, term={term!r})")
-                return
-    raise RuntimeError(f"no Pexels footage matched any of: {tried}")
+            if path.stat().st_size < 100_000:
+                path.unlink(missing_ok=True)
+                continue
+            downloaded.append({"file": filename, "durationInFrames": SLOT_FRAMES})
+    if not downloaded:
+        raise RuntimeError(f"no Pexels footage matched any of: {tried}")
+    total_kb = sum((out_dir / c["file"]).stat().st_size for c in downloaded) // 1024
+    log(f"3/4 bg clips  -> {len(downloaded)} clips, {total_kb} KB total, "
+        f"~{SLOT_SECONDS:.0f}s each, terms tried={tried}")
+    return downloaded
 
 
 # ---- classify + extract (two LLM calls) -------------------------------------
@@ -223,16 +263,17 @@ def render(topic, niche, script, question=None):
 
     from autopilot import generate_terms
     terms = generate_terms(topic, script, niche) or topic
-    bg_path = PUBLIC_DIR / "bg.mp4"
+    # Wipe any bg-*.mp4 from a previous run so the next fetch starts clean.
+    for old in PUBLIC_DIR.glob("bg-*.mp4"):
+        old.unlink(missing_ok=True)
+    audio_secs = audio_duration(narration_path)
     try:
-        fetch_pexels_vertical(terms, bg_path)
-        props["bgVideo"] = "bg.mp4"
+        clips = fetch_pexels_clips(terms, audio_secs, PUBLIC_DIR)
+        props["bgClips"] = clips
     except Exception as e:
-        log(f"3/4 bg video  -> SKIPPED ({type(e).__name__}: {str(e)[:100]})")
-        if bg_path.exists():
-            bg_path.unlink()
+        log(f"3/4 bg clips  -> SKIPPED ({type(e).__name__}: {str(e)[:100]})")
     props["narration"] = "narration.mp3"
-    props["audioDuration"] = audio_duration(narration_path)
+    props["audioDuration"] = audio_secs
     if niche.get("theme"):
         # A niche-supplied theme overrides the codeaz default baked into the template.
         props["theme"] = niche["theme"]

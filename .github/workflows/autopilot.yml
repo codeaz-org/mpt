@@ -33,13 +33,25 @@ jobs:
       - name: Install ffmpeg + ImageMagick
         run: sudo apt-get update && sudo apt-get install -y ffmpeg imagemagick
 
+      # Remotion renders through headless Chrome. Node is already on ubuntu-latest;
+      # setup-node pins it and enables actions/cache for the npm store.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: remotion/package-lock.json
+
+      - name: Install Remotion deps
+        working-directory: remotion
+        run: npm ci || npm install
+
       - name: Clone MoneyPrinterTurbo
         run: git clone --depth 1 https://github.com/harry0703/MoneyPrinterTurbo.git
 
       - name: Install deps
         run: |
           pip install -r MoneyPrinterTurbo/requirements.txt
-          pip install requests google-api-python-client google-auth google-auth-oauthlib
+          pip install requests google-api-python-client google-auth google-auth-oauthlib edge-tts
 
       # Ollama is the LAST-RESORT LLM fallback. Only fires when Groq, NIM, and
       # OpenRouter are all down or quota-drained. gpt-oss:20b picked because:

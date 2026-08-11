@@ -827,11 +827,27 @@ def check_rendered_video(path, script):
     return duration
 
 
-def render_video(topic, niche, script):
-    """MoneyPrinterTurbo over Pexels/Pixabay footage."""
+def render_video(topic, niche, script, question=None):
+    """Dispatch to the configured renderer.
+
+      stock     MPT: stock footage under captions, ffmpeg-composited (default)
+      remotion  React composition with topic-matched Pexels bg + edge-tts audio;
+                falls back to stock if the archetype doesn't match or Remotion errors
+
+    Both paths return an mp4 path and both run the same duration/audio sanity check
+    at the end -- a short narration produced by either shouldn't reach upload."""
     mode = niche.get("video_mode", "stock")
-    if mode != "stock":
-        raise RuntimeError(f"unknown video_mode {mode!r} (only 'stock' is supported)")
+    if mode == "remotion":
+        try:
+            import remotion_render
+            video = remotion_render.render(topic, niche, script, question=question)
+            check_rendered_video(video, script)
+            return video
+        except Exception as e:
+            log(f"[{niche['id']}] remotion failed ({type(e).__name__}: {str(e)[:160]}); "
+                "falling back to MPT stock render")
+    elif mode != "stock":
+        raise RuntimeError(f"unknown video_mode {mode!r} (only 'stock'/'remotion' supported)")
     terms = generate_terms(topic, script, niche)
     video = render_with_fallback(topic, niche, script, terms)
     check_rendered_video(video, script)
@@ -859,7 +875,7 @@ def run_niche(niche, state):
     for _ in range(niche.get("videos_per_run", 1)):
         topic, question = pick_topic(niche, used, used_question_ids(state, niche["id"]))
         script = generate_script(topic, niche, question)
-        video = render_video(topic, niche, script)
+        video = render_video(topic, niche, script, question=question)
         log(f"[{niche['id']}] Video: {video}")
         meta = make_metadata(topic, niche)
         caption = tiktok_caption(meta, niche)

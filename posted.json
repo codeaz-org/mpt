@@ -25,7 +25,8 @@
       "Shared lock with Atomics? Like traffic lights synchronizing cars at an intersection",
       "Why need Python\u2019s finally clause if code after try works?",
       "Best $500 Business Investments",
-      "Vercel vs Railway vs Render"
+      "Vercel vs Railway vs Render",
+      "One-person SaaS apps"
     ]
   },
   "uploads": [
@@ -317,6 +318,20 @@
       "tiktok_post_id": "6a7adc63114cb41ef0c4e560",
       "tiktok_caption": "Vercel vs Railway\n\nDiscover the best platform for your next project with our comparison of Vercel, Railway, and Render. Learn about their features, pricing, and performance to make an informed decision. Follow us for more tech comparisons and tutorials!\n\n#automation #smallbiz #startup #nocode #buildinpublic #founder",
       "ts": "2026-08-11T08:25:05"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "One-person SaaS apps",
+      "title": "Solo SaaS Success",
+      "question": "Ask HN: One-person SaaS apps that are profitable?",
+      "question_id": "hn:19701783",
+      "question_url": "https://news.ycombinator.com/item?id=19701783",
+      "youtube": "BthRdu3eGlo",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6a7aee0d06b0cb4f82a9dc62",
+      "tiktok_caption": "Solo SaaS Success\n\nDiscover how one-person teams are building and growing successful SaaS apps, often with limited resources. By leveraging the right tools and strategies, solo founders can achieve remarkable results and create profitable businesses. Follow us for more insights and tips on building a thriving SaaS company!\n\n#automation #smallbiz #startup #nocode #buildinpublic #founder",
+      "ts": "2026-08-11T09:40:27"
     }
   ]
 }

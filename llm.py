@@ -86,14 +86,12 @@ def openrouter_is_free(model):
 
 
 def providers():
-    """The fallback chain, in order. NIM stays first because its credits are free and
-    already provisioned; the others only appear once their key is set."""
+    """The fallback chain, in order. Groq goes first because its free tier is fast
+    (sub-second) and generous (~14,400 req/day, no card); NIM stays as backup for when
+    Groq's daily quota drains. NIM's free credits used to run first, but its free-tier
+    endpoint routinely stalls past our 180s read timeout, burning ~15 min of wall-clock
+    per broken call before the chain rolled over. Fast path is now the default."""
     chain = []
-    if _env("NIM_API_KEY"):
-        chain.append(Provider("nim", NIM_URL, _env("NIM_API_KEY"), NIM_MODEL, NIM_ATTEMPTS))
-    # Groq before OpenRouter: its free tier allows ~14,400 requests/day against
-    # OpenRouter's 50, and a run makes roughly 8 calls. OpenRouter would run dry within
-    # a day or two of NIM being down, which is exactly when the fallback matters.
     if _env("GROQ_API_KEY"):
         chain.append(Provider(
             "groq", "https://api.groq.com/openai/v1/chat/completions",
@@ -101,6 +99,10 @@ def providers():
             (os.environ.get("GROQ_MODEL") or "").strip() or "llama-3.3-70b-versatile",
             int(os.environ.get("GROQ_ATTEMPTS", "3")),
         ))
+    if _env("NIM_API_KEY"):
+        chain.append(Provider("nim", NIM_URL, _env("NIM_API_KEY"), NIM_MODEL, NIM_ATTEMPTS))
+    # OpenRouter last: ~50 req/day on free models vs Groq's ~14,400. Only useful when
+    # both Groq and NIM are down for the same run.
     if _env("OPENROUTER_API_KEY"):
         model = (os.environ.get("OPENROUTER_MODEL") or "").strip() or OPENROUTER_DEFAULT_MODEL
         if openrouter_is_free(model):

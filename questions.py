@@ -32,11 +32,23 @@ MAX_TITLE_WORDS = 30
 def log(msg): print(f"[questions] {msg}", flush=True)
 
 
-def looks_like_a_question(post):
+def _offtopic_pattern(niche):
+    """A niche can override the default block list. Software-house-facing niches, for
+    example, treat 'hiring' and 'freelance rates' as on-topic buyer language."""
+    terms = (niche or {}).get("offtopic_terms")
+    if terms is None:
+        return OFFTOPIC_RE
+    if not terms:
+        return None
+    return re.compile(r"\b(?:" + "|".join(re.escape(t) for t in terms) + r")\b", re.I)
+
+
+def looks_like_a_question(post, niche=None):
     title = (post.get("title") or "").strip()
     if not title or len(title.split()) > MAX_TITLE_WORDS:
         return False
-    if OFFTOPIC_RE.search(title):
+    pattern = _offtopic_pattern(niche)
+    if pattern and pattern.search(title):
         return False
     return bool(QUESTION_RE.search(title))
 
@@ -64,10 +76,15 @@ def harvest(niche):
             posts += research.fetch_stackexchange(tag)
         except Exception as e:
             log(f"stackexchange '{tag}': {type(e).__name__}: {str(e)[:70]}")
+    for seed in niche.get("google_seeds", []):
+        try:
+            posts += research.fetch_google_suggest(seed)
+        except Exception as e:
+            log(f"google '{seed}': {type(e).__name__}: {str(e)[:70]}")
 
     questions, seen = [], set()
     for p in posts:
-        if not looks_like_a_question(p):
+        if not looks_like_a_question(p, niche):
             continue
         if (p.get("score", 0) + p.get("num_comments", 0)) < MIN_ENGAGEMENT:
             continue

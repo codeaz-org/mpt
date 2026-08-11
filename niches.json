@@ -2,37 +2,66 @@
   "niches": [
     {
       "id": "codeaz",
-      "name": "CodeAZ — Programming A to Z",
-      "purpose": "Explain programming concepts in plain language with real-life comparisons. Shorts.",
-      "topic_prompt": "You generate short-video topics for a channel that explains programming with real-life analogies. Audience: beginners AND working developers, so the concept must have real depth -- prefer the mechanics people get wrong (race conditions, memory vs reference, blocking I/O, indexes, caching and invalidation, hashing, immutability, garbage collection, connection pools, idempotency, eventual consistency, deadlocks, big-O in practice) over dictionary definitions like 'what is a variable'. The analogy must be a SYSTEM with moving parts, not a single object, so each part can map onto a technical part. Name ONE concrete concept and hint at the analogy. Examples: 'Race conditions, explained by two waiters and one last table', 'Database indexes, explained like a library card catalogue', 'Cache invalidation, explained by a stale restaurant specials board'. Return ONE topic, under 14 words, no quotes, no numbering.",
-      "script_prompt": "You write narration for a 50-60 second vertical short about ONE programming concept, for beginners and working developers. Plain spoken English. No markdown, headings, stage directions, emoji, hashtags, or 'in this video'. Write only the words the narrator says.\n\nStructure, in this order:\n1. HOOK (1 sentence): a concrete question or claim that makes the viewer stay.\n2. ANALOGY (1-2 sentences): introduce the everyday system in vivid, specific detail.\n3. MAPPING (3-4 sentences): name each part of the analogy and say which part of THIS topic's concept it stands for, using that concept's own vocabulary.\n4. WHY IT MATTERS (1-2 sentences): one specific failure this concept causes when misused. The failure must follow from THIS concept, not from some other one.\n5. PAYOFF (1 sentence): a one-line takeaway the viewer could repeat to a friend.\n\nACCURACY RULES, these outrank everything else:\n- Every technical term must genuinely belong to the topic. If the topic is loops, the vocabulary is iteration, condition, index, off-by-one, infinite loop -- NOT threads, locks, race conditions, deadlocks, APIs or shared resources.\n- Never introduce a concurrency term unless the topic itself is about concurrency.\n- A confident sentence that is technically wrong is worse than a plain one that is right. If unsure, say less.\n\nStyle: 130-165 words, short sentences, the concept's real name used at least three times, no filler, never end on a question.",
+      "name": "CodeAZ — Software That Actually Ships",
+      "purpose": "Attract clients (founders, ops leads, small business owners) who need custom software / automation. Show concrete, honest work with real data. Every video answers a real question people are asking Google or posting on founder subs.",
+      "audience": "Non-technical or semi-technical founders, ops leads, SMB owners considering hiring a dev shop, buying a no-code tool, or automating a manual workflow.",
+      "select_prompt": "You choose which audience question to answer in the next short video for a software house that wants CLIENTS, not developer viewers. You are given real questions people asked today (Google Autocomplete, founder subreddits, HN). Pick the ONE that is:\n  - a genuine BUYER question (someone considering paying to solve it), not a developer implementation detail;\n  - answerable with concrete facts, real tool names, real free-tier limits, or a concrete workflow -- NOT with abstract explainers;\n  - useful to many small-business or founder viewers, not only the person who asked.\n\nStrong shapes:\n  - 'how much does it cost to build X' -- cost teardown\n  - 'how do I automate X' / 'can I use github actions to X' -- workflow demo\n  - 'no code alternative to X' -- tool teardown with real prices\n  - 'why is my saas / small business / app' -- founder pain we can help with\n\nWeak shapes to reject:\n  - homework-style programming questions ('what are wrappers in React')\n  - opinions ('is X language dying')\n  - too broad ('how to start a business')\n\nPhrase the topic as a hook that names the buyer pain and hints at the concrete answer. NOT 'GitHub Actions Explained' (title, no promise). YES 'A free GitHub Actions cron that replaces your $29/mo Zapier plan'. Return the index and the topic.",
+      "script_prompt": "You write narration for a 45-55 second vertical short for a software house that wants CLIENTS. The viewer is a founder, ops lead, or small-business owner -- NOT a developer. Plain spoken English, confident but not salesy, no jargon unless immediately explained. No markdown, headings, stage directions, emoji, hashtags, or 'in this video'. Write only the words the narrator says.\n\nPick ONE archetype that fits the question:\n\n  A. COST TEARDOWN\n     1. HOOK: name the exact tool or bill someone is questioning ('Zapier just charged you $29 to run 100 tasks.').\n     2. WHERE THE MONEY GOES: what the paid tool actually does under the hood, in one sentence.\n     3. THE FREE-TIER PATH: name the specific free service and what it replaces. GitHub Actions cron. A single Python script. Buffer free tier. Real names.\n     4. THE CATCH: honest tradeoff. Setup time, no UI, you own the ops.\n     5. PAYOFF: 'If you'd rather pay for the UI, keep Zapier. If you'd rather own it, this is a weekend.'\n\n  B. WORKFLOW DEMO\n     1. HOOK: a real business scenario in one line ('A boutique agency wanted to DM Slack every time a Stripe invoice went overdue.').\n     2. THE PIECES: name the concrete tools (Stripe webhook, GitHub Actions, Slack webhook). No abstract 'API' talk.\n     3. THE FLOW: 3-4 sentences walking through what happens when. Concrete, sequential.\n     4. WHAT IT COSTS: $0 in infra on free tiers, a few hours to build. Say it plainly.\n     5. PAYOFF: the outcome in a sentence a founder could repeat.\n\n  C. BUSINESS IDEA / MARKET GAP\n     1. HOOK: the real complaint you saw ('Every second Etsy seller is asking how to bulk-edit their listings without exporting to a spreadsheet.').\n     2. WHY IT EXISTS: the gap in one sentence.\n     3. THE SHAPE: a small tool that could solve it, described concretely (what it reads, what it writes, one or two features).\n     4. HONESTY: what would kill it. Platform TOS, low willingness to pay, incumbents.\n     5. PAYOFF: 'Someone should build this' or 'we're looking at building this'.\n\nHARD RULES -- these outrank everything else:\n- NO invented client names. NO invented dollar amounts. NO invented case studies.\n- If you don't have a real number, use 'roughly' or 'in the range of' or skip the number.\n- Cite tools by their real names only (GitHub Actions, Zapier, Bubble, Stripe, Buffer, Slack, Airtable, Retool, Vercel, Cloudflare, Google Sheets).\n- Approved self-reference: 'a small automation like the one running this account' -- true, this content itself ships from a free GitHub Actions cron.\n- Confident sentence that is wrong is worse than a plain one that is right.\n\nStyle: 110-140 words, short sentences, present tense, active voice. Never end on a question. Never open with 'have you ever' or 'did you know'.",
+      "voice": "en-US-AndrewMultilingualNeural-Male",
       "youtube_tags": [
-        "programming",
-        "coding",
-        "learntocode",
-        "computerscience",
-        "developer"
+        "automation",
+        "smallbusiness",
+        "startup",
+        "nocode",
+        "saas",
+        "githubactions"
       ],
-      "hashtags": "#programming #coding #learntocode #developer #softwareengineering",
+      "hashtags": "#automation #smallbusiness #startup #nocode #buildinpublic",
+      "tiktok_hashtags": "#automation #smallbiz #startup #nocode #buildinpublic #founder",
       "upload_post_user": "codeaz",
-      "voice": "en-GB-RyanNeural-Male",
       "videos_per_run": 1,
       "video_mode": "stock",
+      "offtopic_terms": [],
       "subreddits": [
-        "learnprogramming",
-        "programming",
-        "ExperiencedDevs"
+        "startups",
+        "Entrepreneur",
+        "SaaS",
+        "smallbusiness",
+        "nocode",
+        "sidehustle"
       ],
       "hn_queries": [
-        "",
-        "programming"
+        "automation",
+        "saas",
+        "no code"
       ],
-      "stackexchange_tags": [
-        "python",
-        "javascript"
+      "google_seeds": [
+        "how much does it cost to build an app",
+        "how much does it cost to make a website",
+        "how do i automate my",
+        "how to automate with github actions",
+        "no code alternative to",
+        "can i replace zapier with",
+        "cheapest way to build a saas",
+        "why is my saas",
+        "how to build an mvp",
+        "should i hire a dev shop or",
+        "is it worth paying a developer to",
+        "how to automate my small business",
+        "can github actions",
+        "free alternative to"
       ],
-      "style_suffix": "cinematic still, deep teal and amber lighting, shallow depth of field, no text, no faces, vertical composition, high detail",
-      "research_prompt": "You analyze live developer discussions (Reddit, Hacker News, Stack Overflow) for a channel that explains programming with real-life analogies. From the posts, extract the 3 recurring things developers are confused about or burned by -- concrete mechanics, not career or salary talk -- then craft ONE short-video topic covering the strongest one.\n\nThe topic MUST:\n- name one concrete programming mechanic (what actually happens at runtime), not a broad field like 'functional programming' or 'databases';\n- hint at an everyday system with moving parts that can be mapped onto it part by part;\n- read like a hook, not a title. 'Gears of Functional Programming' is a title and is wrong. 'Why your function pipeline breaks, explained by a factory conveyor belt' is right.\nGood shapes: 'Cache invalidation, explained by a stale specials board', 'Why database indexes speed up reads, explained like a library card catalogue'."
+      "drift_terms": [
+        "crypto",
+        "web3",
+        "nft",
+        "blockchain",
+        "day trading",
+        "get rich quick",
+        "guaranteed returns"
+      ],
+      "style_suffix": "clean documentary photography, natural light, hands-on-keyboard, tools of trade, no text on screen, vertical composition, warm but professional",
+      "research_prompt": "You analyze live founder and small-business discussions (Reddit, Hacker News, Google Autocomplete) for a software house that wants CLIENTS. From the posts, extract the 3 concrete, paid-work-shaped pain points -- something a founder or SMB owner would pay to solve -- then craft ONE short-video topic answering the strongest one.\n\nGood pain shapes: 'my Zapier bill is $X and I use it for one thing', 'I need Slack notifications when Y', 'no-code tool X can't do Z'.\n\nBad shapes to reject: general programming confusion, career questions, opinions about tech trends, salary talk. Buyer questions only.\n\nThe topic MUST:\n- name a concrete buyer pain (a bill, a manual process, a broken tool);\n- promise a concrete answer (a free-tier workflow, a real tool comparison, a small custom build);\n- read like a hook, not a title. 'GitHub Actions for Automation' = title, wrong. 'A free GitHub Actions cron that replaces your $29 Zapier plan' = right."
     }
   ],
   "_disabled": [

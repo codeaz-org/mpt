@@ -319,10 +319,29 @@ def _rewrite_hook(script, topic, question=None, attempts=3):
     return script
 
 
+FACTS_FILE = ROOT / "facts.md"
+
+
+def _facts():
+    """The truth ledger scripts must stick to. Missing file = no facts injected, which
+    just means the model falls back to its own priors -- the script prompt still forbids
+    invented specifics."""
+    if FACTS_FILE.exists():
+        return FACTS_FILE.read_text().strip()
+    return ""
+
+
 def _write_script(topic, niche, feedback=None, drift=(), question=None):
     """One draft. `feedback` carries the critic's instructions from the previous round."""
     system = niche.get("script_prompt", SCRIPT_SYSTEM)
     notes = []
+    facts = _facts()
+    if facts:
+        notes.append(
+            "TRUTH LEDGER -- these are the only things you may cite as this channel's own "
+            "work, and the only concrete numbers you may quote as facts. If a claim is not "
+            "in this ledger, either say 'roughly' or drop it. Do NOT invent client names, "
+            "prices, or case studies.\n\n" + facts)
     if question:
         # The writer must see the question, not only the topic. Without it the script
         # answers the topic's phrasing and drifts off what the viewer actually asked.

@@ -24,7 +24,7 @@ import requests
 
 NIM_URL = "https://integrate.api.nvidia.com/v1/chat/completions"
 NIM_MODELS_URL = "https://integrate.api.nvidia.com/v1/models"
-NIM_MODEL = os.environ.get("NIM_MODEL", "meta/llama-3.3-70b-instruct")
+NIM_MODEL = (os.environ.get("NIM_MODEL") or "").strip() or "meta/llama-3.3-70b-instruct"
 # The free tiers drop requests under load and reasoning models answer slowly, so the
 # per-call ceiling is generous and the retry budget is what actually protects a run.
 NIM_TIMEOUT = int(os.environ.get("NIM_TIMEOUT", "180"))
@@ -98,11 +98,11 @@ def providers():
         chain.append(Provider(
             "groq", "https://api.groq.com/openai/v1/chat/completions",
             _env("GROQ_API_KEY"),
-            os.environ.get("GROQ_MODEL", "llama-3.3-70b-versatile"),
+            (os.environ.get("GROQ_MODEL") or "").strip() or "llama-3.3-70b-versatile",
             int(os.environ.get("GROQ_ATTEMPTS", "3")),
         ))
     if _env("OPENROUTER_API_KEY"):
-        model = os.environ.get("OPENROUTER_MODEL", OPENROUTER_DEFAULT_MODEL).strip()
+        model = (os.environ.get("OPENROUTER_MODEL") or "").strip() or OPENROUTER_DEFAULT_MODEL
         if openrouter_is_free(model):
             chain.append(Provider(
                 "openrouter", "https://openrouter.ai/api/v1/chat/completions",

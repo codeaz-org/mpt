@@ -244,6 +244,30 @@ def fetch_hn(query=None, limit=20):
     } for h in hits if h.get("title") or h.get("story_title")]
 
 
+def fetch_google_suggest(seed, limit=10):
+    """Google Suggest = what AnswerThePublic mines under the hood. Free, no auth.
+    Autocomplete completions are real search demand: if it shows up here, people are
+    typing it. Marked with a synthetic score so downstream filters treat them as
+    engaged signal."""
+    r = _get("https://suggestqueries.google.com/complete/search",
+             params={"client": "firefox", "q": seed}, attempts=2)
+    data = r.json()
+    suggestions = data[1] if isinstance(data, list) and len(data) > 1 else []
+    posts = []
+    for s in suggestions[:limit]:
+        s = (s or "").strip()
+        if not s or s.lower() == seed.lower():
+            continue
+        posts.append({
+            "title": s, "text": "",
+            "score": 5, "num_comments": 0,  # autocomplete inclusion = real demand
+            "id": f"gsuggest:{s.lower()}",
+            "url": f"https://www.google.com/search?q={requests.utils.quote(s)}",
+            "source": f"Google Suggest: {seed}",
+        })
+    return posts
+
+
 def fetch_stackexchange(tag, site="stackoverflow", limit=20, sort=None):
     """Keyless tier is 300 requests/day, plenty for a handful of runs. The sort is
     rotated so consecutive runs do not see an identical question list."""

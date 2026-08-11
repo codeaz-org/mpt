@@ -23,7 +23,8 @@
       "Is PYTHONPATH really an environment variable? \u2013 the library shelf analogy",
       "How fuzzy search works in a search engine: like a typo\u2011tolerant library",
       "Shared lock with Atomics? Like traffic lights synchronizing cars at an intersection",
-      "Why need Python\u2019s finally clause if code after try works?"
+      "Why need Python\u2019s finally clause if code after try works?",
+      "Best $500 Business Investments"
     ]
   },
   "uploads": [
@@ -287,6 +288,20 @@
       "tiktok_post_id": "6a7787ce9c08137afa1fa9e1",
       "tiktok_caption": "Python\u2019s finally clause: Why you still need it even if code after try runs\n\nDiscover why the finally block is essential for cleanup, resource release, and guaranteed execution, no matter what happens in the try or except sections. Learn real\u2011world examples that show what can go wrong without it. Follow for more Python tricks and quick coding tips!\n\n#programming #coding #learntocode #developer #softwareengineering",
       "ts": "2026-08-08T19:47:23"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Best $500 Business Investments",
+      "title": "Boost Biz with $500",
+      "question": "What\u2019s the best investment under $500 you\u2019ve made for your business?",
+      "question_id": "reddit:1vig19r",
+      "question_url": "https://reddit.com/r/Entrepreneur/comments/1vig19r/whats_the_best_investment_under_500_youve_made/",
+      "youtube": "IWb-3PUrcnc",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6a7ad92b4754716e52ff04e9",
+      "tiktok_caption": "Boost Biz with $500\n\nDiscover the top business investments that can be made with just $500, from marketing tools to equipment and software. By investing wisely, you can take your business to the next level and increase your revenue, so be sure to follow us for more business tips and tricks to help you succeed.\n\n#automation #smallbiz #startup #nocode #buildinpublic #founder",
+      "ts": "2026-08-11T08:11:20"
     }
   ]
 }

@@ -30,9 +30,12 @@ jobs:
         with:
           python-version: "3.11"
 
-      # ffmpeg and imagemagick are preinstalled on ubuntu-latest. Dropped the apt
-      # install step: Azure mirrors have been flaky (7+ min stalls) and reinstalling
-      # binaries the runner already ships is pure downside.
+      # ffprobe (part of the ffmpeg package) is what Remotion and MPT call for
+      # duration probes; the ubuntu-latest image ships without it. Install without
+      # apt-get update -- the runner's package cache is fresh enough, and skipping
+      # update avoids the 7+ min stalls we saw when Azure's mirrors were down.
+      - name: Install ffmpeg + imagemagick
+        run: sudo apt-get install -y ffmpeg imagemagick
 
       # Remotion renders through headless Chrome. Node is already on ubuntu-latest;
       # setup-node pins it and enables actions/cache for the npm store.

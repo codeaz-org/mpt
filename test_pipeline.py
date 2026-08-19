@@ -12,7 +12,6 @@ import json, os, subprocess, sys, tempfile, unittest
 from pathlib import Path
 from unittest import mock
 
-os.environ.setdefault("NIM_API_KEY", "test-key")
 os.environ.pop("DRY_RUN", None)
 
 import autopilot  # noqa: E402
@@ -54,7 +53,7 @@ def chat_payload(content):
     return {"choices": [{"finish_reason": "stop", "message": {"content": content}}]}
 
 
-class NimClientTest(unittest.TestCase):
+class LlmClientTest(unittest.TestCase):
     def test_reasoning_model_null_content_grows_budget(self):
         """gpt-oss returns content: null when reasoning eats the token budget."""
         budgets = []
@@ -69,22 +68,6 @@ class NimClientTest(unittest.TestCase):
         with mock.patch.object(llm.requests, "post", post), mock.patch.object(llm.time, "sleep"):
             self.assertEqual(llm.nim_chat("s", "u"), "done")
         self.assertEqual(budgets, [512, 2048, 8000])
-
-    def test_unknown_model_fails_immediately(self):
-        calls = []
-
-        def post(url, **kw):
-            calls.append(1)
-            return Response(404, text='{"detail":"not found"}')
-
-        with mock.patch.dict(os.environ, {"NIM_API_KEY": "a"}, clear=True), \
-             mock.patch.object(llm.requests, "post", post), \
-             mock.patch.object(llm.requests, "get", lambda *a, **k: Response(200, {"data": []})), \
-             mock.patch.object(llm.time, "sleep"):
-            with self.assertRaises(RuntimeError) as ctx:
-                llm.nim_chat("s", "u")
-        self.assertEqual(len(calls), 1, "a 404 is permanent and must not be retried")
-        self.assertIn("does not serve model", str(ctx.exception))
 
     def test_timeout_is_retried(self):
         import requests
@@ -103,80 +86,6 @@ class NimClientTest(unittest.TestCase):
         payload = chat_payload('Sure, here you go:\n```json\n{"topic": "x"}\n```')
         with mock.patch.object(llm.requests, "post", lambda *a, **k: Response(200, payload)):
             self.assertEqual(llm.nim_json("s", "u"), {"topic": "x"})
-
-
-class ProviderFailoverTest(unittest.TestCase):
-    """NIM read-timing-out three times used to kill the run. With a second key set it
-    should cost a log line instead."""
-
-    def test_falls_over_to_the_next_provider(self):
-        import requests as rq
-        seen = []
-
-        def post(url, **kw):
-            seen.append(url)
-            if "nvidia" in url:
-                raise rq.Timeout("read timed out")
-            return Response(200, chat_payload("from the fallback"))
-
-        with mock.patch.dict(os.environ, {"NIM_API_KEY": "a", "GROQ_API_KEY": "b"}, clear=True), \
-             mock.patch.object(llm.requests, "post", post), \
-             mock.patch.object(llm.time, "sleep"):
-            self.assertEqual(llm.nim_chat("s", "u"), "from the fallback")
-        self.assertTrue(any("nvidia" in u for u in seen))
-        self.assertTrue(any("groq" in u for u in seen))
-
-    def test_chain_order_and_opt_in(self):
-        with mock.patch.dict(os.environ, {"NIM_API_KEY": "a", "OPENROUTER_API_KEY": "b",
-                                          "GROQ_API_KEY": "c"}, clear=True), \
-             mock.patch.object(llm, "openrouter_is_free", lambda m: True):
-            self.assertEqual([p.name for p in llm.providers()],
-                             ["nim", "groq", "openrouter"],
-                             "Groq outranks OpenRouter: 14,400 free requests/day vs 50")
-        with mock.patch.dict(os.environ, {"NIM_API_KEY": "a"}, clear=True):
-            self.assertEqual([p.name for p in llm.providers()], ["nim"])
-
-    def test_paid_openrouter_model_is_refused(self):
-        """OpenRouter serves paid and free models through one key, so a wrong model id
-        is the only way this pipeline could start spending money."""
-        catalogue = {"data": [
-            {"id": "free/model:free", "pricing": {"prompt": "0", "completion": "0"}},
-            {"id": "paid/model", "pricing": {"prompt": "0.0000025", "completion": "0.00001"}},
-        ]}
-        with mock.patch.object(llm.requests, "get",
-                               lambda *a, **k: Response(200, catalogue)):
-            self.assertTrue(llm.openrouter_is_free("free/model:free"))
-            self.assertFalse(llm.openrouter_is_free("paid/model"))
-            self.assertFalse(llm.openrouter_is_free("retired/model:free"))
-        # if pricing cannot be checked at all, refuse rather than assume
-        with mock.patch.object(llm.requests, "get",
-                               mock.Mock(side_effect=RuntimeError("offline"))):
-            self.assertFalse(llm.openrouter_is_free("anything:free"))
-        with mock.patch.object(llm.requests, "get",
-                               lambda *a, **k: Response(200, catalogue)):
-            with mock.patch.dict(os.environ, {"NIM_API_KEY": "a", "OPENROUTER_API_KEY": "b",
-                                              "OPENROUTER_MODEL": "paid/model"}, clear=True):
-                self.assertEqual([p.name for p in llm.providers()], ["nim"])
-            with mock.patch.dict(os.environ, {"NIM_API_KEY": "a", "OPENROUTER_API_KEY": "b",
-                                              "OPENROUTER_MODEL": "free/model:free"}, clear=True):
-                self.assertEqual([p.name for p in llm.providers()], ["nim", "openrouter"])
-
-    def test_default_openrouter_model_is_a_free_id(self):
-        self.assertTrue(llm.OPENROUTER_DEFAULT_MODEL.endswith(":free"))
-
-    def test_placeholder_keys_are_ignored(self):
-        with mock.patch.dict(os.environ, {"NIM_API_KEY": "real", "GROQ_API_KEY": "xxxx"},
-                             clear=True):
-            self.assertEqual([p.name for p in llm.providers()], ["nim"])
-
-    def test_every_provider_down_raises(self):
-        import requests as rq
-        with mock.patch.dict(os.environ, {"NIM_API_KEY": "a", "GROQ_API_KEY": "b"}, clear=True), \
-             mock.patch.object(llm.requests, "post",
-                               mock.Mock(side_effect=rq.Timeout("down"))), \
-             mock.patch.object(llm.time, "sleep"):
-            with self.assertRaises(Exception):
-                llm.nim_chat("s", "u")
 
 
 class ScriptQualityTest(unittest.TestCase):
@@ -209,8 +118,15 @@ class ScriptQualityTest(unittest.TestCase):
                 for field in ("images_per_video", "min_images", "captions", "ai_disclosure"):
                     self.assertIn(field, n, f"{n['id']} is missing {field}")
                 continue
-            for field in ("topic_prompt", "voice", "video_mode"):
+            for field in ("voice", "video_mode"):
                 self.assertIn(field, n, f"{n.get('id')} is missing {field}")
+            # A niche must tell the model what to write about. The original
+            # `topic_prompt` was split into `select_prompt` + `script_prompt` when
+            # topics started coming from harvested questions instead of a single
+            # invent-a-topic call; either shape is accepted.
+            self.assertTrue(
+                n.get("topic_prompt") or (n.get("select_prompt") and n.get("script_prompt")),
+                f"{n.get('id')} is missing topic_prompt (or select_prompt + script_prompt)")
             self.assertTrue(n["voice"].endswith(("-Male", "-Female")),
                             f"{n['id']} voice must carry the gender suffix MPT expects")
             self.assertIn("Neural", n["voice"], f"{n['id']} voice must be a real edge-tts id")
@@ -864,7 +780,7 @@ class RunNicheTest(unittest.TestCase):
             mock.patch.object(autopilot, "pick_topic",
                               lambda n, u, ids=(): ("Race conditions, two waiters",
                                                    {"id": "reddit:x", "title": "why?", "url": "u"})),
-            mock.patch.object(autopilot, "generate_script", lambda t, n, q=None: SCRIPT),
+            mock.patch.object(autopilot, "generate_script", lambda t, n, q=None, **kw: SCRIPT),
             mock.patch.object(autopilot, "generate_terms", lambda t, s, n: "waiter,table"),
             mock.patch.object(autopilot, "render_with_fallback",
                               lambda t, n, s, x: str(root / "video.mp4")),

@@ -53,8 +53,10 @@ jobs:
           pip install -r MoneyPrinterTurbo/requirements.txt
           pip install requests google-api-python-client google-auth google-auth-oauthlib edge-tts
 
-      # Ollama is the LAST-RESORT LLM fallback. Only fires when Groq, NIM, and
-      # OpenRouter are all down or quota-drained. gpt-oss:20b picked because:
+      # Ollama is the ONLY LLM path. Hosted providers (Groq, NIM, OpenRouter) were
+      # removed after their free tiers went dark often enough to blow past the
+      # 110-min job cap; local runs on the runner cost no free-tier quota and no
+      # network flakiness. gpt-oss:20b picked because:
       # (a) strongest open-weight model that fits in ubuntu-latest's 16GB RAM;
       # (b) MoE architecture (~3.6B active params of 20B) is CPU-fast despite size;
       # (c) reasoning-capable AND `llm.py` already handles reasoning content;
@@ -68,10 +70,9 @@ jobs:
 
       - name: Install, start, and warm Ollama
         env:
-          # Ollama unloads models after 5 min idle by default. Autopilot may not
-          # reach the Ollama fallback until many minutes into a run, so extend
-          # keep_alive to the full job lifetime -- once we pay the load cost once,
-          # keep the model resident in RAM.
+          # Keep the model resident in RAM for the whole job so no LLM call in the
+          # run eats a fresh load penalty. Default 5-min idle unload would matter
+          # between the topic pick and the critic loop.
           OLLAMA_KEEP_ALIVE: "24h"
         run: |
           curl -fsSL https://ollama.com/install.sh | sh
@@ -94,14 +95,7 @@ jobs:
       - name: Run autopilot
         env:
           NICHES: ${{ github.event.inputs.niches }}
-          NIM_API_KEY: ${{ secrets.NIM_API_KEY }}
-          NIM_MODEL: ${{ secrets.NIM_MODEL }}
-          # Fallback LLM providers, used in order when NIM is unavailable.
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-          OPENROUTER_MODEL: ${{ secrets.OPENROUTER_MODEL }}
-          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
-          GROQ_MODEL: ${{ secrets.GROQ_MODEL }}
-          # Ollama runs locally in this runner as last-resort fallback.
+          # Ollama runs locally in this runner; it is the only LLM path.
           OLLAMA_URL: http://localhost:11434
           OLLAMA_MODEL: gpt-oss:20b
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}

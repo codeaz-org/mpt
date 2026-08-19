@@ -12,6 +12,7 @@ Selection rules, in order:
   3. it must not repeat a question already used, or a video already published
 """
 import re
+from collections import Counter
 
 import research
 from llm import nim_json
@@ -99,8 +100,32 @@ def harvest(niche):
     return questions
 
 
+_SUBJECT_STOP = frozenset("""a an and are as at be but by for from how i in is it my
+of on or should the to was were what when where which who why with your you can does
+do so if not just about that this these those there here have has had will would could
+using use used make makes made get gets got new best free my me our we they them their
+why-does why-is how-do how-to what-is""".split())
+_SUBJECT_TOKEN_RE = re.compile(r"[a-z][a-z0-9\-\.]{3,}")
+
+
+def _subject_tokens(text):
+    return [t for t in _SUBJECT_TOKEN_RE.findall(text.lower()) if t not in _SUBJECT_STOP]
+
+
+def _hot_subjects(used_topics, keep_last=8, min_repeats=2):
+    """Subject nouns that appear in >=min_repeats of the last N posted topics --
+    the ones the channel is leaning on. Later we push questions that hit these to
+    the tail of the shortlist so fresher subjects surface first."""
+    counts = Counter()
+    for topic in used_topics[-keep_last:]:
+        counts.update(set(_subject_tokens(topic)))
+    return {tok for tok, n in counts.items() if n >= min_repeats}
+
+
 def unused(questions, used_ids, used_topics, too_similar):
-    """Drop anything already turned into a video, by source id or by subject."""
+    """Drop anything already turned into a video, by source id or by subject.
+    Then re-rank so questions on subjects the channel has leaned on recently
+    fall to the tail. Stable sort preserves engagement order within a bucket."""
     out = []
     for q in questions:
         if q.get("id") and q["id"] in used_ids:
@@ -109,6 +134,10 @@ def unused(questions, used_ids, used_topics, too_similar):
         if clash:
             continue
         out.append(q)
+    hot = _hot_subjects(used_topics)
+    if hot:
+        out.sort(key=lambda q: len(hot.intersection(_subject_tokens(q.get("title") or ""))))
+        log(f"downranked recent subjects: {sorted(hot)}")
     return out
 
 

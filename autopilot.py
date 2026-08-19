@@ -3,11 +3,11 @@
 MPT Autopilot: NVIDIA NIM topic gen -> MoneyPrinterTurbo video -> YouTube (+ optional TikTok via Upload-Post).
 
 Env vars required:
-  NIM_API_KEY            NVIDIA NIM API key (build.nvidia.com)
   PEXELS_API_KEY         Pexels API key
   YT_CLIENT_ID / YT_CLIENT_SECRET / YT_REFRESH_TOKEN_<NICHEID>   (per-niche YouTube OAuth)
 Optional:
-  NIM_MODEL              default: meta/llama-3.3-70b-instruct
+  OLLAMA_URL             default: http://localhost:11434 (CI installs & warms Ollama)
+  OLLAMA_MODEL           default: gpt-oss:20b
   UPLOAD_POST_API_KEY    enables TikTok via upload-post.com
   MPT_DIR                path to MoneyPrinterTurbo checkout (default: ./MoneyPrinterTurbo)
   NICHES                 comma-separated niche ids to run (default: all)
@@ -335,6 +335,14 @@ _TRACKED_TOOLS = (
     "Anthropic", "Groq", "OpenRouter", "NVIDIA NIM", "Slack", "Discord",
     "Twilio", "SendGrid", "Resend", "Buffer", "Stripe", "Paddle",
     "Lemon Squeezy",
+    # Open-source alternatives the OSS-archetype scripts name. Tracking these
+    # keeps the OSS videos from all pointing at the same 2-3 projects.
+    # ponytail: flat list, promote to per-archetype pools if scripts start
+    # bunching on one project again.
+    "NocoDB", "Baserow", "Directus", "Appwrite", "PocketBase", "PostHog",
+    "Plausible", "Umami", "Ghost", "Nextcloud", "Meilisearch", "Typesense",
+    "MinIO", "Cal.com", "Listmonk", "Metabase", "Grafana", "Matomo",
+    "Rocket.Chat", "Mattermost", "Jitsi", "Chatwoot", "Formbricks",
 )
 
 
@@ -539,8 +547,8 @@ video_language = "en-US"
 voice_name = "{voice}"
 voice_language = "en-US"
 llm_provider = "openai"
-openai_api_key = "{os.environ['NIM_API_KEY']}"
-openai_base_url = "https://integrate.api.nvidia.com/v1"
+openai_api_key = "ollama"
+openai_base_url = "{os.environ.get('OLLAMA_URL', 'http://localhost:11434').rstrip('/')}/v1"
 openai_model_name = "{NIM_MODEL}"
 subtitle_provider = "edge"
 

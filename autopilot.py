@@ -1000,10 +1000,74 @@ def run_niche(niche, state):
 RUN_ATTEMPTS = int(os.environ.get("RUN_ATTEMPTS", "3"))
 
 
+def _is_revoked_token(exc):
+    """Google's OAuth library raises RefreshError with 'invalid_grant' when the
+    refresh token has been revoked or expired. That state is terminal -- retrying
+    burns another full render (~30 min) hitting the same dead credential."""
+    return (type(exc).__name__ == "RefreshError"
+            and "invalid_grant" in str(exc).lower())
+
+
+def _open_revoked_token_issue(niche_id, exc):
+    """Best-effort: file a GitHub issue so a dead OAuth token is visible without
+    scrolling logs. Silent when the workflow lacks GITHUB_TOKEN or issues:write,
+    silent when an issue with the same title is already open -- otherwise every
+    scheduled run would file another one."""
+    token = os.environ.get("GITHUB_TOKEN")
+    repo = os.environ.get("GITHUB_REPOSITORY")
+    if not (token and repo):
+        return
+    title = f"[{niche_id}] YouTube OAuth refresh token expired or revoked"
+    headers = {"Authorization": f"Bearer {token}", "Accept": "application/vnd.github+json"}
+    try:
+        r = requests.get(
+            "https://api.github.com/search/issues",
+            headers=headers,
+            params={"q": f'repo:{repo} is:issue is:open in:title "{niche_id}" OAuth'},
+            timeout=30,
+        )
+        if r.ok and r.json().get("total_count", 0) > 0:
+            log(f"[{niche_id}] auth issue already open: {r.json()['items'][0]['html_url']}")
+            return
+    except Exception:
+        pass  # fall through and try to create anyway
+    body = (
+        f"`YT_REFRESH_TOKEN_{niche_id.upper()}` is no longer accepted by Google. "
+        f"Regenerate locally:\n\n"
+        f"```\n"
+        f"python3 -m venv /tmp/yt && /tmp/yt/bin/pip install google-auth-oauthlib\n"
+        f"NICHE={niche_id} /tmp/yt/bin/python get_youtube_token.py\n"
+        f"```\n\n"
+        f"Sign in with the Google account that owns the `{niche_id}` YouTube channel, "
+        f"then update the `YT_REFRESH_TOKEN_{niche_id.upper()}` repository secret "
+        f"with the printed value.\n\n"
+        f"Runs will keep failing until this is done. The autopilot skips the render "
+        f"stage now when it hits a revoked token, so wasted CI time is minimal.\n\n"
+        f"Original error:\n\n```\n{type(exc).__name__}: {str(exc)[:400]}\n```"
+    )
+    try:
+        r = requests.post(
+            f"https://api.github.com/repos/{repo}/issues",
+            headers=headers,
+            json={"title": title, "body": body},
+            timeout=30,
+        )
+        if r.ok:
+            log(f"[{niche_id}] opened issue: {r.json().get('html_url')}")
+        else:
+            log(f"[{niche_id}] could not open issue ({r.status_code}): {r.text[:200]}")
+    except Exception as e:
+        log(f"[{niche_id}] could not open issue: {type(e).__name__}: {e}")
+
+
 def run_niche_with_retries(niche, state, attempts=None):
     """Most failures here are other people's outages -- NIM refusing requests, a stock
     provider timing out, Reddit rate limiting. Waiting six hours for the next cron to
-    retry wastes a slot, so retry inside the run with a widening gap."""
+    retry wastes a slot, so retry inside the run with a widening gap.
+
+    Revoked OAuth tokens are the exception: they will not un-revoke by themselves, so
+    the loop aborts on the first hit and files a GitHub issue instead of burning two
+    more full render cycles hitting the same dead credential."""
     attempts = attempts or RUN_ATTEMPTS
     last = None
     for i in range(attempts):
@@ -1013,6 +1077,10 @@ def run_niche_with_retries(niche, state, attempts=None):
         except Exception as e:
             last = e
             log(f"[{niche['id']}] attempt {i + 1}/{attempts} failed: {type(e).__name__}: {str(e)[:200]}")
+            if _is_revoked_token(e):
+                log(f"[{niche['id']}] OAuth token is revoked -- aborting, not retrying")
+                _open_revoked_token_issue(niche["id"], e)
+                break
             if i < attempts - 1:
                 wait = 30 * (i + 1)
                 log(f"[{niche['id']}] retrying in {wait}s")

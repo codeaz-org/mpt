@@ -23,6 +23,7 @@ jobs:
     timeout-minutes: 110
     permissions:
       contents: write   # allows the workflow to commit posted.json back
+      issues: write     # so a revoked OAuth token can file an issue
     steps:
       - uses: actions/checkout@v4
 

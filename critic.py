@@ -12,11 +12,15 @@ import os
 
 from llm import nim_json
 
-# A script passes on its average, provided nothing is actually bad. Requiring every
-# metric to clear the bar meant one stubborn score -- usually the hook -- vetoed
-# scripts scoring 9 everywhere else, and the run published nothing at all.
+# A script passes on its average, provided nothing DANGEROUS is bad. The hard floor
+# only applies to axes where a low score means "publishing hurts the channel":
+# honesty (invented facts risk demonetisation) and answers_question (off-topic
+# scripts fail the inauthentic-content review). Taste axes like hook and payoff
+# can score low without vetoing -- otherwise gpt-oss's harsh 2-3 hook scoring
+# runs every draft through four revisions and publishes nothing.
 MIN_SCORE = float(os.environ.get("CRITIC_MIN_SCORE", "7"))
 HARD_FLOOR = float(os.environ.get("CRITIC_FLOOR", "6"))
+CRITICAL_AXES = ("honesty", "answers_question")
 MAX_ROUNDS = int(os.environ.get("CRITIC_ROUNDS", "4"))
 
 # Default rubric: axes that apply to any script format. A niche can override this via
@@ -45,8 +49,9 @@ Score each from 1 to 10:
                     could repeat to a friend?
 
 Then decide:
-  "publish" only if the scores average at least {min_score}, none is below 6, and
-  nothing is factually wrong.
+  "publish" only if the scores average at least {min_score} AND honesty is at
+  least 6 AND answers_question is at least 6. A subjective miss on hook or
+  payoff can still pass; a factually wrong or off-topic script cannot.
   "revise" otherwise.
 
 problems: what is wrong, concretely, quoting the offending phrases.
@@ -90,7 +95,10 @@ def review(topic, script, question=None, min_score=None, niche=None):
     # Trust the scores over the verdict: models say "publish" while scoring a 4.
     if scores:
         mean = sum(scores.values()) / len(scores)
-        verdict = ("publish" if mean >= min_score and min(scores.values()) >= HARD_FLOOR
+        # Missing critical axes are treated as 10 -- a niche that doesn't include
+        # them in its rubric doesn't get vetoed by them either.
+        critical_min = min((scores.get(a, 10) for a in CRITICAL_AXES), default=10)
+        verdict = ("publish" if mean >= min_score and critical_min >= HARD_FLOOR
                    else "revise")
     return verdict, scores, problems, fix
 

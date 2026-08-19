@@ -62,6 +62,12 @@ def nim_chat(system, user, temperature=0.9, attempts=None, max_tokens=512):
                     ],
                     "temperature": temperature,
                     "max_tokens": budget,
+                    # gpt-oss will burn the whole budget on internal reasoning if
+                    # left on the default 'medium' effort, which pushed a script
+                    # write past 2000 tokens without emitting a word. 'low' still
+                    # reasons enough for structured JSON but leaves headroom for
+                    # the actual answer. Non-reasoning models ignore the field.
+                    "reasoning_effort": "low",
                 },
                 timeout=LLM_TIMEOUT,
             )

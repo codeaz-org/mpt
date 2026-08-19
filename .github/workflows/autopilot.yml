@@ -30,8 +30,9 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install ffmpeg + ImageMagick
-        run: sudo apt-get update && sudo apt-get install -y ffmpeg imagemagick
+      # ffmpeg and imagemagick are preinstalled on ubuntu-latest. Dropped the apt
+      # install step: Azure mirrors have been flaky (7+ min stalls) and reinstalling
+      # binaries the runner already ships is pure downside.
 
       # Remotion renders through headless Chrome. Node is already on ubuntu-latest;
       # setup-node pins it and enables actions/cache for the npm store.

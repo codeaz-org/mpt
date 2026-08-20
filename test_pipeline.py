@@ -784,6 +784,11 @@ class RunNicheTest(unittest.TestCase):
             mock.patch.object(autopilot, "generate_terms", lambda t, s, n: "waiter,table"),
             mock.patch.object(autopilot, "render_with_fallback",
                               lambda t, n, s, x: str(root / "video.mp4")),
+            # render_video now returns (path, archetype); the stubbed
+            # render_with_fallback above is called via that wrapper.
+            mock.patch.object(autopilot, "render_video",
+                              lambda t, n, s, question=None, recent_archetypes=():
+                              (str(root / "video.mp4"), "QuestionAnswer")),
             # the stub file is not a real video; the render check has its own tests
             mock.patch.object(autopilot, "check_rendered_video", lambda p, s: 60.0),
             mock.patch.object(autopilot, "make_metadata",

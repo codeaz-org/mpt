@@ -169,14 +169,23 @@ _ARCH_DESCRIPTIONS = """
 """
 
 
-def classify_archetype(topic, script, question, niche):
+def classify_archetype(topic, script, question, niche, recent_archetypes=()):
     """Pick the best-fitting archetype. Returns a composition id from ARCHETYPES
-    or 'unknown' if nothing fits."""
+    or 'unknown' if nothing fits. Recent archetypes are shown to the classifier
+    so it prefers a fresh visual language when a script honestly fits more than
+    one -- 'we keep saying the same thing in other words' is often the same
+    template picked over and over."""
     asked = f'\nViewer asked: "{question}"\n' if question else ""
+    avoid = ""
+    if recent_archetypes:
+        avoid = ("\n\nRecent videos used these archetypes (in order, most recent "
+                 f"first): {', '.join(recent_archetypes)}. If the script honestly "
+                 "fits a DIFFERENT archetype comparably well, prefer that. Only "
+                 "reuse a recent one when nothing else fits.")
     result = nim_json(
         "You classify short-video scripts into ONE archetype. Return the id of the "
         "template that fits best; if none fits well, return 'unknown'. Do not "
-        "invent archetype names. Archetypes:\n" + _ARCH_DESCRIPTIONS +
+        "invent archetype names. Archetypes:\n" + _ARCH_DESCRIPTIONS + avoid +
         '\n\nJSON schema: {"archetype": "<one of the ids above, or unknown>", '
         '"confidence": 0.0-1.0, "why": "..."}',
         f"Topic: {topic}{asked}\n\nScript:\n{script}",
@@ -190,6 +199,47 @@ def classify_archetype(topic, script, question, niche):
         return "unknown"
     log(f"1/4 classify  -> {archetype} (conf {conf:.2f})")
     return archetype
+
+
+# Per-field character caps. Templates render at fixed font sizes -- a 40-char slot
+# rendered with a 200-char string wraps off the frame or clips. Caps are enforced
+# post-extraction (word-boundary truncate + ellipsis) so a chatty model can't
+# overflow; the extract prompt also carries a short reminder so short output is
+# the first-choice behavior. Unknown fields are left alone. Keys correspond to
+# either the top-level prop or the array/dict item key that carries the text.
+_FIELD_CAPS = {
+    "hook": 90, "paidTool": 25, "paidPrice": 18, "whatItDoes": 90,
+    "freeStack": 40, "catch": 100, "payoff": 100, "setup": 90,
+    "bigNumber": 12, "unit": 15, "context": 90, "source": 40,
+    "question": 120, "tldr": 100, "reasoning": 90, "caveat": 100,
+    "scenario": 100, "cost": 30, "intro": 100, "takeaway": 100,
+    "process": 100, "saving": 60, "situation": 100, "recommendation": 20,
+    # inside step/flag/pros-cons objects:
+    "label": 30, "detail": 90, "quote": 80, "why": 90,
+    "step": 40, "time": 15, "name": 25, "pros": 60, "cons": 60,
+}
+
+
+def _cap(text, limit):
+    """Word-boundary truncate. Returns text if it fits; otherwise cuts at the last
+    space before limit-1, strips trailing punctuation, and appends an ellipsis."""
+    if not isinstance(text, str) or len(text) <= limit:
+        return text
+    cut = text[:limit - 1].rsplit(" ", 1)[0].rstrip(",;:—- ")
+    return f"{cut or text[:limit - 1]}…"
+
+
+def _cap_walk(node, key=None):
+    """Recurse through the props tree, applying _FIELD_CAPS by field name. Strings
+    inside arrays reuse the array's key; strings inside dicts use their own key."""
+    if isinstance(node, str):
+        limit = _FIELD_CAPS.get(key)
+        return _cap(node, limit) if limit else node
+    if isinstance(node, dict):
+        return {k: _cap_walk(v, k) for k, v in node.items()}
+    if isinstance(node, list):
+        return [_cap_walk(item, key) for item in node]
+    return node
 
 
 _EXTRACT_SCHEMAS = {
@@ -218,7 +268,9 @@ _EXTRACT_SCHEMAS = {
 
 def extract_props(archetype, topic, script, question):
     """Given an archetype, pull that template's exact props from the narration.
-    Every string must come from words the script actually contains."""
+    Every string must come from words the script actually contains. Every field
+    is capped post-extraction: templates render at fixed font sizes and long
+    strings clip off the frame."""
     asked = f'\nViewer asked: "{question}"\n' if question else ""
     result = nim_json(
         f"You extract fields for the {archetype} short-video template from a "
@@ -226,11 +278,16 @@ def extract_props(archetype, topic, script, question):
         "the script or a tight paraphrase in the script's voice. Never invent "
         "numbers, tool names, or client stories. If a required field is not "
         "supported by the script, return an empty string for it.\n\n"
+        "KEEP EVERY STRING SHORT so it fits its on-screen slot. Headline slots "
+        "(paidPrice, bigNumber, unit, cost, time) must be under 20 characters -- "
+        "just the number and unit, no prose. Body strings (hook, payoff, tldr, "
+        "context, catch, caveat, takeaway) should read as ONE clean sentence and "
+        "stay under about 100 characters. Long extraction wrecks the render.\n\n"
         f"JSON schema: {_EXTRACT_SCHEMAS[archetype]}",
         f"Topic: {topic}{asked}\n\nScript:\n{script}",
         temperature=0.15, max_tokens=1000,
     )
-    return result or {}
+    return _cap_walk(result or {})
 
 
 def _is_complete(archetype, props):
@@ -244,12 +301,13 @@ def _is_complete(archetype, props):
 
 # ---- Remotion invocation ----------------------------------------------------
 
-def render(topic, niche, script, question=None):
-    """Full Remotion render loop. Returns the path to the final mp4."""
+def render(topic, niche, script, question=None, recent_archetypes=()):
+    """Full Remotion render loop. Returns (mp4 path, archetype id) so the caller
+    can record which template was used and avoid reaching for it back-to-back."""
     PUBLIC_DIR.mkdir(parents=True, exist_ok=True)
     OUT_DIR.mkdir(parents=True, exist_ok=True)
 
-    archetype = classify_archetype(topic, script, question, niche)
+    archetype = classify_archetype(topic, script, question, niche, recent_archetypes)
     if archetype == "unknown":
         raise RuntimeError("no Remotion archetype fits this script")
     props = extract_props(archetype, topic, script, question)
@@ -292,4 +350,4 @@ def render(topic, niche, script, question=None):
         raise RuntimeError("remotion finished but produced no mp4")
     log(f"4/4 render    -> {out_path.name} "
         f"({out_path.stat().st_size // (1024*1024)} MB, {props['audioDuration']:.1f}s)")
-    return str(out_path)
+    return str(out_path), archetype

@@ -883,25 +883,43 @@ def check_rendered_video(path, script):
     return duration
 
 
-def render_video(topic, niche, script, question=None):
+def _recent_archetypes(state, niche_id, keep=3):
+    """The last few Remotion archetypes used by this niche, freshest first. Fed
+    into the classifier so the same visual language does not repeat when the
+    script honestly fits more than one template."""
+    out = []
+    for u in reversed(state.get("uploads", [])):
+        if u.get("niche") != niche_id:
+            continue
+        arch = u.get("archetype")
+        if arch and arch != "mpt":
+            out.append(arch)
+            if len(out) >= keep:
+                break
+    return out
+
+
+def render_video(topic, niche, script, question=None, recent_archetypes=()):
     """Dispatch to the configured renderer.
 
       stock     MPT: stock footage under captions, ffmpeg-composited (default)
       remotion  React composition with topic-matched Pexels bg + edge-tts audio;
                 falls back to stock if the archetype doesn't match or Remotion errors
 
-    Both paths return an mp4 path and both run the same duration/audio sanity check
-    at the end -- a short narration produced by either shouldn't reach upload."""
+    Returns (mp4 path, archetype id or 'mpt'). Both paths run the same duration
+    and audio sanity check -- a short narration shouldn't reach upload."""
     mode = niche.get("video_mode", "stock")
     nid = niche["id"]
     if mode == "remotion":
         log(f"[{nid}] ==== RENDER stage (renderer=REMOTION) ====")
         try:
             import remotion_render
-            video = remotion_render.render(topic, niche, script, question=question)
+            video, archetype = remotion_render.render(
+                topic, niche, script, question=question,
+                recent_archetypes=recent_archetypes)
             check_rendered_video(video, script)
             log(f"[{nid}] ==== RENDER done via REMOTION -> {Path(video).name} ====")
-            return video
+            return video, archetype
         except Exception as e:
             log(f"[{nid}] REMOTION failed ({type(e).__name__}: {str(e)[:160]})")
             log(f"[{nid}] ==== FALLBACK to MPT stock render ====")
@@ -913,7 +931,7 @@ def render_video(topic, niche, script, question=None):
     video = render_with_fallback(topic, niche, script, terms)
     check_rendered_video(video, script)
     log(f"[{nid}] ==== RENDER done via MPT -> {Path(video).name} ====")
-    return video
+    return video, "mpt"
 
 
 def niche_is_ready(niche):
@@ -938,7 +956,9 @@ def run_niche(niche, state):
         topic, question = pick_topic(niche, used, used_question_ids(state, niche["id"]))
         script = generate_script(topic, niche, question,
                                  recent_tools=_recent_tools(state, niche["id"]))
-        video = render_video(topic, niche, script, question=question)
+        video, archetype = render_video(
+            topic, niche, script, question=question,
+            recent_archetypes=_recent_archetypes(state, niche["id"]))
         log(f"[{niche['id']}] Video: {video}")
         meta = make_metadata(topic, niche)
         caption = tiktok_caption(meta, niche)
@@ -974,6 +994,7 @@ def run_niche(niche, state):
             "question_url": (question or {}).get("url"),
             "youtube": yt_id, "tiktok": False, "tiktok_via": None,
             "tiktok_post_id": None, "tiktok_caption": caption,
+            "archetype": archetype,
             "ts": time.strftime("%Y-%m-%dT%H:%M:%S"),
         }
         used.append(topic)

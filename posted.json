@@ -44,7 +44,8 @@
       "How much does an AI\u2011generated app really cost? Break\u2011down with free tiers",
       "Is there any money in website design for small businesses?",
       "Best alternative to Gmail for small business email",
-      "Cheap, Easy Static Site Hosting: From $5 Droplet to Free GitHub Pages"
+      "Cheap, Easy Static Site Hosting: From $5 Droplet to Free GitHub Pages",
+      "How to Bootstrap a SaaS Startup to Ramen Profitability"
     ]
   },
   "uploads": [
@@ -602,6 +603,21 @@
       "tiktok_post_id": "6a86b24f34a1034a3c518b92",
       "tiktok_caption": "$5 Droplet vs Free GitHub Pages: Cheap Static Hosting Hacks!\n\nLearn how to host a static site on a $5 DigitalOcean droplet or with zero cost on GitHub Pages in minutes. Hit follow for more budget\u2011friendly dev tips!\n\n#automation #smallbiz #startup #nocode #buildinpublic #founder",
       "ts": "2026-08-20T07:52:44"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "How to Bootstrap a SaaS Startup to Ramen Profitability",
+      "title": "Bootstrapping a SaaS Startup: From Ramen to Real Profit",
+      "question": "How We Bootstrapped Our SaaS Startup to Ramen Profitability",
+      "question_id": "hn:15544378",
+      "question_url": "https://news.ycombinator.com/item?id=15544378",
+      "youtube": "jG2rPukOOT0",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6a875c350fde1e61dd0b89b6",
+      "tiktok_caption": "Bootstrapping a SaaS Startup: From Ramen to Real Profit\n\nDiscover the step\u2011by\u2011step formula to launch a SaaS business on a shoestring budget and turn ramen costs into sustainable revenue. Hit follow for more insider tips on scaling with minimal spend!\n\n#automation #smallbiz #startup #nocode #buildinpublic #founder",
+      "archetype": "QuestionAnswer",
+      "ts": "2026-08-20T19:57:37"
     }
   ]
 }

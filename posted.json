@@ -46,7 +46,8 @@
       "Best alternative to Gmail for small business email",
       "Cheap, Easy Static Site Hosting: From $5 Droplet to Free GitHub Pages",
       "How to Bootstrap a SaaS Startup to Ramen Profitability",
-      "Stack Choices for Indie Hackers: Concrete Tech Picks for Rapid MVPs"
+      "Stack Choices for Indie Hackers: Concrete Tech Picks for Rapid MVPs",
+      "All-in-One Website Builders: Wix, Squarespace, Webflow, or Carrd for Small Biz"
     ]
   },
   "uploads": [
@@ -634,6 +635,21 @@
       "tiktok_caption": "Indie Hackers: 3 Concrete Stack Picks for Lightning-Fast MVPs\n\nDiscover the exact tech stacks that help indie hackers ship MVPs in record time. Smash that follow button for more rapid-build hacks!\n\n#automation #smallbiz #startup #nocode #buildinpublic #founder",
       "archetype": "mpt",
       "ts": "2026-08-21T07:57:59"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "All-in-One Website Builders: Wix, Squarespace, Webflow, or Carrd for Small Biz",
+      "title": "Wix vs Squarespace vs Webflow vs Carrd: Which Is Right for Your Small Biz?",
+      "question": "Best all in one website platform for small businesses?",
+      "question_id": "reddit:1vshta5",
+      "question_url": "https://reddit.com/r/nocode/comments/1vshta5/best_all_in_one_website_platform_for_small/",
+      "youtube": "fC3qn2iSgFg",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6a883f9b5b4a6e681b284e01",
+      "tiktok_caption": "Wix vs Squarespace vs Webflow vs Carrd: Which Is Right for Your Small Biz?\n\nDiscover the best all-in-one website builders for small businesses in just 60 seconds! Hit follow for more quick tips and tricks to boost your online presence.\n\n#webbuilder #nocodefounder #smallbiz #wix #kebab",
+      "archetype": "QuestionAnswer",
+      "ts": "2026-08-21T12:07:51"
     }
   ]
 }

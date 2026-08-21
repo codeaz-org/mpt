@@ -45,7 +45,8 @@
       "Is there any money in website design for small businesses?",
       "Best alternative to Gmail for small business email",
       "Cheap, Easy Static Site Hosting: From $5 Droplet to Free GitHub Pages",
-      "How to Bootstrap a SaaS Startup to Ramen Profitability"
+      "How to Bootstrap a SaaS Startup to Ramen Profitability",
+      "Stack Choices for Indie Hackers: Concrete Tech Picks for Rapid MVPs"
     ]
   },
   "uploads": [
@@ -618,6 +619,21 @@
       "tiktok_caption": "Bootstrapping a SaaS Startup: From Ramen to Real Profit\n\nDiscover the step\u2011by\u2011step formula to launch a SaaS business on a shoestring budget and turn ramen costs into sustainable revenue. Hit follow for more insider tips on scaling with minimal spend!\n\n#automation #smallbiz #startup #nocode #buildinpublic #founder",
       "archetype": "QuestionAnswer",
       "ts": "2026-08-20T19:57:37"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Stack Choices for Indie Hackers: Concrete Tech Picks for Rapid MVPs",
+      "title": "Indie Hackers: 3 Concrete Stack Picks for Lightning-Fast MVPs",
+      "question": "What tech stacks are indie hackers using for their apps, and why?",
+      "question_id": "hn:17578226",
+      "question_url": "https://news.ycombinator.com/item?id=17578226",
+      "youtube": "dH0KrxIzL4Q",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6a88050a1b38003a90c65c02",
+      "tiktok_caption": "Indie Hackers: 3 Concrete Stack Picks for Lightning-Fast MVPs\n\nDiscover the exact tech stacks that help indie hackers ship MVPs in record time. Smash that follow button for more rapid-build hacks!\n\n#automation #smallbiz #startup #nocode #buildinpublic #founder",
+      "archetype": "mpt",
+      "ts": "2026-08-21T07:57:59"
     }
   ]
 }

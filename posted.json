@@ -47,7 +47,8 @@
       "Cheap, Easy Static Site Hosting: From $5 Droplet to Free GitHub Pages",
       "How to Bootstrap a SaaS Startup to Ramen Profitability",
       "Stack Choices for Indie Hackers: Concrete Tech Picks for Rapid MVPs",
-      "All-in-One Website Builders: Wix, Squarespace, Webflow, or Carrd for Small Biz"
+      "All-in-One Website Builders: Wix, Squarespace, Webflow, or Carrd for Small Biz",
+      "Sync product listings across Amazon, eBay, Shopify with a free Google Sheets + n8n workflow"
     ]
   },
   "uploads": [
@@ -650,6 +651,21 @@
       "tiktok_caption": "Wix vs Squarespace vs Webflow vs Carrd: Which Is Right for Your Small Biz?\n\nDiscover the best all-in-one website builders for small businesses in just 60 seconds! Hit follow for more quick tips and tricks to boost your online presence.\n\n#webbuilder #nocodefounder #smallbiz #wix #kebab",
       "archetype": "QuestionAnswer",
       "ts": "2026-08-21T12:07:51"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Sync product listings across Amazon, eBay, Shopify with a free Google Sheets + n8n workflow",
+      "title": "Sync Amazon, eBay & Shopify Listings in 5 Minutes\u2014FREE Google Sheets + n8n!",
+      "question": "How to keep consistent product listings across channels?",
+      "question_id": "reddit:1vsjf5k",
+      "question_url": "https://reddit.com/r/ecommerce/comments/1vsjf5k/how_to_keep_consistent_product_listings_across/",
+      "youtube": "GIlomUHHHpg",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6a88acaa3869cf6658962197",
+      "tiktok_caption": "Sync Amazon, eBay & Shopify Listings in 5 Minutes\u2014FREE Google Sheets + n8n!\n\nLearn how to automate your product listings across Amazon, eBay, and Shopify using a free Google Sheets template and n8n workflow. Watch now and start saving hours\u2014follow for more automation hacks!\n\n#nocodeautomation #ecomhacks #n8n #amazonsellers #shopifyautomation",
+      "archetype": "WorkflowDemo",
+      "ts": "2026-08-21T19:53:11"
     }
   ]
 }

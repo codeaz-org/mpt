@@ -268,6 +268,55 @@ def fetch_google_suggest(seed, limit=10):
     return posts
 
 
+_YT_HASHTAG_RE = re.compile(r"#([A-Za-z][A-Za-z0-9_]{1,40})")
+
+
+def fetch_youtube_trending(category_id="28", region="US", limit=25):
+    """YouTube Data API v3 chart=mostPopular for a category. Each returned item
+    carries the source video's hashtags -- pulled from literal '#' mentions in
+    title+description first, then topped up with entries from snippet.tags. The
+    caller stores these on the question so make_metadata can copy the video's
+    own tags forward when it's the picked source.
+
+    Requires YOUTUBE_API_KEY; skips soft when unset. Costs 1 quota unit per call
+    against the default 10,000 units/day."""
+    key = (os.environ.get("YOUTUBE_API_KEY") or "").strip()
+    if not key or key.lower() == "xxxx":
+        raise RuntimeError("YOUTUBE_API_KEY not set")
+    r = _get(
+        "https://www.googleapis.com/youtube/v3/videos",
+        params={"part": "snippet,statistics", "chart": "mostPopular",
+                "videoCategoryId": str(category_id), "maxResults": min(limit, 50),
+                "regionCode": region, "key": key},
+    )
+    posts = []
+    for item in r.json().get("items", []):
+        s = item.get("snippet") or {}
+        st = item.get("statistics") or {}
+        title = (s.get("title") or "").strip()
+        if not title:
+            continue
+        desc = s.get("description") or ""
+        # Literal '#tag' mentions the creator wrote -- what they think ranks.
+        tags = _YT_HASHTAG_RE.findall(f"{title} {desc}")[:8]
+        # Top the list up with snippet.tags (creator keyword list) if room.
+        for kw in (s.get("tags") or [])[:5]:
+            slug = re.sub(r"[^A-Za-z0-9]", "", kw)
+            if slug and slug.lower() not in {t.lower() for t in tags}:
+                tags.append(slug)
+        posts.append({
+            "title": title,
+            "text": desc[:400],
+            "score": int(st.get("likeCount") or 0),
+            "num_comments": int(st.get("commentCount") or 0),
+            "id": f"yt:{item.get('id')}",
+            "url": f"https://youtube.com/watch?v={item.get('id')}",
+            "source": f"YouTube trending [{category_id}]",
+            "hashtags": [f"#{t}" for t in tags[:5]],
+        })
+    return posts
+
+
 def fetch_stackexchange(tag, site="stackoverflow", limit=20, sort=None):
     """Keyless tier is 300 requests/day, plenty for a handful of runs. The sort is
     rotated so consecutive runs do not see an identical question list."""
@@ -315,6 +364,13 @@ def gather(niche):
             posts += fetch_stackexchange(tag)
         except Exception as e:
             log(f"stackexchange '{tag}' failed: {type(e).__name__}: {str(e)[:80]}")
+        time.sleep(1)
+
+    for cat in niche.get("youtube_categories", []):
+        try:
+            posts += fetch_youtube_trending(cat)
+        except Exception as e:
+            log(f"youtube trending [{cat}] failed: {type(e).__name__}: {str(e)[:80]}")
         time.sleep(1)
 
     seen, out = set(), []

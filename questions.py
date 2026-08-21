@@ -51,6 +51,11 @@ def looks_like_a_question(post, niche=None):
     pattern = _offtopic_pattern(niche)
     if pattern and pattern.search(title):
         return False
+    # YouTube trending items rarely phrase as questions ("How I built X in 5 min")
+    # but they carry the hashtags we want to copy and represent live buyer
+    # interest, so let them through the question filter.
+    if (post.get("id") or "").startswith("yt:"):
+        return True
     return bool(QUESTION_RE.search(title))
 
 
@@ -77,6 +82,11 @@ def harvest(niche):
             posts += research.fetch_stackexchange(tag)
         except Exception as e:
             log(f"stackexchange '{tag}': {type(e).__name__}: {str(e)[:70]}")
+    for cat in niche.get("youtube_categories", []):
+        try:
+            posts += research.fetch_youtube_trending(cat)
+        except Exception as e:
+            log(f"youtube trending [{cat}]: {type(e).__name__}: {str(e)[:70]}")
     for seed in niche.get("google_seeds", []):
         try:
             posts += research.fetch_google_suggest(seed)

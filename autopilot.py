@@ -598,13 +598,52 @@ def generate_video(topic, niche, source, script=None, terms=None):
     return max(candidates, key=os.path.getmtime)
 
 
-def make_metadata(topic, niche):
-    """Never let a metadata hiccup discard a rendered video -- fall back to the topic."""
+HASHTAG_CAP = 5
+
+
+def _clean_hashtags(tags):
+    """Normalize any list-of-strings input into '#word' form: strip leading '#',
+    drop non-alphanumerics, lowercase, dedupe, drop empties. Accepts already-
+    hashtag'd strings, space-separated bundles, or plain keywords -- so a
+    Pexels tag, an LLM output, and a YouTube snippet.tags list can all feed in."""
+    out, seen = [], set()
+    for t in tags or []:
+        if not isinstance(t, str):
+            continue
+        # Allow bundles like "#one #two #three" that some sources return as one string.
+        for part in t.split():
+            slug = re.sub(r"[^a-z0-9]", "", part.lstrip("#").lower())
+            if not slug or slug in seen:
+                continue
+            seen.add(slug)
+            out.append(f"#{slug}")
+    return out
+
+
+def make_metadata(topic, niche, question=None):
+    """Title, description, hashtags. Never let a metadata hiccup discard a rendered
+    video -- fall back to the topic.
+
+    Hashtag policy: prefer the source video's tags when the question came from a
+    trending video (those tags are already earning views). Top up with LLM-picked
+    ones so we always have HASHTAG_CAP total. Niche's evergreen `hashtags` string
+    is the last-resort fallback if both live sources fail."""
+    source_tags = _clean_hashtags((question or {}).get("hashtags") or [])[:HASHTAG_CAP]
+    need_llm_tags = len(source_tags) < HASHTAG_CAP
+    schema = ('{"title": "...", "description": "..."'
+              + (', "hashtags": ["#tag1", "#tag2", "#tag3"]' if need_llm_tags else "")
+              + '}')
+    hashtag_rule = (
+        " Hashtags: pick 5 short, topic-relevant hashtags a real viewer might "
+        "search for. #kebab as one word (no spaces, no punctuation). Prefer "
+        "verticals over generic tags -- '#nocodefounder' beats '#tech'."
+        if need_llm_tags else ""
+    )
     try:
         raw = nim_chat(
             "You write YouTube Shorts metadata. Respond ONLY with JSON: "
-            '{"title": "...", "description": "..."}. Title under 90 chars, punchy hook. '
-            "Description: 2 sentences + a call to action to follow.",
+            f"{schema}. Title under 90 chars, punchy hook. Description: 2 "
+            "sentences + a call to action to follow." + hashtag_rule,
             f"Video topic: {topic}",
             temperature=0.7,
         )
@@ -612,7 +651,18 @@ def make_metadata(topic, niche):
     except Exception as e:
         log(f"metadata generation failed ({type(e).__name__}), using the topic as-is")
         meta = {"title": topic, "description": topic}
-    meta["description"] = f'{meta.get("description", topic)}\n\n{niche["hashtags"]}'
+    hashtags = list(source_tags)
+    for tag in _clean_hashtags(meta.get("hashtags") or []):
+        if tag not in hashtags:
+            hashtags.append(tag)
+        if len(hashtags) >= HASHTAG_CAP:
+            break
+    if not hashtags:
+        # Last resort: the niche's evergreen tags.
+        hashtags = _clean_hashtags([niche.get("hashtags", "")])[:HASHTAG_CAP]
+    meta["hashtags"] = hashtags
+    tags_str = " ".join(hashtags)
+    meta["description"] = f'{meta.get("description", topic)}\n\n{tags_str}'.rstrip()
     meta["title"] = meta.get("title", topic)[:95]
     return meta
 
@@ -675,8 +725,12 @@ def upload_youtube(video_path, meta, niche):
 
 
 def tiktok_caption(meta, niche, limit=2200):
-    """TikTok has no separate description: caption and hashtags are one 'title' string."""
-    tags = niche.get("tiktok_hashtags", niche.get("hashtags", "")).strip()
+    """TikTok has no separate description: caption and hashtags are one 'title' string.
+    Uses the dynamic per-video hashtags produced by make_metadata; falls back to the
+    niche's static ones if that field is missing (e.g. metadata regen path)."""
+    tags = " ".join(meta.get("hashtags") or []).strip()
+    if not tags:
+        tags = niche.get("tiktok_hashtags", niche.get("hashtags", "")).strip()
     body = re.sub(r"\s*#\S+", "", meta.get("description", "")).strip()
     parts = [p for p in (meta.get("title", "").strip(), body, tags) if p]
     caption = "\n\n".join(parts)
@@ -956,7 +1010,7 @@ def run_niche(niche, state):
             topic, niche, script, question=question,
             recent_archetypes=_recent_archetypes(state, niche["id"]))
         log(f"[{niche['id']}] Video: {video}")
-        meta = make_metadata(topic, niche)
+        meta = make_metadata(topic, niche, question=question)
         caption = tiktok_caption(meta, niche)
 
         if DRY_RUN:

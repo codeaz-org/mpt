@@ -793,7 +793,9 @@ class RunNicheTest(unittest.TestCase):
             # the stub file is not a real video; the render check has its own tests
             mock.patch.object(autopilot, "check_rendered_video", lambda p, s: 60.0),
             mock.patch.object(autopilot, "make_metadata",
-                              lambda t, n: {"title": "Race Conditions", "description": "desc"}),
+                              lambda t, n, question=None:
+                              {"title": "Race Conditions", "description": "desc",
+                               "hashtags": ["#test", "#tags"]}),
         ]
         for p in self.patches:
             p.start()
@@ -816,7 +818,10 @@ class RunNicheTest(unittest.TestCase):
         entry = state["uploads"][-1]
         self.assertEqual(entry["youtube"], "yt123")
         self.assertTrue(entry["tiktok"])
-        self.assertIn("#programming", entry["tiktok_caption"])
+        # Caption should carry whatever hashtags make_metadata returned for THIS
+        # video (dynamic per-topic tags); niche-static #programming is now only
+        # a fallback and not exercised by this path.
+        self.assertIn("#test", entry["tiktok_caption"])
         self.assertTrue((self.root / "CAPTIONS.md").exists())
         self.assertIn("Race Conditions", (self.root / "CAPTIONS.md").read_text())
 

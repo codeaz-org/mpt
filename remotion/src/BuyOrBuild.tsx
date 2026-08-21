@@ -23,11 +23,13 @@ export interface BuyOrBuildProps {
   narration?: string;
   audioDuration?: number;
   theme?: Theme;
+  episode?: number;
+  channelName?: string;
 }
 
 const SituationScene: React.FC<{ text: string; theme: Theme }> = ({ text, theme }) => (
   <AbsoluteFill style={{ padding: 100, justifyContent: "center" }}>
-    <Eyebrow tag="DECIDE/01" label="THE SITUATION" theme={theme} />
+    <Eyebrow label="THE SITUATION" theme={theme} />
     <HookLine text={text} theme={theme} size={78} />
   </AbsoluteFill>
 );
@@ -84,7 +86,7 @@ const CompareScene: React.FC<{
   recommendation: "buy" | "build"; theme: Theme;
 }> = ({ buy, build, recommendation, theme }) => (
   <AbsoluteFill style={{ padding: 60, paddingTop: 120, justifyContent: "center" }}>
-    <Eyebrow tag="DECIDE/02" label="OPTIONS" theme={theme} />
+    <Eyebrow label="THE OPTIONS" theme={theme} />
     <div style={{ display: "flex", gap: 24, marginTop: 30 }}>
       <DecisionCard
         title={buy.name} label="Buy" opt={buy} theme={theme}
@@ -100,7 +102,7 @@ const CompareScene: React.FC<{
 
 const PayoffScene: React.FC<{ text: string; theme: Theme }> = ({ text, theme }) => (
   <AbsoluteFill style={{ padding: 100, justifyContent: "center" }}>
-    <Eyebrow tag="DECIDE/03" label="THE CALL" theme={theme} />
+    <Eyebrow label="THE CALL" theme={theme} accent={theme.colors.highlight} />
     <HookLine text={text} theme={theme} size={68} />
   </AbsoluteFill>
 );
@@ -111,7 +113,8 @@ export const BuyOrBuild: React.FC<BuyOrBuildProps> = (props) => {
   const situationEnd = Math.round(total * 0.15);
   const compareEnd = Math.round(total * 0.78);
   return (
-    <Background theme={theme} bgClips={props.bgClips}>
+    <Background theme={theme} bgClips={props.bgClips}
+      episode={props.episode} channelName={props.channelName}>
       {props.narration && <Audio src={staticFile(props.narration)} />}
       <Sequence from={0} durationInFrames={situationEnd}>
         <SituationScene text={props.situation} theme={theme} />

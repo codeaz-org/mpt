@@ -23,6 +23,8 @@ export interface BeforeAfterProps {
   narration?: string;
   audioDuration?: number;
   theme?: Theme;
+  episode?: number;
+  channelName?: string;
 }
 
 const ColumnCard: React.FC<{
@@ -60,7 +62,7 @@ const ColumnCard: React.FC<{
 
 const ProcessScene: React.FC<{ text: string; theme: Theme }> = ({ text, theme }) => (
   <AbsoluteFill style={{ padding: 100, justifyContent: "center" }}>
-    <Eyebrow tag="B/A/01" label="TASK" theme={theme} />
+    <Eyebrow label="THE TASK" theme={theme} />
     <HookLine text={text} theme={theme} size={78} />
   </AbsoluteFill>
 );
@@ -71,7 +73,7 @@ const CompareScene: React.FC<{
   theme: Theme;
 }> = ({ before, after, theme }) => (
   <AbsoluteFill style={{ padding: 80, paddingTop: 140, justifyContent: "center" }}>
-    <Eyebrow tag="B/A/02" label="BEFORE  AFTER" theme={theme} />
+    <Eyebrow label="BEFORE / AFTER" theme={theme} />
     <div style={{ display: "flex", gap: 30, marginTop: 40 }}>
       <ColumnCard title="Before" steps={before} color={theme.colors.bad} theme={theme} startFrame={0} />
       <ColumnCard title="After" steps={after} color={theme.colors.good} theme={theme} startFrame={30} />
@@ -83,7 +85,7 @@ const SavingScene: React.FC<{ saving: string; payoff: string; theme: Theme }> = 
   saving, payoff, theme,
 }) => (
   <AbsoluteFill style={{ padding: 100, justifyContent: "center", alignItems: "flex-start" }}>
-    <Eyebrow tag="B/A/03" label="SAVED" theme={theme} />
+    <Eyebrow label="SAVED" theme={theme} accent={theme.colors.good} />
     <BigNumber value={saving} theme={theme} color={theme.colors.good} size={120} />
     <div style={{ marginTop: 60, maxWidth: 900 }}>
       <HookLine text={payoff} theme={theme} size={60} fromFrame={40} />
@@ -97,7 +99,8 @@ export const BeforeAfter: React.FC<BeforeAfterProps> = (props) => {
   const processEnd = Math.round(total * 0.15);
   const compareEnd = Math.round(total * 0.72);
   return (
-    <Background theme={theme} bgClips={props.bgClips}>
+    <Background theme={theme} bgClips={props.bgClips}
+      episode={props.episode} channelName={props.channelName}>
       {props.narration && <Audio src={staticFile(props.narration)} />}
       <Sequence from={0} durationInFrames={processEnd}>
         <ProcessScene text={props.process} theme={theme} />

@@ -21,7 +21,9 @@ const TRANSITION_FRAMES = 15;  // ~0.5s crossfade between clips
 export const Background: React.FC<React.PropsWithChildren<{
   theme: Theme;
   bgClips?: BgClip[];
-}>> = ({ theme, bgClips, children }) => {
+  episode?: number;
+  channelName?: string;
+}>> = ({ theme, bgClips, episode, channelName, children }) => {
   const { durationInFrames: total } = useVideoConfig();
   const clips = (bgClips || []).filter((c) => c && c.file);
   return (
@@ -44,6 +46,9 @@ export const Background: React.FC<React.PropsWithChildren<{
         opacity: clips.length > 0 ? 0.18 : 0.4,
       }} />
       <CompileBar theme={theme} />
+      {(channelName || episode) && (
+        <ChannelBadge channel={channelName} episode={episode} theme={theme} />
+      )}
       {children}
     </AbsoluteFill>
   );
@@ -104,29 +109,61 @@ export const CompileBar: React.FC<{ theme: Theme }> = ({ theme }) => {
   );
 };
 
-/** Small mono uppercase label above a scene. E.g. tag="COST/01" label="TEARDOWN".
- *  Trailing rule line matches codeaz.org's section headers. */
+/** Small mono uppercase section label. Used to be `tag="COST/01" label="TEARDOWN"`
+ *  with a hardcoded per-scene counter that looked like a running total it wasn't.
+ *  Dropped the tag/counter; the trailing rule line stays as the codeaz signature. */
 export const Eyebrow: React.FC<{
-  tag: string;
   label: string;
   theme: Theme;
-}> = ({ tag, label, theme }) => (
+  accent?: string;
+}> = ({ label, theme, accent }) => (
   <div style={{
     fontFamily: familyFor(theme.fonts.mono),
     fontSize: 28,
     letterSpacing: 3,
-    color: theme.colors.muted,
+    color: accent || theme.colors.accent,
     textTransform: "uppercase",
     display: "flex",
     alignItems: "center",
     gap: 20,
     marginBottom: 40,
   }}>
-    <span style={{ color: theme.colors.accent }}>{tag}</span>
     <span>{label}</span>
     <span style={{
-      flex: 1, height: 1, maxWidth: 200,
+      flex: 1, height: 1, maxWidth: 320,
       backgroundColor: `${theme.colors.fg}20`,
     }} />
+  </div>
+);
+
+/** Bottom-left channel + running episode marker. Small, muted, out of the way.
+ *  Numbers come from state["uploads"] length per niche, computed in autopilot. */
+export const ChannelBadge: React.FC<{
+  channel?: string;
+  episode?: number;
+  theme: Theme;
+}> = ({ channel, episode, theme }) => (
+  <div style={{
+    position: "absolute",
+    left: 60, bottom: 60,
+    fontFamily: familyFor(theme.fonts.mono),
+    fontSize: 24,
+    letterSpacing: 2,
+    textTransform: "uppercase",
+    color: theme.colors.muted,
+    opacity: 0.85,
+    zIndex: 55,
+    display: "flex", alignItems: "center", gap: 12,
+  }}>
+    {channel && <span>{channel}</span>}
+    {channel && episode !== undefined && (
+      <span style={{
+        width: 4, height: 4, borderRadius: 999,
+        backgroundColor: theme.colors.accent,
+      }} />
+    )}
+    {episode !== undefined && (
+      <span style={{ color: theme.colors.fg }}>#{episode}</span>
+    )}
   </div>
 );

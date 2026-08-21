@@ -21,11 +21,13 @@ export interface RedFlagListProps {
   narration?: string;
   audioDuration?: number;
   theme?: Theme;
+  episode?: number;
+  channelName?: string;
 }
 
 const IntroScene: React.FC<{ text: string; theme: Theme }> = ({ text, theme }) => (
   <AbsoluteFill style={{ padding: 100, justifyContent: "center" }}>
-    <Eyebrow tag="FLAGS/01" label="RED FLAGS" theme={theme} />
+    <Eyebrow label="RED FLAGS" theme={theme} accent={theme.colors.bad} />
     <HookLine text={text} theme={theme} />
   </AbsoluteFill>
 );
@@ -34,7 +36,7 @@ const FlagsScene: React.FC<{
   flags: { quote: string; why: string }[]; theme: Theme;
 }> = ({ flags, theme }) => (
   <AbsoluteFill style={{ padding: 100, paddingTop: 140, justifyContent: "flex-start" }}>
-    <Eyebrow tag="FLAGS/02" label="WATCH FOR" theme={theme} />
+    <Eyebrow label="WATCH FOR" theme={theme} accent={theme.colors.bad} />
     {flags.map((f, i) => (
       <div key={i} style={{ display: "flex", gap: 24 }}>
         <div style={{
@@ -52,7 +54,7 @@ const FlagsScene: React.FC<{
 
 const TakeawayScene: React.FC<{ text: string; theme: Theme }> = ({ text, theme }) => (
   <AbsoluteFill style={{ padding: 100, justifyContent: "center" }}>
-    <Eyebrow tag="FLAGS/03" label="WHAT TO DO" theme={theme} />
+    <Eyebrow label="WHAT TO DO" theme={theme} accent={theme.colors.highlight} />
     <HookLine text={text} theme={theme} size={72} />
   </AbsoluteFill>
 );
@@ -63,7 +65,8 @@ export const RedFlagList: React.FC<RedFlagListProps> = (props) => {
   const introEnd = Math.round(total * 0.15);
   const flagsEnd = Math.round(total * 0.78);
   return (
-    <Background theme={theme} bgClips={props.bgClips}>
+    <Background theme={theme} bgClips={props.bgClips}
+      episode={props.episode} channelName={props.channelName}>
       {props.narration && <Audio src={staticFile(props.narration)} />}
       <Sequence from={0} durationInFrames={introEnd}>
         <IntroScene text={props.intro} theme={theme} />

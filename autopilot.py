@@ -965,7 +965,7 @@ def _recent_archetypes(state, niche_id, keep=3):
     return out
 
 
-def render_video(topic, niche, script, question=None, recent_archetypes=()):
+def render_video(topic, niche, script, question=None, recent_archetypes=(), episode=None):
     """Dispatch to the configured renderer.
 
       stock     MPT: stock footage under captions, ffmpeg-composited (default)
@@ -982,7 +982,7 @@ def render_video(topic, niche, script, question=None, recent_archetypes=()):
             import remotion_render
             video, archetype = remotion_render.render(
                 topic, niche, script, question=question,
-                recent_archetypes=recent_archetypes)
+                recent_archetypes=recent_archetypes, episode=episode)
             check_rendered_video(video, script)
             log(f"[{nid}] ==== RENDER done via REMOTION -> {Path(video).name} ====")
             return video, archetype
@@ -1022,9 +1022,15 @@ def run_niche(niche, state):
         topic, question = pick_topic(niche, used, used_question_ids(state, niche["id"]))
         script = generate_script(topic, niche, question,
                                  recent_tools=_recent_tools(state, niche["id"]))
+        # Episode number = however many videos this niche already shipped + 1.
+        # Displayed as a subtle #NN badge in the corner and gives the channel a
+        # sense of continuity between videos.
+        episode = sum(1 for u in state.get("uploads", [])
+                      if u.get("niche") == niche["id"]) + 1
         video, archetype = render_video(
             topic, niche, script, question=question,
-            recent_archetypes=_recent_archetypes(state, niche["id"]))
+            recent_archetypes=_recent_archetypes(state, niche["id"]),
+            episode=episode)
         log(f"[{niche['id']}] Video: {video}")
         meta = make_metadata(topic, niche, question=question)
         caption = tiktok_caption(meta, niche)

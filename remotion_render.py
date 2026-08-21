@@ -38,11 +38,14 @@ def log(msg): print(f"[remotion] {msg}", flush=True)
 # interface). Missing any required key means the script didn't fit; caller
 # falls back to MPT.
 ARCHETYPES = {
-    "CostTeardown": ("hook", "paidTool", "paidPrice", "whatItDoes", "freeStack", "catch", "payoff"),
+    # Only the fields the templates actually render on-screen count as required.
+    # whatItDoes / catch / reasoning / caveat used to be here; they were dropped
+    # when the templates stopped rendering them (narration covers those).
+    "CostTeardown": ("hook", "paidTool", "paidPrice", "freeStack", "payoff"),
     "WorkflowDemo": ("scenario", "steps", "cost", "payoff"),
     "RedFlagList": ("intro", "flags", "takeaway"),
     "StatCard": ("setup", "bigNumber", "context", "payoff"),
-    "QuestionAnswer": ("question", "tldr", "reasoning", "caveat", "payoff"),
+    "QuestionAnswer": ("question", "tldr", "payoff"),
     "BeforeAfter": ("process", "before", "after", "saving", "payoff"),
     "BuyOrBuild": ("situation", "buy", "build", "recommendation", "payoff"),
 }
@@ -301,9 +304,11 @@ def _is_complete(archetype, props):
 
 # ---- Remotion invocation ----------------------------------------------------
 
-def render(topic, niche, script, question=None, recent_archetypes=()):
+def render(topic, niche, script, question=None, recent_archetypes=(), episode=None):
     """Full Remotion render loop. Returns (mp4 path, archetype id) so the caller
-    can record which template was used and avoid reaching for it back-to-back."""
+    can record which template was used and avoid reaching for it back-to-back.
+    `episode` (int) is the running video number for this niche; rendered as a
+    subtle bottom-left badge, and helps the channel feel like a series."""
     PUBLIC_DIR.mkdir(parents=True, exist_ok=True)
     OUT_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -335,6 +340,9 @@ def render(topic, niche, script, question=None, recent_archetypes=()):
     if niche.get("theme"):
         # A niche-supplied theme overrides the codeaz default baked into the template.
         props["theme"] = niche["theme"]
+    if episode is not None:
+        props["episode"] = episode
+    props["channelName"] = niche.get("channel_label") or niche.get("id")
 
     ts = time.strftime("%Y%m%d-%H%M%S")
     out_path = OUT_DIR / f"{niche['id']}-{archetype}-{ts}.mp4"

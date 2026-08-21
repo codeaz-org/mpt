@@ -23,11 +23,13 @@ export interface StatCardProps {
   narration?: string;
   audioDuration?: number;
   theme?: Theme;
+  episode?: number;
+  channelName?: string;
 }
 
 const SetupScene: React.FC<{ text: string; theme: Theme }> = ({ text, theme }) => (
   <AbsoluteFill style={{ padding: 100, justifyContent: "center" }}>
-    <Eyebrow tag="STAT/01" label="THE NUMBER" theme={theme} />
+    <Eyebrow label="THE NUMBER" theme={theme} accent={theme.colors.highlight} />
     <HookLine text={text} theme={theme} size={82} />
   </AbsoluteFill>
 );
@@ -65,7 +67,7 @@ const NumberScene: React.FC<{
 
 const PayoffScene: React.FC<{ text: string; theme: Theme }> = ({ text, theme }) => (
   <AbsoluteFill style={{ padding: 100, justifyContent: "center" }}>
-    <Eyebrow tag="STAT/03" label="WHY IT MATTERS" theme={theme} />
+    <Eyebrow label="WHY IT MATTERS" theme={theme} />
     <HookLine text={text} theme={theme} size={72} />
   </AbsoluteFill>
 );
@@ -76,7 +78,8 @@ export const StatCard: React.FC<StatCardProps> = (props) => {
   const setupEnd = Math.round(total * 0.20);
   const numberEnd = Math.round(total * 0.72);
   return (
-    <Background theme={theme} bgClips={props.bgClips}>
+    <Background theme={theme} bgClips={props.bgClips}
+      episode={props.episode} channelName={props.channelName}>
       {props.narration && <Audio src={staticFile(props.narration)} />}
       <Sequence from={0} durationInFrames={setupEnd}>
         <SetupScene text={props.setup} theme={theme} />

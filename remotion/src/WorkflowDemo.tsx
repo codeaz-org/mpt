@@ -10,7 +10,7 @@ import {
 import { BgClip, Theme, codeazTheme } from "./theme";
 import { familyFor } from "./lib/fonts";
 import { Background, Eyebrow } from "./lib/chrome";
-import { HookLine, MetaLine } from "./lib/blocks";
+import { HookLine } from "./lib/blocks";
 import { useEnter } from "./lib/anims";
 
 export interface WorkflowDemoProps {
@@ -22,11 +22,13 @@ export interface WorkflowDemoProps {
   narration?: string;
   audioDuration?: number;
   theme?: Theme;
+  episode?: number;
+  channelName?: string;
 }
 
 const ScenarioScene: React.FC<{ text: string; theme: Theme }> = ({ text, theme }) => (
   <AbsoluteFill style={{ padding: 100, justifyContent: "center" }}>
-    <Eyebrow tag="FLOW/01" label="THE ASK" theme={theme} />
+    <Eyebrow label="THE ASK" theme={theme} />
     <HookLine text={text} theme={theme} size={78} />
   </AbsoluteFill>
 );
@@ -35,7 +37,7 @@ const StepsScene: React.FC<{
   steps: { label: string; detail: string }[]; theme: Theme;
 }> = ({ steps, theme }) => (
   <AbsoluteFill style={{ padding: 100, justifyContent: "center" }}>
-    <Eyebrow tag="FLOW/02" label="THE BUILD" theme={theme} />
+    <Eyebrow label="THE BUILD" theme={theme} />
     {steps.map((s, i) => (
       <div key={i} style={{ marginBottom: 40, ...useEnter(15 + i * 22) }}>
         <div style={{ display: "flex", alignItems: "baseline", gap: 24 }}>
@@ -69,7 +71,7 @@ const CostPayoffScene: React.FC<{ cost: string; payoff: string; theme: Theme }> 
   cost, payoff, theme,
 }) => (
   <AbsoluteFill style={{ padding: 100, justifyContent: "center" }}>
-    <Eyebrow tag="FLOW/03" label="THE COST" theme={theme} />
+    <Eyebrow label="THE COST" theme={theme} accent={theme.colors.good} />
     <div style={{
       fontFamily: familyFor(theme.fonts.mono),
       fontSize: 68, color: theme.colors.good, letterSpacing: -1, marginBottom: 80,
@@ -85,7 +87,8 @@ export const WorkflowDemo: React.FC<WorkflowDemoProps> = (props) => {
   const scenarioEnd = Math.round(total * 0.15);
   const stepsEnd = Math.round(total * 0.72);
   return (
-    <Background theme={theme} bgClips={props.bgClips}>
+    <Background theme={theme} bgClips={props.bgClips}
+      episode={props.episode} channelName={props.channelName}>
       {props.narration && <Audio src={staticFile(props.narration)} />}
       <Sequence from={0} durationInFrames={scenarioEnd}>
         <ScenarioScene text={props.scenario} theme={theme} />

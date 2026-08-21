@@ -24,6 +24,7 @@ export interface BeforeAfterProps {
   audioDuration?: number;
   theme?: Theme;
   episode?: number;
+  archetypeTag?: string;
   channelName?: string;
 }
 
@@ -100,7 +101,7 @@ export const BeforeAfter: React.FC<BeforeAfterProps> = (props) => {
   const compareEnd = Math.round(total * 0.72);
   return (
     <Background theme={theme} bgClips={props.bgClips}
-      episode={props.episode} channelName={props.channelName}>
+      episode={props.episode} archetypeTag={props.archetypeTag} channelName={props.channelName}>
       {props.narration && <Audio src={staticFile(props.narration)} />}
       <Sequence from={0} durationInFrames={processEnd}>
         <ProcessScene text={props.process} theme={theme} />

@@ -965,7 +965,22 @@ def _recent_archetypes(state, niche_id, keep=3):
     return out
 
 
-def render_video(topic, niche, script, question=None, recent_archetypes=(), episode=None):
+def _episode_counts(state, niche_id):
+    """{archetype: past_count} across every upload this niche has shipped. The
+    render badge picks past_count+1 for whichever archetype gets classified,
+    turning the counter into a real per-format series marker."""
+    counts = {}
+    for u in state.get("uploads", []):
+        if u.get("niche") != niche_id:
+            continue
+        arch = u.get("archetype")
+        if arch and arch != "mpt":
+            counts[arch] = counts.get(arch, 0) + 1
+    return counts
+
+
+def render_video(topic, niche, script, question=None, recent_archetypes=(),
+                 episode_counts=None):
     """Dispatch to the configured renderer.
 
       stock     MPT: stock footage under captions, ffmpeg-composited (default)
@@ -982,7 +997,8 @@ def render_video(topic, niche, script, question=None, recent_archetypes=(), epis
             import remotion_render
             video, archetype = remotion_render.render(
                 topic, niche, script, question=question,
-                recent_archetypes=recent_archetypes, episode=episode)
+                recent_archetypes=recent_archetypes,
+                episode_counts=episode_counts)
             check_rendered_video(video, script)
             log(f"[{nid}] ==== RENDER done via REMOTION -> {Path(video).name} ====")
             return video, archetype
@@ -1022,15 +1038,13 @@ def run_niche(niche, state):
         topic, question = pick_topic(niche, used, used_question_ids(state, niche["id"]))
         script = generate_script(topic, niche, question,
                                  recent_tools=_recent_tools(state, niche["id"]))
-        # Episode number = however many videos this niche already shipped + 1.
-        # Displayed as a subtle #NN badge in the corner and gives the channel a
-        # sense of continuity between videos.
-        episode = sum(1 for u in state.get("uploads", [])
-                      if u.get("niche") == niche["id"]) + 1
+        # Per-archetype episode counts. Whichever archetype the script gets
+        # classified into, the badge shows 'Q · 07' or 'COST · 03' etc.
+        # -- proof each format is a series, not a one-off.
         video, archetype = render_video(
             topic, niche, script, question=question,
             recent_archetypes=_recent_archetypes(state, niche["id"]),
-            episode=episode)
+            episode_counts=_episode_counts(state, niche["id"]))
         log(f"[{niche['id']}] Video: {video}")
         meta = make_metadata(topic, niche, question=question)
         caption = tiktok_caption(meta, niche)

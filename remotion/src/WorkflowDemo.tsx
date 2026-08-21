@@ -23,6 +23,7 @@ export interface WorkflowDemoProps {
   audioDuration?: number;
   theme?: Theme;
   episode?: number;
+  archetypeTag?: string;
   channelName?: string;
 }
 
@@ -88,7 +89,7 @@ export const WorkflowDemo: React.FC<WorkflowDemoProps> = (props) => {
   const stepsEnd = Math.round(total * 0.72);
   return (
     <Background theme={theme} bgClips={props.bgClips}
-      episode={props.episode} channelName={props.channelName}>
+      episode={props.episode} archetypeTag={props.archetypeTag} channelName={props.channelName}>
       {props.narration && <Audio src={staticFile(props.narration)} />}
       <Sequence from={0} durationInFrames={scenarioEnd}>
         <ScenarioScene text={props.scenario} theme={theme} />

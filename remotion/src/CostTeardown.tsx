@@ -26,6 +26,7 @@ export interface CostTeardownProps {
   audioDuration?: number;
   theme?: Theme;
   episode?: number;
+  archetypeTag?: string;
   channelName?: string;
 }
 
@@ -103,7 +104,7 @@ export const CostTeardown: React.FC<CostTeardownProps> = (props) => {
   const stackEnd = Math.round(total * 0.67);
   return (
     <Background theme={theme} bgClips={props.bgClips}
-      episode={props.episode} channelName={props.channelName}>
+      episode={props.episode} archetypeTag={props.archetypeTag} channelName={props.channelName}>
       {props.narration && <Audio src={staticFile(props.narration)} />}
       <Sequence from={0} durationInFrames={hookEnd}>
         <HookScene text={props.hook} theme={theme} />

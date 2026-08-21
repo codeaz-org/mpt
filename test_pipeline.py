@@ -789,7 +789,7 @@ class RunNicheTest(unittest.TestCase):
             # render_with_fallback above is called via that wrapper.
             mock.patch.object(autopilot, "render_video",
                               lambda t, n, s, question=None,
-                              recent_archetypes=(), episode=None:
+                              recent_archetypes=(), episode_counts=None:
                               (str(root / "video.mp4"), "QuestionAnswer")),
             # the stub file is not a real video; the render check has its own tests
             mock.patch.object(autopilot, "check_rendered_video", lambda p, s: 60.0),

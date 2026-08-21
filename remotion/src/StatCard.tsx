@@ -24,6 +24,7 @@ export interface StatCardProps {
   audioDuration?: number;
   theme?: Theme;
   episode?: number;
+  archetypeTag?: string;
   channelName?: string;
 }
 
@@ -79,7 +80,7 @@ export const StatCard: React.FC<StatCardProps> = (props) => {
   const numberEnd = Math.round(total * 0.72);
   return (
     <Background theme={theme} bgClips={props.bgClips}
-      episode={props.episode} channelName={props.channelName}>
+      episode={props.episode} archetypeTag={props.archetypeTag} channelName={props.channelName}>
       {props.narration && <Audio src={staticFile(props.narration)} />}
       <Sequence from={0} durationInFrames={setupEnd}>
         <SetupScene text={props.setup} theme={theme} />

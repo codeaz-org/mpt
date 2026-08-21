@@ -22,8 +22,9 @@ export const Background: React.FC<React.PropsWithChildren<{
   theme: Theme;
   bgClips?: BgClip[];
   episode?: number;
+  archetypeTag?: string;
   channelName?: string;
-}>> = ({ theme, bgClips, episode, channelName, children }) => {
+}>> = ({ theme, bgClips, episode, archetypeTag, channelName, children }) => {
   const { durationInFrames: total } = useVideoConfig();
   const clips = (bgClips || []).filter((c) => c && c.file);
   return (
@@ -46,8 +47,11 @@ export const Background: React.FC<React.PropsWithChildren<{
         opacity: clips.length > 0 ? 0.18 : 0.4,
       }} />
       <CompileBar theme={theme} />
-      {(channelName || episode) && (
-        <ChannelBadge channel={channelName} episode={episode} theme={theme} />
+      {(channelName || episode || archetypeTag) && (
+        <ChannelBadge
+          channel={channelName} episode={episode}
+          archetypeTag={archetypeTag} theme={theme}
+        />
       )}
       {children}
     </AbsoluteFill>
@@ -136,34 +140,44 @@ export const Eyebrow: React.FC<{
   </div>
 );
 
-/** Bottom-left channel + running episode marker. Small, muted, out of the way.
- *  Numbers come from state["uploads"] length per niche, computed in autopilot. */
+/** Bottom-left series marker. 'codeaz · Q · 07' where Q is the archetype tag
+ *  and 07 is that archetype's running count for the niche -- computed in
+ *  autopilot from state["uploads"] and passed via props. */
 export const ChannelBadge: React.FC<{
   channel?: string;
   episode?: number;
+  archetypeTag?: string;
   theme: Theme;
-}> = ({ channel, episode, theme }) => (
-  <div style={{
-    position: "absolute",
-    left: 60, bottom: 60,
-    fontFamily: familyFor(theme.fonts.mono),
-    fontSize: 24,
-    letterSpacing: 2,
-    textTransform: "uppercase",
-    color: theme.colors.muted,
-    opacity: 0.85,
-    zIndex: 55,
-    display: "flex", alignItems: "center", gap: 12,
-  }}>
-    {channel && <span>{channel}</span>}
-    {channel && episode !== undefined && (
-      <span style={{
-        width: 4, height: 4, borderRadius: 999,
-        backgroundColor: theme.colors.accent,
-      }} />
-    )}
-    {episode !== undefined && (
-      <span style={{ color: theme.colors.fg }}>#{episode}</span>
-    )}
-  </div>
-);
+}> = ({ channel, episode, archetypeTag, theme }) => {
+  const dot = (
+    <span style={{
+      width: 4, height: 4, borderRadius: 999,
+      backgroundColor: theme.colors.accent,
+    }} />
+  );
+  const num = episode !== undefined ? String(episode).padStart(2, "0") : null;
+  return (
+    <div style={{
+      position: "absolute",
+      left: 60, bottom: 60,
+      fontFamily: familyFor(theme.fonts.mono),
+      fontSize: 26,
+      letterSpacing: 3,
+      textTransform: "uppercase",
+      color: theme.colors.muted,
+      opacity: 0.9,
+      zIndex: 55,
+      display: "flex", alignItems: "center", gap: 14,
+    }}>
+      {channel && <span>{channel}</span>}
+      {channel && (archetypeTag || num) && dot}
+      {archetypeTag && (
+        <span style={{ color: theme.colors.accent, fontWeight: 700 }}>
+          {archetypeTag}
+        </span>
+      )}
+      {archetypeTag && num && dot}
+      {num && <span style={{ color: theme.colors.fg, fontWeight: 700 }}>{num}</span>}
+    </div>
+  );
+};

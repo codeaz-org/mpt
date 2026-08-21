@@ -22,6 +22,7 @@ export interface RedFlagListProps {
   audioDuration?: number;
   theme?: Theme;
   episode?: number;
+  archetypeTag?: string;
   channelName?: string;
 }
 
@@ -66,7 +67,7 @@ export const RedFlagList: React.FC<RedFlagListProps> = (props) => {
   const flagsEnd = Math.round(total * 0.78);
   return (
     <Background theme={theme} bgClips={props.bgClips}
-      episode={props.episode} channelName={props.channelName}>
+      episode={props.episode} archetypeTag={props.archetypeTag} channelName={props.channelName}>
       {props.narration && <Audio src={staticFile(props.narration)} />}
       <Sequence from={0} durationInFrames={introEnd}>
         <IntroScene text={props.intro} theme={theme} />

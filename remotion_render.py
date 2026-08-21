@@ -50,6 +50,19 @@ ARCHETYPES = {
     "BuyOrBuild": ("situation", "buy", "build", "recommendation", "payoff"),
 }
 
+# Compact archetype label for the ChannelBadge. Paired with a running per-
+# archetype counter so a viewer sees "Q · 07" or "COST · 03" -- proof that
+# each format is a series, not a one-off.
+ARCHETYPE_TAGS = {
+    "QuestionAnswer": "Q",
+    "CostTeardown": "COST",
+    "WorkflowDemo": "FLOW",
+    "RedFlagList": "FLAGS",
+    "StatCard": "STAT",
+    "BeforeAfter": "B/A",
+    "BuyOrBuild": "DECIDE",
+}
+
 
 # ---- narration (edge-tts) --------------------------------------------------
 
@@ -304,17 +317,22 @@ def _is_complete(archetype, props):
 
 # ---- Remotion invocation ----------------------------------------------------
 
-def render(topic, niche, script, question=None, recent_archetypes=(), episode=None):
+def render(topic, niche, script, question=None, recent_archetypes=(),
+           episode_counts=None):
     """Full Remotion render loop. Returns (mp4 path, archetype id) so the caller
     can record which template was used and avoid reaching for it back-to-back.
-    `episode` (int) is the running video number for this niche; rendered as a
-    subtle bottom-left badge, and helps the channel feel like a series."""
+    `episode_counts` is a dict {archetype: past_count}; the badge shows
+    'past_count + 1' for whichever archetype gets picked -- a per-format
+    series counter."""
     PUBLIC_DIR.mkdir(parents=True, exist_ok=True)
     OUT_DIR.mkdir(parents=True, exist_ok=True)
 
     archetype = classify_archetype(topic, script, question, niche, recent_archetypes)
     if archetype == "unknown":
         raise RuntimeError("no Remotion archetype fits this script")
+    past = (episode_counts or {}).get(archetype, 0)
+    episode = past + 1
+    archetype_tag = ARCHETYPE_TAGS.get(archetype, archetype[:4].upper())
     props = extract_props(archetype, topic, script, question)
     ok, missing = _is_complete(archetype, props)
     if not ok:
@@ -340,8 +358,8 @@ def render(topic, niche, script, question=None, recent_archetypes=(), episode=No
     if niche.get("theme"):
         # A niche-supplied theme overrides the codeaz default baked into the template.
         props["theme"] = niche["theme"]
-    if episode is not None:
-        props["episode"] = episode
+    props["episode"] = episode
+    props["archetypeTag"] = archetype_tag
     props["channelName"] = niche.get("channel_label") or niche.get("id")
 
     ts = time.strftime("%Y%m%d-%H%M%S")

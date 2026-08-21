@@ -24,6 +24,7 @@ export interface BuyOrBuildProps {
   audioDuration?: number;
   theme?: Theme;
   episode?: number;
+  archetypeTag?: string;
   channelName?: string;
 }
 
@@ -114,7 +115,7 @@ export const BuyOrBuild: React.FC<BuyOrBuildProps> = (props) => {
   const compareEnd = Math.round(total * 0.78);
   return (
     <Background theme={theme} bgClips={props.bgClips}
-      episode={props.episode} channelName={props.channelName}>
+      episode={props.episode} archetypeTag={props.archetypeTag} channelName={props.channelName}>
       {props.narration && <Audio src={staticFile(props.narration)} />}
       <Sequence from={0} durationInFrames={situationEnd}>
         <SituationScene text={props.situation} theme={theme} />

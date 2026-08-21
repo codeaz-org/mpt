@@ -24,6 +24,7 @@ export interface QuestionAnswerProps {
   audioDuration?: number;
   theme?: Theme;
   episode?: number;
+  archetypeTag?: string;
   channelName?: string;
 }
 
@@ -69,7 +70,7 @@ export const QuestionAnswer: React.FC<QuestionAnswerProps> = (props) => {
   const aEnd = Math.round(total * 0.75);
   return (
     <Background theme={theme} bgClips={props.bgClips}
-      episode={props.episode} channelName={props.channelName}>
+      episode={props.episode} archetypeTag={props.archetypeTag} channelName={props.channelName}>
       {props.narration && <Audio src={staticFile(props.narration)} />}
       <Sequence from={0} durationInFrames={qEnd}>
         <QuestionScene text={props.question} theme={theme} />

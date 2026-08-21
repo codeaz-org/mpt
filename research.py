@@ -283,12 +283,21 @@ def fetch_youtube_trending(category_id="28", region="US", limit=25):
     key = (os.environ.get("YOUTUBE_API_KEY") or "").strip()
     if not key or key.lower() == "xxxx":
         raise RuntimeError("YOUTUBE_API_KEY not set")
-    r = _get(
-        "https://www.googleapis.com/youtube/v3/videos",
-        params={"part": "snippet,statistics", "chart": "mostPopular",
-                "videoCategoryId": str(category_id), "maxResults": min(limit, 50),
-                "regionCode": region, "key": key},
-    )
+    try:
+        r = _get(
+            "https://www.googleapis.com/youtube/v3/videos",
+            params={"part": "snippet,statistics", "chart": "mostPopular",
+                    "videoCategoryId": str(category_id), "maxResults": min(limit, 50),
+                    "regionCode": region, "key": key},
+            attempts=2,
+        )
+    except requests.HTTPError as e:
+        # 404 = "no trending chart in this region for this category." That's
+        # a normal state for niche categories like Education (27); treat as
+        # empty rather than a run-failing error.
+        if e.response is not None and e.response.status_code == 404:
+            return []
+        raise
     posts = []
     for item in r.json().get("items", []):
         s = item.get("snippet") or {}

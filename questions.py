@@ -179,7 +179,11 @@ def _hot_subjects(used_topics, keep_last=6):
                 hot.add(s)
             else:
                 generic[s] += 1
-    hot.update(tok for tok, n in generic.items() if n >= 2)
+    # Generic tokens need 3+ mentions in the last N to cool off. 2 was too low --
+    # 'small' from 'small business' recurred and blocked the whole niche's core
+    # vocabulary. 3 out of 6 is 'half the recent posts said this word' -- an
+    # honest repetition signal without eating common language.
+    hot.update(tok for tok, n in generic.items() if n >= 3)
     return hot
 
 

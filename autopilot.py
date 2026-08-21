@@ -143,8 +143,22 @@ def pick_topic(niche, used_topics, used_question_ids=(), attempts=2):
         raise RuntimeError("no unanswered questions today: widen the niche's sources")
 
     rejected = []
+    last_err = None
     for attempt in range(attempts):
-        topic, question = questions.choose(niche, [q for q in available if q not in rejected])
+        pool = [q for q in available if q not in rejected]
+        if not pool:
+            break
+        # Shuffle on retries so the model sees a different top of the list --
+        # gpt-oss will return {} when its first look at the shortlist doesn't
+        # match its taste, and offering the same shortlist gets the same {}.
+        if attempt:
+            random.shuffle(pool)
+        try:
+            topic, question = questions.choose(niche, pool)
+        except RuntimeError as e:
+            last_err = e
+            log(f"[{niche['id']}] select attempt {attempt + 1}/{attempts}: {str(e)[:180]}")
+            continue
         clash, why = too_similar(topic, used_topics)
         if clash:
             log(f"[{niche['id']}] rejected '{topic}' -- {why} with '{clash}'")
@@ -153,6 +167,8 @@ def pick_topic(niche, used_topics, used_question_ids=(), attempts=2):
         log(f"[{niche['id']}] Topic: {topic}")
         log(f"[{niche['id']}] answering: {question['url']}")
         return topic, question
+    if last_err:
+        raise last_err
     raise RuntimeError("every candidate question repeated an existing video")
 
 

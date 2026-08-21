@@ -663,10 +663,6 @@ def upload_youtube(video_path, meta, niche):
         "status": {
             "privacyStatus": "public",
             "selfDeclaredMadeForKids": False,
-            # The narration is model-written and the voice is synthetic, so YouTube's
-            # altered-media disclosure applies. Undisclosed synthetic media is itself a
-            # monetisation risk, and the label costs nothing.
-            "containsSyntheticMedia": True,
         },
     }
     media = MediaFileUpload(video_path, chunksize=-1, resumable=True, mimetype="video/mp4")

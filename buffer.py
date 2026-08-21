@@ -177,8 +177,7 @@ def _create_post(channel_id, caption, assets, title):
         "needsApproval": False,
         "saveToDraft": draft,
         "source": "mpt-autopilot",
-        # TikTok requires AI-generated content to be disclosed.
-        "metadata": {"tiktok": {"title": (title or caption)[:150], "isAiGenerated": True}},
+        "metadata": {"tiktok": {"title": (title or caption)[:150]}},
     }})
     result = data["createPost"]
     if result.get("__typename") != "PostActionSuccess":

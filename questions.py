@@ -106,26 +106,79 @@ do so if not just about that this these those there here have has had will would
 using use used make makes made get gets got new best free my me our we they them their
 why-does why-is how-do how-to what-is""".split())
 _SUBJECT_TOKEN_RE = re.compile(r"[a-z][a-z0-9\-\.]{3,}")
+# 2- and 3-char brand tokens the length-based regex misses. "ai" is the one that
+# actually keeps bleeding through -- "free AI apps", "AI tools for X", "AI for
+# founders" all read as different subjects to the token extractor and the
+# channel drifted into an AI monologue for it. Add here as new short aliases show up.
+_SHORT_BRAND_RE = re.compile(
+    r"\b(?:ai|a\.i\.|artificial intelligence|llm|gpt|chatgpt|claude|ml|nlp|api|iot|vr|ar|3d)\b",
+    re.I)
+
+_KNOWN_BRANDS_LOWER = None
+
+
+def _brand_aliases():
+    """Case-insensitive brand name set from autopilot._TRACKED_TOOLS. Imported
+    lazily to avoid the autopilot -> questions -> autopilot import cycle."""
+    global _KNOWN_BRANDS_LOWER
+    if _KNOWN_BRANDS_LOWER is None:
+        try:
+            import autopilot
+            _KNOWN_BRANDS_LOWER = {t.lower() for t in autopilot._TRACKED_TOOLS}
+        except Exception:
+            _KNOWN_BRANDS_LOWER = set()
+    return _KNOWN_BRANDS_LOWER
 
 
 def _subject_tokens(text):
     return [t for t in _SUBJECT_TOKEN_RE.findall(text.lower()) if t not in _SUBJECT_STOP]
 
 
-def _hot_subjects(used_topics, keep_last=8, min_repeats=2):
-    """Subject nouns that appear in >=min_repeats of the last N posted topics --
-    the ones the channel is leaning on. Later we push questions that hit these to
-    the tail of the shortlist so fresher subjects surface first."""
-    counts = Counter()
+def _subjects(text):
+    """All meaningful subject markers in `text`: 4+ char nouns from _subject_tokens,
+    plus any tracked brand that appears as a substring (so 'Vercel' and 'vercel'
+    both count), plus short aliases like 'AI'/'LLM' the length-4 token regex
+    would miss. The set is used to hard-block recent subjects at pick time."""
+    if not text:
+        return set()
+    out = set(_subject_tokens(text))
+    low = text.lower()
+    for brand in _brand_aliases():
+        if brand in low:
+            out.add(brand)
+    if _SHORT_BRAND_RE.search(low):
+        out.add("ai")
+    return out
+
+
+def _hot_subjects(used_topics, keep_last=6):
+    """Every subject marker that would over-repeat if not cooled off. Two rules:
+     - BRAND names (Vercel, Supabase, OpenAI, ...) and the AI umbrella hard-cool
+       on a SINGLE mention in the last N posts. These are the subjects the channel
+       keeps looping on, and 'don't cite Vercel until 6 posts have gone by' is
+       exactly the forcing function we want.
+     - GENERIC tokens (any word that is not a tracked brand) still need 2+
+       mentions to cool off, or we would block half the language. keep_last=6
+       is about three days of runs at the current cadence."""
+    brands = _brand_aliases() | {"ai"}
+    hot = set()
+    generic = Counter()
     for topic in used_topics[-keep_last:]:
-        counts.update(set(_subject_tokens(topic)))
-    return {tok for tok, n in counts.items() if n >= min_repeats}
+        for s in _subjects(topic):
+            if s in brands:
+                hot.add(s)
+            else:
+                generic[s] += 1
+    hot.update(tok for tok, n in generic.items() if n >= 2)
+    return hot
 
 
 def unused(questions, used_ids, used_topics, too_similar):
     """Drop anything already turned into a video, by source id or by subject.
-    Then re-rank so questions on subjects the channel has leaned on recently
-    fall to the tail. Stable sort preserves engagement order within a bucket."""
+    Then HARD-BLOCK any candidate that mentions a subject used in the last few
+    posts -- vocab-jaccard alone let 'Vercel free tier' and 'Deploy on Vercel'
+    both count as fresh. If the hard block leaves nothing, fall back to a soft
+    downrank so a run does not stall on an empty shortlist."""
     out = []
     for q in questions:
         if q.get("id") and q["id"] in used_ids:
@@ -135,9 +188,16 @@ def unused(questions, used_ids, used_topics, too_similar):
             continue
         out.append(q)
     hot = _hot_subjects(used_topics)
-    if hot:
-        out.sort(key=lambda q: len(hot.intersection(_subject_tokens(q.get("title") or ""))))
-        log(f"downranked recent subjects: {sorted(hot)}")
+    if not hot:
+        return out
+    fresh = [q for q in out if not hot.intersection(_subjects(q.get("title") or ""))]
+    if fresh:
+        log(f"blocked {len(out) - len(fresh)} candidates on recent subjects: {sorted(hot)}")
+        return fresh
+    # Everything on the shortlist overlaps something recent -- publish something
+    # rather than nothing, but push the least-overlapping options first.
+    out.sort(key=lambda q: len(hot.intersection(_subjects(q.get("title") or ""))))
+    log(f"all candidates overlap recent subjects; downranked instead: {sorted(hot)}")
     return out
 
 

@@ -569,10 +569,10 @@ class YouTubeCredentialsTest(unittest.TestCase):
             self.assertEqual(autopilot.youtube_credentials("aiworks")[2], "")
 
 
-class YouTubeDisclosureTest(unittest.TestCase):
-    def test_upload_declares_synthetic_media(self):
-        """Model-written narration with a synthetic voice must carry YouTube's altered
-        media disclosure; leaving it off is itself a monetisation risk."""
+class YouTubeUploadTest(unittest.TestCase):
+    def test_upload_uses_public_privacy_and_no_synthetic_flag(self):
+        """The upload no longer self-declares altered media -- the flag was removed
+        by request. The body still ships public and not-for-kids."""
         captured = {}
 
         class Insert:
@@ -598,7 +598,8 @@ class YouTubeDisclosureTest(unittest.TestCase):
                                           "YT_REFRESH_TOKEN_CODEAZ": "r"}):
             autopilot.upload_youtube("/tmp/v.mp4",
                                      {"title": "T", "description": "D"}, NICHE)
-        self.assertTrue(captured["body"]["status"]["containsSyntheticMedia"])
+        self.assertEqual(captured["body"]["status"]["privacyStatus"], "public")
+        self.assertNotIn("containsSyntheticMedia", captured["body"]["status"])
         self.assertIn("status", captured["part"])
 
 
@@ -650,7 +651,7 @@ class BufferChannelRoutingTest(unittest.TestCase):
 
 
 class BufferTest(unittest.TestCase):
-    def test_publish_sends_caption_and_ai_disclosure(self):
+    def test_publish_sends_caption_without_ai_flag(self):
         sent = {}
 
         def gql(query, variables=None):
@@ -673,8 +674,8 @@ class BufferTest(unittest.TestCase):
         self.assertEqual(inp["schedulingType"], "automatic")
         # queueing it put videos days out behind an existing backlog
         self.assertEqual(inp["mode"], "shareNow")
-        # TikTok requires AI-generated content to be disclosed.
-        self.assertTrue(inp["metadata"]["tiktok"]["isAiGenerated"])
+        # isAiGenerated was removed by request; ensure it does not sneak back
+        self.assertNotIn("isAiGenerated", inp["metadata"]["tiktok"])
 
     def test_error_union_is_reported(self):
         def gql(query, variables=None):

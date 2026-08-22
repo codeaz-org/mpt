@@ -48,7 +48,8 @@
       "How to Bootstrap a SaaS Startup to Ramen Profitability",
       "Stack Choices for Indie Hackers: Concrete Tech Picks for Rapid MVPs",
       "All-in-One Website Builders: Wix, Squarespace, Webflow, or Carrd for Small Biz",
-      "Sync product listings across Amazon, eBay, Shopify with a free Google Sheets + n8n workflow"
+      "Sync product listings across Amazon, eBay, Shopify with a free Google Sheets + n8n workflow",
+      "Drag\u2011and\u2011Drop Website Builders: Wix vs. Softr, Carrd, and Webflow \u2013 which is best for SMBs?"
     ]
   },
   "uploads": [
@@ -666,6 +667,21 @@
       "tiktok_caption": "Sync Amazon, eBay & Shopify Listings in 5 Minutes\u2014FREE Google Sheets + n8n!\n\nLearn how to automate your product listings across Amazon, eBay, and Shopify using a free Google Sheets template and n8n workflow. Watch now and start saving hours\u2014follow for more automation hacks!\n\n#nocodeautomation #ecomhacks #n8n #amazonsellers #shopifyautomation",
       "archetype": "WorkflowDemo",
       "ts": "2026-08-21T19:53:11"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Drag\u2011and\u2011Drop Website Builders: Wix vs. Softr, Carrd, and Webflow \u2013 which is best for SMBs?",
+      "title": "Wix vs Softr vs Carrd vs Webflow: Which Drag\u2011and\u2011Drop Builder Wins SMBs?",
+      "question": "Best Wix alternatives for easy drag-and-drop website building?",
+      "question_id": "reddit:1vsmweu",
+      "question_url": "https://reddit.com/r/nocode/comments/1vsmweu/best_wix_alternatives_for_easy_draganddrop/",
+      "youtube": "002uiLIgGfs",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6a8953aa62b911df3f138c55",
+      "tiktok_caption": "Wix vs Softr vs Carrd vs Webflow: Which Drag\u2011and\u2011Drop Builder Wins SMBs?\n\nFind out which no\u2011code platform gives SMBs the best balance of ease, customization, and cost. Watch now and decide the right builder for your business!\n\n#nocodefounder #webbuilder #smallbiz #kebab #nocode",
+      "archetype": "BuyOrBuild",
+      "ts": "2026-08-22T07:45:43"
     }
   ]
 }

@@ -49,7 +49,8 @@
       "Stack Choices for Indie Hackers: Concrete Tech Picks for Rapid MVPs",
       "All-in-One Website Builders: Wix, Squarespace, Webflow, or Carrd for Small Biz",
       "Sync product listings across Amazon, eBay, Shopify with a free Google Sheets + n8n workflow",
-      "Drag\u2011and\u2011Drop Website Builders: Wix vs. Softr, Carrd, and Webflow \u2013 which is best for SMBs?"
+      "Drag\u2011and\u2011Drop Website Builders: Wix vs. Softr, Carrd, and Webflow \u2013 which is best for SMBs?",
+      "Migrate from QuickBooks Desktop to QuickBooks Online: Step\u2011by\u2011step workflow"
     ]
   },
   "uploads": [
@@ -682,6 +683,21 @@
       "tiktok_caption": "Wix vs Softr vs Carrd vs Webflow: Which Drag\u2011and\u2011Drop Builder Wins SMBs?\n\nFind out which no\u2011code platform gives SMBs the best balance of ease, customization, and cost. Watch now and decide the right builder for your business!\n\n#nocodefounder #webbuilder #smallbiz #kebab #nocode",
       "archetype": "BuyOrBuild",
       "ts": "2026-08-22T07:45:43"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Migrate from QuickBooks Desktop to QuickBooks Online: Step\u2011by\u2011step workflow",
+      "title": "\ud83d\ude80 QuickBooks Migration: From Desktop to Online in 5 Easy Steps!",
+      "question": "how to migrate from quickbooks desktop to online",
+      "question_id": "gsuggest:how to migrate from quickbooks desktop to online",
+      "question_url": "https://www.google.com/search?q=how%20to%20migrate%20from%20quickbooks%20desktop%20to%20online",
+      "youtube": "z3WyVI6DvQw",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6a89fcb6deb4b57dfea8becb",
+      "tiktok_caption": "\ud83d\ude80 QuickBooks Migration: From Desktop to Online in 5 Easy Steps!\n\nLearn the step\u2011by\u2011step workflow to seamlessly move from QuickBooks Desktop to QuickBooks Online without losing data. Hit that follow button for more finance hacks!\n\n#quickbooksmigration #quickbooksdesktop #quickbooksonline #financehacks #nocodefounder",
+      "archetype": "WorkflowDemo",
+      "ts": "2026-08-22T19:47:00"
     }
   ]
 }

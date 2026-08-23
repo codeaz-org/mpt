@@ -50,7 +50,8 @@
       "All-in-One Website Builders: Wix, Squarespace, Webflow, or Carrd for Small Biz",
       "Sync product listings across Amazon, eBay, Shopify with a free Google Sheets + n8n workflow",
       "Drag\u2011and\u2011Drop Website Builders: Wix vs. Softr, Carrd, and Webflow \u2013 which is best for SMBs?",
-      "Migrate from QuickBooks Desktop to QuickBooks Online: Step\u2011by\u2011step workflow"
+      "Migrate from QuickBooks Desktop to QuickBooks Online: Step\u2011by\u2011step workflow",
+      "AI chat on a Shopify store: is it worth the cost?"
     ]
   },
   "uploads": [
@@ -698,6 +699,21 @@
       "tiktok_caption": "\ud83d\ude80 QuickBooks Migration: From Desktop to Online in 5 Easy Steps!\n\nLearn the step\u2011by\u2011step workflow to seamlessly move from QuickBooks Desktop to QuickBooks Online without losing data. Hit that follow button for more finance hacks!\n\n#quickbooksmigration #quickbooksdesktop #quickbooksonline #financehacks #nocodefounder",
       "archetype": "WorkflowDemo",
       "ts": "2026-08-22T19:47:00"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "AI chat on a Shopify store: is it worth the cost?",
+      "title": "AI Chat on Shopify? Worth the $$$ or a Waste? \ud83e\udd16\ud83d\udcb8",
+      "question": "AI chat on the store website. Yes or No?",
+      "question_id": "reddit:1vudpvc",
+      "question_url": "https://reddit.com/r/ecommerce/comments/1vudpvc/ai_chat_on_the_store_website_yes_or_no/",
+      "youtube": "TQK9zK67hO8",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6a8aa62fdd02437c21a774dc",
+      "tiktok_caption": "AI Chat on Shopify? Worth the $$$ or a Waste? \ud83e\udd16\ud83d\udcb8\n\nFind out if integrating AI chat will boost sales or drain your budget. Watch the verdict and decide for your store! Don't forget to follow for more e\u2011commerce hacks.\n\n#shopifyai #ecomhacks #nocodefounder #onlinesales #kebab",
+      "archetype": "QuestionAnswer",
+      "ts": "2026-08-23T07:50:04"
     }
   ]
 }

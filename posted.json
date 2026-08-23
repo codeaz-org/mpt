@@ -51,7 +51,8 @@
       "Sync product listings across Amazon, eBay, Shopify with a free Google Sheets + n8n workflow",
       "Drag\u2011and\u2011Drop Website Builders: Wix vs. Softr, Carrd, and Webflow \u2013 which is best for SMBs?",
       "Migrate from QuickBooks Desktop to QuickBooks Online: Step\u2011by\u2011step workflow",
-      "AI chat on a Shopify store: is it worth the cost?"
+      "AI chat on a Shopify store: is it worth the cost?",
+      "Automate Competitor SEO Tracking: A No-Code Workflow for Founders"
     ]
   },
   "uploads": [
@@ -714,6 +715,21 @@
       "tiktok_caption": "AI Chat on Shopify? Worth the $$$ or a Waste? \ud83e\udd16\ud83d\udcb8\n\nFind out if integrating AI chat will boost sales or drain your budget. Watch the verdict and decide for your store! Don't forget to follow for more e\u2011commerce hacks.\n\n#shopifyai #ecomhacks #nocodefounder #onlinesales #kebab",
       "archetype": "QuestionAnswer",
       "ts": "2026-08-23T07:50:04"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Automate Competitor SEO Tracking: A No-Code Workflow for Founders",
+      "title": "Automate Competitor SEO Tracking: No-Code Workflow for Founders",
+      "question": "How do you monitor competitor SEO changes?",
+      "question_id": "reddit:1vugfj1",
+      "question_url": "https://reddit.com/r/digital_marketing/comments/1vugfj1/how_do_you_monitor_competitor_seo_changes/",
+      "youtube": "rXqerAakT20",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6a8b4d84c4b6488062161139",
+      "tiktok_caption": "Automate Competitor SEO Tracking: No-Code Workflow for Founders\n\nWatch how to set up a free, no-code system to monitor competitor rankings and content changes in real-time. Hit follow for more founder hacks that save you time and money!\n\n#nocodefounder #seoautomation #startuphacks #productivitytips #kebab",
+      "archetype": "WorkflowDemo",
+      "ts": "2026-08-23T19:44:00"
     }
   ]
 }

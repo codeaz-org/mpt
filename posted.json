@@ -53,7 +53,8 @@
       "Migrate from QuickBooks Desktop to QuickBooks Online: Step\u2011by\u2011step workflow",
       "AI chat on a Shopify store: is it worth the cost?",
       "Automate Competitor SEO Tracking: A No-Code Workflow for Founders",
-      "How to Back Up Your Entire Shopify Store for Real Protection"
+      "How to Back Up Your Entire Shopify Store for Real Protection",
+      "Automate Document Workflows with a Human\u2011in\u2011the\u2011Loop: Free\u2011Tier Tools for Small Teams"
     ]
   },
   "uploads": [
@@ -746,6 +747,21 @@
       "tiktok_caption": "Back Up Your Shopify Store in 3 Easy Steps\u2014Don\u2019t Lose Your Sales!\n\nLearn how to safeguard every product, order, and customer detail with a simple backup routine. Hit follow for more Shopify hacks that protect your business!\n\n#shopifybackup #ecommercesecurity #storebackup #kebab #nocodefounder",
       "archetype": "QuestionAnswer",
       "ts": "2026-08-24T08:12:51"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Automate Document Workflows with a Human\u2011in\u2011the\u2011Loop: Free\u2011Tier Tools for Small Teams",
+      "title": "Automate Docs with Human\u2011in\u2011the\u2011Loop\u2014Free Tools for Tiny Teams",
+      "question": "How are you handling document workflows that still require humans to babysit them?",
+      "question_id": "reddit:1vv37ti",
+      "question_url": "https://reddit.com/r/sysadmin/comments/1vv37ti/how_are_you_handling_document_workflows_that/",
+      "youtube": "VJ7hfLK79Ak",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6a8ca0697fa16d24f51e17d6",
+      "tiktok_caption": "Automate Docs with Human\u2011in\u2011the\u2011Loop\u2014Free Tools for Tiny Teams\n\nDiscover how to automate document workflows while keeping a human touch, using free\u2011tier tools that fit any small team\u2019s budget. Master the balance of efficiency and oversight\u2014follow for more automation hacks!\n\n#nocodefounder #docautomation #teamproductivity #freeautomation #kebab",
+      "archetype": "WorkflowDemo",
+      "ts": "2026-08-24T19:49:58"
     }
   ]
 }

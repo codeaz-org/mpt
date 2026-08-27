@@ -312,6 +312,7 @@ def fetch_youtube_search(query, days=7, limit=15):
             "source": f"YouTube search '{query}' ({days}d)",
             "hashtags": [f"#{t}" for t in tags],
         })
+    log(f"youtube search '{query}' -> {len(posts)} items")
     return posts
 
 
@@ -367,6 +368,7 @@ def fetch_youtube_trending(category_id="28", region="US", limit=25):
             "source": f"YouTube trending [{category_id}]",
             "hashtags": [f"#{t}" for t in tags[:5]],
         })
+    log(f"youtube trending [{category_id}] -> {len(posts)} items")
     return posts
 
 

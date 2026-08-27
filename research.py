@@ -271,6 +271,50 @@ def fetch_google_suggest(seed, limit=10):
 _YT_HASHTAG_RE = re.compile(r"#([A-Za-z][A-Za-z0-9_]{1,40})")
 
 
+def fetch_youtube_search(query, days=7, limit=15):
+    """YouTube search sorted by view count, restricted to short videos posted
+    in the last `days`. This is 'what is popping on Shorts about topic X right
+    now' -- the same signal TikTok's discovery would give us, but via an API
+    that works from a CI runner without cookies or signed headers.
+
+    Costs 100 quota units per call (vs 1 for trending). Runs 2x/day; a niche
+    with 5 search queries burns 1000/day against the 10K free ceiling."""
+    key = (os.environ.get("YOUTUBE_API_KEY") or "").strip()
+    if not key or key.lower() == "xxxx":
+        raise RuntimeError("YOUTUBE_API_KEY not set")
+    published_after = time.strftime("%Y-%m-%dT%H:%M:%SZ",
+                                    time.gmtime(time.time() - days * 86400))
+    r = _get(
+        "https://www.googleapis.com/youtube/v3/search",
+        params={"part": "snippet", "type": "video", "videoDuration": "short",
+                "order": "viewCount", "publishedAfter": published_after,
+                "q": query, "maxResults": min(limit, 25), "key": key},
+        attempts=2,
+    )
+    posts = []
+    for item in r.json().get("items", []):
+        s = item.get("snippet") or {}
+        title = (s.get("title") or "").strip()
+        vid = ((item.get("id") or {}).get("videoId") or "").strip()
+        if not title or not vid:
+            continue
+        desc = s.get("description") or ""
+        # Copy the top creator's hashtags forward -- same policy as the trending
+        # fetcher. #kebab-case slugs pulled from the title/description first.
+        tags = _YT_HASHTAG_RE.findall(f"{title} {desc}")[:5]
+        posts.append({
+            "title": title,
+            "text": desc[:400],
+            "score": 5,  # search response omits view count without a second call
+            "num_comments": 0,
+            "id": f"yts:{vid}",
+            "url": f"https://youtube.com/watch?v={vid}",
+            "source": f"YouTube search '{query}' ({days}d)",
+            "hashtags": [f"#{t}" for t in tags],
+        })
+    return posts
+
+
 def fetch_youtube_trending(category_id="28", region="US", limit=25):
     """YouTube Data API v3 chart=mostPopular for a category. Each returned item
     carries the source video's hashtags -- pulled from literal '#' mentions in
@@ -380,6 +424,13 @@ def gather(niche):
             posts += fetch_youtube_trending(cat)
         except Exception as e:
             log(f"youtube trending [{cat}] failed: {type(e).__name__}: {str(e)[:80]}")
+        time.sleep(1)
+
+    for query in niche.get("youtube_search_queries") or niche.get("hn_queries", [])[:5]:
+        try:
+            posts += fetch_youtube_search(query)
+        except Exception as e:
+            log(f"youtube search '{query}' failed: {type(e).__name__}: {str(e)[:80]}")
         time.sleep(1)
 
     seen, out = set(), []

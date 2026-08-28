@@ -60,7 +60,8 @@
       "Stop drowning in spreadsheets\u2014here\u2019s the budgeting SaaS that scales",
       "Cost to Build an App for Your Small Business in 2026",
       "Automate Lead Delivery from Partnerships with Make (formerly Integromat)",
-      "Backup Your MacBook: Free Tier Options vs Paid Cloud Backups"
+      "Backup Your MacBook: Free Tier Options vs Paid Cloud Backups",
+      "Schedule a Text Message with Twilio on a Free Tier"
     ]
   },
   "uploads": [
@@ -858,6 +859,21 @@
       "tiktok_caption": "Back Up Your MacBook for FREE vs Paid Cloud? \ud83d\ude80\n\nDiscover the best free tier options to protect your MacBook, and see how paid cloud backups stack up in speed and security. Don\u2019t forget to hit follow for more tech hacks!\n\n#macbook #cloudbackup #nocodefounder #tech #kebab",
       "archetype": "CostTeardown",
       "ts": "2026-08-28T02:45:57"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Schedule a Text Message with Twilio on a Free Tier",
+      "title": "Send Timed SMS for Free with Twilio | No Code Demo",
+      "question": "how do i schedule a text message",
+      "question_id": "gsuggest:how do i schedule a text message",
+      "question_url": "https://www.google.com/search?q=how%20do%20i%20schedule%20a%20text%20message",
+      "youtube": "DAmVKbW8wjw",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6a91e2d21abdeaabf9abb484",
+      "tiktok_caption": "Send Timed SMS for Free with Twilio | No Code Demo\n\nLearn how to schedule a text message using Twilio\u2019s free tier in just a few clicks. Ready to automate your alerts? Hit follow for more quick tech hacks!\n\n#twilio #freecode #smsautomation #nocodefounder #kebab",
+      "archetype": "WorkflowDemo",
+      "ts": "2026-08-28T19:34:39"
     }
   ]
 }

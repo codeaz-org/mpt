@@ -59,7 +59,8 @@
       "Build a SaaS MVP in 48 Hours with Bubble, Adalo, and Glide",
       "Stop drowning in spreadsheets\u2014here\u2019s the budgeting SaaS that scales",
       "Cost to Build an App for Your Small Business in 2026",
-      "Automate Lead Delivery from Partnerships with Make (formerly Integromat)"
+      "Automate Lead Delivery from Partnerships with Make (formerly Integromat)",
+      "Backup Your MacBook: Free Tier Options vs Paid Cloud Backups"
     ]
   },
   "uploads": [
@@ -842,6 +843,21 @@
       "tiktok_caption": "\ud83d\ude80 Automate Lead Delivery with Make! No Coding Needed\n\nLearn how to instantly deliver leads from partner sites using Make, the no-code automation platform. Watch the full tutorial and start saving hours today\u2014follow for more automation hacks!\n\n#nocodefounder #automation #leadgeneration #makeautomation #kebab",
       "archetype": "WorkflowDemo",
       "ts": "2026-08-27T18:20:38"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Backup Your MacBook: Free Tier Options vs Paid Cloud Backups",
+      "title": "Back Up Your MacBook for FREE vs Paid Cloud? \ud83d\ude80",
+      "question": "how to backup my macbook",
+      "question_id": "gsuggest:how to backup my macbook",
+      "question_url": "https://www.google.com/search?q=how%20to%20backup%20my%20macbook",
+      "youtube": "klcrsYMx_ZE",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6a90f668df4be5293ae061b3",
+      "tiktok_caption": "Back Up Your MacBook for FREE vs Paid Cloud? \ud83d\ude80\n\nDiscover the best free tier options to protect your MacBook, and see how paid cloud backups stack up in speed and security. Don\u2019t forget to hit follow for more tech hacks!\n\n#macbook #cloudbackup #nocodefounder #tech #kebab",
+      "archetype": "CostTeardown",
+      "ts": "2026-08-28T02:45:57"
     }
   ]
 }

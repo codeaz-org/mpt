@@ -62,7 +62,8 @@
       "Automate Lead Delivery from Partnerships with Make (formerly Integromat)",
       "Backup Your MacBook: Free Tier Options vs Paid Cloud Backups",
       "Schedule a Text Message with Twilio on a Free Tier",
-      "Why Is My SaaS Still Pending? Quick Fixes for Launch Delays"
+      "Why Is My SaaS Still Pending? Quick Fixes for Launch Delays",
+      "Automate WhatsApp replies for small biz without code"
     ]
   },
   "uploads": [
@@ -890,6 +891,21 @@
       "tiktok_caption": "SaaS Launch on Hold? 3 Quick Fixes to Get It LIVE Fast!\n\nYour SaaS is still pending? Find out the top three fixes that can move your launch from pending to live in minutes. Don\u2019t wait\u2014apply these hacks now and hit that follow button for more rapid\u2011fire SaaS tips!\n\n#saaslaunch #startuphacks #productmanagement #nocodefounder #kebab",
       "archetype": "QuestionAnswer",
       "ts": "2026-08-29T02:24:34"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Automate WhatsApp replies for small biz without code",
+      "title": "\ud83d\ude80 Auto-Reply WhatsApp for Small Biz\u2014No Code Needed!",
+      "question": "\ud83d\udcf2 WhatsApp API-na enna nu innum theriyalaya?",
+      "question_id": "yts:e_n-3T4-wJg",
+      "question_url": "https://youtube.com/watch?v=e_n-3T4-wJg",
+      "youtube": "S1XNdeuv1uc",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6a92e4afe959557ce55f05dc",
+      "tiktok_caption": "\ud83d\ude80 Auto-Reply WhatsApp for Small Biz\u2014No Code Needed!\n\nLearn how to set up instant, automated replies on WhatsApp to keep customers engaged 24/7. Hit follow for more quick business hacks!\n\n#nocodefounder #whatsappautomation #smallbiz #kebab #customerengagement",
+      "archetype": "CostTeardown",
+      "ts": "2026-08-29T13:54:51"
     }
   ]
 }

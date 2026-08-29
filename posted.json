@@ -63,7 +63,8 @@
       "Backup Your MacBook: Free Tier Options vs Paid Cloud Backups",
       "Schedule a Text Message with Twilio on a Free Tier",
       "Why Is My SaaS Still Pending? Quick Fixes for Launch Delays",
-      "Automate WhatsApp replies for small biz without code"
+      "Automate WhatsApp replies for small biz without code",
+      "Automate Your Trading Strategy with TradingView, Alpaca, and Zapier"
     ]
   },
   "uploads": [
@@ -906,6 +907,21 @@
       "tiktok_caption": "\ud83d\ude80 Auto-Reply WhatsApp for Small Biz\u2014No Code Needed!\n\nLearn how to set up instant, automated replies on WhatsApp to keep customers engaged 24/7. Hit follow for more quick business hacks!\n\n#nocodefounder #whatsappautomation #smallbiz #kebab #customerengagement",
       "archetype": "CostTeardown",
       "ts": "2026-08-29T13:54:51"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Automate Your Trading Strategy with TradingView, Alpaca, and Zapier",
+      "title": "Automate Your Trading in 3 Minutes! \ud83d\ude80 TradingView + Alpaca + Zapier",
+      "question": "how do i automate my trading strategy",
+      "question_id": "gsuggest:how do i automate my trading strategy",
+      "question_url": "https://www.google.com/search?q=how%20do%20i%20automate%20my%20trading%20strategy",
+      "youtube": "G7yBQ6pPLrY",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6a93550e73b542df4de34375",
+      "tiktok_caption": "Automate Your Trading in 3 Minutes! \ud83d\ude80 TradingView + Alpaca + Zapier\n\nLearn how to turn your TradingView alerts into real trades with Alpaca and Zapier in under 5 minutes. Hit that follow button for more quick trading hacks!\n\n#tradingautomations #zapiertips #alpacatrade #tradingview #kebab",
+      "archetype": "WorkflowDemo",
+      "ts": "2026-08-29T21:54:17"
     }
   ]
 }

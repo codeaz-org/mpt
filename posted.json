@@ -65,7 +65,8 @@
       "Why Is My SaaS Still Pending? Quick Fixes for Launch Delays",
       "Automate WhatsApp replies for small biz without code",
       "Automate Your Trading Strategy with TradingView, Alpaca, and Zapier",
-      "Migrate from LastPass to 1Password: Step\u2011by\u2011step Guide for Small Businesses"
+      "Migrate from LastPass to 1Password: Step\u2011by\u2011step Guide for Small Businesses",
+      "Self\u2011host your side\u2011project stack on a $5 droplet instead of pricey SaaS"
     ]
   },
   "uploads": [
@@ -938,6 +939,21 @@
       "tiktok_caption": "Switch from LastPass to 1Password in 5 Easy Steps! \ud83d\ude80\n\nLearn how to safely move your business passwords from LastPass to 1Password with our step\u2011by\u2011step guide. Follow for more small\u2011biz security hacks!\n\n#1password #lastpass #smallbizsecurity #nocodefounder #kebab",
       "archetype": "mpt",
       "ts": "2026-08-30T12:53:10"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Self\u2011host your side\u2011project stack on a $5 droplet instead of pricey SaaS",
+      "title": "$5 Droplet = Your Own SaaS Stack \u2013 Stop Paying Big Cloud Fees!",
+      "question": "Ask HN: What do you use to host side projects?",
+      "question_id": "hn:49502354",
+      "question_url": "https://news.ycombinator.com/item?id=49502354",
+      "youtube": "IU5uUbLfTXk",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6a94a9affd31f7e50b79a39b",
+      "tiktok_caption": "$5 Droplet = Your Own SaaS Stack \u2013 Stop Paying Big Cloud Fees!\n\nLearn how to self\u2011host your entire side\u2011project stack on a single $5 droplet and ditch overpriced SaaS. Grab the free guide in the link below and start saving today\u2014follow for more budget\u2011hacking hacks!\n\n#kebab #nocodefounder #devops #cloudhosting #sideproject",
+      "archetype": "QuestionAnswer",
+      "ts": "2026-08-30T22:07:40"
     }
   ]
 }

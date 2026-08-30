@@ -64,7 +64,8 @@
       "Schedule a Text Message with Twilio on a Free Tier",
       "Why Is My SaaS Still Pending? Quick Fixes for Launch Delays",
       "Automate WhatsApp replies for small biz without code",
-      "Automate Your Trading Strategy with TradingView, Alpaca, and Zapier"
+      "Automate Your Trading Strategy with TradingView, Alpaca, and Zapier",
+      "Migrate from LastPass to 1Password: Step\u2011by\u2011step Guide for Small Businesses"
     ]
   },
   "uploads": [
@@ -922,6 +923,21 @@
       "tiktok_caption": "Automate Your Trading in 3 Minutes! \ud83d\ude80 TradingView + Alpaca + Zapier\n\nLearn how to turn your TradingView alerts into real trades with Alpaca and Zapier in under 5 minutes. Hit that follow button for more quick trading hacks!\n\n#tradingautomations #zapiertips #alpacatrade #tradingview #kebab",
       "archetype": "WorkflowDemo",
       "ts": "2026-08-29T21:54:17"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Migrate from LastPass to 1Password: Step\u2011by\u2011step Guide for Small Businesses",
+      "title": "Switch from LastPass to 1Password in 5 Easy Steps! \ud83d\ude80",
+      "question": "how to migrate from lastpass to 1password",
+      "question_id": "gsuggest:how to migrate from lastpass to 1password",
+      "question_url": "https://www.google.com/search?q=how%20to%20migrate%20from%20lastpass%20to%201password",
+      "youtube": "4OsKakfKdxE",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6a9427b9fd31f7e50b6fcbbe",
+      "tiktok_caption": "Switch from LastPass to 1Password in 5 Easy Steps! \ud83d\ude80\n\nLearn how to safely move your business passwords from LastPass to 1Password with our step\u2011by\u2011step guide. Follow for more small\u2011biz security hacks!\n\n#1password #lastpass #smallbizsecurity #nocodefounder #kebab",
+      "archetype": "mpt",
+      "ts": "2026-08-30T12:53:10"
     }
   ]
 }

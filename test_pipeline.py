@@ -1074,6 +1074,8 @@ class RunNicheTest(unittest.TestCase):
             autopilot.run_niche(NICHE, state)
 
         self.assertEqual(state["uploads"], [], "a dry run must not record an upload")
+        self.assertFalse((self.root / "posted.json").exists(),
+                         "a dry run must not write state the next real run reads")
         out = list((self.root / "out").glob("*.mp4"))
         self.assertEqual(len(out), 1, "the video should be left in ./out for review")
         sidecar = out[0].with_suffix(".txt").read_text()
@@ -1100,6 +1102,21 @@ class RunNicheTest(unittest.TestCase):
         self.assertIn("acme/thing", state["repos"]["codeaz"])
         # the next run must go back to the question pipeline
         self.assertFalse(autopilot.star_rising_turn(niche, state))
+
+    def test_a_dry_run_does_not_spend_the_repo_a_real_run_would_cover(self):
+        niche = {**NICHE, "star_rising": {"enabled": True, "every_other_run": True}}
+        picked = repo("acme/thing")
+        with mock.patch.object(autopilot, "DRY_RUN", True), \
+             mock.patch.object(repos, "pick",
+                               lambda n, covered=(): ("The self-hosted invoicing app", picked)), \
+             mock.patch.object(autopilot, "upload_youtube",
+                               mock.Mock(side_effect=AssertionError("no uploads"))):
+            state = {"topics": {}, "uploads": []}
+            autopilot.run_niche(niche, state)
+
+        self.assertFalse((self.root / "posted.json").exists())
+        # in-memory only, so a second video in the same run still picks a new repo
+        self.assertIn("acme/thing", state["repos"]["codeaz"])
 
     def test_a_dead_github_falls_back_to_the_question_pipeline(self):
         """A quiet week on GitHub costs a topic, never a run."""

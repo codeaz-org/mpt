@@ -1139,8 +1139,12 @@ def run_niche(niche, state):
                 log(f"[{niche['id']}] Star Rising skipped ({type(e).__name__}: "
                     f"{str(e)[:140]}); falling back to the question pipeline")
         if repo:
+            # Burn the pick now so a crash mid-render cannot re-pick it. A dry run
+            # publishes nothing, so it stays in memory only -- reviewing an episode
+            # must not spend the repo that a real run would have covered.
             _record_repo(state, niche["id"], repo["full_name"])
-            save_state(state)   # burn the pick now: a crash must not re-pick it
+            if not DRY_RUN:
+                save_state(state)
             # The critic scores `answers_question`, so give it the question this
             # format answers rather than leaving the axis to guess.
             question = f"What is {repo['full_name']} and should I run it?"
@@ -1181,7 +1185,6 @@ def run_niche(niche, state):
             )
             used.append(topic)
             _record_mode(state, niche["id"], mode)
-            save_state(state)
             continue
 
         yt_id = upload_youtube(video, meta, niche)

@@ -12,6 +12,11 @@ on:
         description: "Comma-separated niche ids to run (blank = all, e.g. codeaz)"
         required: false
         default: ""
+      dry_run:
+        description: "Render and review without publishing anywhere"
+        type: boolean
+        required: false
+        default: false
 
 concurrency:
   group: autopilot
@@ -109,6 +114,10 @@ jobs:
       - name: Run autopilot
         env:
           NICHES: ${{ github.event.inputs.niches }}
+          # A dry run renders the full video and writes it to ./out with a
+          # sidecar script, then stops before any upload. The artifact step
+          # below is the only way to see the result from off the runner.
+          DRY_RUN: ${{ github.event.inputs.dry_run == 'true' && '1' || '' }}
           # Ollama runs locally in this runner; it is the only LLM path.
           OLLAMA_URL: http://localhost:11434
           OLLAMA_MODEL: gpt-oss:20b
@@ -146,6 +155,17 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: python autopilot.py
+
+      # A dry run publishes nothing, so the rendered mp4 and its sidecar
+      # (topic, title, script, caption) would die with the runner otherwise.
+      - name: Upload dry-run output
+        if: always() && github.event.inputs.dry_run == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: dry-run-video
+          path: out/
+          if-no-files-found: warn
+          retention-days: 7
 
       # Commit posted.json back to the repo. This both persists topic/upload
       # history between runs AND counts as repo activity, so GitHub never

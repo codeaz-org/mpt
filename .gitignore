@@ -16,3 +16,5 @@ remotion/.remotion/
 # TTS + bg videos are generated at render time; source templates live in src/
 remotion/public/*.mp4
 remotion/public/*.mp3
+# Repo-page capture for Star Rising, shot fresh by headless Chrome each render
+remotion/public/*.png

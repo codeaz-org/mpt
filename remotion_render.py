@@ -52,7 +52,7 @@ ARCHETYPES = {
     # when the run sources its topic from GitHub, because repo/stars/starsNote
     # come from the API rather than from the narration. It is absent from
     # _ARCH_DESCRIPTIONS for that reason.
-    "StarRising": ("repo", "tagline", "stars", "payoff"),
+    "StarRising": ("hook", "repo", "tagline", "stars", "payoff"),
 }
 
 # Compact archetype label for the ChannelBadge. Paired with a running per-
@@ -241,7 +241,7 @@ _FIELD_CAPS = {
     "step": 40, "time": 15, "name": 25, "pros": 60, "cons": 60,
     # StarRising. repo/stars/starsNote are overwritten with API values after
     # extraction, so their caps only guard a studio-side prop.
-    "repo": 40, "tagline": 110, "stars": 12, "starsNote": 60,
+    "repo": 40, "tagline": 100, "stars": 12, "starsNote": 60,
     "replaces": 70, "tradeoff": 100,
 }
 
@@ -292,7 +292,7 @@ _EXTRACT_SCHEMAS = {
     # repo/stars/starsNote are deliberately absent: autopilot supplies them from
     # the GitHub API so no model can round a star count on screen.
     "StarRising":
-        '{"tagline":"...","replaces":"...","tradeoff":"...","payoff":"..."}',
+        '{"hook":"...","tagline":"...","replaces":"...","tradeoff":"...","payoff":"..."}',
 }
 
 
@@ -345,6 +345,24 @@ def _is_complete(archetype, props):
     return True, None
 
 
+def _capture_repo_page(url):
+    """Screenshot props for a Star Rising episode, or {} if the capture failed.
+
+    A missing screenshot costs the episode its proof shot -- the template falls
+    back to a repo card -- but it must never cost the episode. Chrome not being
+    installed, GitHub being slow, and a rate-limited page all land here."""
+    try:
+        import screenshot
+        out = PUBLIC_DIR / "repo.png"
+        out.unlink(missing_ok=True)
+        width, height = screenshot.capture(url, str(out))
+        return {"screenshot": out.name, "screenshotWidth": width,
+                "screenshotHeight": height}
+    except Exception as e:
+        log(f"repo screenshot skipped ({type(e).__name__}: {str(e)[:120]})")
+        return {}
+
+
 # ---- Remotion invocation ----------------------------------------------------
 
 def render(topic, niche, script, question=None, recent_archetypes=(),
@@ -382,6 +400,9 @@ def render(topic, niche, script, question=None, recent_archetypes=(),
     ok, missing = _is_complete(archetype, props)
     if not ok:
         raise RuntimeError(f"{archetype} extraction missing required field: {missing}")
+
+    if archetype == "StarRising" and props.get("repoUrl"):
+        props.update(_capture_repo_page(props.pop("repoUrl")))
 
     voice = niche.get("voice", "en-US-AndrewMultilingualNeural-Male")
     narration_path = PUBLIC_DIR / "narration.mp3"

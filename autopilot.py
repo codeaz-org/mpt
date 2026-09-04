@@ -227,6 +227,12 @@ WEAK_HOOK_RE = re.compile(
     r"^\s*(?:have you ever|ever wondered|did you know|let'?s talk|let'?s dive|in this video|"
     r"today (?:we|i)\b|welcome back|what if (?:you|we)\b|imagine if|so,? you|"
     r"if you'?re (?:a |an )?(?:developer|programmer|beginner)\b)", re.I)
+# Star Rising's own failure mode: the first draft opened "The project is
+# firecrawl/anydoc.", which is a label, not a hook. Nobody wants a repo name
+# before they want what it does.
+FLAT_OPENER_RE = re.compile(
+    r"^\s*(?:the (?:project|repo|repository|tool) is|this (?:project|repo|tool) is|"
+    r"today'?s (?:project|repo|pick) is|meet\b|introducing\b)", re.I)
 # Hedged abstractions read as statements but promise nothing: "using the wrong divisor
 # can lead to inaccurate colour representation" is not a hook, it is a disclaimer.
 HEDGE_RE = re.compile(
@@ -240,16 +246,34 @@ def _first_sentence(script):
     return re.split(r"(?<=[.!?])\s+", script.strip(), maxsplit=1)[0].strip()
 
 
-def weak_hook(script):
-    """Why the opening line fails, or None. A hook must assert something concrete;
-    a question hands the tension back to the viewer instead of creating it."""
+def weak_hook(script, style="statement"):
+    """Why the opening line fails, or None.
+
+    Two hook styles, because the formats want opposite things:
+
+      statement  the default. A hook must assert something concrete; a question
+                 hands the tension back to the viewer instead of creating it.
+      question   Star Rising. The whole promise of the segment is "you can have
+                 this for free", and the shape that lands it is the question the
+                 viewer wants answered -- "Did you know there is a free
+                 self-hosted Notion?". Here a question is required and a flat
+                 statement ("The project is anydoc.") is the failure.
+
+    Length and hedging are wrong in either style."""
     opener = _first_sentence(script)
     if not opener:
         return "the script is empty"
-    if opener.endswith("?"):
-        return f"opens with a question: {opener!r}"
-    if WEAK_HOOK_RE.match(opener):
-        return f"opens with a stock phrase: {opener!r}"
+    if style == "question":
+        if not opener.endswith("?"):
+            return (f"opens with a statement instead of the free-capability question "
+                    f"this format needs: {opener!r}")
+        if FLAT_OPENER_RE.match(opener):
+            return f"names the project before the viewer wants it: {opener!r}"
+    else:
+        if opener.endswith("?"):
+            return f"opens with a question: {opener!r}"
+        if WEAK_HOOK_RE.match(opener):
+            return f"opens with a stock phrase: {opener!r}"
     if len(opener.split()) > 28:
         return f"opening sentence is {len(opener.split())} words; it should land in one breath"
     hedge = HEDGE_RE.search(opener)
@@ -309,8 +333,29 @@ Examples:
 
 Return only the sentence."""
 
+# Star Rising's rewrite prompt. The segment's promise is "this is free if you
+# host it", and the question shape is what makes a viewer stay for the answer.
+HOOK_SYSTEM_QUESTION = """You write the opening line of a short video, and nothing else.
 
-def _rewrite_hook(script, topic, question=None, attempts=3):
+You are given a script about an open-source project. Write ONE question, under 20
+words, that makes someone stop scrolling by naming what they can now do for FREE.
+
+Rules:
+  - It must end in a question mark.
+  - Name the capability or the paid tool being replaced -- "a free self-hosted
+    Notion", "sign contracts without DocuSign" -- not the repo's name.
+  - The viewer has never heard of this project. Do not open with its name.
+  - No hedging, no "in this video", no preamble.
+
+Examples:
+  "Did you know there is a free Notion you can run on your own server?"
+  "What if your $40-a-month e-signature bill was a free download?"
+  "Do you know you can turn any PDF into clean Markdown for nothing?"
+
+Return only the sentence."""
+
+
+def _rewrite_hook(script, topic, question=None, attempts=3, style="statement"):
     """Replace a weak opening line using a call that does nothing else.
 
     Asking one model call to answer a question, map an analogy, stay accurate AND land a
@@ -322,7 +367,7 @@ def _rewrite_hook(script, topic, question=None, attempts=3):
     for _ in range(attempts):
         try:
             candidate = _clean_script(nim_chat(
-                HOOK_SYSTEM,
+                HOOK_SYSTEM_QUESTION if style == "question" else HOOK_SYSTEM,
                 f"{asked}Topic: {topic}\n\nScript:\n{script}",
                 temperature=0.9, max_tokens=200,
             ))
@@ -330,7 +375,7 @@ def _rewrite_hook(script, topic, question=None, attempts=3):
             log(f"hook rewrite failed ({type(e).__name__}); keeping the original opener")
             return script
         candidate = _first_sentence(candidate).strip('"')
-        if candidate and not weak_hook(candidate):
+        if candidate and not weak_hook(candidate, style=style):
             log(f"hook rewritten: {candidate}")
             return f"{candidate} {rest}".strip()
     return script
@@ -475,16 +520,30 @@ def generate_script(topic, niche, question=None, recent_tools=(), repo=None):
     critic is a separate call with its own rubric. Drift and length are checked here
     because they are cheap and objective; everything subjective is the critic's call."""
     state = {"drift": ()}
+    # Star Rising opens on a question; every other format opens on a statement.
+    hook_style = "question" if repo else "statement"
 
     asked = question.get("title") if isinstance(question, dict) else question
+    # The default rubric scores any question opener 3 or less, which is the exact
+    # shape Star Rising needs. A niche supplies the replacement rubric alongside
+    # the rest of its star_rising config.
+    critic_niche = niche
+    if repo:
+        cfg = niche.get("star_rising") or {}
+        # The axes have to travel with the rubric: critic.review builds its JSON
+        # schema from the axis list, so a rubric naming an axis the list omits is
+        # scored on axes the model was never asked for.
+        overrides = {k: cfg[k] for k in ("critic_rubric", "critic_axes") if cfg.get(k)}
+        if overrides:
+            critic_niche = {**niche, **overrides}
     if recent_tools:
         log(f"[{niche['id']}] avoiding recent examples: {', '.join(recent_tools)}")
 
     def write(feedback):
         script = _write_script(topic, niche, feedback, state["drift"], asked,
                                 recent_tools=recent_tools, repo=repo)
-        if weak_hook(script):
-            script = _rewrite_hook(script, topic, asked)
+        if weak_hook(script, style=hook_style):
+            script = _rewrite_hook(script, topic, asked, style=hook_style)
         state["drift"] = tuple(_drift_terms(script, topic, niche))
         words = len(script.split())
         log(f"[{niche['id']}] draft: {words} words, "
@@ -495,14 +554,19 @@ def generate_script(topic, niche, question=None, recent_tools=(), repo=None):
     def review(t, script, asked, min_score):
         """The critic judges taste; drift is objective, so it overrides an approval.
         A model that has just written about threads will happily approve threads."""
-        verdict, scores, problems, fix = critic.review(t, script, asked, min_score, niche=niche)
-        bad_hook = weak_hook(script)
+        verdict, scores, problems, fix = critic.review(t, script, asked, min_score,
+                                                       niche=critic_niche)
+        bad_hook = weak_hook(script, style=hook_style)
         if bad_hook:
             problems = [f"weak hook: {bad_hook}"] + problems
-            fix = ("Replace the first sentence. It must be a concrete statement -- never a "
-                   "question, a stock opener, or a hedge like 'can lead to'. Name what "
-                   "visibly breaks, with a number or object: 'divide by 256 and every "
-                   "colour comes out one shade dark'. " + fix)
+            fix = (("Replace the first sentence. It must be a QUESTION that names what "
+                    "the viewer can now do for free -- 'Did you know there is a free "
+                    "self-hosted Notion?' -- not the project's name. "
+                    if hook_style == "question" else
+                    "Replace the first sentence. It must be a concrete statement -- never a "
+                    "question, a stock opener, or a hedge like 'can lead to'. Name what "
+                    "visibly breaks, with a number or object: 'divide by 256 and every "
+                    "colour comes out one shade dark'. ") + fix)
             verdict = "revise"
         drift = _drift_terms(script, t, niche)
         if len(drift) > MAX_DRIFT:
@@ -673,15 +737,28 @@ def make_metadata(topic, niche, question=None, repo=None):
               + '}')
     hashtag_rule = (
         " Hashtags: pick 5 short, topic-relevant hashtags a real viewer might "
-        "search for. #kebab as one word (no spaces, no punctuation). Prefer "
-        "verticals over generic tags -- '#nocodefounder' beats '#tech'."
+        "search for. Each tag is one word, no spaces and no punctuation "
+        "(#smallbusiness, not #small business). Prefer verticals over generic "
+        "tags -- '#nocodefounder' beats '#tech'. Never output the literal words "
+        "'kebab' or 'tag' as a hashtag."
         if need_llm_tags else ""
+    )
+    # A Star Rising episode is about a project we did not build. Without this the
+    # writer reaches for "our open-source tool" and the description claims
+    # someone else's work as the channel's.
+    credit_rule = (
+        f" This video is ABOUT the third-party open-source project "
+        f"{repo['full_name']}, which this channel did NOT build and is not "
+        "affiliated with. Never write 'our tool', 'our app', 'we built', or "
+        "anything implying ownership or sponsorship. Refer to it by name, or as "
+        "'this open-source project'."
+        if repo else ""
     )
     try:
         raw = nim_chat(
             "You write YouTube Shorts metadata. Respond ONLY with JSON: "
             f"{schema}. Title under 90 chars, punchy hook. Description: 2 "
-            "sentences + a call to action to follow." + hashtag_rule,
+            "sentences + a call to action to follow." + credit_rule + hashtag_rule,
             f"Video topic: {topic}",
             temperature=0.7,
         )
@@ -1018,6 +1095,9 @@ def _repo_props(repo):
         "repo": repo["full_name"],
         "stars": repos.stars_label(repo["stars"]),
         "starsNote": " · ".join(note),
+        # Consumed by the renderer to screenshot the page, then removed; it is
+        # not a template prop.
+        "repoUrl": repo["url"],
     }
 
 

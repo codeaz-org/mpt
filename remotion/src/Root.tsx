@@ -116,6 +116,7 @@ const buyOrBuildDefaults: BuyOrBuildProps = {
 };
 
 const starRisingDefaults: StarRisingProps = {
+  hook: "Did you know you can sign contracts for free, on your own server?",
   repo: "documenso/documenso",
   tagline: "Open-source DocuSign alternative: send, sign and store documents you host yourself.",
   stars: "6.1k", starsNote: "~140 a day · TypeScript · AGPL-3.0",

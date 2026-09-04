@@ -608,6 +608,85 @@ class StarRisingRenderTest(unittest.TestCase):
         self.assertIn("https://github.com/acme/thing", meta["description"])
 
 
+class StarRisingHookTest(unittest.TestCase):
+    """Star Rising inverts the channel's hook rule: the segment sells "you can
+    have this free", and the question is what makes a viewer stay for the answer."""
+
+    def test_a_question_is_required_not_rejected(self):
+        q = "Did you know there is a free Notion you can host yourself? It does X."
+        self.assertIsNone(autopilot.weak_hook(q, style="question"))
+        # the same opener still fails everywhere else
+        self.assertIsNotNone(autopilot.weak_hook(q))
+
+    def test_the_flat_opener_that_shipped_in_the_first_draft_is_caught(self):
+        flat = "The project is firecrawl/anydoc. It converts documents."
+        self.assertIsNotNone(autopilot.weak_hook(flat, style="question"))
+        # ...and it slipped past the statement style, which is why it shipped
+        self.assertIsNone(autopilot.weak_hook(flat))
+
+    def test_statement_openers_are_still_the_default_everywhere_else(self):
+        statement = "Zapier just charged you $29 to run 100 tasks. Here is why."
+        self.assertIsNone(autopilot.weak_hook(statement))
+        self.assertIsNotNone(autopilot.weak_hook(statement, style="question"))
+
+    def test_the_rewrite_asks_for_a_question_and_keeps_the_body(self):
+        script = "The project is acme/thing. It converts files. It costs nothing."
+        with mock.patch.object(autopilot, "nim_chat",
+                               lambda system, user, **kw:
+                               "Did you know you can convert any PDF for free?"
+                               if "FREE" in system else "A flat statement."):
+            fixed = autopilot._rewrite_hook(script, "topic", style="question")
+        self.assertTrue(fixed.startswith("Did you know"))
+        self.assertIn("It converts files.", fixed)
+
+
+class StarRisingMetadataTest(unittest.TestCase):
+    def test_the_description_never_claims_someone_elses_project(self):
+        """The first dry run described firecrawl's project as "our open-source tool"."""
+        seen = {}
+        with mock.patch.object(autopilot, "nim_chat",
+                               lambda system, user, **kw:
+                               seen.setdefault("system", system) and "" or
+                               '{"title": "T", "description": "D"}'):
+            autopilot.make_metadata("topic", NICHE, repo=repo())
+        self.assertIn("did NOT build", seen["system"])
+        self.assertIn("acme/thing", seen["system"])
+
+    def test_ordinary_videos_get_no_credit_line(self):
+        seen = {}
+        with mock.patch.object(autopilot, "nim_chat",
+                               lambda system, user, **kw:
+                               seen.setdefault("system", system) and "" or
+                               '{"title": "T", "description": "D"}'):
+            autopilot.make_metadata("topic", NICHE)
+        self.assertNotIn("did NOT build", seen["system"])
+
+
+class StarRisingScreenshotTest(unittest.TestCase):
+    def test_a_failed_capture_costs_the_shot_not_the_episode(self):
+        import remotion_render
+        with mock.patch.dict(sys.modules, {"screenshot": mock.Mock(
+                capture=mock.Mock(side_effect=RuntimeError("no chrome")))}):
+            self.assertEqual(remotion_render._capture_repo_page("https://x/y"), {})
+
+    def test_a_capture_returns_the_dimensions_the_pan_needs(self):
+        import remotion_render
+        fake = mock.Mock(capture=mock.Mock(return_value=(1280, 5000)))
+        with mock.patch.dict(sys.modules, {"screenshot": fake}):
+            got = remotion_render._capture_repo_page("https://github.com/acme/thing")
+        self.assertEqual(got, {"screenshot": "repo.png", "screenshotWidth": 1280,
+                               "screenshotHeight": 5000})
+
+    def test_png_header_parsing_matches_the_file(self):
+        import screenshot
+        png = (b"\x89PNG\r\n\x1a\n" + b"\x00" * 8
+               + (1280).to_bytes(4, "big") + (5000).to_bytes(4, "big"))
+        with tempfile.NamedTemporaryFile(suffix=".png", delete=False) as f:
+            f.write(png)
+        self.assertEqual(screenshot.png_size(f.name), (1280, 5000))
+        os.unlink(f.name)
+
+
 class StarRisingScriptTest(unittest.TestCase):
     def test_the_writer_only_gets_facts_the_api_returned(self):
         seen = {}
@@ -625,6 +704,18 @@ class StarRisingScriptTest(unittest.TestCase):
         self.assertIn("acme/thing", seen["system"])
         self.assertIn("1,200", seen["system"])          # exact star count, not rounded
         self.assertIn("You have NOT run this project", seen["system"])
+
+    def test_the_repo_prompt_demands_the_free_capability_question(self):
+        cfg = json.loads((Path(__file__).parent / "niches.json").read_text())
+        niche = cfg["niches"][0]
+        prompt = niche["repo_script_prompt"]
+        self.assertIn("question mark", prompt)
+        self.assertIn("FREE", prompt)
+        # the rubric has to agree with the prompt, or the critic reverts the hook
+        rubric = niche["star_rising"]["critic_rubric"]
+        self.assertIn("QUESTION", rubric)
+        for axis in niche["star_rising"]["critic_axes"]:
+            self.assertIn(axis, rubric, f"{axis} is scored but never described")
 
     def test_the_question_path_is_untouched_when_no_repo_is_given(self):
         seen = {}
@@ -648,7 +739,8 @@ class StaticCheckTest(unittest.TestCase):
             del pyflakes
         except ImportError:
             self.skipTest("pyflakes not installed (pip install pyflakes)")
-        files = ["autopilot.py", "llm.py", "research.py", "repos.py"]
+        files = ["autopilot.py", "llm.py", "research.py", "repos.py",
+                 "screenshot.py"]
         r = subprocess.run([sys.executable, "-m", "pyflakes", *files],
                            cwd=Path(__file__).parent, capture_output=True, text=True)
         undefined = [ln for ln in r.stdout.splitlines() if "undefined name" in ln]

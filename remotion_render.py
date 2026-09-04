@@ -48,6 +48,11 @@ ARCHETYPES = {
     "QuestionAnswer": ("question", "tldr", "payoff"),
     "BeforeAfter": ("process", "before", "after", "saving", "payoff"),
     "BuyOrBuild": ("situation", "buy", "build", "recommendation", "payoff"),
+    # Star Rising is never chosen by the classifier -- it is forced by autopilot
+    # when the run sources its topic from GitHub, because repo/stars/starsNote
+    # come from the API rather than from the narration. It is absent from
+    # _ARCH_DESCRIPTIONS for that reason.
+    "StarRising": ("repo", "tagline", "stars", "payoff"),
 }
 
 # Compact archetype label for the ChannelBadge. Paired with a running per-
@@ -61,6 +66,7 @@ ARCHETYPE_TAGS = {
     "StatCard": "STAT",
     "BeforeAfter": "B/A",
     "BuyOrBuild": "DECIDE",
+    "StarRising": "RISING",
 }
 
 
@@ -233,6 +239,10 @@ _FIELD_CAPS = {
     # inside step/flag/pros-cons objects:
     "label": 30, "detail": 90, "quote": 80, "why": 90,
     "step": 40, "time": 15, "name": 25, "pros": 60, "cons": 60,
+    # StarRising. repo/stars/starsNote are overwritten with API values after
+    # extraction, so their caps only guard a studio-side prop.
+    "repo": 40, "tagline": 110, "stars": 12, "starsNote": 60,
+    "replaces": 70, "tradeoff": 100,
 }
 
 
@@ -279,6 +289,10 @@ _EXTRACT_SCHEMAS = {
         '{"situation":"...","buy":{"name":"...","cost":"...","pros":["..."],"cons":["..."]},'
         '"build":{"name":"...","cost":"...","pros":["..."],"cons":["..."]},'
         '"recommendation":"buy"|"build","payoff":"..."}',
+    # repo/stars/starsNote are deliberately absent: autopilot supplies them from
+    # the GitHub API so no model can round a star count on screen.
+    "StarRising":
+        '{"tagline":"...","replaces":"...","tradeoff":"...","payoff":"..."}',
 }
 
 
@@ -306,6 +320,22 @@ def extract_props(archetype, topic, script, question):
     return _cap_walk(result or {})
 
 
+def merge_props(props, base_props=None, fallback_props=None):
+    """Combine extracted props with caller-supplied ones.
+
+    `fallback_props` fill only what the extractor left empty -- a line written
+    from the finished script reads better than raw source text. `base_props`
+    overwrite unconditionally: they are facts from an API (a star count, a repo
+    name) and a model does not get a vote on those. Everything is re-capped
+    afterwards because a merged-in value faces the same on-screen slot."""
+    merged = dict(props or {})
+    for key, value in (fallback_props or {}).items():
+        if value and not merged.get(key):
+            merged[key] = value
+    merged.update({k: v for k, v in (base_props or {}).items() if v not in (None, "")})
+    return _cap_walk(merged)
+
+
 def _is_complete(archetype, props):
     """All required keys present and non-empty (arrays non-empty too)."""
     for k in ARCHETYPES[archetype]:
@@ -318,22 +348,37 @@ def _is_complete(archetype, props):
 # ---- Remotion invocation ----------------------------------------------------
 
 def render(topic, niche, script, question=None, recent_archetypes=(),
-           episode_counts=None):
+           episode_counts=None, force_archetype=None, base_props=None,
+           fallback_props=None):
     """Full Remotion render loop. Returns (mp4 path, archetype id) so the caller
     can record which template was used and avoid reaching for it back-to-back.
     `episode_counts` is a dict {archetype: past_count}; the badge shows
     'past_count + 1' for whichever archetype gets picked -- a per-format
-    series counter."""
+    series counter.
+
+    `force_archetype` skips the classifier: some formats are decided by where the
+    topic came from, not by how the script reads (Star Rising is picked because
+    the run sourced a GitHub repo). `base_props` OVERWRITE the extracted props --
+    a star count from the API must not be re-derived from narration --  while
+    `fallback_props` only fill fields the extractor left empty, so a good
+    on-screen line written from the script still wins over the raw source text."""
     PUBLIC_DIR.mkdir(parents=True, exist_ok=True)
     OUT_DIR.mkdir(parents=True, exist_ok=True)
 
-    archetype = classify_archetype(topic, script, question, niche, recent_archetypes)
+    if force_archetype:
+        if force_archetype not in ARCHETYPES:
+            raise RuntimeError(f"unknown forced archetype {force_archetype!r}")
+        archetype = force_archetype
+        log(f"1/4 classify  -> {archetype} (forced by the topic source)")
+    else:
+        archetype = classify_archetype(topic, script, question, niche, recent_archetypes)
     if archetype == "unknown":
         raise RuntimeError("no Remotion archetype fits this script")
     past = (episode_counts or {}).get(archetype, 0)
     episode = past + 1
     archetype_tag = ARCHETYPE_TAGS.get(archetype, archetype[:4].upper())
-    props = extract_props(archetype, topic, script, question)
+    props = merge_props(extract_props(archetype, topic, script, question),
+                        base_props, fallback_props)
     ok, missing = _is_complete(archetype, props)
     if not ok:
         raise RuntimeError(f"{archetype} extraction missing required field: {missing}")

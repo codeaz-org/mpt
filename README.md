@@ -29,6 +29,28 @@ docker compose up -d --build
 ### C. Colab — testing only
 Open `colab_autopilot.ipynb`. Free Colab cannot schedule itself; sessions die. Fine for verifying the pipeline, not for autopilot.
 
+## Content sources
+
+Two paths feed the same render-and-publish pipeline, alternating run by run for any niche that enables the second one:
+
+- **Questions** (`questions.py`) — harvests real questions from Reddit, Ask HN, Stack Exchange and Google Autocomplete, and the video answers one of them. Provenance is recorded per upload (`question_id`, `question_url`) so a question is never answered twice.
+- **Star Rising** (`repos.py`) — a recurring open-source segment. Pulls trending repos from the GitHub Search API, ranks them by *stars per day since creation* (raw star counts just resurface whatever was already famous), drops anything with no usable description or that is reading material rather than software, then an LLM gate keeps only projects a founder or small business could actually run. The chosen repo lands in `posted.json` under `repos` and on the upload entry, so no repo is covered twice. Star count, language and licence on screen come from the API, never from the narration.
+
+Enable the segment per niche in `niches.json`:
+
+```json
+"star_rising": {
+  "enabled": true,
+  "every_other_run": true,
+  "window_days": 90,
+  "min_stars": 300,
+  "min_description_chars": 40,
+  "queries": ["", "topic:self-hosted", "topic:automation", "topic:saas"]
+}
+```
+
+`every_other_run` alternates with the question pipeline; set it false to make every video a Star Rising episode. Its narration prompt is the niche's `repo_script_prompt`, and it always renders through the `StarRising` Remotion template (badge `RISING`). When GitHub has nothing that passes the filters, the run falls back to the question pipeline instead of failing.
+
 ## Tuning
 - `RUN_HOURS` (Docker) or the cron lines (Actions) control frequency. Default: 4 runs/day × 4 niches = 16 videos/day. **Start with 1–2 runs/day** — brand-new channels that suddenly post 4x/day get flagged as spam.
 - Edit `niches.json` to change prompts, voices, hashtags, or add niches; add a matching `YT_REFRESH_TOKEN_<ID>` secret.

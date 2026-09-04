@@ -19,6 +19,7 @@ import buffer  # noqa: E402
 import critic  # noqa: F401,E402
 import questions  # noqa: E402
 import llm  # noqa: E402
+import repos  # noqa: E402
 import research  # noqa: E402
 
 SCRIPT = ("Two waiters just sold the same table twice. Picture a Friday night restaurant "
@@ -402,6 +403,241 @@ class ResearchTest(unittest.TestCase):
                 research.research_topic(niche, [])
 
 
+def _item(full_name, stars, created_at):
+    """A raw GitHub Search API row, as _normalise expects to receive one."""
+    return {
+        "full_name": full_name, "name": full_name.split("/")[-1],
+        "owner": {"login": full_name.split("/")[0]},
+        "description": "A self-hosted tool that replaces a paid subscription for small teams.",
+        "html_url": f"https://github.com/{full_name}", "stargazers_count": stars,
+        "created_at": created_at, "language": "Go", "topics": [],
+    }
+
+
+def repo(full_name="acme/thing", desc=None, stars=1200, age_days=30, **kw):
+    """A normalised repo record as repos._normalise would produce one."""
+    r = {
+        "full_name": full_name, "name": full_name.split("/")[-1],
+        "owner": full_name.split("/")[0],
+        "description": desc if desc is not None else
+        "Self-hosted invoicing app that sends, tracks and reconciles client invoices.",
+        "url": f"https://github.com/{full_name}", "stars": stars,
+        "language": "TypeScript", "topics": ["self-hosted", "invoicing"],
+        "license": "MIT", "created_at": "2026-08-01T00:00:00Z",
+        "pushed_at": "2026-09-01T00:00:00Z", "archived": False, "fork": False,
+        "age_days": float(age_days), "stars_per_day": stars / age_days,
+    }
+    r.update(kw)
+    return r
+
+
+class StarRisingSourceTest(unittest.TestCase):
+    """Star Rising sources videos from trending repos instead of from questions."""
+
+    def test_repos_without_a_usable_description_are_dropped(self):
+        self.assertTrue(repos.usable_description(repo()))
+        self.assertFalse(repos.usable_description(repo(desc="")))
+        self.assertFalse(repos.usable_description(repo(desc="A tool.")))
+        self.assertFalse(repos.usable_description(repo(desc="https://example.com/docs/here/now")))
+        # Non-Latin descriptions are good software and unnarratable in an English voice.
+        self.assertFalse(repos.usable_description(
+            repo(desc="一个用于管理发票的自托管应用程序，支持多种货币和自动对账功能")))
+
+    def test_reading_material_is_not_a_product_video(self):
+        self.assertTrue(repos.is_runnable_shape(repo()))
+        for junk in ("Awesome self-hosted apps",
+                     "A curated list of automation tools",
+                     "Roadmap to becoming a backend developer",
+                     "My dotfiles",
+                     "System design interview questions"):
+            self.assertFalse(repos.is_runnable_shape(repo(desc=junk)), junk)
+
+    def test_velocity_ranks_ahead_of_raw_star_count(self):
+        """A repo that took four years to reach 5,000 stars is not news."""
+        payload = {"items": [
+            {"full_name": "old/famous", "name": "famous", "owner": {"login": "old"},
+             "description": "A self-hosted analytics dashboard for small business sites.",
+             "stargazers_count": 5000, "created_at": "2022-01-01T00:00:00Z",
+             "html_url": "u", "topics": [], "language": "Go"},
+            {"full_name": "new/rising", "name": "rising", "owner": {"login": "new"},
+             "description": "A self-hosted booking system that replaces per-seat scheduling apps.",
+             "stargazers_count": 900, "created_at": "2026-08-25T00:00:00Z",
+             "html_url": "u", "topics": [], "language": "Python"},
+        ]}
+        with mock.patch.object(repos, "_api_get", lambda *a, **k: payload), \
+             mock.patch.object(repos.time, "sleep"):
+            got = repos.fetch_candidates({"id": "codeaz", "star_rising": {"queries": [""]}})
+        self.assertEqual([r["full_name"] for r in got], ["new/rising", "old/famous"])
+
+    def test_each_query_is_represented_in_the_shortlist(self):
+        """A global velocity sort hands all twenty rows to whatever is going viral
+        that week; the niche's own queries have to survive into the shortlist."""
+        payloads = {
+            "": {"items": [_item(f"viral/hype{i}", 9000, "2026-09-01T00:00:00Z")
+                           for i in range(5)]},
+            "topic:self-hosted": {"items": [_item("small/selfhosted", 400,
+                                                  "2026-08-01T00:00:00Z")]},
+        }
+        calls = []
+
+        def fake_api(params, **kw):
+            calls.append(params["q"])
+            extra = params["q"].split("stars:>=300")[-1].strip()
+            return payloads[extra]
+
+        with mock.patch.object(repos, "_api_get", fake_api), \
+             mock.patch.object(repos.time, "sleep"):
+            got = repos.fetch_candidates(
+                {"id": "codeaz", "star_rising": {"queries": ["", "topic:self-hosted"]}})
+        names = [r["full_name"] for r in got]
+        self.assertEqual(names[1], "small/selfhosted",
+                         "the second slot belongs to the second query, not to rank 2 of the first")
+        self.assertEqual(len(calls), 2)
+
+    def test_already_covered_repos_are_never_covered_twice(self):
+        candidates = [repo("acme/thing"), repo("other/tool")]
+        fresh = repos.unused(candidates, {"ACME/Thing"})   # GitHub is case-insensitive
+        self.assertEqual([r["full_name"] for r in fresh], ["other/tool"])
+
+    def test_a_shortlist_with_nothing_worth_covering_raises(self):
+        """-1 means the gate rejected every candidate; that must fall back, not publish."""
+        with mock.patch.object(repos, "nim_json",
+                               lambda *a, **k: {"index": -1, "why": "all research code"}):
+            with self.assertRaises(RuntimeError):
+                repos.choose({"name": "CodeAZ"}, [repo()])
+
+    def test_selection_must_come_from_the_shortlist(self):
+        with mock.patch.object(repos, "nim_json",
+                               lambda *a, **k: {"index": 9, "topic": "Something"}):
+            with self.assertRaises(RuntimeError):
+                repos.choose({"name": "CodeAZ"}, [repo()])
+
+    def test_posted_repos_reads_both_the_pick_log_and_the_uploads(self):
+        state = {"repos": {"codeaz": ["a/one"]},
+                 "uploads": [{"niche": "codeaz", "repo": "b/two"},
+                             {"niche": "other", "repo": "c/three"}]}
+        self.assertEqual(autopilot.posted_repos(state, "codeaz"), {"a/one", "b/two"})
+
+
+class StarRisingAlternationTest(unittest.TestCase):
+    NICHE = {"id": "codeaz", "star_rising": {"enabled": True, "every_other_run": True}}
+
+    def test_disabled_niche_never_takes_the_repo_path(self):
+        self.assertFalse(autopilot.star_rising_turn({"id": "codeaz"}, {}))
+        self.assertFalse(autopilot.star_rising_turn(
+            {"id": "codeaz", "star_rising": {"enabled": False}}, {}))
+
+    def test_runs_alternate_with_the_question_pipeline(self):
+        state = {}
+        self.assertTrue(autopilot.star_rising_turn(self.NICHE, state))
+        autopilot._record_mode(state, "codeaz", "star_rising")
+        self.assertFalse(autopilot.star_rising_turn(self.NICHE, state))
+        autopilot._record_mode(state, "codeaz", "question")
+        self.assertTrue(autopilot.star_rising_turn(self.NICHE, state))
+
+    def test_every_other_run_off_means_every_run(self):
+        niche = {"id": "codeaz", "star_rising": {"enabled": True, "every_other_run": False}}
+        state = {"modes": {"codeaz": ["star_rising"]}}
+        self.assertTrue(autopilot.star_rising_turn(niche, state))
+
+
+class StarRisingRenderTest(unittest.TestCase):
+    def test_api_numbers_win_over_anything_the_model_extracted(self):
+        """The star count on screen is GitHub's, never a rounded narration figure."""
+        props = autopilot._repo_props(repo(stars=4210, age_days=30))
+        self.assertEqual(props["repo"], "acme/thing")
+        self.assertEqual(props["stars"], "4.2k")
+        self.assertIn("TypeScript", props["starsNote"])
+        self.assertIn("MIT", props["starsNote"])
+
+    def test_extracted_tagline_beats_the_raw_description(self):
+        captured = {}
+
+        def fake_render(topic, niche, script, **kw):
+            captured.update(kw)
+            return "/tmp/v.mp4", "StarRising"
+
+        module = mock.Mock(render=fake_render)
+        with mock.patch.dict(sys.modules, {"remotion_render": module}), \
+             mock.patch.object(autopilot, "check_rendered_video", lambda *a: None):
+            autopilot.render_video(
+                "topic", {"id": "codeaz", "video_mode": "remotion"}, "script",
+                force_archetype="StarRising",
+                base_props=autopilot._repo_props(repo()),
+                fallback_props=autopilot._repo_fallback_props(repo()))
+        self.assertEqual(captured["force_archetype"], "StarRising")
+        self.assertEqual(captured["base_props"]["repo"], "acme/thing")
+        # the raw description is a fallback, so a script-derived tagline wins
+        self.assertIn("tagline", captured["fallback_props"])
+        self.assertNotIn("tagline", captured["base_props"])
+
+    def test_merge_precedence_api_over_script_over_source_text(self):
+        import remotion_render
+        merged = remotion_render.merge_props(
+            {"tagline": "A tight line the writer produced.", "stars": "about 4,000",
+             "replaces": ""},
+            base_props={"repo": "acme/thing", "stars": "4.2k"},
+            fallback_props={"tagline": "The raw GitHub description.",
+                            "replaces": "A per-seat subscription"})
+        # API value replaces the model's rounded one
+        self.assertEqual(merged["stars"], "4.2k")
+        self.assertEqual(merged["repo"], "acme/thing")
+        # a script-derived line survives; an empty one gets the source text
+        self.assertEqual(merged["tagline"], "A tight line the writer produced.")
+        self.assertEqual(merged["replaces"], "A per-seat subscription")
+
+    def test_merged_values_are_capped_to_their_on_screen_slot(self):
+        import remotion_render
+        merged = remotion_render.merge_props(
+            {}, fallback_props={"tagline": "word " * 60})
+        self.assertLessEqual(len(merged["tagline"]),
+                             remotion_render._FIELD_CAPS["tagline"])
+
+    def test_star_rising_is_hidden_from_the_classifier(self):
+        """It is chosen by where the topic came from, not by how the script reads --
+        a cost teardown must never be rendered with repo props it does not have."""
+        import remotion_render
+        self.assertIn("StarRising", remotion_render.ARCHETYPES)
+        self.assertNotIn("StarRising", remotion_render._ARCH_DESCRIPTIONS)
+        self.assertEqual(remotion_render.ARCHETYPE_TAGS["StarRising"], "RISING")
+
+    def test_the_repo_is_credited_in_the_description(self):
+        with mock.patch.object(autopilot, "nim_chat",
+                               lambda *a, **k: '{"title": "T", "description": "D"}'):
+            meta = autopilot.make_metadata("topic", NICHE, repo=repo())
+        self.assertIn("https://github.com/acme/thing", meta["description"])
+
+
+class StarRisingScriptTest(unittest.TestCase):
+    def test_the_writer_only_gets_facts_the_api_returned(self):
+        seen = {}
+
+        def fake_chat(system, user, **kw):
+            seen["system"] = system
+            return "Narration."
+
+        niche = {"id": "codeaz", "repo_script_prompt": "STAR RISING PROMPT",
+                 "script_prompt": "QUESTION PROMPT"}
+        with mock.patch.object(autopilot, "nim_chat", fake_chat):
+            autopilot._write_script("topic", niche, repo=repo())
+        self.assertIn("STAR RISING PROMPT", seen["system"])
+        self.assertNotIn("QUESTION PROMPT", seen["system"])
+        self.assertIn("acme/thing", seen["system"])
+        self.assertIn("1,200", seen["system"])          # exact star count, not rounded
+        self.assertIn("You have NOT run this project", seen["system"])
+
+    def test_the_question_path_is_untouched_when_no_repo_is_given(self):
+        seen = {}
+        with mock.patch.object(autopilot, "nim_chat",
+                               lambda system, user, **kw: seen.setdefault("system", system) and ""
+                               or "Narration."):
+            autopilot._write_script("topic", {"id": "codeaz",
+                                              "repo_script_prompt": "STAR RISING PROMPT",
+                                              "script_prompt": "QUESTION PROMPT"})
+        self.assertIn("QUESTION PROMPT", seen["system"])
+        self.assertNotIn("STAR RISING PROMPT", seen["system"])
+
+
 class StaticCheckTest(unittest.TestCase):
     def test_no_undefined_names(self):
         """A NameError in write_mpt_config once killed a run after the script had already
@@ -412,7 +648,7 @@ class StaticCheckTest(unittest.TestCase):
             del pyflakes
         except ImportError:
             self.skipTest("pyflakes not installed (pip install pyflakes)")
-        files = ["autopilot.py", "llm.py", "research.py"]
+        files = ["autopilot.py", "llm.py", "research.py", "repos.py"]
         r = subprocess.run([sys.executable, "-m", "pyflakes", *files],
                            cwd=Path(__file__).parent, capture_output=True, text=True)
         undefined = [ln for ln in r.stdout.splitlines() if "undefined name" in ln]
@@ -788,13 +1024,13 @@ class RunNicheTest(unittest.TestCase):
             # render_video now returns (path, archetype); the stubbed
             # render_with_fallback above is called via that wrapper.
             mock.patch.object(autopilot, "render_video",
-                              lambda t, n, s, question=None,
-                              recent_archetypes=(), episode_counts=None:
-                              (str(root / "video.mp4"), "QuestionAnswer")),
+                              lambda t, n, s, **kw:
+                              (str(root / "video.mp4"),
+                               kw.get("force_archetype") or "QuestionAnswer")),
             # the stub file is not a real video; the render check has its own tests
             mock.patch.object(autopilot, "check_rendered_video", lambda p, s: 60.0),
             mock.patch.object(autopilot, "make_metadata",
-                              lambda t, n, question=None:
+                              lambda t, n, question=None, repo=None:
                               {"title": "Race Conditions", "description": "desc",
                                "hashtags": ["#test", "#tags"]}),
         ]
@@ -843,6 +1079,44 @@ class RunNicheTest(unittest.TestCase):
         sidecar = out[0].with_suffix(".txt").read_text()
         self.assertIn("tiktok caption:", sidecar)
         self.assertIn("script:", sidecar)
+
+    def test_star_rising_run_records_the_repo_and_flips_the_mode(self):
+        niche = {**NICHE, "star_rising": {"enabled": True, "every_other_run": True}}
+        picked = repo("acme/thing")
+        with mock.patch.object(autopilot, "DRY_RUN", False), \
+             mock.patch.object(repos, "pick",
+                               lambda n, covered=(): ("The self-hosted invoicing app", picked)), \
+             mock.patch.object(autopilot, "upload_youtube", lambda v, m, n: "yt123"), \
+             mock.patch.object(autopilot, "upload_tiktok", lambda v, m, n: "pub1"), \
+             mock.patch.object(buffer, "enabled", lambda: False):
+            state = {"topics": {}, "uploads": []}
+            autopilot.run_niche(niche, state)
+
+        entry = state["uploads"][-1]
+        self.assertEqual(entry["mode"], "star_rising")
+        self.assertEqual(entry["repo"], "acme/thing")
+        self.assertEqual(entry["archetype"], "StarRising")
+        self.assertIsNone(entry["question_id"], "a repo episode answers no harvested question")
+        self.assertIn("acme/thing", state["repos"]["codeaz"])
+        # the next run must go back to the question pipeline
+        self.assertFalse(autopilot.star_rising_turn(niche, state))
+
+    def test_a_dead_github_falls_back_to_the_question_pipeline(self):
+        """A quiet week on GitHub costs a topic, never a run."""
+        niche = {**NICHE, "star_rising": {"enabled": True, "every_other_run": True}}
+        with mock.patch.object(autopilot, "DRY_RUN", False), \
+             mock.patch.object(repos, "pick",
+                               mock.Mock(side_effect=RuntimeError("no fresh repos"))), \
+             mock.patch.object(autopilot, "upload_youtube", lambda v, m, n: "yt123"), \
+             mock.patch.object(autopilot, "upload_tiktok", lambda v, m, n: "pub1"), \
+             mock.patch.object(buffer, "enabled", lambda: False):
+            state = {"topics": {}, "uploads": []}
+            autopilot.run_niche(niche, state)
+
+        entry = state["uploads"][-1]
+        self.assertEqual(entry["mode"], "question")
+        self.assertIsNone(entry["repo"])
+        self.assertEqual(entry["question_id"], "reddit:x")
 
     def test_one_failing_niche_does_not_stop_the_others(self):
         calls = []

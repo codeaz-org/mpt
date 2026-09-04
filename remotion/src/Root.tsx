@@ -8,6 +8,7 @@ import { StatCard, StatCardProps } from "./StatCard";
 import { QuestionAnswer, QuestionAnswerProps } from "./QuestionAnswer";
 import { BeforeAfter, BeforeAfterProps } from "./BeforeAfter";
 import { BuyOrBuild, BuyOrBuildProps } from "./BuyOrBuild";
+import { StarRising, StarRisingProps } from "./StarRising";
 
 const FPS = 30;
 const DEFAULT_SECONDS = 30;
@@ -114,6 +115,16 @@ const buyOrBuildDefaults: BuyOrBuildProps = {
   audioDuration: 24, theme: codeazTheme,
 };
 
+const starRisingDefaults: StarRisingProps = {
+  repo: "documenso/documenso",
+  tagline: "Open-source DocuSign alternative: send, sign and store documents you host yourself.",
+  stars: "6.1k", starsNote: "~140 a day · TypeScript · AGPL-3.0",
+  replaces: "A per-seat e-signature subscription",
+  tradeoff: "You run the server, the mailer and the backups.",
+  payoff: "Signing under 200 documents a month? This pays for itself in one quarter.",
+  audioDuration: 24, theme: codeazTheme,
+};
+
 export const Root: React.FC = () => (
   <>
     <Composition
@@ -143,6 +154,10 @@ export const Root: React.FC = () => (
     <Composition
       id="BuyOrBuild" component={BuyOrBuild} {...shared}
       defaultProps={buyOrBuildDefaults} calculateMetadata={calcMeta}
+    />
+    <Composition
+      id="StarRising" component={StarRising} {...shared}
+      defaultProps={starRisingDefaults} calculateMetadata={calcMeta}
     />
   </>
 );

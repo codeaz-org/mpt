@@ -20,6 +20,7 @@ import requests
 import buffer
 import critic
 import questions
+import repos
 from llm import NIM_MODEL, nim_chat
 
 ROOT = Path(__file__).resolve().parent
@@ -390,12 +391,33 @@ def _recent_tools(state, niche_id, keep=4):
     return used[:8]
 
 
-def _write_script(topic, niche, feedback=None, drift=(), question=None, recent_tools=()):
+def _write_script(topic, niche, feedback=None, drift=(), question=None, recent_tools=(),
+                  repo=None):
     """One draft. `feedback` carries the critic's instructions from the previous round.
     `recent_tools` lists product names cited in recent videos so we can nudge the writer
-    to pick a different example this time."""
-    system = niche.get("script_prompt", SCRIPT_SYSTEM)
+    to pick a different example this time. `repo` is set on Star Rising episodes and
+    carries the GitHub facts the script is allowed to state."""
+    system = (niche.get("repo_script_prompt") if repo else None) or \
+        niche.get("script_prompt", SCRIPT_SYSTEM)
     notes = []
+    if repo:
+        # The repo brief replaces the usual research context. Everything the script
+        # asserts about the project has to trace back to these lines -- a model that
+        # has never run the thing will otherwise invent benchmarks and pricing.
+        notes.append(
+            "THE PROJECT -- these are the ONLY established facts about it:\n"
+            + repos.brief(repo) + "\n\n"
+            "Rules for this episode:\n"
+            "  * State the repo's name the way GitHub spells it.\n"
+            "  * The star count and language above are from the GitHub API today. Use "
+            "them as given, or leave them out. Never round them into a bigger number.\n"
+            "  * You have NOT run this project and neither has the channel. No "
+            "benchmarks, no install times, no 'we tried it', no invented pricing for "
+            "the paid tool it replaces unless that price is public and you are sure.\n"
+            "  * Anything the description does not support is speculation: say 'the "
+            "authors say', or drop the claim.\n"
+            "  * Self-hosting costs are the honest catch: the VPS, the backups, the "
+            "upgrades, and a young project's missing features.")
     facts = _facts()
     if facts:
         notes.append(
@@ -446,7 +468,7 @@ def _write_script(topic, niche, feedback=None, drift=(), question=None, recent_t
     ))
 
 
-def generate_script(topic, niche, question=None, recent_tools=()):
+def generate_script(topic, niche, question=None, recent_tools=(), repo=None):
     """Draft, critique, revise, until an editor agent passes it.
 
     A model asked to write and approve its own work approves nearly everything, so the
@@ -460,7 +482,7 @@ def generate_script(topic, niche, question=None, recent_tools=()):
 
     def write(feedback):
         script = _write_script(topic, niche, feedback, state["drift"], asked,
-                                recent_tools=recent_tools)
+                                recent_tools=recent_tools, repo=repo)
         if weak_hook(script):
             script = _rewrite_hook(script, topic, asked)
         state["drift"] = tuple(_drift_terms(script, topic, niche))
@@ -636,7 +658,7 @@ def _clean_hashtags(tags):
     return out
 
 
-def make_metadata(topic, niche, question=None):
+def make_metadata(topic, niche, question=None, repo=None):
     """Title, description, hashtags. Never let a metadata hiccup discard a rendered
     video -- fall back to the topic.
 
@@ -678,7 +700,11 @@ def make_metadata(topic, niche, question=None):
         hashtags = _clean_hashtags([niche.get("hashtags", "")])[:HASHTAG_CAP]
     meta["hashtags"] = hashtags
     tags_str = " ".join(hashtags)
-    meta["description"] = f'{meta.get("description", topic)}\n\n{tags_str}'.rstrip()
+    # A Star Rising episode is about someone else's work; the link is the credit,
+    # and it goes above the hashtags where a viewer will actually see it.
+    credit = f'\n\n{repo["full_name"]}: {repo["url"]}' if repo else ""
+    meta["description"] = (
+        f'{meta.get("description", topic)}{credit}\n\n{tags_str}'.rstrip())
     meta["title"] = meta.get("title", topic)[:95]
     return meta
 
@@ -979,8 +1005,36 @@ def _episode_counts(state, niche_id):
     return counts
 
 
+def _repo_props(repo):
+    """The StarRising props that come from GitHub rather than from the narration.
+    Passed as `base_props` so they overwrite whatever the extractor produced --
+    the star count on screen is the one the API reported, not a rounded one."""
+    note = [f"~{repo['stars_per_day']:.0f} stars a day"]
+    if repo.get("language"):
+        note.append(repo["language"])
+    if repo.get("license") and repo["license"] != "NOASSERTION":
+        note.append(repo["license"])
+    return {
+        "repo": repo["full_name"],
+        "stars": repos.stars_label(repo["stars"]),
+        "starsNote": " · ".join(note),
+    }
+
+
+def _repo_fallback_props(repo):
+    """Props worth having but not worth losing a render over. The extractor writes
+    a tighter tagline from the finished script; these fill in only when it came
+    back empty, which is the difference between a Star Rising episode and a
+    fallback to the stock renderer."""
+    return {
+        "tagline": repo["description"],
+        "replaces": repo.get("replaces") or "",
+    }
+
+
 def render_video(topic, niche, script, question=None, recent_archetypes=(),
-                 episode_counts=None):
+                 episode_counts=None, force_archetype=None, base_props=None,
+                 fallback_props=None):
     """Dispatch to the configured renderer.
 
       stock     MPT: stock footage under captions, ffmpeg-composited (default)
@@ -998,7 +1052,9 @@ def render_video(topic, niche, script, question=None, recent_archetypes=(),
             video, archetype = remotion_render.render(
                 topic, niche, script, question=question,
                 recent_archetypes=recent_archetypes,
-                episode_counts=episode_counts)
+                episode_counts=episode_counts,
+                force_archetype=force_archetype, base_props=base_props,
+                fallback_props=fallback_props)
             check_rendered_video(video, script)
             log(f"[{nid}] ==== RENDER done via REMOTION -> {Path(video).name} ====")
             return video, archetype
@@ -1028,6 +1084,42 @@ def used_question_ids(state, niche_id):
             if u.get("niche") == niche_id and u.get("question_id")}
 
 
+def posted_repos(state, niche_id):
+    """Every GitHub repo this niche already covered -- the union of two records,
+    on purpose. `repos` holds a pick from the moment it is made, so a DRY_RUN or a
+    run that dies before uploading still burns it; `uploads` holds what actually
+    published. A repo in either one is never picked again."""
+    covered = {r.lower() for r in state.get("repos", {}).get(niche_id, [])}
+    covered |= {u["repo"].lower() for u in state.get("uploads", [])
+                if u.get("niche") == niche_id and u.get("repo")}
+    return covered
+
+
+def _record_repo(state, niche_id, full_name):
+    state.setdefault("repos", {}).setdefault(niche_id, []).append(full_name)
+
+
+def _record_mode(state, niche_id, mode):
+    """Which source produced each video, newest last. Only used to alternate."""
+    state.setdefault("modes", {}).setdefault(niche_id, []).append(mode)
+
+
+def star_rising_turn(niche, state):
+    """Is this run's video a Star Rising episode?
+
+    `every_other_run` alternates with the question pipeline so the channel keeps
+    answering real people and the older path keeps being exercised -- an unused
+    pipeline rots quietly. The last recorded mode decides; with no history, a
+    freshly enabled niche starts on Star Rising."""
+    if not repos.enabled(niche):
+        return False
+    cfg = niche.get("star_rising") or {}
+    if not cfg.get("every_other_run", True):
+        return True
+    history = state.get("modes", {}).get(niche["id"]) or []
+    return not (history and history[-1] == "star_rising")
+
+
 def run_niche(niche, state):
     if not niche_is_ready(niche):
         log(f"[{niche['id']}] skipped: set YT_REFRESH_TOKEN_{niche['id'].upper()} "
@@ -1035,18 +1127,41 @@ def run_niche(niche, state):
         return
     used = state["topics"].setdefault(niche["id"], [])
     for _ in range(niche.get("videos_per_run", 1)):
-        topic, question = pick_topic(niche, used, used_question_ids(state, niche["id"]))
-        script = generate_script(topic, niche, question,
-                                 recent_tools=_recent_tools(state, niche["id"]))
+        repo = None
+        mode = "question"
+        if star_rising_turn(niche, state):
+            try:
+                topic, repo = repos.pick(niche, posted_repos(state, niche["id"]))
+                mode = "star_rising"
+            except Exception as e:
+                # GitHub having nothing worth covering is a normal Tuesday. The
+                # question pipeline is the fallback, so the run still ships.
+                log(f"[{niche['id']}] Star Rising skipped ({type(e).__name__}: "
+                    f"{str(e)[:140]}); falling back to the question pipeline")
+        if repo:
+            _record_repo(state, niche["id"], repo["full_name"])
+            save_state(state)   # burn the pick now: a crash must not re-pick it
+            # The critic scores `answers_question`, so give it the question this
+            # format answers rather than leaving the axis to guess.
+            question = f"What is {repo['full_name']} and should I run it?"
+            script = generate_script(topic, niche, question, repo=repo)
+        else:
+            topic, question = pick_topic(niche, used, used_question_ids(state, niche["id"]))
+            script = generate_script(topic, niche, question,
+                                     recent_tools=_recent_tools(state, niche["id"]))
         # Per-archetype episode counts. Whichever archetype the script gets
         # classified into, the badge shows 'Q · 07' or 'COST · 03' etc.
         # -- proof each format is a series, not a one-off.
         video, archetype = render_video(
             topic, niche, script, question=question,
             recent_archetypes=_recent_archetypes(state, niche["id"]),
-            episode_counts=_episode_counts(state, niche["id"]))
+            episode_counts=_episode_counts(state, niche["id"]),
+            force_archetype="StarRising" if repo else None,
+            base_props=_repo_props(repo) if repo else None,
+            fallback_props=_repo_fallback_props(repo) if repo else None)
         log(f"[{niche['id']}] Video: {video}")
-        meta = make_metadata(topic, niche, question=question)
+        meta = make_metadata(topic, niche,
+                             question=None if repo else question, repo=repo)
         caption = tiktok_caption(meta, niche)
 
         if DRY_RUN:
@@ -1065,6 +1180,8 @@ def run_niche(niche, state):
                 f"script:\n{script}\n"
             )
             used.append(topic)
+            _record_mode(state, niche["id"], mode)
+            save_state(state)
             continue
 
         yt_id = upload_youtube(video, meta, niche)
@@ -1075,15 +1192,22 @@ def run_niche(niche, state):
             "niche": niche["id"], "topic": topic, "title": meta["title"],
             # provenance: which human question this video answers, so it is never
             # answered twice and the channel can show its work
-            "question": (question or {}).get("title"),
-            "question_id": (question or {}).get("id"),
-            "question_url": (question or {}).get("url"),
+            "question": question if repo else (question or {}).get("title"),
+            "question_id": None if repo else (question or {}).get("id"),
+            "question_url": None if repo else (question or {}).get("url"),
+            # Star Rising provenance: which repo this episode covered, so it is
+            # never covered twice and the description can credit it.
+            "mode": mode,
+            "repo": repo["full_name"] if repo else None,
+            "repo_url": repo["url"] if repo else None,
+            "repo_stars": repo["stars"] if repo else None,
             "youtube": yt_id, "tiktok": False, "tiktok_via": None,
             "tiktok_post_id": None, "tiktok_caption": caption,
             "archetype": archetype,
             "ts": time.strftime("%Y-%m-%dT%H:%M:%S"),
         }
         used.append(topic)
+        _record_mode(state, niche["id"], mode)
         state["uploads"].append(entry)
         save_state(state)
 

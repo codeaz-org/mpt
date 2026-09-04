@@ -70,7 +70,8 @@
       "Is Ranktail AI worth it for a high\u2011volume Shopify apparel store?",
       "Automate Your WhatsApp Business for Free: A No-Code Workflow Demo",
       "Create Weekly Product Videos on a Budget with Canva & InVideo",
-      "Bento: Self-hosted office suite that replaces your Microsoft Office subscription"
+      "Bento: Self-hosted office suite that replaces your Microsoft Office subscription",
+      "The best Shopify multi\u2011vendor app to launch a marketplace fast"
     ]
   },
   "uploads": [
@@ -1023,6 +1024,25 @@
       "repo_stars": 4690,
       "ts": "2026-09-04T14:41:50",
       "recovered_from_log": "https://github.com/codeaz-org/mpt/actions/runs/33870081933"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "The best Shopify multi\u2011vendor app to launch a marketplace fast",
+      "title": "Launch Your Shopify Marketplace in 5 Minutes! \ud83d\ude80",
+      "question": "What is the best multi-vendor app for Shopify right now?",
+      "question_id": "reddit:1w59cov",
+      "question_url": "https://reddit.com/r/shopify/comments/1w59cov/what_is_the_best_multivendor_app_for_shopify/",
+      "mode": "question",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "youtube": "LIbPE8vxrkw",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6a9b391edca05898bf44b879",
+      "tiktok_caption": "Launch Your Shopify Marketplace in 5 Minutes! \ud83d\ude80\n\nDiscover the top multi\u2011vendor app that turns your Shopify store into a thriving marketplace in minutes. Ready to scale? Hit follow for more game\u2011changing tips!\n\n#shopify #marketplace #ecommerce #multivendor #fastlaunch",
+      "archetype": "QuestionAnswer",
+      "ts": "2026-09-04T21:33:16"
     }
   ],
   "repos": {
@@ -1033,7 +1053,8 @@
   },
   "modes": {
     "codeaz": [
-      "star_rising"
+      "star_rising",
+      "question"
     ]
   }
 }

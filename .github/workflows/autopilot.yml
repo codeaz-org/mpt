@@ -32,11 +32,20 @@ jobs:
           python-version: "3.11"
 
       # ffprobe (part of the ffmpeg package) is what Remotion and MPT call for
-      # duration probes; the ubuntu-latest image ships without it. Install without
-      # apt-get update -- the runner's package cache is fresh enough, and skipping
-      # update avoids the 7+ min stalls we saw when Azure's mirrors were down.
+      # duration probes; the ubuntu-latest image ships without it. The runner's
+      # package index goes stale as soon as Ubuntu publishes a security update, so
+      # a bare install 404s on the superseded .deb (libssh-gcrypt-4 did exactly
+      # that). Update first, but bound each attempt so a dead Azure mirror can't
+      # stall the job the way it used to.
       - name: Install ffmpeg + imagemagick
-        run: sudo apt-get install -y ffmpeg imagemagick
+        run: |
+          for attempt in 1 2 3; do
+            sudo timeout 180 apt-get update && \
+            sudo timeout 300 apt-get install -y ffmpeg imagemagick && exit 0
+            echo "apt attempt $attempt failed; retrying in 15s"
+            sleep 15
+          done
+          exit 1
 
       # Remotion renders through headless Chrome. Node is already on ubuntu-latest;
       # setup-node pins it and enables actions/cache for the npm store.

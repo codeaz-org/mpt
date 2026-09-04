@@ -175,7 +175,22 @@ jobs:
         run: |
           git config user.name "autopilot-bot"
           git config user.email "actions@github.com"
+          # Re-running an old run checks the repo out in detached HEAD, and the
+          # previous `pull --rebase` then conflicted on posted.json and stranded
+          # the commit -- an upload happened and nothing recorded it, so the next
+          # run was free to cover the same repo again. Rebuild the state commit on
+          # top of whatever main is now instead of rebasing onto it.
+          cp posted.json /tmp/posted.json
+          cp CAPTIONS.md /tmp/CAPTIONS.md 2>/dev/null || true
+          git fetch origin ${{ github.ref_name }}
+          git checkout -B autopilot-state origin/${{ github.ref_name }}
+          cp /tmp/posted.json posted.json
+          cp /tmp/CAPTIONS.md CAPTIONS.md 2>/dev/null || true
           git add posted.json CAPTIONS.md
-          git diff --cached --quiet || git commit -m "chore: autopilot run $(date -u +%F_%H:%M)"
-          git pull --rebase origin ${{ github.ref_name }} || true
-          git push || echo "push failed (non-fatal)"
+          if git diff --cached --quiet; then
+            echo "state unchanged, nothing to persist"
+          else
+            git commit -m "chore: autopilot run $(date -u +%F_%H:%M)"
+            # A failure here loses the record of a published video, so it is loud.
+            git push origin autopilot-state:${{ github.ref_name }}
+          fi

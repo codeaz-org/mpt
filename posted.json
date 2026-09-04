@@ -69,7 +69,8 @@
       "Self\u2011host your side\u2011project stack on a $5 droplet instead of pricey SaaS",
       "Is Ranktail AI worth it for a high\u2011volume Shopify apparel store?",
       "Automate Your WhatsApp Business for Free: A No-Code Workflow Demo",
-      "Create Weekly Product Videos on a Budget with Canva & InVideo"
+      "Create Weekly Product Videos on a Budget with Canva & InVideo",
+      "Bento: Self-hosted office suite that replaces your Microsoft Office subscription"
     ]
   },
   "uploads": [
@@ -1002,11 +1003,37 @@
       "tiktok_caption": "Budget\u2011Friendly Weekly Product Videos: Canva + InVideo Hack\n\nLearn how to produce fresh product videos every week without breaking the bank\u2014using Canva\u2019s templates and InVideo\u2019s quick editing tools. Hit follow for more low\u2011cost content creation secrets!\n\n#kebab #nocodefounder #videoproduction #contentcreator #budgetmarketing",
       "archetype": "WorkflowDemo",
       "ts": "2026-09-01T12:44:33"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Bento: Self-hosted office suite that replaces your Microsoft Office subscription",
+      "title": "Bento: Self-hosted office suite that replaces your Microsoft Office subscription",
+      "question": "What is nyblnet/bento and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "youtube": "jtpUWlzZHlM",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6a9ad8a4276284e54171e09a",
+      "tiktok_caption": null,
+      "archetype": "StarRising",
+      "mode": "star_rising",
+      "repo": "nyblnet/bento",
+      "repo_url": "https://github.com/nyblnet/bento",
+      "repo_stars": 4690,
+      "ts": "2026-09-04T14:41:50",
+      "recovered_from_log": "https://github.com/codeaz-org/mpt/actions/runs/33870081933"
     }
   ],
   "repos": {
     "codeaz": [
-      "firecrawl/anydoc"
+      "firecrawl/anydoc",
+      "nyblnet/bento"
+    ]
+  },
+  "modes": {
+    "codeaz": [
+      "star_rising"
     ]
   }
 }

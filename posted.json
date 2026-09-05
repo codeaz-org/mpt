@@ -72,7 +72,8 @@
       "Create Weekly Product Videos on a Budget with Canva & InVideo",
       "Bento: Self-hosted office suite that replaces your Microsoft Office subscription",
       "The best Shopify multi\u2011vendor app to launch a marketplace fast",
-      "Self-hosted scheduling app that replaces your Calendly subscription"
+      "Self-hosted scheduling app that replaces your Calendly subscription",
+      "Automate Shipping Label Organization for Small E\u2011Commerce"
     ]
   },
   "uploads": [
@@ -1063,6 +1064,25 @@
       "tiktok_caption": "Stop Paying for Calendly \u2013 Host Your Own Scheduler!\n\nDiscover how this open-source project can replace your Calendly subscription, giving you full control and privacy. Hit follow for more no\u2011cost, self\u2011hosted tech hacks!\n\nnateherkai/snagtime: https://github.com/nateherkai/snagtime\n\n#opensource #selfhosted #nocodefounder #productivity #devtools",
       "archetype": "StarRising",
       "ts": "2026-09-05T11:24:18"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Automate Shipping Label Organization for Small E\u2011Commerce",
+      "title": "\ud83d\ude9a Automate Shipping Label Organization in Seconds!",
+      "question": "Does anyone have a reasonable solution for applying or otherwise organizing shipping labels for application?",
+      "question_id": "reddit:1w68q5d",
+      "question_url": "https://reddit.com/r/ecommerce/comments/1w68q5d/does_anyone_have_a_reasonable_solution_for/",
+      "mode": "question",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "youtube": "3rnDfaoYleo",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6a9c87780ca93dff23a2d190",
+      "tiktok_caption": "\ud83d\ude9a Automate Shipping Label Organization in Seconds!\n\nStreamline your e\u2011commerce shipping with a quick automation setup\u2014no coding required. Watch the demo and start saving time today! Follow for more small business hacks.\n\n#smallbusiness #ecommerce #nocode #logistics #automation",
+      "archetype": "BuyOrBuild",
+      "ts": "2026-09-05T21:19:49"
     }
   ],
   "repos": {
@@ -1076,7 +1096,8 @@
     "codeaz": [
       "star_rising",
       "question",
-      "star_rising"
+      "star_rising",
+      "question"
     ]
   }
 }

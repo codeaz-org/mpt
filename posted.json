@@ -71,7 +71,8 @@
       "Automate Your WhatsApp Business for Free: A No-Code Workflow Demo",
       "Create Weekly Product Videos on a Budget with Canva & InVideo",
       "Bento: Self-hosted office suite that replaces your Microsoft Office subscription",
-      "The best Shopify multi\u2011vendor app to launch a marketplace fast"
+      "The best Shopify multi\u2011vendor app to launch a marketplace fast",
+      "Self-hosted scheduling app that replaces your Calendly subscription"
     ]
   },
   "uploads": [
@@ -1043,18 +1044,39 @@
       "tiktok_caption": "Launch Your Shopify Marketplace in 5 Minutes! \ud83d\ude80\n\nDiscover the top multi\u2011vendor app that turns your Shopify store into a thriving marketplace in minutes. Ready to scale? Hit follow for more game\u2011changing tips!\n\n#shopify #marketplace #ecommerce #multivendor #fastlaunch",
       "archetype": "QuestionAnswer",
       "ts": "2026-09-04T21:33:16"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Self-hosted scheduling app that replaces your Calendly subscription",
+      "title": "Stop Paying for Calendly \u2013 Host Your Own Scheduler!",
+      "question": "What is nateherkai/snagtime and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "nateherkai/snagtime",
+      "repo_url": "https://github.com/nateherkai/snagtime",
+      "repo_stars": 326,
+      "youtube": "4TOVT-9--Lg",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6a9bfbe5a6b2635b93226160",
+      "tiktok_caption": "Stop Paying for Calendly \u2013 Host Your Own Scheduler!\n\nDiscover how this open-source project can replace your Calendly subscription, giving you full control and privacy. Hit follow for more no\u2011cost, self\u2011hosted tech hacks!\n\nnateherkai/snagtime: https://github.com/nateherkai/snagtime\n\n#opensource #selfhosted #nocodefounder #productivity #devtools",
+      "archetype": "StarRising",
+      "ts": "2026-09-05T11:24:18"
     }
   ],
   "repos": {
     "codeaz": [
       "firecrawl/anydoc",
-      "nyblnet/bento"
+      "nyblnet/bento",
+      "nateherkai/snagtime"
     ]
   },
   "modes": {
     "codeaz": [
       "star_rising",
-      "question"
+      "question",
+      "star_rising"
     ]
   }
 }

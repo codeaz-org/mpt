@@ -5,9 +5,20 @@ starred. The source is the GitHub Search API -- keyless at 10 requests/minute,
 30/minute with a token, which Actions hands us for free -- rather than scraping
 github.com/trending, which carries no API contract and breaks on a markup change.
 
-"Trending" here means stars per day since creation, inside a recent window: a
-repo that took four years to reach 3,000 stars is not news, one that did it in
-three weeks is. Everything after that is a filter:
+Two pools feed the segment, because "worth showing a founder" is not the same
+question as "new":
+
+  rising       created inside a recent window and already adopted, ranked by
+               stars per day. This is news: it did in three weeks what most
+               projects never do.
+  established  any age, a large star count, and pushed recently. Not news, but
+               proven -- a five-year-old self-hosted CRM with 20k stars and
+               commits this month is a safer recommendation than anything three
+               weeks old, and there are far more of them.
+
+Both are interleaved so a shortlist carries each, and the pools together mean
+the segment does not run dry when GitHub has a quiet fortnight. Everything after
+that is a filter:
 
   * no usable description -> skipped, there is nothing honest to narrate
   * lists, tutorials, roadmaps, dotfiles -> skipped, nothing a viewer can run
@@ -18,6 +29,7 @@ Every failure path raises so the caller can fall back to the question pipeline:
 a quiet week on GitHub must cost a topic, never a run.
 """
 import os, re, time
+from collections import Counter
 from datetime import date, datetime, timedelta, timezone
 
 import requests
@@ -28,8 +40,14 @@ API = "https://api.github.com/search/repositories"
 UA = {"User-Agent": "mpt-autopilot/1.0", "Accept": "application/vnd.github+json"}
 
 # Defaults for everything a niche's `star_rising` block can override.
-WINDOW_DAYS = 90          # how far back a repo may have been created
+WINDOW_DAYS = 90          # how far back a RISING repo may have been created
 MIN_STARS = 300           # floor for "people actually adopted this"
+# An established project earns its place on adoption plus a pulse, not on age.
+# The star floor is higher because without the velocity signal the star count is
+# the only evidence of reputation; the push window is what separates a maintained
+# project from an abandoned one with a good README.
+ESTABLISHED_MIN_STARS = 1500
+ESTABLISHED_MAINTAINED_DAYS = 120
 MIN_DESCRIPTION = 40      # chars; below this there is no video in it
 PER_PAGE = 50
 SHORTLIST = 20            # how many reach the LLM gate
@@ -93,7 +111,7 @@ def _age_days(created_at):
     return max(1.0, (datetime.now(timezone.utc) - born).total_seconds() / 86400)
 
 
-def _normalise(item):
+def _normalise(item, kind="rising"):
     """One search result -> the fields the rest of the pipeline uses."""
     age = _age_days(item.get("created_at"))
     stars = item.get("stargazers_count") or 0
@@ -112,9 +130,11 @@ def _normalise(item):
         "archived": bool(item.get("archived")),
         "fork": bool(item.get("fork")),
         "age_days": age,
-        # The trending signal itself. Sorting on raw stars just returns whatever
-        # was already famous inside the window.
+        # The trending signal. Within the rising pool, sorting on raw stars just
+        # returns whatever was already famous inside the window; for established
+        # repos this is a small number by definition and is not ranked on.
         "stars_per_day": (stars / age) if age else 0.0,
+        "kind": kind,
     }
 
 
@@ -150,35 +170,53 @@ def is_runnable_shape(repo):
     return not NOT_RUNNABLE_RE.search(hay)
 
 
-def fetch_candidates(niche):
-    """Every configured query, filtered and ranked by star velocity.
+def _planned_queries(cfg):
+    """(label, kind, query) for every search this niche wants.
 
-    The queries are all scoped to the same creation window, so what comes back is
-    "born recently AND already adopted" -- the closest the Search API gets to the
-    trending page's velocity signal."""
-    cfg = _config(niche)
+    Rising queries pin a creation window so the result is "born recently AND
+    already adopted". Established queries drop the age limit entirely and ask for
+    adoption plus a recent push instead -- age was never the thing that made a
+    project worth recommending, and restricting to new repos threw away most of
+    the good ones."""
     window = int(cfg.get("window_days") or WINDOW_DAYS)
     min_stars = int(cfg.get("min_stars") or MIN_STARS)
-    min_chars = int(cfg.get("min_description_chars") or MIN_DESCRIPTION)
     since = (date.today() - timedelta(days=window)).isoformat()
-    # A niche can add qualifiers ("topic:self-hosted", "language:python"); the
-    # empty string is the plain window query and is always run.
-    extras = list(cfg.get("queries") or [""])
-
-    seen, per_query = set(), []
-    for extra in extras:
+    plan = []
+    # The empty string is the plain window query and is always run.
+    for extra in (cfg.get("queries") or [""]):
         q = f"created:>={since} stars:>={min_stars}"
         if extra:
             q += f" {extra}"
+        plan.append((extra or "(new)", "rising", q))
+
+    est_stars = int(cfg.get("established_min_stars") or ESTABLISHED_MIN_STARS)
+    est_days = int(cfg.get("established_maintained_days")
+                   or ESTABLISHED_MAINTAINED_DAYS)
+    maintained_since = (date.today() - timedelta(days=est_days)).isoformat()
+    for extra in (cfg.get("established_queries") or []):
+        q = f"stars:>={est_stars} pushed:>={maintained_since}"
+        if extra:
+            q += f" {extra}"
+        plan.append((f"{extra} (established)", "established", q))
+    return plan
+
+
+def fetch_candidates(niche):
+    """Every configured query, filtered, ranked within its pool, then interleaved."""
+    cfg = _config(niche)
+    min_chars = int(cfg.get("min_description_chars") or MIN_DESCRIPTION)
+
+    seen, per_query = set(), []
+    for extra, kind, q in _planned_queries(cfg):
         try:
             data = _api_get({"q": q, "sort": "stars", "order": "desc",
                              "per_page": PER_PAGE})
         except Exception as e:
-            log(f"query {extra or '(plain)'!r} failed: {type(e).__name__}: {str(e)[:90]}")
+            log(f"query {extra!r} failed: {type(e).__name__}: {str(e)[:90]}")
             continue
         kept = []
         for item in data.get("items", []):
-            repo = _normalise(item)
+            repo = _normalise(item, kind)
             if not repo["full_name"] or repo["full_name"] in seen:
                 continue
             seen.add(repo["full_name"])
@@ -189,14 +227,19 @@ def fetch_candidates(niche):
             if not is_runnable_shape(repo):
                 continue
             kept.append(repo)
-        kept.sort(key=lambda r: r["stars_per_day"], reverse=True)
+        # Velocity is the point of the rising pool and meaningless in the other:
+        # a mature project's lifetime average is always small, so rank it on the
+        # adoption it actually has.
+        kept.sort(key=lambda r: r["stars_per_day"] if kind == "rising" else r["stars"],
+                  reverse=True)
         per_query.append(kept)
-        log(f"  {extra or '(plain window)'}: {len(kept)} kept")
+        log(f"  {extra}: {len(kept)} kept")
         time.sleep(2)  # the search endpoint's own rate limit is per-minute
 
     out = _interleave(per_query)
+    pools = Counter(r["kind"] for r in out)
     log(f"{len(out)} candidate repos after description + shape filters "
-        f"(window {window}d, min {min_stars} stars)")
+        f"({pools.get('rising', 0)} rising, {pools.get('established', 0)} established)")
     return out
 
 
@@ -226,9 +269,14 @@ def unused(candidates, posted_full_names):
     return fresh
 
 
-SELECT_SYSTEM = """You choose which trending open-source project becomes the next short
-video for a software house whose viewers are FOUNDERS, OPS LEADS and SMALL-BUSINESS
-OWNERS -- not developers browsing GitHub.
+SELECT_SYSTEM = """You choose which open-source project becomes the next short video
+for a software house whose viewers are FOUNDERS, OPS LEADS and SMALL-BUSINESS OWNERS --
+not developers browsing GitHub.
+
+The list mixes brand-new projects rising fast with older, established ones that are
+still actively maintained. Do NOT prefer one over the other on age: a five-year-old
+self-hosted CRM with 20,000 stars and commits this month is a better recommendation
+than a three-week-old project with a thin README. Judge on what it does for the viewer.
 
 Pick the ONE repo that:
   - a small business could actually RUN or pay someone to run for them: a self-hostable
@@ -260,9 +308,12 @@ def choose(niche, candidates, limit=SHORTLIST):
         raise RuntimeError("no candidate repos available")
     shortlist = candidates[:limit]
     listed = "\n".join(
-        f"{i}. {r['full_name']} [{r['stars']} stars, {r['stars_per_day']:.0f}/day, "
-        f"{r['language'] or 'n/a'}{', topics: ' + ', '.join(r['topics'][:5]) if r['topics'] else ''}] "
-        f":: {r['description'][:200]}"
+        f"{i}. {r['full_name']} [{r['stars']} stars, "
+        + (f"{r['stars_per_day']:.0f}/day, new" if r.get("kind") != "established"
+           else f"established, {(r.get('age_days') or 0) / 365:.0f}y old")
+        + f", {r['language'] or 'n/a'}"
+        + (", topics: " + ", ".join(r["topics"][:5]) if r["topics"] else "")
+        + f"] :: {r['description'][:200]}"
         for i, r in enumerate(shortlist)
     )
     guidance = _config(niche).get("select_prompt") or SELECT_SYSTEM
@@ -281,7 +332,7 @@ def choose(niche, candidates, limit=SHORTLIST):
         raise RuntimeError(f"model returned an unusable selection: {str(result)[:160]}")
     repo = dict(shortlist[index])
     repo["replaces"] = (result.get("replaces") or "").strip()
-    log(f"chose {repo['full_name']} ({repo['stars']} stars, "
+    log(f"chose {repo['full_name']} ({repo['kind']}, {repo['stars']} stars, "
         f"{repo['stars_per_day']:.0f}/day)")
     log(f"  -> {topic}")
     return topic, repo
@@ -308,13 +359,27 @@ def pick(niche, posted_full_names=()):
 def brief(repo):
     """The facts a script may state, formatted for the writer's system prompt.
     Anything not in here is not established, and the prompt says so."""
+    years = (repo.get("age_days") or 0) / 365
+    if repo.get("kind") == "established":
+        # For a mature project the lifetime average velocity is a meaningless
+        # number and quoting it undersells the thing. Age and upkeep are the story.
+        age = (f"{years:.0f} years old" if years >= 1
+               else f"{int(repo['age_days'])} days old")
+        stars_line = (f"STARS: {repo['stars']:,}, earned over {age}. This is an "
+                      "ESTABLISHED project, not a new one: the story is that it is "
+                      "proven and still maintained, NOT that it is suddenly popular.")
+    else:
+        stars_line = (f"STARS: {repo['stars']:,} (about {repo['stars_per_day']:.0f} a "
+                      f"day since it was created {int(repo['age_days'])} days ago). "
+                      "This is a NEW project rising fast.")
     lines = [
         f"REPOSITORY: {repo['full_name']}",
         f"URL: {repo['url']}",
         f"WHAT ITS AUTHORS SAY IT IS: {repo['description']}",
-        f"STARS: {repo['stars']:,} (about {repo['stars_per_day']:.0f} a day since it "
-        f"was created {int(repo['age_days'])} days ago)",
+        stars_line,
     ]
+    if repo.get("pushed_at"):
+        lines.append(f"LAST PUSHED: {repo['pushed_at'][:10]} (it is actively maintained)")
     if repo.get("language"):
         lines.append(f"PRIMARY LANGUAGE: {repo['language']}")
     if repo.get("topics"):

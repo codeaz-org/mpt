@@ -1086,7 +1086,15 @@ def _repo_props(repo):
     """The StarRising props that come from GitHub rather than from the narration.
     Passed as `base_props` so they overwrite whatever the extractor produced --
     the star count on screen is the one the API reported, not a rounded one."""
-    note = [f"~{repo['stars_per_day']:.0f} stars a day"]
+    # An established project's lifetime average velocity is a small, unimpressive
+    # and largely meaningless number -- what recommends it is that it has been
+    # around, has real adoption, and still gets commits.
+    if repo.get("kind") == "established":
+        years = (repo.get("age_days") or 0) / 365
+        note = [f"{years:.0f} years old · still shipping" if years >= 1
+                else "actively maintained"]
+    else:
+        note = [f"~{repo['stars_per_day']:.0f} stars a day"]
     if repo.get("language"):
         note.append(repo["language"])
     if repo.get("license") and repo["license"] != "NOASSERTION":

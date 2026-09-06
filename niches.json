@@ -28,7 +28,8 @@
           "honesty",
           "self_host_truth",
           "payoff"
-        ]
+        ],
+        "fallback_to_questions": false
       },
       "voice": "en-US-AndrewMultilingualNeural-Male",
       "video_mode": "remotion",

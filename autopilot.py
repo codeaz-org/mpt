@@ -1214,8 +1214,18 @@ def run_niche(niche, state):
                 topic, repo = repos.pick(niche, posted_repos(state, niche["id"]))
                 mode = "star_rising"
             except Exception as e:
-                # GitHub having nothing worth covering is a normal Tuesday. The
-                # question pipeline is the fallback, so the run still ships.
+                # A niche can run Star Rising exclusively, in which case a day with
+                # no coverable repo ships nothing rather than quietly publishing a
+                # video in a format the channel has paused.
+                if not (niche.get("star_rising") or {}).get("fallback_to_questions", True):
+                    log(f"[{niche['id']}] Star Rising found nothing ({type(e).__name__}: "
+                        f"{str(e)[:140]})")
+                    log(f"[{niche['id']}] WARNING: nothing published this run -- the "
+                        "question pipeline is paused for this niche "
+                        "(star_rising.fallback_to_questions is false)")
+                    return
+                # Otherwise GitHub having nothing worth covering is a normal
+                # Tuesday, and the question pipeline keeps the run shipping.
                 log(f"[{niche['id']}] Star Rising skipped ({type(e).__name__}: "
                     f"{str(e)[:140]}); falling back to the question pipeline")
         if repo:

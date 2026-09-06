@@ -1227,6 +1227,33 @@ class RunNicheTest(unittest.TestCase):
         self.assertIsNone(entry["repo"])
         self.assertEqual(entry["question_id"], "reddit:x")
 
+    def test_a_paused_question_pipeline_ships_nothing_rather_than_a_question_video(self):
+        """With questions paused, a day where GitHub yields nothing must publish
+        nothing -- not quietly fall back to a format the channel has stopped."""
+        niche = {**NICHE, "star_rising": {"enabled": True, "every_other_run": False,
+                                          "fallback_to_questions": False}}
+        with mock.patch.object(autopilot, "DRY_RUN", False), \
+             mock.patch.object(repos, "pick",
+                               mock.Mock(side_effect=RuntimeError("no fresh repos"))), \
+             mock.patch.object(autopilot, "upload_youtube",
+                               mock.Mock(side_effect=AssertionError("must not publish"))):
+            state = {"topics": {}, "uploads": []}
+            autopilot.run_niche(niche, state)
+        self.assertEqual(state["uploads"], [])
+
+    def test_the_fallback_still_works_for_niches_that_want_it(self):
+        niche = {**NICHE, "star_rising": {"enabled": True, "every_other_run": False,
+                                          "fallback_to_questions": True}}
+        with mock.patch.object(autopilot, "DRY_RUN", False), \
+             mock.patch.object(repos, "pick",
+                               mock.Mock(side_effect=RuntimeError("no fresh repos"))), \
+             mock.patch.object(autopilot, "upload_youtube", lambda v, m, n: "yt123"), \
+             mock.patch.object(autopilot, "upload_tiktok", lambda v, m, n: "pub1"), \
+             mock.patch.object(buffer, "enabled", lambda: False):
+            state = {"topics": {}, "uploads": []}
+            autopilot.run_niche(niche, state)
+        self.assertEqual(state["uploads"][-1]["mode"], "question")
+
     def test_one_failing_niche_does_not_stop_the_others(self):
         calls = []
 

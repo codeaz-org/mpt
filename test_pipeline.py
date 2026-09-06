@@ -714,6 +714,12 @@ class StarRisingScriptTest(unittest.TestCase):
         # the rubric has to agree with the prompt, or the critic reverts the hook
         rubric = niche["star_rising"]["critic_rubric"]
         self.assertIn("QUESTION", rubric)
+        # A dry run described n8n -- a seven-year-old company project -- as having
+        # thin docs and "a single maintainer". Neither is knowable from the brief.
+        for banned in ("maintain", "documentation"):
+            self.assertIn(banned, prompt.lower(),
+                          "the prompt must forbid inventing maintainer/doc claims")
+        self.assertIn("MAINTAINER COUNT", rubric)
         for axis in niche["star_rising"]["critic_axes"]:
             self.assertIn(axis, rubric, f"{axis} is scored but never described")
 

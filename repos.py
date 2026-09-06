@@ -384,7 +384,14 @@ def brief(repo):
         lines.append(f"PRIMARY LANGUAGE: {repo['language']}")
     if repo.get("topics"):
         lines.append(f"TOPICS: {', '.join(repo['topics'][:8])}")
-    if repo.get("license"):
+    if repo.get("license") == "NOASSERTION":
+        # Fair-code, SSPL and other source-available licences all report as
+        # NOASSERTION. That is not a missing licence, it is the case where the
+        # licence itself is a real catch worth naming in the script.
+        lines.append("LICENSE: not a standard OSI licence -- source-available or "
+                     "fair-code, which usually restricts reselling it as a service. "
+                     "Self-hosting it for your own business is normally fine.")
+    elif repo.get("license"):
         lines.append(f"LICENSE: {repo['license']}")
     if repo.get("replaces"):
         lines.append(f"IT PLAUSIBLY REPLACES: {repo['replaces']}")

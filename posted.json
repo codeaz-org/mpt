@@ -74,7 +74,8 @@
       "The best Shopify multi\u2011vendor app to launch a marketplace fast",
       "Self-hosted scheduling app that replaces your Calendly subscription",
       "Automate Shipping Label Organization for Small E\u2011Commerce",
-      "BigCapital: Self-hosted accounting that replaces QuickBooks"
+      "BigCapital: Self-hosted accounting that replaces QuickBooks",
+      "The self-hosted CRM that replaces Salesforce"
     ]
   },
   "uploads": [
@@ -1104,6 +1105,26 @@
       "tiktok_caption": "BigCapital: The Self\u2011Hosted Accounting Powerhouse | Replace QuickBooks\n\nDiscover BigCapital, the open\u2011source alternative that lets you host your own accounting stack and ditch QuickBooks. Dive into its features, setup, and how it can boost your business. Follow for more deep dives!\n\nbigcapitalhq/bigcapital: https://github.com/bigcapitalhq/bigcapital\n\n#nocodefounder #selfhosted #accountingtips #smallbiz #opensource",
       "archetype": "StarRising",
       "ts": "2026-09-06T12:46:55"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "The self-hosted CRM that replaces Salesforce",
+      "title": "Self\u2011hosted CRM that Beats Salesforce\u2014See How It Works!",
+      "question": "What is twentyhq/twenty and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "twentyhq/twenty",
+      "repo_url": "https://github.com/twentyhq/twenty",
+      "repo_stars": 56349,
+      "repo_replaces": "Salesforce",
+      "youtube": "bkbVwtq8WDE",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6a9dbc709730c9bde54c8ed4",
+      "tiktok_caption": "Self\u2011hosted CRM that Beats Salesforce\u2014See How It Works!\n\nDiscover a powerful open\u2011source CRM that can replace Salesforce without the cloud lock\u2011in. Dive into its features and start your own self\u2011hosted solution today\u2014follow for more tech insights!\n\ntwentyhq/twenty: https://github.com/twentyhq/twenty\n\n#nocodefounder #opensource #crm #selfhosted #salesforcealternative",
+      "archetype": "StarRising",
+      "ts": "2026-09-06T19:18:04"
     }
   ],
   "repos": {
@@ -1111,7 +1132,8 @@
       "firecrawl/anydoc",
       "nyblnet/bento",
       "nateherkai/snagtime",
-      "bigcapitalhq/bigcapital"
+      "bigcapitalhq/bigcapital",
+      "twentyhq/twenty"
     ]
   },
   "modes": {
@@ -1120,6 +1142,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising"
     ]
   }

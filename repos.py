@@ -28,7 +28,7 @@ that is a filter:
 Every failure path raises so the caller can fall back to the question pipeline:
 a quiet week on GitHub must cost a topic, never a run.
 """
-import os, re, time
+import os, random, re, time
 from collections import Counter
 from datetime import date, datetime, timedelta, timezone
 
@@ -259,13 +259,30 @@ def _interleave(per_query):
     return out
 
 
-def unused(candidates, posted_full_names):
-    """Drop repos this niche already made a video about. Comparison is
-    case-insensitive because GitHub treats owner/name that way."""
+def unused(candidates, posted_full_names, exclude=()):
+    """Drop repos this niche already covered, plus anything on its blocklist.
+
+    Comparison is case-insensitive because GitHub treats owner/name that way.
+    `exclude` entries match as substrings, so "n8n" blocks n8n-io/n8n and any
+    fork or rename of it -- the point of the list is "stop showing me this
+    project", not "block this exact path"."""
     already = {str(n).lower() for n in posted_full_names or ()}
-    fresh = [r for r in candidates if r["full_name"].lower() not in already]
-    if len(fresh) != len(candidates):
-        log(f"skipped {len(candidates) - len(fresh)} repos already covered")
+    blocked = [str(x).lower() for x in exclude or ()]
+    fresh = []
+    dropped_block = 0
+    for r in candidates:
+        name = r["full_name"].lower()
+        if name in already:
+            continue
+        if any(b in name for b in blocked):
+            dropped_block += 1
+            continue
+        fresh.append(r)
+    covered = len(candidates) - len(fresh) - dropped_block
+    if covered:
+        log(f"skipped {covered} repos already covered")
+    if dropped_block:
+        log(f"skipped {dropped_block} repos on the niche's exclude list")
     return fresh
 
 
@@ -300,13 +317,20 @@ Also return `replaces`: the paid product or manual process this repo takes over,
 few words, or "" if the description does not support naming one. Never invent one."""
 
 
-def choose(niche, candidates, limit=SHORTLIST):
+def choose(niche, candidates, limit=SHORTLIST, recent=()):
     """Ask the model which shortlisted repo is worth a video, and how to phrase it.
     Raises when nothing qualifies -- an empty shortlist is a fallback signal, not a
     reason to publish a video about a paper repository."""
     if not candidates:
         raise RuntimeError("no candidate repos available")
-    shortlist = candidates[:limit]
+    # Ranking alone hands the same giants to the gate every single run -- sorted
+    # by stars, the biggest established project is row 1 forever, and it stays
+    # there until it is finally published. Shuffle a wider band down to the
+    # shortlist so the gate sees a different set each time while still only ever
+    # seeing well-ranked repos.
+    band = candidates[:limit * 2]
+    random.shuffle(band)
+    shortlist = band[:limit]
     listed = "\n".join(
         f"{i}. {r['full_name']} [{r['stars']} stars, "
         + (f"{r['stars_per_day']:.0f}/day, new" if r.get("kind") != "established"
@@ -317,6 +341,12 @@ def choose(niche, candidates, limit=SHORTLIST):
         for i, r in enumerate(shortlist)
     )
     guidance = _config(niche).get("select_prompt") or SELECT_SYSTEM
+    if recent:
+        # Repo-level dedupe is not subject-level dedupe: three different projects
+        # can all be "the free Zapier", and the channel then sounds stuck.
+        guidance += ("\n\nRECENTLY COVERED by this channel -- do NOT pick these, and "
+                     "avoid a project whose story is replacing the same paid tool as "
+                     "any of them:\n" + "\n".join(f"  - {r}" for r in recent))
     result = nim_json(
         guidance + ' JSON schema: {"index": <number, or -1 if none qualify>, '
         '"topic": "...", "replaces": "...", "why": "..."} '
@@ -332,7 +362,7 @@ def choose(niche, candidates, limit=SHORTLIST):
         raise RuntimeError(f"model returned an unusable selection: {str(result)[:160]}")
     repo = dict(shortlist[index])
     repo["replaces"] = (result.get("replaces") or "").strip()
-    log(f"chose {repo['full_name']} ({repo['kind']}, {repo['stars']} stars, "
+    log(f"chose {repo['full_name']} ({repo.get('kind', 'rising')}, {repo['stars']} stars, "
         f"{repo['stars_per_day']:.0f}/day)")
     log(f"  -> {topic}")
     return topic, repo
@@ -344,16 +374,18 @@ def choose(niche, candidates, limit=SHORTLIST):
 LOW_SUPPLY = 15
 
 
-def pick(niche, posted_full_names=()):
+def pick(niche, posted_full_names=(), recent=()):
     """(topic, repo) for the next Star Rising video. Raises if today's GitHub has
-    nothing this niche can honestly cover."""
-    candidates = unused(fetch_candidates(niche), posted_full_names)
+    nothing this niche can honestly cover. `recent` describes the last few
+    episodes so the gate can avoid repeating a subject as well as a repo."""
+    candidates = unused(fetch_candidates(niche), posted_full_names,
+                        _config(niche).get("exclude"))
     if not candidates:
         raise RuntimeError("no fresh trending repos passed the filters")
     if len(candidates) < LOW_SUPPLY:
         log(f"WARNING: only {len(candidates)} uncovered repos left. Widen "
             f"star_rising.window_days or lower min_stars before the pool empties.")
-    return choose(niche, candidates)
+    return choose(niche, candidates, recent=recent)
 
 
 def brief(repo):

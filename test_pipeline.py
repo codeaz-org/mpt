@@ -426,6 +426,7 @@ def repo(full_name="acme/thing", desc=None, stars=1200, age_days=30, **kw):
         "license": "MIT", "created_at": "2026-08-01T00:00:00Z",
         "pushed_at": "2026-09-01T00:00:00Z", "archived": False, "fork": False,
         "age_days": float(age_days), "stars_per_day": stars / age_days,
+        "kind": "rising",
     }
     r.update(kw)
     return r
@@ -498,6 +499,40 @@ class StarRisingSourceTest(unittest.TestCase):
         candidates = [repo("acme/thing"), repo("other/tool")]
         fresh = repos.unused(candidates, {"ACME/Thing"})   # GitHub is case-insensitive
         self.assertEqual([r["full_name"] for r in fresh], ["other/tool"])
+
+    def test_the_exclude_list_keeps_a_project_out_for_good(self):
+        """Repo dedupe only fires after something publishes; a project the channel
+        is sick of has to be blockable before it ever does."""
+        candidates = [repo("n8n-io/n8n"), repo("other/tool")]
+        fresh = repos.unused(candidates, set(), exclude=["n8n"])
+        self.assertEqual([r["full_name"] for r in fresh], ["other/tool"])
+
+    def test_recently_covered_subjects_reach_the_gate(self):
+        """Three different projects can each be sold as 'the free Zapier'."""
+        seen = {}
+        with mock.patch.object(repos, "nim_json",
+                               lambda system, user, **kw:
+                               seen.setdefault("system", system) and {} or
+                               {"index": 0, "topic": "A topic", "replaces": ""}):
+            repos.choose({"name": "CodeAZ"}, [repo()],
+                         recent=["acme/old (replaced Zapier)"])
+        self.assertIn("RECENTLY COVERED", seen["system"])
+        self.assertIn("replaced Zapier", seen["system"])
+
+    def test_the_shortlist_rotates_so_one_giant_cannot_camp_row_one(self):
+        """Sorted by stars, the biggest established repo is row 1 every run until
+        it publishes -- which a dry run never does."""
+        candidates = [repo(f"owner/r{i}", stars=100000 - i) for i in range(40)]
+        firsts = set()
+        for _ in range(12):
+            seen = {}
+            with mock.patch.object(repos, "nim_json",
+                                   lambda system, user, **kw:
+                                   seen.setdefault("user", user) and {} or
+                                   {"index": 0, "topic": "t", "replaces": ""}):
+                repos.choose({"name": "n"}, candidates)
+            firsts.add(seen["user"].splitlines()[3])
+        self.assertGreater(len(firsts), 1, "the same repo led every shortlist")
 
     def test_a_shortlist_with_nothing_worth_covering_raises(self):
         """-1 means the gate rejected every candidate; that must fall back, not publish."""
@@ -1185,7 +1220,8 @@ class RunNicheTest(unittest.TestCase):
         picked = repo("acme/thing")
         with mock.patch.object(autopilot, "DRY_RUN", False), \
              mock.patch.object(repos, "pick",
-                               lambda n, covered=(): ("The self-hosted invoicing app", picked)), \
+                               lambda n, covered=(), **kw:
+                               ("The self-hosted invoicing app", picked)), \
              mock.patch.object(autopilot, "upload_youtube", lambda v, m, n: "yt123"), \
              mock.patch.object(autopilot, "upload_tiktok", lambda v, m, n: "pub1"), \
              mock.patch.object(buffer, "enabled", lambda: False):
@@ -1206,7 +1242,8 @@ class RunNicheTest(unittest.TestCase):
         picked = repo("acme/thing")
         with mock.patch.object(autopilot, "DRY_RUN", True), \
              mock.patch.object(repos, "pick",
-                               lambda n, covered=(): ("The self-hosted invoicing app", picked)), \
+                               lambda n, covered=(), **kw:
+                               ("The self-hosted invoicing app", picked)), \
              mock.patch.object(autopilot, "upload_youtube",
                                mock.Mock(side_effect=AssertionError("no uploads"))):
             state = {"topics": {}, "uploads": []}

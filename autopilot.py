@@ -1183,6 +1183,23 @@ def posted_repos(state, niche_id):
     return covered
 
 
+def _recent_repo_subjects(state, niche_id, keep=6):
+    """The last few Star Rising subjects, freshest first, as "repo (replaced X)".
+
+    Repo dedupe alone is not enough: three different projects can each be sold as
+    "the free Zapier", and the channel then sounds like it only knows one story."""
+    out = []
+    for entry in reversed(state.get("uploads", [])):
+        if entry.get("niche") != niche_id or not entry.get("repo"):
+            continue
+        replaced = entry.get("repo_replaces")
+        out.append(f"{entry['repo']} (replaced {replaced})" if replaced
+                   else entry["repo"])
+        if len(out) >= keep:
+            break
+    return out
+
+
 def _record_repo(state, niche_id, full_name):
     state.setdefault("repos", {}).setdefault(niche_id, []).append(full_name)
 
@@ -1219,7 +1236,9 @@ def run_niche(niche, state):
         mode = "question"
         if star_rising_turn(niche, state):
             try:
-                topic, repo = repos.pick(niche, posted_repos(state, niche["id"]))
+                topic, repo = repos.pick(
+                    niche, posted_repos(state, niche["id"]),
+                    recent=_recent_repo_subjects(state, niche["id"]))
                 mode = "star_rising"
             except Exception as e:
                 # A niche can run Star Rising exclusively, in which case a day with
@@ -1302,6 +1321,7 @@ def run_niche(niche, state):
             "repo": repo["full_name"] if repo else None,
             "repo_url": repo["url"] if repo else None,
             "repo_stars": repo["stars"] if repo else None,
+            "repo_replaces": repo.get("replaces") if repo else None,
             "youtube": yt_id, "tiktok": False, "tiktok_via": None,
             "tiktok_post_id": None, "tiktok_caption": caption,
             "archetype": archetype,

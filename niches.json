@@ -43,6 +43,9 @@
           "topic:project-management",
           "topic:e-commerce",
           "topic:monitoring"
+        ],
+        "exclude": [
+          "n8n"
         ]
       },
       "voice": "en-US-AndrewMultilingualNeural-Male",

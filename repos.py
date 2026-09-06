@@ -287,12 +287,21 @@ def choose(niche, candidates, limit=SHORTLIST):
     return topic, repo
 
 
+# Every episode burns a repo permanently, so the pool drains at the publishing
+# rate. Warn while there is still time to widen window_days or min_stars rather
+# than the morning it hits zero and every run falls back to the question pipeline.
+LOW_SUPPLY = 15
+
+
 def pick(niche, posted_full_names=()):
     """(topic, repo) for the next Star Rising video. Raises if today's GitHub has
     nothing this niche can honestly cover."""
     candidates = unused(fetch_candidates(niche), posted_full_names)
     if not candidates:
         raise RuntimeError("no fresh trending repos passed the filters")
+    if len(candidates) < LOW_SUPPLY:
+        log(f"WARNING: only {len(candidates)} uncovered repos left. Widen "
+            f"star_rising.window_days or lower min_stars before the pool empties.")
     return choose(niche, candidates)
 
 

@@ -1,11 +1,14 @@
 name: MPT Autopilot
 on:
   schedule:
-    # Twice a day. The critic gates quality, so more runs mostly means more rejected
-    # drafts against a rate-limited free tier -- and six near-identical uploads a day is
-    # the pattern YouTube's inauthentic-content review looks for.
-    - cron: "0 7 * * *"
-    - cron: "0 19 * * *"
+    # Three a day, eight hours apart. The old pace was two, on the reasoning that
+    # six near-identical uploads a day is the pattern YouTube's inauthentic-content
+    # review looks for -- that still holds, so this stops well short of six and of
+    # the ~6 uploads/day the Cloud project's quota allows, leaving headroom for a
+    # retry after a failed run.
+    - cron: "0 1 * * *"
+    - cron: "0 9 * * *"
+    - cron: "0 17 * * *"
   workflow_dispatch:
     inputs:
       niches:

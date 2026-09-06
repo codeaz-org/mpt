@@ -73,7 +73,8 @@
       "Bento: Self-hosted office suite that replaces your Microsoft Office subscription",
       "The best Shopify multi\u2011vendor app to launch a marketplace fast",
       "Self-hosted scheduling app that replaces your Calendly subscription",
-      "Automate Shipping Label Organization for Small E\u2011Commerce"
+      "Automate Shipping Label Organization for Small E\u2011Commerce",
+      "BigCapital: Self-hosted accounting that replaces QuickBooks"
     ]
   },
   "uploads": [
@@ -1083,13 +1084,34 @@
       "tiktok_caption": "\ud83d\ude9a Automate Shipping Label Organization in Seconds!\n\nStreamline your e\u2011commerce shipping with a quick automation setup\u2014no coding required. Watch the demo and start saving time today! Follow for more small business hacks.\n\n#smallbusiness #ecommerce #nocode #logistics #automation",
       "archetype": "BuyOrBuild",
       "ts": "2026-09-05T21:19:49"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "BigCapital: Self-hosted accounting that replaces QuickBooks",
+      "title": "BigCapital: The Self\u2011Hosted Accounting Powerhouse | Replace QuickBooks",
+      "question": "What is bigcapitalhq/bigcapital and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "bigcapitalhq/bigcapital",
+      "repo_url": "https://github.com/bigcapitalhq/bigcapital",
+      "repo_stars": 3884,
+      "repo_replaces": "QuickBooks",
+      "youtube": "Zles6wpBgaM",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6a9d60c205c83fb1f61f5f91",
+      "tiktok_caption": "BigCapital: The Self\u2011Hosted Accounting Powerhouse | Replace QuickBooks\n\nDiscover BigCapital, the open\u2011source alternative that lets you host your own accounting stack and ditch QuickBooks. Dive into its features, setup, and how it can boost your business. Follow for more deep dives!\n\nbigcapitalhq/bigcapital: https://github.com/bigcapitalhq/bigcapital\n\n#nocodefounder #selfhosted #accountingtips #smallbiz #opensource",
+      "archetype": "StarRising",
+      "ts": "2026-09-06T12:46:55"
     }
   ],
   "repos": {
     "codeaz": [
       "firecrawl/anydoc",
       "nyblnet/bento",
-      "nateherkai/snagtime"
+      "nateherkai/snagtime",
+      "bigcapitalhq/bigcapital"
     ]
   },
   "modes": {
@@ -1097,7 +1119,8 @@
       "star_rising",
       "question",
       "star_rising",
-      "question"
+      "question",
+      "star_rising"
     ]
   }
 }

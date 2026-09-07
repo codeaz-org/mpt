@@ -75,7 +75,8 @@
       "Self-hosted scheduling app that replaces your Calendly subscription",
       "Automate Shipping Label Organization for Small E\u2011Commerce",
       "BigCapital: Self-hosted accounting that replaces QuickBooks",
-      "The self-hosted CRM that replaces Salesforce"
+      "The self-hosted CRM that replaces Salesforce",
+      "The self-hosted photo & video manager that replaces your cloud storage subscription"
     ]
   },
   "uploads": [
@@ -1125,6 +1126,26 @@
       "tiktok_caption": "Self\u2011hosted CRM that Beats Salesforce\u2014See How It Works!\n\nDiscover a powerful open\u2011source CRM that can replace Salesforce without the cloud lock\u2011in. Dive into its features and start your own self\u2011hosted solution today\u2014follow for more tech insights!\n\ntwentyhq/twenty: https://github.com/twentyhq/twenty\n\n#nocodefounder #opensource #crm #selfhosted #salesforcealternative",
       "archetype": "StarRising",
       "ts": "2026-09-06T19:18:04"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "The self-hosted photo & video manager that replaces your cloud storage subscription",
+      "title": "Say Goodbye to Cloud Fees with This Self\u2011Hosted Photo Manager",
+      "question": "What is immich-app/immich and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "immich-app/immich",
+      "repo_url": "https://github.com/immich-app/immich",
+      "repo_stars": 113553,
+      "repo_replaces": "cloud storage",
+      "youtube": "yS2agVjom7Q",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6a9e52d91d34c06768f2b506",
+      "tiktok_caption": "Say Goodbye to Cloud Fees with This Self\u2011Hosted Photo Manager\n\nDiscover how a free, open\u2011source photo and video manager can replace your paid cloud storage. Learn the setup steps and start saving today! Follow for more tech hacks.\n\nimmich-app/immich: https://github.com/immich-app/immich\n\n#opensource #selfhosted #photomanager #cloudfree #techtips",
+      "archetype": "StarRising",
+      "ts": "2026-09-07T05:59:49"
     }
   ],
   "repos": {
@@ -1133,7 +1154,8 @@
       "nyblnet/bento",
       "nateherkai/snagtime",
       "bigcapitalhq/bigcapital",
-      "twentyhq/twenty"
+      "twentyhq/twenty",
+      "immich-app/immich"
     ]
   },
   "modes": {
@@ -1142,6 +1164,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising"
     ]

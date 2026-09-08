@@ -78,7 +78,8 @@
       "The self-hosted CRM that replaces Salesforce",
       "The self-hosted photo & video manager that replaces your cloud storage subscription",
       "Kimai: Self-hosted time\u2011tracking app that replaces paid SaaS like Toggl",
-      "Self-hosted Superset that replaces paid BI tools"
+      "Self-hosted Superset that replaces paid BI tools",
+      "Krayin CRM: Self-hosted Customer & Lead Management that replaces paid CRMs"
     ]
   },
   "uploads": [
@@ -1188,6 +1189,26 @@
       "tiktok_caption": "Ditch Paid BI: Self\u2011Host Superset in 5 Minutes!\n\nLearn how to set up the open\u2011source project Apache Superset on your own server and slash costs. Ready to take control? Hit follow for more DIY tech hacks!\n\napache/superset: https://github.com/apache/superset\n\n#superset #selfhosted #bitool #opensource #techdiy",
       "archetype": "StarRising",
       "ts": "2026-09-08T05:51:53"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Krayin CRM: Self-hosted Customer & Lead Management that replaces paid CRMs",
+      "title": "Krayin CRM: Free Self\u2011Hosted Alternative to Paid CRMs",
+      "question": "What is krayin/laravel-crm and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "krayin/laravel-crm",
+      "repo_url": "https://github.com/krayin/laravel-crm",
+      "repo_stars": 23845,
+      "repo_replaces": "Paid CRM subscriptions",
+      "youtube": "ZqD0J79xk4w",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aa00d6c0a2312cc98394ffd",
+      "tiktok_caption": "Krayin CRM: Free Self\u2011Hosted Alternative to Paid CRMs\n\nDiscover how this open\u2011source project can replace costly CRMs for small businesses. Dive into its features, easy setup, and real\u2011world benefits. Follow for more tech insights!\n\nkrayin/laravel-crm: https://github.com/krayin/laravel-crm\n\n#crm #opensource #smallbusiness #nocode #selfhosted",
+      "archetype": "StarRising",
+      "ts": "2026-09-08T13:28:08"
     }
   ],
   "repos": {
@@ -1199,7 +1220,8 @@
       "twentyhq/twenty",
       "immich-app/immich",
       "kimai/kimai",
-      "apache/superset"
+      "apache/superset",
+      "krayin/laravel-crm"
     ]
   },
   "modes": {
@@ -1208,6 +1230,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

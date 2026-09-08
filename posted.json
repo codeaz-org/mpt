@@ -79,7 +79,8 @@
       "The self-hosted photo & video manager that replaces your cloud storage subscription",
       "Kimai: Self-hosted time\u2011tracking app that replaces paid SaaS like Toggl",
       "Self-hosted Superset that replaces paid BI tools",
-      "Krayin CRM: Self-hosted Customer & Lead Management that replaces paid CRMs"
+      "Krayin CRM: Self-hosted Customer & Lead Management that replaces paid CRMs",
+      "Strapi \u2013 the self\u2011hosted headless CMS that replaces paid SaaS content platforms"
     ]
   },
   "uploads": [
@@ -1209,6 +1210,26 @@
       "tiktok_caption": "Krayin CRM: Free Self\u2011Hosted Alternative to Paid CRMs\n\nDiscover how this open\u2011source project can replace costly CRMs for small businesses. Dive into its features, easy setup, and real\u2011world benefits. Follow for more tech insights!\n\nkrayin/laravel-crm: https://github.com/krayin/laravel-crm\n\n#crm #opensource #smallbusiness #nocode #selfhosted",
       "archetype": "StarRising",
       "ts": "2026-09-08T13:28:08"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Strapi \u2013 the self\u2011hosted headless CMS that replaces paid SaaS content platforms",
+      "title": "Strapi: Free, Self\u2011Hosted CMS That Beats Paid SaaS",
+      "question": "What is strapi/strapi and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "strapi/strapi",
+      "repo_url": "https://github.com/strapi/strapi",
+      "repo_stars": 73095,
+      "repo_replaces": "Contentful / Sanity",
+      "youtube": "ZV41zmj_eLk",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aa06bf81c9aa6d4521978c6",
+      "tiktok_caption": "Strapi: Free, Self\u2011Hosted CMS That Beats Paid SaaS\n\nDiscover how Strapi lets you host your own headless CMS without the recurring costs of paid platforms. Give it a try and transform your content workflow\u2014follow for more tech insights!\n\nstrapi/strapi: https://github.com/strapi/strapi\n\n#strapi #headlesscms #opensource #nocodefounder #techtips",
+      "archetype": "StarRising",
+      "ts": "2026-09-08T20:11:31"
     }
   ],
   "repos": {
@@ -1221,7 +1242,8 @@
       "immich-app/immich",
       "kimai/kimai",
       "apache/superset",
-      "krayin/laravel-crm"
+      "krayin/laravel-crm",
+      "strapi/strapi"
     ]
   },
   "modes": {
@@ -1230,6 +1252,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

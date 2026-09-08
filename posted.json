@@ -77,7 +77,8 @@
       "BigCapital: Self-hosted accounting that replaces QuickBooks",
       "The self-hosted CRM that replaces Salesforce",
       "The self-hosted photo & video manager that replaces your cloud storage subscription",
-      "Kimai: Self-hosted time\u2011tracking app that replaces paid SaaS like Toggl"
+      "Kimai: Self-hosted time\u2011tracking app that replaces paid SaaS like Toggl",
+      "Self-hosted Superset that replaces paid BI tools"
     ]
   },
   "uploads": [
@@ -1167,6 +1168,26 @@
       "tiktok_caption": "Stop Paying for Toggl \u2013 Try Kimai, the Free Time\u2011Tracking Hero\n\nDiscover how Kimai lets you track hours, bill clients, and run everything on your own server \u2013 no subscription fees required. Dive into the open\u2011source solution today and keep your budget in check. Follow for more budget\u2011savvy tech tips!\n\nkimai/kimai: https://github.com/kimai/kimai\n\n#kimai #timetracking #opensource #selfhosted #nocodefounder",
       "archetype": "StarRising",
       "ts": "2026-09-07T20:42:34"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Self-hosted Superset that replaces paid BI tools",
+      "title": "Ditch Paid BI: Self\u2011Host Superset in 5 Minutes!",
+      "question": "What is apache/superset and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "apache/superset",
+      "repo_url": "https://github.com/apache/superset",
+      "repo_stars": 74676,
+      "repo_replaces": "Tableau/PowerBI",
+      "youtube": "kWWzUY87ZVw",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6a9fa27cf8ad4188251f79ce",
+      "tiktok_caption": "Ditch Paid BI: Self\u2011Host Superset in 5 Minutes!\n\nLearn how to set up the open\u2011source project Apache Superset on your own server and slash costs. Ready to take control? Hit follow for more DIY tech hacks!\n\napache/superset: https://github.com/apache/superset\n\n#superset #selfhosted #bitool #opensource #techdiy",
+      "archetype": "StarRising",
+      "ts": "2026-09-08T05:51:53"
     }
   ],
   "repos": {
@@ -1177,7 +1198,8 @@
       "bigcapitalhq/bigcapital",
       "twentyhq/twenty",
       "immich-app/immich",
-      "kimai/kimai"
+      "kimai/kimai",
+      "apache/superset"
     ]
   },
   "modes": {
@@ -1186,6 +1208,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

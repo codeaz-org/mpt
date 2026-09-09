@@ -82,7 +82,8 @@
       "Krayin CRM: Self-hosted Customer & Lead Management that replaces paid CRMs",
       "Strapi \u2013 the self\u2011hosted headless CMS that replaces paid SaaS content platforms",
       "The open\u2011source ERP that replaces pricey SaaS like NetSuite",
-      "Focalboard \u2013 Self-hosted Trello Alternative for Project Management"
+      "Focalboard \u2013 Self-hosted Trello Alternative for Project Management",
+      "Open\u2011WebUI \u2013 the self\u2011hosted AI interface that replaces the paid ChatGPT web experience"
     ]
   },
   "uploads": [
@@ -1272,6 +1273,26 @@
       "tiktok_caption": "Focalboard: The Self\u2011Hosted Trello Alternative You Need\n\nExplore how this open\u2011source project, Focalboard, lets you manage projects like Trello but on your own server. Dive in, try it out, and follow for more open\u2011source insights!\n\nmattermost-community/focalboard: https://github.com/mattermost-community/focalboard\n\n#opensource #projectmanagement #selfhosted #nocodefounder #productivity",
       "archetype": "StarRising",
       "ts": "2026-09-09T13:34:08"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Open\u2011WebUI \u2013 the self\u2011hosted AI interface that replaces the paid ChatGPT web experience",
+      "title": "Open\u2011WebUI: Free AI Chat Like ChatGPT, Self\u2011Hosted",
+      "question": "What is open-webui/open-webui and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "open-webui/open-webui",
+      "repo_url": "https://github.com/open-webui/open-webui",
+      "repo_stars": 151466,
+      "repo_replaces": "ChatGPT web",
+      "youtube": "xjM_J8lBe_I",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aa1ba9253ba7428d3b2bf86",
+      "tiktok_caption": "Open\u2011WebUI: Free AI Chat Like ChatGPT, Self\u2011Hosted\n\nDiscover how to set up Open\u2011WebUI and get a full\u2011featured chat interface without the monthly fee. Try it today and take control of your AI experience\u2014follow for more open\u2011source hacks!\n\nopen-webui/open-webui: https://github.com/open-webui/open-webui\n\n#nocodefounder #opensource #aichat #selfhosted #devtools",
+      "archetype": "StarRising",
+      "ts": "2026-09-09T19:59:09"
     }
   ],
   "repos": {
@@ -1287,7 +1308,8 @@
       "krayin/laravel-crm",
       "strapi/strapi",
       "frappe/erpnext",
-      "mattermost-community/focalboard"
+      "mattermost-community/focalboard",
+      "open-webui/open-webui"
     ]
   },
   "modes": {
@@ -1296,6 +1318,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

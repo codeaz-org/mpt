@@ -80,7 +80,8 @@
       "Kimai: Self-hosted time\u2011tracking app that replaces paid SaaS like Toggl",
       "Self-hosted Superset that replaces paid BI tools",
       "Krayin CRM: Self-hosted Customer & Lead Management that replaces paid CRMs",
-      "Strapi \u2013 the self\u2011hosted headless CMS that replaces paid SaaS content platforms"
+      "Strapi \u2013 the self\u2011hosted headless CMS that replaces paid SaaS content platforms",
+      "The open\u2011source ERP that replaces pricey SaaS like NetSuite"
     ]
   },
   "uploads": [
@@ -1230,6 +1231,26 @@
       "tiktok_caption": "Strapi: Free, Self\u2011Hosted CMS That Beats Paid SaaS\n\nDiscover how Strapi lets you host your own headless CMS without the recurring costs of paid platforms. Give it a try and transform your content workflow\u2014follow for more tech insights!\n\nstrapi/strapi: https://github.com/strapi/strapi\n\n#strapi #headlesscms #opensource #nocodefounder #techtips",
       "archetype": "StarRising",
       "ts": "2026-09-08T20:11:31"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "The open\u2011source ERP that replaces pricey SaaS like NetSuite",
+      "title": "ERPnext: Open\u2011Source Power that Beats NetSuite Prices!",
+      "question": "What is frappe/erpnext and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "frappe/erpnext",
+      "repo_url": "https://github.com/frappe/erpnext",
+      "repo_stars": 39035,
+      "repo_replaces": "Paid ERP subscriptions",
+      "youtube": "3GwgD79r8pE",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aa0f4e17b66b49ec6f78ebe",
+      "tiktok_caption": "ERPnext: Open\u2011Source Power that Beats NetSuite Prices!\n\nDiscover how this open\u2011source ERP can replace costly SaaS like NetSuite without the price tag. Dive in, learn the benefits, and see why businesses are switching now. Follow for more insights!\n\nfrappe/erpnext: https://github.com/frappe/erpnext\n\n#erpnext #opensource #nocodefounder #smallbusiness #saasalternative",
+      "archetype": "StarRising",
+      "ts": "2026-09-09T05:55:41"
     }
   ],
   "repos": {
@@ -1243,7 +1264,8 @@
       "kimai/kimai",
       "apache/superset",
       "krayin/laravel-crm",
-      "strapi/strapi"
+      "strapi/strapi",
+      "frappe/erpnext"
     ]
   },
   "modes": {
@@ -1252,6 +1274,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

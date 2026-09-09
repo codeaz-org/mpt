@@ -81,7 +81,8 @@
       "Self-hosted Superset that replaces paid BI tools",
       "Krayin CRM: Self-hosted Customer & Lead Management that replaces paid CRMs",
       "Strapi \u2013 the self\u2011hosted headless CMS that replaces paid SaaS content platforms",
-      "The open\u2011source ERP that replaces pricey SaaS like NetSuite"
+      "The open\u2011source ERP that replaces pricey SaaS like NetSuite",
+      "Focalboard \u2013 Self-hosted Trello Alternative for Project Management"
     ]
   },
   "uploads": [
@@ -1251,6 +1252,26 @@
       "tiktok_caption": "ERPnext: Open\u2011Source Power that Beats NetSuite Prices!\n\nDiscover how this open\u2011source ERP can replace costly SaaS like NetSuite without the price tag. Dive in, learn the benefits, and see why businesses are switching now. Follow for more insights!\n\nfrappe/erpnext: https://github.com/frappe/erpnext\n\n#erpnext #opensource #nocodefounder #smallbusiness #saasalternative",
       "archetype": "StarRising",
       "ts": "2026-09-09T05:55:41"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Focalboard \u2013 Self-hosted Trello Alternative for Project Management",
+      "title": "Focalboard: The Self\u2011Hosted Trello Alternative You Need",
+      "question": "What is mattermost-community/focalboard and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "mattermost-community/focalboard",
+      "repo_url": "https://github.com/mattermost-community/focalboard",
+      "repo_stars": 26456,
+      "repo_replaces": "Trello/Asana/Notion",
+      "youtube": "x5BuED4PJy4",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aa1605564f280c9ee63cb4c",
+      "tiktok_caption": "Focalboard: The Self\u2011Hosted Trello Alternative You Need\n\nExplore how this open\u2011source project, Focalboard, lets you manage projects like Trello but on your own server. Dive in, try it out, and follow for more open\u2011source insights!\n\nmattermost-community/focalboard: https://github.com/mattermost-community/focalboard\n\n#opensource #projectmanagement #selfhosted #nocodefounder #productivity",
+      "archetype": "StarRising",
+      "ts": "2026-09-09T13:34:08"
     }
   ],
   "repos": {
@@ -1265,7 +1286,8 @@
       "apache/superset",
       "krayin/laravel-crm",
       "strapi/strapi",
-      "frappe/erpnext"
+      "frappe/erpnext",
+      "mattermost-community/focalboard"
     ]
   },
   "modes": {
@@ -1274,6 +1296,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

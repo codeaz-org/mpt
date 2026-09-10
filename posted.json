@@ -84,7 +84,8 @@
       "The open\u2011source ERP that replaces pricey SaaS like NetSuite",
       "Focalboard \u2013 Self-hosted Trello Alternative for Project Management",
       "Open\u2011WebUI \u2013 the self\u2011hosted AI interface that replaces the paid ChatGPT web experience",
-      "MakePlane/Plane \u2013 Self-hosted Jira, Linear, and ClickUp alternative"
+      "MakePlane/Plane \u2013 Self-hosted Jira, Linear, and ClickUp alternative",
+      "Self-hosted B2B eCommerce platform that replaces paid SaaS"
     ]
   },
   "uploads": [
@@ -1314,6 +1315,26 @@
       "tiktok_caption": "Plane: The Self\u2011Hosted Tool That Rivals Jira, Linear & ClickUp\n\nDiscover how Plane, an open\u2011source alternative, can streamline your team\u2019s workflow without vendor lock\u2011in. Like, subscribe, and hit the bell for more game\u2011changing tips!\n\nmakeplane/plane: https://github.com/makeplane/plane\n\n#nocodefounder #opensource #productivity #selfhosted #workflow",
       "archetype": "StarRising",
       "ts": "2026-09-10T05:48:09"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Self-hosted B2B eCommerce platform that replaces paid SaaS",
+      "title": "Run Your Own B2B Store \u2013 No SaaS Fees!",
+      "question": "What is spree/spree and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "spree/spree",
+      "repo_url": "https://github.com/spree/spree",
+      "repo_stars": 15683,
+      "repo_replaces": "Paid eCommerce SaaS",
+      "youtube": "fh8dWI9xfkw",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aa2b1674198cdbfa768b474",
+      "tiktok_caption": "Run Your Own B2B Store \u2013 No SaaS Fees!\n\nDiscover how this open\u2011source project lets you host a full B2B eCommerce platform on your own servers, cutting out subscription costs. Try it today and keep full control \u2013 follow for more tips!\n\nspree/spree: https://github.com/spree/spree\n\n#opensource #ecommerce #selfhosted #b2b #nosaas",
+      "archetype": "StarRising",
+      "ts": "2026-09-10T13:32:19"
     }
   ],
   "repos": {
@@ -1331,7 +1352,8 @@
       "frappe/erpnext",
       "mattermost-community/focalboard",
       "open-webui/open-webui",
-      "makeplane/plane"
+      "makeplane/plane",
+      "spree/spree"
     ]
   },
   "modes": {
@@ -1340,6 +1362,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

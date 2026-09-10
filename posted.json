@@ -85,7 +85,8 @@
       "Focalboard \u2013 Self-hosted Trello Alternative for Project Management",
       "Open\u2011WebUI \u2013 the self\u2011hosted AI interface that replaces the paid ChatGPT web experience",
       "MakePlane/Plane \u2013 Self-hosted Jira, Linear, and ClickUp alternative",
-      "Self-hosted B2B eCommerce platform that replaces paid SaaS"
+      "Self-hosted B2B eCommerce platform that replaces paid SaaS",
+      "Metabase \u2013 the self-hosted BI tool that replaces your $50/month Tableau subscription"
     ]
   },
   "uploads": [
@@ -1335,6 +1336,26 @@
       "tiktok_caption": "Run Your Own B2B Store \u2013 No SaaS Fees!\n\nDiscover how this open\u2011source project lets you host a full B2B eCommerce platform on your own servers, cutting out subscription costs. Try it today and keep full control \u2013 follow for more tips!\n\nspree/spree: https://github.com/spree/spree\n\n#opensource #ecommerce #selfhosted #b2b #nosaas",
       "archetype": "StarRising",
       "ts": "2026-09-10T13:32:19"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Metabase \u2013 the self-hosted BI tool that replaces your $50/month Tableau subscription",
+      "title": "Stop Paying for Tableau: Switch to Metabase for Free!",
+      "question": "What is metabase/metabase and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "metabase/metabase",
+      "repo_url": "https://github.com/metabase/metabase",
+      "repo_stars": 49182,
+      "repo_replaces": "Tableau",
+      "youtube": "zmCbesyHCCk",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aa30a0580b029608afff08b",
+      "tiktok_caption": "Stop Paying for Tableau: Switch to Metabase for Free!\n\nMetabase is a free, self-hosted BI tool that turns raw data into instant insights.\nIt can replace a paid Tableau subscription while keeping everything on your own servers.\nFollow us for more open-source power hacks!\n\nmetabase/metabase: https://github.com/metabase/metabase\n\n#metabase #bi #opensource #selfhosted #datavis",
+      "archetype": "StarRising",
+      "ts": "2026-09-10T19:50:25"
     }
   ],
   "repos": {
@@ -1353,7 +1374,8 @@
       "mattermost-community/focalboard",
       "open-webui/open-webui",
       "makeplane/plane",
-      "spree/spree"
+      "spree/spree",
+      "metabase/metabase"
     ]
   },
   "modes": {
@@ -1362,6 +1384,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

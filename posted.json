@@ -88,7 +88,8 @@
       "Self-hosted B2B eCommerce platform that replaces paid SaaS",
       "Metabase \u2013 the self-hosted BI tool that replaces your $50/month Tableau subscription",
       "AppFlowy: Self-hosted Notion alternative that replaces your paid wiki subscription",
-      "The self-hosted project management platform that replaces Linear, Jira, Slack, Notion and Motion"
+      "The self-hosted project management platform that replaces Linear, Jira, Slack, Notion and Motion",
+      "Netdata: Self-hosted AI-powered observability that replaces Datadog"
     ]
   },
   "uploads": [
@@ -1398,6 +1399,26 @@
       "tiktok_caption": "Self\u2011Host Your Workflow\u2014Replace Linear, Jira, Slack & More\n\nExplore how this open\u2011source platform can unify project management, communication, and documentation all in one. Don\u2019t miss out\u2014follow for more deep dives into powerful tools!\n\nhcengineering/platform: https://github.com/hcengineering/platform\n\n#opensource #selfhosted #productivity #tooltips #devops",
       "archetype": "StarRising",
       "ts": "2026-09-11T13:26:30"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Netdata: Self-hosted AI-powered observability that replaces Datadog",
+      "title": "Netdata: The Open\u2011Source AI\u2011Obs Tool that Outshines Datadog",
+      "question": "What is netdata/netdata and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "netdata/netdata",
+      "repo_url": "https://github.com/netdata/netdata",
+      "repo_stars": 80483,
+      "repo_replaces": "Datadog",
+      "youtube": "YqXKxC9WPMs",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aa45c4e67cc30fb0d202643",
+      "tiktok_caption": "Netdata: The Open\u2011Source AI\u2011Obs Tool that Outshines Datadog\n\nDiscover how Netdata, an open\u2011source observability platform, uses AI to give real\u2011time insights without the cost of Datadog. Like what you see? Hit follow for more deep dives into free tools!\n\nnetdata/netdata: https://github.com/netdata/netdata\n\n#netdata #aiobs #opensource #devops #selfhosted",
+      "archetype": "StarRising",
+      "ts": "2026-09-11T19:53:45"
     }
   ],
   "repos": {
@@ -1419,7 +1440,8 @@
       "spree/spree",
       "metabase/metabase",
       "AppFlowy-IO/AppFlowy",
-      "hcengineering/platform"
+      "hcengineering/platform",
+      "netdata/netdata"
     ]
   },
   "modes": {
@@ -1428,6 +1450,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

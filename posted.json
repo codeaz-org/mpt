@@ -86,7 +86,8 @@
       "Open\u2011WebUI \u2013 the self\u2011hosted AI interface that replaces the paid ChatGPT web experience",
       "MakePlane/Plane \u2013 Self-hosted Jira, Linear, and ClickUp alternative",
       "Self-hosted B2B eCommerce platform that replaces paid SaaS",
-      "Metabase \u2013 the self-hosted BI tool that replaces your $50/month Tableau subscription"
+      "Metabase \u2013 the self-hosted BI tool that replaces your $50/month Tableau subscription",
+      "AppFlowy: Self-hosted Notion alternative that replaces your paid wiki subscription"
     ]
   },
   "uploads": [
@@ -1356,6 +1357,26 @@
       "tiktok_caption": "Stop Paying for Tableau: Switch to Metabase for Free!\n\nMetabase is a free, self-hosted BI tool that turns raw data into instant insights.\nIt can replace a paid Tableau subscription while keeping everything on your own servers.\nFollow us for more open-source power hacks!\n\nmetabase/metabase: https://github.com/metabase/metabase\n\n#metabase #bi #opensource #selfhosted #datavis",
       "archetype": "StarRising",
       "ts": "2026-09-10T19:50:25"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "AppFlowy: Self-hosted Notion alternative that replaces your paid wiki subscription",
+      "title": "AppFlowy: The Free Self\u2011Hosted Notion Alternative \u2013 No Subscription Needed",
+      "question": "What is AppFlowy-IO/AppFlowy and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "AppFlowy-IO/AppFlowy",
+      "repo_url": "https://github.com/AppFlowy-IO/AppFlowy",
+      "repo_stars": 76520,
+      "repo_replaces": "Notion",
+      "youtube": "GoeN32Wlm0Y",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aa3968db6d24fd028ae4fcb",
+      "tiktok_caption": "AppFlowy: The Free Self\u2011Hosted Notion Alternative \u2013 No Subscription Needed\n\nDiscover how AppFlowy replaces your paid wiki subscription with a powerful, self\u2011hosted solution. Learn the top features and why it\u2019s the best open\u2011source alternative on the market. Follow for more tech insights!\n\nAppFlowy-IO/AppFlowy: https://github.com/AppFlowy-IO/AppFlowy\n\n#appflowy #notionalternative #selfhosted #opensource #techhacks",
+      "archetype": "StarRising",
+      "ts": "2026-09-11T05:50:02"
     }
   ],
   "repos": {
@@ -1375,7 +1396,8 @@
       "open-webui/open-webui",
       "makeplane/plane",
       "spree/spree",
-      "metabase/metabase"
+      "metabase/metabase",
+      "AppFlowy-IO/AppFlowy"
     ]
   },
   "modes": {
@@ -1384,6 +1406,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

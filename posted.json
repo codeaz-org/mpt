@@ -89,7 +89,8 @@
       "Metabase \u2013 the self-hosted BI tool that replaces your $50/month Tableau subscription",
       "AppFlowy: Self-hosted Notion alternative that replaces your paid wiki subscription",
       "The self-hosted project management platform that replaces Linear, Jira, Slack, Notion and Motion",
-      "Netdata: Self-hosted AI-powered observability that replaces Datadog"
+      "Netdata: Self-hosted AI-powered observability that replaces Datadog",
+      "Directus \u2013 the self\u2011hosted headless CMS that replaces paid CMS platforms"
     ]
   },
   "uploads": [
@@ -1419,6 +1420,26 @@
       "tiktok_caption": "Netdata: The Open\u2011Source AI\u2011Obs Tool that Outshines Datadog\n\nDiscover how Netdata, an open\u2011source observability platform, uses AI to give real\u2011time insights without the cost of Datadog. Like what you see? Hit follow for more deep dives into free tools!\n\nnetdata/netdata: https://github.com/netdata/netdata\n\n#netdata #aiobs #opensource #devops #selfhosted",
       "archetype": "StarRising",
       "ts": "2026-09-11T19:53:45"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Directus \u2013 the self\u2011hosted headless CMS that replaces paid CMS platforms",
+      "title": "Directus: Free Headless CMS That Outsmarts Paid Platforms",
+      "question": "What is directus/directus and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "directus/directus",
+      "repo_url": "https://github.com/directus/directus",
+      "repo_stars": 37871,
+      "repo_replaces": "Paid CMS services",
+      "youtube": "mS5NnIPKDVo",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aa4e64e66c59e2484a90e96",
+      "tiktok_caption": "Directus: Free Headless CMS That Outsmarts Paid Platforms\n\nDiscover how Directus lets you self\u2011host a powerful CMS without the price tag. Try it today and reclaim control over your content!\n\ndirectus/directus: https://github.com/directus/directus\n\n#directus #headlesscms #opensource #selfhosted #freelancedev",
+      "archetype": "StarRising",
+      "ts": "2026-09-12T05:42:35"
     }
   ],
   "repos": {
@@ -1441,7 +1462,8 @@
       "metabase/metabase",
       "AppFlowy-IO/AppFlowy",
       "hcengineering/platform",
-      "netdata/netdata"
+      "netdata/netdata",
+      "directus/directus"
     ]
   },
   "modes": {
@@ -1450,6 +1472,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

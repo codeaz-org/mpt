@@ -90,7 +90,8 @@
       "AppFlowy: Self-hosted Notion alternative that replaces your paid wiki subscription",
       "The self-hosted project management platform that replaces Linear, Jira, Slack, Notion and Motion",
       "Netdata: Self-hosted AI-powered observability that replaces Datadog",
-      "Directus \u2013 the self\u2011hosted headless CMS that replaces paid CMS platforms"
+      "Directus \u2013 the self\u2011hosted headless CMS that replaces paid CMS platforms",
+      "Self-hosted ERP CRM that replaces paid invoicing and CRM subscriptions"
     ]
   },
   "uploads": [
@@ -1440,6 +1441,26 @@
       "tiktok_caption": "Directus: Free Headless CMS That Outsmarts Paid Platforms\n\nDiscover how Directus lets you self\u2011host a powerful CMS without the price tag. Try it today and reclaim control over your content!\n\ndirectus/directus: https://github.com/directus/directus\n\n#directus #headlesscms #opensource #selfhosted #freelancedev",
       "archetype": "StarRising",
       "ts": "2026-09-12T05:42:35"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Self-hosted ERP CRM that replaces paid invoicing and CRM subscriptions",
+      "title": "FREE Self\u2011Hosted ERP/CRM Beats Paid Invoicing!",
+      "question": "What is idurar/idurar-erp-crm and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "idurar/idurar-erp-crm",
+      "repo_url": "https://github.com/idurar/idurar-erp-crm",
+      "repo_stars": 8793,
+      "repo_replaces": "Paid CRM and invoicing services",
+      "youtube": "YobFOv_icos",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aa54aa76b734df0253a8926",
+      "tiktok_caption": "FREE Self\u2011Hosted ERP/CRM Beats Paid Invoicing!\n\nDiscover how this open\u2011source ERP/CRM can replace costly invoicing and subscription tools. Try it today and take control of your business data \u2013 follow for more tips!\n\nidurar/idurar-erp-crm: https://github.com/idurar/idurar-erp-crm\n\n#opensource #smallbusiness #nocodefounder #selfhosted #productivity",
+      "archetype": "StarRising",
+      "ts": "2026-09-12T12:50:42"
     }
   ],
   "repos": {
@@ -1463,7 +1484,8 @@
       "AppFlowy-IO/AppFlowy",
       "hcengineering/platform",
       "netdata/netdata",
-      "directus/directus"
+      "directus/directus",
+      "idurar/idurar-erp-crm"
     ]
   },
   "modes": {
@@ -1472,6 +1494,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

@@ -91,7 +91,8 @@
       "The self-hosted project management platform that replaces Linear, Jira, Slack, Notion and Motion",
       "Netdata: Self-hosted AI-powered observability that replaces Datadog",
       "Directus \u2013 the self\u2011hosted headless CMS that replaces paid CMS platforms",
-      "Self-hosted ERP CRM that replaces paid invoicing and CRM subscriptions"
+      "Self-hosted ERP CRM that replaces paid invoicing and CRM subscriptions",
+      "Planka \u2013 the self-hosted Kanban board that replaces paid project\u2011management tools"
     ]
   },
   "uploads": [
@@ -1461,6 +1462,26 @@
       "tiktok_caption": "FREE Self\u2011Hosted ERP/CRM Beats Paid Invoicing!\n\nDiscover how this open\u2011source ERP/CRM can replace costly invoicing and subscription tools. Try it today and take control of your business data \u2013 follow for more tips!\n\nidurar/idurar-erp-crm: https://github.com/idurar/idurar-erp-crm\n\n#opensource #smallbusiness #nocodefounder #selfhosted #productivity",
       "archetype": "StarRising",
       "ts": "2026-09-12T12:50:42"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Planka \u2013 the self-hosted Kanban board that replaces paid project\u2011management tools",
+      "title": "Stop Paying for Project Tools\u2014Try Planka, the Free Kanban Board!",
+      "question": "What is plankanban/planka and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "plankanban/planka",
+      "repo_url": "https://github.com/plankanban/planka",
+      "repo_stars": 12541,
+      "repo_replaces": "Paid project\u2011management services",
+      "youtube": "3N8qxnNjNTw",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aa5a5c166679b076f15fe5f",
+      "tiktok_caption": "Stop Paying for Project Tools\u2014Try Planka, the Free Kanban Board!\n\nDiscover how Planka, a self-hosted open\u2011source Kanban board, can replace pricey project\u2011management services. Give it a spin and share your feedback!\n\nplankanban/planka: https://github.com/plankanban/planka\n\n#planka #kanban #opensource #selfhosted #nocode",
+      "archetype": "StarRising",
+      "ts": "2026-09-12T19:19:25"
     }
   ],
   "repos": {
@@ -1485,7 +1506,8 @@
       "hcengineering/platform",
       "netdata/netdata",
       "directus/directus",
-      "idurar/idurar-erp-crm"
+      "idurar/idurar-erp-crm",
+      "plankanban/planka"
     ]
   },
   "modes": {
@@ -1494,6 +1516,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

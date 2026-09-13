@@ -92,7 +92,8 @@
       "Netdata: Self-hosted AI-powered observability that replaces Datadog",
       "Directus \u2013 the self\u2011hosted headless CMS that replaces paid CMS platforms",
       "Self-hosted ERP CRM that replaces paid invoicing and CRM subscriptions",
-      "Planka \u2013 the self-hosted Kanban board that replaces paid project\u2011management tools"
+      "Planka \u2013 the self-hosted Kanban board that replaces paid project\u2011management tools",
+      "nopCommerce \u2013 the self-hosted eCommerce platform that replaces Shopify"
     ]
   },
   "uploads": [
@@ -1482,6 +1483,26 @@
       "tiktok_caption": "Stop Paying for Project Tools\u2014Try Planka, the Free Kanban Board!\n\nDiscover how Planka, a self-hosted open\u2011source Kanban board, can replace pricey project\u2011management services. Give it a spin and share your feedback!\n\nplankanban/planka: https://github.com/plankanban/planka\n\n#planka #kanban #opensource #selfhosted #nocode",
       "archetype": "StarRising",
       "ts": "2026-09-12T19:19:25"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "nopCommerce \u2013 the self-hosted eCommerce platform that replaces Shopify",
+      "title": "Why nopCommerce Beats Shopify for Your Store",
+      "question": "What is nopSolutions/nopCommerce and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "nopSolutions/nopCommerce",
+      "repo_url": "https://github.com/nopSolutions/nopCommerce",
+      "repo_stars": 10145,
+      "repo_replaces": "Shopify",
+      "youtube": "HodSSxvXGdM",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aa63a6feba7bc56778dd51c",
+      "tiktok_caption": "Why nopCommerce Beats Shopify for Your Store\n\nDiscover how nopCommerce\u2019s self\u2011hosted, open\u2011source framework can outshine Shopify with flexibility and cost savings. Ready to level up? Follow for more eCommerce insights!\n\nnopSolutions/nopCommerce: https://github.com/nopSolutions/nopCommerce\n\n#nopcommerce #ecommerce #opensource #smallbusiness #selfhosted",
+      "archetype": "StarRising",
+      "ts": "2026-09-13T05:53:48"
     }
   ],
   "repos": {
@@ -1507,7 +1528,8 @@
       "netdata/netdata",
       "directus/directus",
       "idurar/idurar-erp-crm",
-      "plankanban/planka"
+      "plankanban/planka",
+      "nopSolutions/nopCommerce"
     ]
   },
   "modes": {
@@ -1516,6 +1538,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

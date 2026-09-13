@@ -94,7 +94,8 @@
       "Self-hosted ERP CRM that replaces paid invoicing and CRM subscriptions",
       "Planka \u2013 the self-hosted Kanban board that replaces paid project\u2011management tools",
       "nopCommerce \u2013 the self-hosted eCommerce platform that replaces Shopify",
-      "The self-hosted Ghost publishing platform that replaces paid CMS subscriptions"
+      "The self-hosted Ghost publishing platform that replaces paid CMS subscriptions",
+      "Self-hosted analytics platform that replaces Mixpanel"
     ]
   },
   "uploads": [
@@ -1524,6 +1525,26 @@
       "tiktok_caption": "Cut the Cost: Self\u2011Hosted Ghost for Free Publishing\n\nDiscover how this open\u2011source project lets you keep full control and ditch expensive CMS subscriptions. Try it today and join the community of creators who are publishing for free!\n\nTryGhost/Ghost: https://github.com/TryGhost/Ghost\n\n#ghostcms #openource #selfhosted #nocontent #webdev",
       "archetype": "StarRising",
       "ts": "2026-09-13T13:53:16"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Self-hosted analytics platform that replaces Mixpanel",
+      "title": "Self-hosted analytics platform that replaces Mixpanel",
+      "question": "What is PostHog/posthog and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "PostHog/posthog",
+      "repo_url": "https://github.com/PostHog/posthog",
+      "repo_stars": 39775,
+      "repo_replaces": "Mixpanel",
+      "youtube": "A07AYMm184U",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aa6fb1a66679b076f32b775",
+      "tiktok_caption": "Self-hosted analytics platform that replaces Mixpanel\n\nSelf-hosted analytics platform that replaces Mixpanel\n\nPostHog/posthog: https://github.com/PostHog/posthog\n\n#automation #smallbusiness #startup #nocode #buildinpublic",
+      "archetype": "StarRising",
+      "ts": "2026-09-13T19:35:51"
     }
   ],
   "repos": {
@@ -1551,7 +1572,8 @@
       "idurar/idurar-erp-crm",
       "plankanban/planka",
       "nopSolutions/nopCommerce",
-      "TryGhost/Ghost"
+      "TryGhost/Ghost",
+      "PostHog/posthog"
     ]
   },
   "modes": {
@@ -1560,6 +1582,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

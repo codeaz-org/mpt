@@ -93,7 +93,8 @@
       "Directus \u2013 the self\u2011hosted headless CMS that replaces paid CMS platforms",
       "Self-hosted ERP CRM that replaces paid invoicing and CRM subscriptions",
       "Planka \u2013 the self-hosted Kanban board that replaces paid project\u2011management tools",
-      "nopCommerce \u2013 the self-hosted eCommerce platform that replaces Shopify"
+      "nopCommerce \u2013 the self-hosted eCommerce platform that replaces Shopify",
+      "The self-hosted Ghost publishing platform that replaces paid CMS subscriptions"
     ]
   },
   "uploads": [
@@ -1503,6 +1504,26 @@
       "tiktok_caption": "Why nopCommerce Beats Shopify for Your Store\n\nDiscover how nopCommerce\u2019s self\u2011hosted, open\u2011source framework can outshine Shopify with flexibility and cost savings. Ready to level up? Follow for more eCommerce insights!\n\nnopSolutions/nopCommerce: https://github.com/nopSolutions/nopCommerce\n\n#nopcommerce #ecommerce #opensource #smallbusiness #selfhosted",
       "archetype": "StarRising",
       "ts": "2026-09-13T05:53:48"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "The self-hosted Ghost publishing platform that replaces paid CMS subscriptions",
+      "title": "Cut the Cost: Self\u2011Hosted Ghost for Free Publishing",
+      "question": "What is TryGhost/Ghost and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "TryGhost/Ghost",
+      "repo_url": "https://github.com/TryGhost/Ghost",
+      "repo_stars": 55293,
+      "repo_replaces": "paid CMS/subscription services",
+      "youtube": "kgxsrZK9zIU",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aa6aad066679b076f2a901a",
+      "tiktok_caption": "Cut the Cost: Self\u2011Hosted Ghost for Free Publishing\n\nDiscover how this open\u2011source project lets you keep full control and ditch expensive CMS subscriptions. Try it today and join the community of creators who are publishing for free!\n\nTryGhost/Ghost: https://github.com/TryGhost/Ghost\n\n#ghostcms #openource #selfhosted #nocontent #webdev",
+      "archetype": "StarRising",
+      "ts": "2026-09-13T13:53:16"
     }
   ],
   "repos": {
@@ -1529,7 +1550,8 @@
       "directus/directus",
       "idurar/idurar-erp-crm",
       "plankanban/planka",
-      "nopSolutions/nopCommerce"
+      "nopSolutions/nopCommerce",
+      "TryGhost/Ghost"
     ]
   },
   "modes": {
@@ -1538,6 +1560,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

@@ -95,7 +95,8 @@
       "Planka \u2013 the self-hosted Kanban board that replaces paid project\u2011management tools",
       "nopCommerce \u2013 the self-hosted eCommerce platform that replaces Shopify",
       "The self-hosted Ghost publishing platform that replaces paid CMS subscriptions",
-      "Self-hosted analytics platform that replaces Mixpanel"
+      "Self-hosted analytics platform that replaces Mixpanel",
+      "Self-hosted Grafana dashboards that replace paid monitoring SaaS"
     ]
   },
   "uploads": [
@@ -1545,6 +1546,26 @@
       "tiktok_caption": "Self-hosted analytics platform that replaces Mixpanel\n\nSelf-hosted analytics platform that replaces Mixpanel\n\nPostHog/posthog: https://github.com/PostHog/posthog\n\n#automation #smallbusiness #startup #nocode #buildinpublic",
       "archetype": "StarRising",
       "ts": "2026-09-13T19:35:51"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Self-hosted Grafana dashboards that replace paid monitoring SaaS",
+      "title": "Self\u2011Hosted Grafana Dashboards: Bye\u2011Bye SaaS Fees!",
+      "question": "What is grafana/grafana and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "grafana/grafana",
+      "repo_url": "https://github.com/grafana/grafana",
+      "repo_stars": 76736,
+      "repo_replaces": "Datadog, New Relic",
+      "youtube": "9gZgVxWH0ak",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aa78d0795d6303fe8335b0c",
+      "tiktok_caption": "Self\u2011Hosted Grafana Dashboards: Bye\u2011Bye SaaS Fees!\n\nDiscover how this open\u2011source project lets you build powerful dashboards on your own servers, cutting costs without sacrificing insights. Hit follow for more cost\u2011saving tech hacks!\n\ngrafana/grafana: https://github.com/grafana/grafana\n\n#grafana #opensource #selfhosted #monitoring #techtips",
+      "archetype": "StarRising",
+      "ts": "2026-09-14T05:58:27"
     }
   ],
   "repos": {
@@ -1573,7 +1594,8 @@
       "plankanban/planka",
       "nopSolutions/nopCommerce",
       "TryGhost/Ghost",
-      "PostHog/posthog"
+      "PostHog/posthog",
+      "grafana/grafana"
     ]
   },
   "modes": {
@@ -1582,6 +1604,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

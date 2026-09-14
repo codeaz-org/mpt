@@ -96,7 +96,8 @@
       "nopCommerce \u2013 the self-hosted eCommerce platform that replaces Shopify",
       "The self-hosted Ghost publishing platform that replaces paid CMS subscriptions",
       "Self-hosted analytics platform that replaces Mixpanel",
-      "Self-hosted Grafana dashboards that replace paid monitoring SaaS"
+      "Self-hosted Grafana dashboards that replace paid monitoring SaaS",
+      "The self-hosted e-commerce API that replaces Shopify"
     ]
   },
   "uploads": [
@@ -1566,6 +1567,26 @@
       "tiktok_caption": "Self\u2011Hosted Grafana Dashboards: Bye\u2011Bye SaaS Fees!\n\nDiscover how this open\u2011source project lets you build powerful dashboards on your own servers, cutting costs without sacrificing insights. Hit follow for more cost\u2011saving tech hacks!\n\ngrafana/grafana: https://github.com/grafana/grafana\n\n#grafana #opensource #selfhosted #monitoring #techtips",
       "archetype": "StarRising",
       "ts": "2026-09-14T05:58:27"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "The self-hosted e-commerce API that replaces Shopify",
+      "title": "Self\u2011Hosted e\u2011Commerce API that Beats Shopify",
+      "question": "What is saleor/saleor and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "saleor/saleor",
+      "repo_url": "https://github.com/saleor/saleor",
+      "repo_stars": 23327,
+      "repo_replaces": "Shopify",
+      "youtube": "auag7LpvTak",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aa8171243be6142268b0dd2",
+      "tiktok_caption": "Self\u2011Hosted e\u2011Commerce API that Beats Shopify\n\nExplore how this open\u2011source project lets you run a full e\u2011commerce platform without Shopify\u2019s fees and lock\u2011in. Get the code, host it yourself, and reclaim control of your store. Follow for more tech insights!\n\nsaleor/saleor: https://github.com/saleor/saleor\n\n#opensource #ecommerce #selfhosted #shopifyalternative #nocodefounder",
+      "archetype": "StarRising",
+      "ts": "2026-09-14T15:47:27"
     }
   ],
   "repos": {
@@ -1595,7 +1616,8 @@
       "nopSolutions/nopCommerce",
       "TryGhost/Ghost",
       "PostHog/posthog",
-      "grafana/grafana"
+      "grafana/grafana",
+      "saleor/saleor"
     ]
   },
   "modes": {
@@ -1604,6 +1626,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

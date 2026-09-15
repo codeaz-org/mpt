@@ -99,7 +99,8 @@
       "Self-hosted Grafana dashboards that replace paid monitoring SaaS",
       "The self-hosted e-commerce API that replaces Shopify",
       "The self-hosted PDF editor that replaces Adobe Acrobat",
-      "Huginn: Self-hosted automation that replaces Zapier"
+      "Huginn: Self-hosted automation that replaces Zapier",
+      "The self-hosted API testing IDE that replaces Postman"
     ]
   },
   "uploads": [
@@ -1629,6 +1630,26 @@
       "tiktok_caption": "Automate Like a Pro with Huginn \u2013 No Zapier Needed!\n\nDiscover how Huginn lets you self-host automation, freeing you from Zapier\u2019s limits and costs. Dive into the power of this open\u2011source project and start building smarter workflows today \u2013 follow for more automation hacks!\n\nhuginn/huginn: https://github.com/huginn/huginn\n\n#huginn #automation #opensource #selfhost #nocode",
       "archetype": "StarRising",
       "ts": "2026-09-15T05:53:54"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "The self-hosted API testing IDE that replaces Postman",
+      "title": "Ditch Postman: Meet the Self\u2011Hosted API IDE You\u2019ll Love",
+      "question": "What is usebruno/bruno and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "usebruno/bruno",
+      "repo_url": "https://github.com/usebruno/bruno",
+      "repo_stars": 46966,
+      "repo_replaces": "Postman",
+      "youtube": "J2tBySluMg4",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aa9540ef5d240e2d139ca70",
+      "tiktok_caption": "Ditch Postman: Meet the Self\u2011Hosted API IDE You\u2019ll Love\n\nDiscover how this open\u2011source project turns API testing into a breeze, all while staying self\u2011hosted and fully customizable. Try it today and level up your workflow\u2014follow for more tech hacks!\n\nusebruno/bruno: https://github.com/usebruno/bruno\n\n#opensource #apidevelopment #selfhosted #nocodefounder #devtools",
+      "archetype": "StarRising",
+      "ts": "2026-09-15T14:19:51"
     }
   ],
   "repos": {
@@ -1661,7 +1682,8 @@
       "grafana/grafana",
       "saleor/saleor",
       "Stirling-Tools/Stirling-PDF",
-      "huginn/huginn"
+      "huginn/huginn",
+      "usebruno/bruno"
     ]
   },
   "modes": {
@@ -1670,6 +1692,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

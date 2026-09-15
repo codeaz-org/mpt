@@ -98,7 +98,8 @@
       "Self-hosted analytics platform that replaces Mixpanel",
       "Self-hosted Grafana dashboards that replace paid monitoring SaaS",
       "The self-hosted e-commerce API that replaces Shopify",
-      "The self-hosted PDF editor that replaces Adobe Acrobat"
+      "The self-hosted PDF editor that replaces Adobe Acrobat",
+      "Huginn: Self-hosted automation that replaces Zapier"
     ]
   },
   "uploads": [
@@ -1608,6 +1609,26 @@
       "tiktok_caption": "Self\u2011Hosted PDF Editor That Beats Adobe Acrobat\n\nDiscover how this open\u2011source project can replace Adobe Acrobat with full control and no cost. Watch the demo, then hit follow for more tech insights!\n\nStirling-Tools/Stirling-PDF: https://github.com/Stirling-Tools/Stirling-PDF\n\n#opensource #pdf #selfhosted #nocode #productivity",
       "archetype": "StarRising",
       "ts": "2026-09-14T21:10:46"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Huginn: Self-hosted automation that replaces Zapier",
+      "title": "Automate Like a Pro with Huginn \u2013 No Zapier Needed!",
+      "question": "What is huginn/huginn and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "huginn/huginn",
+      "repo_url": "https://github.com/huginn/huginn",
+      "repo_stars": 49943,
+      "repo_replaces": "Zapier/IFTTT",
+      "youtube": "CVs7qTv5z4M",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aa8dd77bb9b8eb965a14374",
+      "tiktok_caption": "Automate Like a Pro with Huginn \u2013 No Zapier Needed!\n\nDiscover how Huginn lets you self-host automation, freeing you from Zapier\u2019s limits and costs. Dive into the power of this open\u2011source project and start building smarter workflows today \u2013 follow for more automation hacks!\n\nhuginn/huginn: https://github.com/huginn/huginn\n\n#huginn #automation #opensource #selfhost #nocode",
+      "archetype": "StarRising",
+      "ts": "2026-09-15T05:53:54"
     }
   ],
   "repos": {
@@ -1639,7 +1660,8 @@
       "PostHog/posthog",
       "grafana/grafana",
       "saleor/saleor",
-      "Stirling-Tools/Stirling-PDF"
+      "Stirling-Tools/Stirling-PDF",
+      "huginn/huginn"
     ]
   },
   "modes": {
@@ -1648,6 +1670,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

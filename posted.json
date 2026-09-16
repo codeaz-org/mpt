@@ -102,7 +102,8 @@
       "Huginn: Self-hosted automation that replaces Zapier",
       "The self-hosted API testing IDE that replaces Postman",
       "The self-hosted memo app that replaces paid note\u2011taking services",
-      "Dolibarr: Self-hosted ERP/CRM that replaces paid accounting and invoicing tools"
+      "Dolibarr: Self-hosted ERP/CRM that replaces paid accounting and invoicing tools",
+      "Prometheus: Self-hosted monitoring that replaces Datadog"
     ]
   },
   "uploads": [
@@ -1692,6 +1693,26 @@
       "tiktok_caption": "Dolibarr: Free ERP/CRM That Outshines Paid Accounting Tools\n\nDiscover how Dolibarr, a self\u2011hosted open\u2011source ERP/CRM, can replace expensive accounting and invoicing software in a few clicks. Hit follow for more deep dives into powerful free tools!\n\nDolibarr/dolibarr: https://github.com/Dolibarr/dolibarr\n\n#dolibarr #erp #crm #opensource #smallbusiness",
       "archetype": "StarRising",
       "ts": "2026-09-16T05:55:39"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Prometheus: Self-hosted monitoring that replaces Datadog",
+      "title": "Prometheus: Your DIY Datadog Replacement",
+      "question": "What is prometheus/prometheus and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "prometheus/prometheus",
+      "repo_url": "https://github.com/prometheus/prometheus",
+      "repo_stars": 66091,
+      "repo_replaces": "Datadog",
+      "youtube": "2mH87P9nb4Q",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aaaa45b859fb25b485c1f6a",
+      "tiktok_caption": "Prometheus: Your DIY Datadog Replacement\n\nDiscover how this open\u2011source project can monitor your stack without the cost of a SaaS. Dive in, set it up, and see the freedom for yourself\u2014follow for more open\u2011source insights!\n\nprometheus/prometheus: https://github.com/prometheus/prometheus\n\n#prometheus #monitoring #opensource #devops #selfhosted",
+      "archetype": "StarRising",
+      "ts": "2026-09-16T14:14:46"
     }
   ],
   "repos": {
@@ -1727,7 +1748,8 @@
       "huginn/huginn",
       "usebruno/bruno",
       "usememos/memos",
-      "Dolibarr/dolibarr"
+      "Dolibarr/dolibarr",
+      "prometheus/prometheus"
     ]
   },
   "modes": {
@@ -1736,6 +1758,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

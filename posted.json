@@ -101,7 +101,8 @@
       "The self-hosted PDF editor that replaces Adobe Acrobat",
       "Huginn: Self-hosted automation that replaces Zapier",
       "The self-hosted API testing IDE that replaces Postman",
-      "The self-hosted memo app that replaces paid note\u2011taking services"
+      "The self-hosted memo app that replaces paid note\u2011taking services",
+      "Dolibarr: Self-hosted ERP/CRM that replaces paid accounting and invoicing tools"
     ]
   },
   "uploads": [
@@ -1671,6 +1672,26 @@
       "tiktok_caption": "Free Note\u2011Taking? Meet the Self\u2011Hosted Memo App That Beats Paid Services\n\nDiscover how this open\u2011source memo app can replace pricey note\u2011taking tools with full control and zero costs. Try it out today and share your experience in the comments!\n\nusememos/memos: https://github.com/usememos/memos\n\n#opensource #selfhosted #productivity #nocodefounder #techtools",
       "archetype": "StarRising",
       "ts": "2026-09-15T20:26:36"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Dolibarr: Self-hosted ERP/CRM that replaces paid accounting and invoicing tools",
+      "title": "Dolibarr: Free ERP/CRM That Outshines Paid Accounting Tools",
+      "question": "What is Dolibarr/dolibarr and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "Dolibarr/dolibarr",
+      "repo_url": "https://github.com/Dolibarr/dolibarr",
+      "repo_stars": 7616,
+      "repo_replaces": "paid accounting software",
+      "youtube": "HrauQkN3Qow",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aaa2f5e5d0daf78fb706860",
+      "tiktok_caption": "Dolibarr: Free ERP/CRM That Outshines Paid Accounting Tools\n\nDiscover how Dolibarr, a self\u2011hosted open\u2011source ERP/CRM, can replace expensive accounting and invoicing software in a few clicks. Hit follow for more deep dives into powerful free tools!\n\nDolibarr/dolibarr: https://github.com/Dolibarr/dolibarr\n\n#dolibarr #erp #crm #opensource #smallbusiness",
+      "archetype": "StarRising",
+      "ts": "2026-09-16T05:55:39"
     }
   ],
   "repos": {
@@ -1705,7 +1726,8 @@
       "Stirling-Tools/Stirling-PDF",
       "huginn/huginn",
       "usebruno/bruno",
-      "usememos/memos"
+      "usememos/memos",
+      "Dolibarr/dolibarr"
     ]
   },
   "modes": {
@@ -1714,6 +1736,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

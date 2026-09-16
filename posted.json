@@ -103,7 +103,8 @@
       "The self-hosted API testing IDE that replaces Postman",
       "The self-hosted memo app that replaces paid note\u2011taking services",
       "Dolibarr: Self-hosted ERP/CRM that replaces paid accounting and invoicing tools",
-      "Prometheus: Self-hosted monitoring that replaces Datadog"
+      "Prometheus: Self-hosted monitoring that replaces Datadog",
+      "Umami: Self-hosted privacy-first analytics replacing Google Analytics"
     ]
   },
   "uploads": [
@@ -1713,6 +1714,26 @@
       "tiktok_caption": "Prometheus: Your DIY Datadog Replacement\n\nDiscover how this open\u2011source project can monitor your stack without the cost of a SaaS. Dive in, set it up, and see the freedom for yourself\u2014follow for more open\u2011source insights!\n\nprometheus/prometheus: https://github.com/prometheus/prometheus\n\n#prometheus #monitoring #opensource #devops #selfhosted",
       "archetype": "StarRising",
       "ts": "2026-09-16T14:14:46"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Umami: Self-hosted privacy-first analytics replacing Google Analytics",
+      "title": "Umami: Privacy\u2011First Analytics That Replaces Google Analytics",
+      "question": "What is umami-software/umami and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "umami-software/umami",
+      "repo_url": "https://github.com/umami-software/umami",
+      "repo_stars": 38865,
+      "repo_replaces": "Google Analytics",
+      "youtube": "PBJchi9Zdlg",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aaaf97f9be77cf28a229b3e",
+      "tiktok_caption": "Umami: Privacy\u2011First Analytics That Replaces Google Analytics\n\nDiscover how this open\u2011source project lets you self\u2011host analytics without compromising privacy. Try it today and protect your data\u2014follow for more tech insights!\n\numami-software/umami: https://github.com/umami-software/umami\n\n#privacy #analytics #opensource #selfhost #nocode",
+      "archetype": "StarRising",
+      "ts": "2026-09-16T20:18:02"
     }
   ],
   "repos": {
@@ -1749,7 +1770,8 @@
       "usebruno/bruno",
       "usememos/memos",
       "Dolibarr/dolibarr",
-      "prometheus/prometheus"
+      "prometheus/prometheus",
+      "umami-software/umami"
     ]
   },
   "modes": {
@@ -1758,6 +1780,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

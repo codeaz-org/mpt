@@ -105,7 +105,8 @@
       "Dolibarr: Self-hosted ERP/CRM that replaces paid accounting and invoicing tools",
       "Prometheus: Self-hosted monitoring that replaces Datadog",
       "Umami: Self-hosted privacy-first analytics replacing Google Analytics",
-      "Medusa: self-hosted e-commerce platform that replaces Shopify"
+      "Medusa: self-hosted e-commerce platform that replaces Shopify",
+      "The self-hosted issue tracker that replaces Jira"
     ]
   },
   "uploads": [
@@ -1755,6 +1756,26 @@
       "tiktok_caption": "Why Medusa Beats Shopify for Self\u2011Hosted Stores\n\nDiscover how Medusa, the open\u2011source e\u2011commerce platform, gives you full control without the cost of Shopify. Ready to level up your online shop? Hit follow for more tips!\n\nmedusajs/medusa: https://github.com/medusajs/medusa\n\n#medusa #ecommerce #opensource #nocodefounder #shopifyalternative",
       "archetype": "StarRising",
       "ts": "2026-09-17T05:59:30"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "The self-hosted issue tracker that replaces Jira",
+      "title": "How This Open\u2011Source Project Can Replace Jira\u2014No More Cloud Fees!",
+      "question": "What is usekaneo/kaneo and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "usekaneo/kaneo",
+      "repo_url": "https://github.com/usekaneo/kaneo",
+      "repo_stars": 9103,
+      "repo_replaces": "Jira",
+      "youtube": "RLhNXsGp9jM",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aabf4efdc81022d5b67a8f5",
+      "tiktok_caption": "How This Open\u2011Source Project Can Replace Jira\u2014No More Cloud Fees!\n\nDiscover the self\u2011hosted issue tracker that\u2019s quietly taking Jira\u2019s place. It\u2019s open\u2011source, fully customizable, and runs on your own server. Follow for more deep dives into powerful open\u2011source tools!\n\nusekaneo/kaneo: https://github.com/usekaneo/kaneo\n\n#opensource #selfhosted #issuetracker #nocodefounder #businesstools",
+      "archetype": "StarRising",
+      "ts": "2026-09-17T14:10:51"
     }
   ],
   "repos": {
@@ -1793,7 +1814,8 @@
       "Dolibarr/dolibarr",
       "prometheus/prometheus",
       "umami-software/umami",
-      "medusajs/medusa"
+      "medusajs/medusa",
+      "usekaneo/kaneo"
     ]
   },
   "modes": {
@@ -1802,6 +1824,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

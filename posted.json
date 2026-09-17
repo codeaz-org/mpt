@@ -104,7 +104,8 @@
       "The self-hosted memo app that replaces paid note\u2011taking services",
       "Dolibarr: Self-hosted ERP/CRM that replaces paid accounting and invoicing tools",
       "Prometheus: Self-hosted monitoring that replaces Datadog",
-      "Umami: Self-hosted privacy-first analytics replacing Google Analytics"
+      "Umami: Self-hosted privacy-first analytics replacing Google Analytics",
+      "Medusa: self-hosted e-commerce platform that replaces Shopify"
     ]
   },
   "uploads": [
@@ -1734,6 +1735,26 @@
       "tiktok_caption": "Umami: Privacy\u2011First Analytics That Replaces Google Analytics\n\nDiscover how this open\u2011source project lets you self\u2011host analytics without compromising privacy. Try it today and protect your data\u2014follow for more tech insights!\n\numami-software/umami: https://github.com/umami-software/umami\n\n#privacy #analytics #opensource #selfhost #nocode",
       "archetype": "StarRising",
       "ts": "2026-09-16T20:18:02"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Medusa: self-hosted e-commerce platform that replaces Shopify",
+      "title": "Why Medusa Beats Shopify for Self\u2011Hosted Stores",
+      "question": "What is medusajs/medusa and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "medusajs/medusa",
+      "repo_url": "https://github.com/medusajs/medusa",
+      "repo_stars": 36345,
+      "repo_replaces": "Shopify",
+      "youtube": "bAVVZ8csh0g",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aab81c620de135c2a134b88",
+      "tiktok_caption": "Why Medusa Beats Shopify for Self\u2011Hosted Stores\n\nDiscover how Medusa, the open\u2011source e\u2011commerce platform, gives you full control without the cost of Shopify. Ready to level up your online shop? Hit follow for more tips!\n\nmedusajs/medusa: https://github.com/medusajs/medusa\n\n#medusa #ecommerce #opensource #nocodefounder #shopifyalternative",
+      "archetype": "StarRising",
+      "ts": "2026-09-17T05:59:30"
     }
   ],
   "repos": {
@@ -1771,7 +1792,8 @@
       "usememos/memos",
       "Dolibarr/dolibarr",
       "prometheus/prometheus",
-      "umami-software/umami"
+      "umami-software/umami",
+      "medusajs/medusa"
     ]
   },
   "modes": {
@@ -1780,6 +1802,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

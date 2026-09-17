@@ -106,7 +106,8 @@
       "Prometheus: Self-hosted monitoring that replaces Datadog",
       "Umami: Self-hosted privacy-first analytics replacing Google Analytics",
       "Medusa: self-hosted e-commerce platform that replaces Shopify",
-      "The self-hosted issue tracker that replaces Jira"
+      "The self-hosted issue tracker that replaces Jira",
+      "Payload \u2013 Self-hosted CMS that replaces paid headless services"
     ]
   },
   "uploads": [
@@ -1776,6 +1777,26 @@
       "tiktok_caption": "How This Open\u2011Source Project Can Replace Jira\u2014No More Cloud Fees!\n\nDiscover the self\u2011hosted issue tracker that\u2019s quietly taking Jira\u2019s place. It\u2019s open\u2011source, fully customizable, and runs on your own server. Follow for more deep dives into powerful open\u2011source tools!\n\nusekaneo/kaneo: https://github.com/usekaneo/kaneo\n\n#opensource #selfhosted #issuetracker #nocodefounder #businesstools",
       "archetype": "StarRising",
       "ts": "2026-09-17T14:10:51"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Payload \u2013 Self-hosted CMS that replaces paid headless services",
+      "title": "Why Payload Beats Paid Headless CMS! \ud83d\ude80",
+      "question": "What is payloadcms/payload and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "payloadcms/payload",
+      "repo_url": "https://github.com/payloadcms/payload",
+      "repo_stars": 44793,
+      "repo_replaces": "Paid headless CMS (e.g., Contentful)",
+      "youtube": "9NsSnb8jgPk",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aac4ceda392fa7c05c6a5ea",
+      "tiktok_caption": "Why Payload Beats Paid Headless CMS! \ud83d\ude80\n\nDiscover how Payload, the self\u2011hosted open\u2011source CMS, can replace expensive headless services with powerful flexibility. Smash that follow button for more dev hacks!\n\npayloadcms/payload: https://github.com/payloadcms/payload\n\n#nocodefounder #cms #opensource #headless #devtools",
+      "archetype": "StarRising",
+      "ts": "2026-09-17T20:26:16"
     }
   ],
   "repos": {
@@ -1815,7 +1836,8 @@
       "prometheus/prometheus",
       "umami-software/umami",
       "medusajs/medusa",
-      "usekaneo/kaneo"
+      "usekaneo/kaneo",
+      "payloadcms/payload"
     ]
   },
   "modes": {
@@ -1824,6 +1846,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

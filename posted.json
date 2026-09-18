@@ -107,7 +107,8 @@
       "Umami: Self-hosted privacy-first analytics replacing Google Analytics",
       "Medusa: self-hosted e-commerce platform that replaces Shopify",
       "The self-hosted issue tracker that replaces Jira",
-      "Payload \u2013 Self-hosted CMS that replaces paid headless services"
+      "Payload \u2013 Self-hosted CMS that replaces paid headless services",
+      "Leantime \u2013 the self-hosted project management system that replaces Asana"
     ]
   },
   "uploads": [
@@ -1797,6 +1798,26 @@
       "tiktok_caption": "Why Payload Beats Paid Headless CMS! \ud83d\ude80\n\nDiscover how Payload, the self\u2011hosted open\u2011source CMS, can replace expensive headless services with powerful flexibility. Smash that follow button for more dev hacks!\n\npayloadcms/payload: https://github.com/payloadcms/payload\n\n#nocodefounder #cms #opensource #headless #devtools",
       "archetype": "StarRising",
       "ts": "2026-09-17T20:26:16"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Leantime \u2013 the self-hosted project management system that replaces Asana",
+      "title": "Turn Asana Into a Self\u2011Hosted Powerhouse with Leantime!",
+      "question": "What is Leantime/leantime and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "Leantime/leantime",
+      "repo_url": "https://github.com/Leantime/leantime",
+      "repo_stars": 11601,
+      "repo_replaces": "Asana",
+      "youtube": "Ya4fZacZe1k",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aacd107ea02db373de45d19",
+      "tiktok_caption": "Turn Asana Into a Self\u2011Hosted Powerhouse with Leantime!\n\nDiscover how Leantime, the open\u2011source project management system, can replace Asana for a fully private workflow. Dive in and level up your team\u2019s productivity\u2014follow for more tech insights!\n\nLeantime/leantime: https://github.com/Leantime/leantime\n\n#leantime #opensource #projectmanagement #selfhosted #productivity",
+      "archetype": "StarRising",
+      "ts": "2026-09-18T05:49:54"
     }
   ],
   "repos": {
@@ -1837,7 +1858,8 @@
       "umami-software/umami",
       "medusajs/medusa",
       "usekaneo/kaneo",
-      "payloadcms/payload"
+      "payloadcms/payload",
+      "Leantime/leantime"
     ]
   },
   "modes": {
@@ -1846,6 +1868,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

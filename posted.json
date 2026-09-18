@@ -109,7 +109,8 @@
       "The self-hosted issue tracker that replaces Jira",
       "Payload \u2013 Self-hosted CMS that replaces paid headless services",
       "Leantime \u2013 the self-hosted project management system that replaces Asana",
-      "Ever\u00ae Gauzy \u2013 the all-in-one self-hosted ERP/CRM that replaces multiple paid SaaS tools"
+      "Ever\u00ae Gauzy \u2013 the all-in-one self-hosted ERP/CRM that replaces multiple paid SaaS tools",
+      "Self-hosted system monitoring that replaces paid SaaS like Datadog"
     ]
   },
   "uploads": [
@@ -1839,6 +1840,26 @@
       "tiktok_caption": "Ever\u00ae Gauzy: One Tool to Rule All Your SaaS Needs\n\nDiscover how this open-source ERP/CRM can replace multiple paid SaaS tools with a single self-hosted solution. Jump into the future of business automation\u2014follow for more insights!\n\never-co/ever-gauzy: https://github.com/ever-co/ever-gauzy\n\n#nocodefounder #opensource #erp #saas #automation",
       "archetype": "StarRising",
       "ts": "2026-09-18T13:35:54"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Self-hosted system monitoring that replaces paid SaaS like Datadog",
+      "title": "Stop Paying for Datadog\u2014Self\u2011Host Your Own System Monitor",
+      "question": "What is nicolargo/glances and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "nicolargo/glances",
+      "repo_url": "https://github.com/nicolargo/glances",
+      "repo_stars": 33608,
+      "repo_replaces": "Datadog",
+      "youtube": "oH4rbFkO80M",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aad9710e64415091eca8a24",
+      "tiktok_caption": "Stop Paying for Datadog\u2014Self\u2011Host Your Own System Monitor\n\nDiscover how the open\u2011source project nicolargo/glances can replace pricey SaaS like Datadog in minutes. Keep your data on\u2011prem and save $$$\u2014follow for more open\u2011source hacks!\n\nnicolargo/glances: https://github.com/nicolargo/glances\n\n#nocodefounder #opensource #systemmonitoring #selfhost #devops",
+      "archetype": "StarRising",
+      "ts": "2026-09-18T19:54:52"
     }
   ],
   "repos": {
@@ -1881,7 +1902,8 @@
       "usekaneo/kaneo",
       "payloadcms/payload",
       "Leantime/leantime",
-      "ever-co/ever-gauzy"
+      "ever-co/ever-gauzy",
+      "nicolargo/glances"
     ]
   },
   "modes": {
@@ -1890,6 +1912,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

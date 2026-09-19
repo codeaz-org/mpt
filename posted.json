@@ -112,7 +112,8 @@
       "Ever\u00ae Gauzy \u2013 the all-in-one self-hosted ERP/CRM that replaces multiple paid SaaS tools",
       "Self-hosted system monitoring that replaces paid SaaS like Datadog",
       "The self-hosted static site generator that replaces your paid CMS",
-      "The self\u2011hosted SaaS team email server that replaces paid email services"
+      "The self\u2011hosted SaaS team email server that replaces paid email services",
+      "Coolify: Self-hosted PaaS that replaces Vercel, Heroku, and Netlify"
     ]
   },
   "uploads": [
@@ -1902,6 +1903,26 @@
       "tiktok_caption": "Free, Self\u2011Hosted Team Email? Meet SaaSMail \u2013 No Cost, No Vendor Lock\u2011in\n\nDiscover how SaaSMail lets you run a fully\u2011functional team email server on your own infrastructure, eliminating pricey SaaS costs. Want to keep control and cut expenses? Follow for more open\u2011source hacks!\n\nchoyiny/saasmail: https://github.com/choyiny/saasmail\n\n#saasmail #opensource #devops #smallbiz #email",
       "archetype": "StarRising",
       "ts": "2026-09-19T13:06:22"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Coolify: Self-hosted PaaS that replaces Vercel, Heroku, and Netlify",
+      "title": "Coolify: Replace Vercel, Heroku & Netlify \u2013 Self\u2011Hosted PaaS?",
+      "question": "What is coollabsio/coolify and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "coollabsio/coolify",
+      "repo_url": "https://github.com/coollabsio/coolify",
+      "repo_stars": 62024,
+      "repo_replaces": "Vercel, Heroku, Netlify",
+      "youtube": "BQzON4XWKNc",
+      "tiktok": false,
+      "tiktok_via": "inbox",
+      "tiktok_post_id": null,
+      "tiktok_caption": "Coolify: Replace Vercel, Heroku & Netlify \u2013 Self\u2011Hosted PaaS?\n\nDiscover how Coolify lets you run a PaaS on your own servers, cutting costs and giving full control. Hit follow for more open\u2011source deep dives!\n\ncoollabsio/coolify: https://github.com/coollabsio/coolify\n\n#coolify #selfhosted #paas #devops #nocodefounder",
+      "archetype": "StarRising",
+      "ts": "2026-09-19T19:40:35"
     }
   ],
   "repos": {
@@ -1947,7 +1968,8 @@
       "ever-co/ever-gauzy",
       "nicolargo/glances",
       "gohugoio/hugo",
-      "choyiny/saasmail"
+      "choyiny/saasmail",
+      "coollabsio/coolify"
     ]
   },
   "modes": {
@@ -1956,6 +1978,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

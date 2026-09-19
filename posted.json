@@ -110,7 +110,8 @@
       "Payload \u2013 Self-hosted CMS that replaces paid headless services",
       "Leantime \u2013 the self-hosted project management system that replaces Asana",
       "Ever\u00ae Gauzy \u2013 the all-in-one self-hosted ERP/CRM that replaces multiple paid SaaS tools",
-      "Self-hosted system monitoring that replaces paid SaaS like Datadog"
+      "Self-hosted system monitoring that replaces paid SaaS like Datadog",
+      "The self-hosted static site generator that replaces your paid CMS"
     ]
   },
   "uploads": [
@@ -1860,6 +1861,26 @@
       "tiktok_caption": "Stop Paying for Datadog\u2014Self\u2011Host Your Own System Monitor\n\nDiscover how the open\u2011source project nicolargo/glances can replace pricey SaaS like Datadog in minutes. Keep your data on\u2011prem and save $$$\u2014follow for more open\u2011source hacks!\n\nnicolargo/glances: https://github.com/nicolargo/glances\n\n#nocodefounder #opensource #systemmonitoring #selfhost #devops",
       "archetype": "StarRising",
       "ts": "2026-09-18T19:54:52"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "The self-hosted static site generator that replaces your paid CMS",
+      "title": "Stop Paying for CMS \u2013 Meet the Free Static Site Generator",
+      "question": "What is gohugoio/hugo and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "gohugoio/hugo",
+      "repo_url": "https://github.com/gohugoio/hugo",
+      "repo_stars": 89864,
+      "repo_replaces": "Paid CMS",
+      "youtube": "NdQHV8NrUMU",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aae20e31e8bdcdb523a5bef",
+      "tiktok_caption": "Stop Paying for CMS \u2013 Meet the Free Static Site Generator\n\nDiscover how this open\u2011source project can replace your paid CMS with blazing speed and zero cost. Dive into the demo and see how easy it is to set up! Follow for more tech hacks.\n\ngohugoio/hugo: https://github.com/gohugoio/hugo\n\n#hugo #staticpages #opensource #devtools #nocode",
+      "archetype": "StarRising",
+      "ts": "2026-09-19T05:42:56"
     }
   ],
   "repos": {
@@ -1903,7 +1924,8 @@
       "payloadcms/payload",
       "Leantime/leantime",
       "ever-co/ever-gauzy",
-      "nicolargo/glances"
+      "nicolargo/glances",
+      "gohugoio/hugo"
     ]
   },
   "modes": {
@@ -1912,6 +1934,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

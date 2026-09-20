@@ -113,7 +113,8 @@
       "Self-hosted system monitoring that replaces paid SaaS like Datadog",
       "The self-hosted static site generator that replaces your paid CMS",
       "The self\u2011hosted SaaS team email server that replaces paid email services",
-      "Coolify: Self-hosted PaaS that replaces Vercel, Heroku, and Netlify"
+      "Coolify: Self-hosted PaaS that replaces Vercel, Heroku, and Netlify",
+      "Dify: Self-hosted AI workflow engine that replaces Zapier, Airtable and more"
     ]
   },
   "uploads": [
@@ -1923,6 +1924,26 @@
       "tiktok_caption": "Coolify: Replace Vercel, Heroku & Netlify \u2013 Self\u2011Hosted PaaS?\n\nDiscover how Coolify lets you run a PaaS on your own servers, cutting costs and giving full control. Hit follow for more open\u2011source deep dives!\n\ncoollabsio/coolify: https://github.com/coollabsio/coolify\n\n#coolify #selfhosted #paas #devops #nocodefounder",
       "archetype": "StarRising",
       "ts": "2026-09-19T19:40:35"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Dify: Self-hosted AI workflow engine that replaces Zapier, Airtable and more",
+      "title": "Dify: The AI Engine That Replaces Zapier & Airtable!",
+      "question": "What is langgenius/dify and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "langgenius/dify",
+      "repo_url": "https://github.com/langgenius/dify",
+      "repo_stars": 156517,
+      "repo_replaces": "Zapier, Airtable, etc.",
+      "youtube": "fnJv2Cb5_Vc",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aaf76298d048c06b4fb68b3",
+      "tiktok_caption": "Dify: The AI Engine That Replaces Zapier & Airtable!\n\nDiscover how Dify lets you build complex AI workflows without code, cutting out Zapier, Airtable, and more. Follow for more open-source AI hack tips!\n\nlanggenius/dify: https://github.com/langgenius/dify\n\n#nocodefounder #opensource #aiflow #automation #deeplearning",
+      "archetype": "StarRising",
+      "ts": "2026-09-20T05:59:02"
     }
   ],
   "repos": {
@@ -1969,7 +1990,8 @@
       "nicolargo/glances",
       "gohugoio/hugo",
       "choyiny/saasmail",
-      "coollabsio/coolify"
+      "coollabsio/coolify",
+      "langgenius/dify"
     ]
   },
   "modes": {
@@ -1978,6 +2000,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

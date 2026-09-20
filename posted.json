@@ -115,7 +115,8 @@
       "The self\u2011hosted SaaS team email server that replaces paid email services",
       "Coolify: Self-hosted PaaS that replaces Vercel, Heroku, and Netlify",
       "Dify: Self-hosted AI workflow engine that replaces Zapier, Airtable and more",
-      "Redash: Self-hosted BI that replaces paid dashboards"
+      "Redash: Self-hosted BI that replaces paid dashboards",
+      "Self-hosted error tracking that replaces paid APM services"
     ]
   },
   "uploads": [
@@ -1965,6 +1966,26 @@
       "tiktok_caption": "Stop Paying for Dashboards\u2014Redash Lets You Host Your Own BI\n\nDiscover how Redash, the open\u2011source BI platform, can replace expensive dashboard tools without sacrificing features. Try it today and take control of your data\u2014follow for more open\u2011source hacks!\n\ngetredash/redash: https://github.com/getredash/redash\n\n#redash #bi #opensource #selfhost #dataviz",
       "archetype": "StarRising",
       "ts": "2026-09-20T13:40:45"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Self-hosted error tracking that replaces paid APM services",
+      "title": "Self\u2011Hosted Error Tracking: Say Goodbye to Paid APM!",
+      "question": "What is getsentry/sentry and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "getsentry/sentry",
+      "repo_url": "https://github.com/getsentry/sentry",
+      "repo_stars": 44811,
+      "repo_replaces": "Datadog, New Relic",
+      "youtube": "n8C0t83ybBA",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ab03710969826aa9cb4ac25",
+      "tiktok_caption": "Self\u2011Hosted Error Tracking: Say Goodbye to Paid APM!\n\nDiscover how this open\u2011source project can replace costly APM services while keeping your data in-house. Try it now and take control of your error monitoring!\n\ngetsentry/sentry: https://github.com/getsentry/sentry\n\n#opensource #selfhosted #apm #devops #dataprivacy",
+      "archetype": "StarRising",
+      "ts": "2026-09-20T19:42:04"
     }
   ],
   "repos": {
@@ -2013,7 +2034,8 @@
       "choyiny/saasmail",
       "coollabsio/coolify",
       "langgenius/dify",
-      "getredash/redash"
+      "getredash/redash",
+      "getsentry/sentry"
     ]
   },
   "modes": {
@@ -2022,6 +2044,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

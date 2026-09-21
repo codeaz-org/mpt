@@ -116,7 +116,8 @@
       "Coolify: Self-hosted PaaS that replaces Vercel, Heroku, and Netlify",
       "Dify: Self-hosted AI workflow engine that replaces Zapier, Airtable and more",
       "Redash: Self-hosted BI that replaces paid dashboards",
-      "Self-hosted error tracking that replaces paid APM services"
+      "Self-hosted error tracking that replaces paid APM services",
+      "Velobase Harness: Open\u2011source billing platform for AI SaaS"
     ]
   },
   "uploads": [
@@ -1986,6 +1987,26 @@
       "tiktok_caption": "Self\u2011Hosted Error Tracking: Say Goodbye to Paid APM!\n\nDiscover how this open\u2011source project can replace costly APM services while keeping your data in-house. Try it now and take control of your error monitoring!\n\ngetsentry/sentry: https://github.com/getsentry/sentry\n\n#opensource #selfhosted #apm #devops #dataprivacy",
       "archetype": "StarRising",
       "ts": "2026-09-20T19:42:04"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Velobase Harness: Open\u2011source billing platform for AI SaaS",
+      "title": "Unleash AI SaaS Billing with Velobase Harness \u2013 Open\u2011Source Power!",
+      "question": "What is velobase/velobase-harness and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "velobase/velobase-harness",
+      "repo_url": "https://github.com/velobase/velobase-harness",
+      "repo_stars": 601,
+      "repo_replaces": "Paid SaaS billing & payment platforms",
+      "youtube": "P9oSLHssL_4",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ab0c9e126caf7929b0d0fa1",
+      "tiktok_caption": "Unleash AI SaaS Billing with Velobase Harness \u2013 Open\u2011Source Power!\n\nDiscover how Velobase Harness streamlines billing for AI SaaS with zero-code, API\u2011first design. Dive into the features and join the community today!\n\nvelobase/velobase-harness: https://github.com/velobase/velobase-harness\n\n#opensource #ai #saas #billing #nocode",
+      "archetype": "StarRising",
+      "ts": "2026-09-21T06:08:29"
     }
   ],
   "repos": {
@@ -2035,7 +2056,8 @@
       "coollabsio/coolify",
       "langgenius/dify",
       "getredash/redash",
-      "getsentry/sentry"
+      "getsentry/sentry",
+      "velobase/velobase-harness"
     ]
   },
   "modes": {
@@ -2044,6 +2066,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

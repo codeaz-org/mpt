@@ -117,7 +117,8 @@
       "Dify: Self-hosted AI workflow engine that replaces Zapier, Airtable and more",
       "Redash: Self-hosted BI that replaces paid dashboards",
       "Self-hosted error tracking that replaces paid APM services",
-      "Velobase Harness: Open\u2011source billing platform for AI SaaS"
+      "Velobase Harness: Open\u2011source billing platform for AI SaaS",
+      "InfluxDB \u2013 the self-hosted metrics database that replaces paid monitoring services"
     ]
   },
   "uploads": [
@@ -2007,6 +2008,26 @@
       "tiktok_caption": "Unleash AI SaaS Billing with Velobase Harness \u2013 Open\u2011Source Power!\n\nDiscover how Velobase Harness streamlines billing for AI SaaS with zero-code, API\u2011first design. Dive into the features and join the community today!\n\nvelobase/velobase-harness: https://github.com/velobase/velobase-harness\n\n#opensource #ai #saas #billing #nocode",
       "archetype": "StarRising",
       "ts": "2026-09-21T06:08:29"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "InfluxDB \u2013 the self-hosted metrics database that replaces paid monitoring services",
+      "title": "InfluxDB: Free, Self\u2011Hosted Metrics for Your Business",
+      "question": "What is influxdata/influxdb and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "influxdata/influxdb",
+      "repo_url": "https://github.com/influxdata/influxdb",
+      "repo_stars": 31752,
+      "repo_replaces": "paid monitoring services",
+      "youtube": "HGer_KOvmjc",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ab15286123e7b2749edc759",
+      "tiktok_caption": "InfluxDB: Free, Self\u2011Hosted Metrics for Your Business\n\nDiscover how InfluxDB can replace pricey monitoring services with a powerful, open\u2011source solution. Start saving money on metrics today\u2014follow for more insights!\n\ninfluxdata/influxdb: https://github.com/influxdata/influxdb\n\n#influxdb #opensource #selfhosted #metrics #nocode",
+      "archetype": "StarRising",
+      "ts": "2026-09-21T15:51:30"
     }
   ],
   "repos": {
@@ -2057,7 +2078,8 @@
       "langgenius/dify",
       "getredash/redash",
       "getsentry/sentry",
-      "velobase/velobase-harness"
+      "velobase/velobase-harness",
+      "influxdata/influxdb"
     ]
   },
   "modes": {
@@ -2066,6 +2088,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

@@ -118,7 +118,8 @@
       "Redash: Self-hosted BI that replaces paid dashboards",
       "Self-hosted error tracking that replaces paid APM services",
       "Velobase Harness: Open\u2011source billing platform for AI SaaS",
-      "InfluxDB \u2013 the self-hosted metrics database that replaces paid monitoring services"
+      "InfluxDB \u2013 the self-hosted metrics database that replaces paid monitoring services",
+      "The open-source web scraping framework that replaces paid scraping services"
     ]
   },
   "uploads": [
@@ -2028,6 +2029,26 @@
       "tiktok_caption": "InfluxDB: Free, Self\u2011Hosted Metrics for Your Business\n\nDiscover how InfluxDB can replace pricey monitoring services with a powerful, open\u2011source solution. Start saving money on metrics today\u2014follow for more insights!\n\ninfluxdata/influxdb: https://github.com/influxdata/influxdb\n\n#influxdb #opensource #selfhosted #metrics #nocode",
       "archetype": "StarRising",
       "ts": "2026-09-21T15:51:30"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "The open-source web scraping framework that replaces paid scraping services",
+      "title": "Free Scraping Power: D4Vinci vs Paid Services",
+      "question": "What is D4Vinci/Scrapling and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "D4Vinci/Scrapling",
+      "repo_url": "https://github.com/D4Vinci/Scrapling",
+      "repo_stars": 82813,
+      "repo_replaces": "Paid web scraping services",
+      "youtube": "J7KLLzRtm3Y",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ab19f45826cfc54b85ba694",
+      "tiktok_caption": "Free Scraping Power: D4Vinci vs Paid Services\n\nDiscover how the open-source D4Vinci/Scrapling framework can replace costly paid scraping services in just minutes. Hit follow for more deep dives into powerful tools that keep your budget low!\n\nD4Vinci/Scrapling: https://github.com/D4Vinci/Scrapling\n\n#scraping #opensource #webautomation #nocodefounder #devtools",
+      "archetype": "StarRising",
+      "ts": "2026-09-21T21:18:57"
     }
   ],
   "repos": {
@@ -2079,7 +2100,8 @@
       "getredash/redash",
       "getsentry/sentry",
       "velobase/velobase-harness",
-      "influxdata/influxdb"
+      "influxdata/influxdb",
+      "D4Vinci/Scrapling"
     ]
   },
   "modes": {
@@ -2088,6 +2110,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

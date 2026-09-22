@@ -119,7 +119,8 @@
       "Self-hosted error tracking that replaces paid APM services",
       "Velobase Harness: Open\u2011source billing platform for AI SaaS",
       "InfluxDB \u2013 the self-hosted metrics database that replaces paid monitoring services",
-      "The open-source web scraping framework that replaces paid scraping services"
+      "The open-source web scraping framework that replaces paid scraping services",
+      "Wagtail: The self-hosted CMS that replaces paid headless platforms"
     ]
   },
   "uploads": [
@@ -2049,6 +2050,26 @@
       "tiktok_caption": "Free Scraping Power: D4Vinci vs Paid Services\n\nDiscover how the open-source D4Vinci/Scrapling framework can replace costly paid scraping services in just minutes. Hit follow for more deep dives into powerful tools that keep your budget low!\n\nD4Vinci/Scrapling: https://github.com/D4Vinci/Scrapling\n\n#scraping #opensource #webautomation #nocodefounder #devtools",
       "archetype": "StarRising",
       "ts": "2026-09-21T21:18:57"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Wagtail: The self-hosted CMS that replaces paid headless platforms",
+      "title": "Wagtail: The Free CMS That Outsmarts Paid Headless Platforms",
+      "question": "What is wagtail/wagtail and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "wagtail/wagtail",
+      "repo_url": "https://github.com/wagtail/wagtail",
+      "repo_stars": 20502,
+      "repo_replaces": "Paid headless CMS services",
+      "youtube": "9izcPoenuYk",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ab21a2674424003bcaa9ccd",
+      "tiktok_caption": "Wagtail: The Free CMS That Outsmarts Paid Headless Platforms\n\nDiscover how this open-source CMS lets you host your site without costly subscriptions. Drop a comment if you\u2019re ready to switch and follow for more tech insights!\n\nwagtail/wagtail: https://github.com/wagtail/wagtail\n\n#nocodefounder #cms #opensource #webdev #selfhosted",
+      "archetype": "StarRising",
+      "ts": "2026-09-22T06:03:15"
     }
   ],
   "repos": {
@@ -2101,7 +2122,8 @@
       "getsentry/sentry",
       "velobase/velobase-harness",
       "influxdata/influxdb",
-      "D4Vinci/Scrapling"
+      "D4Vinci/Scrapling",
+      "wagtail/wagtail"
     ]
   },
   "modes": {
@@ -2110,6 +2132,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

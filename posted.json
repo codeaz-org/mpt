@@ -120,7 +120,8 @@
       "Velobase Harness: Open\u2011source billing platform for AI SaaS",
       "InfluxDB \u2013 the self-hosted metrics database that replaces paid monitoring services",
       "The open-source web scraping framework that replaces paid scraping services",
-      "Wagtail: The self-hosted CMS that replaces paid headless platforms"
+      "Wagtail: The self-hosted CMS that replaces paid headless platforms",
+      "Apache Airflow, the self-hosted workflow orchestrator that replaces Zapier"
     ]
   },
   "uploads": [
@@ -2070,6 +2071,26 @@
       "tiktok_caption": "Wagtail: The Free CMS That Outsmarts Paid Headless Platforms\n\nDiscover how this open-source CMS lets you host your site without costly subscriptions. Drop a comment if you\u2019re ready to switch and follow for more tech insights!\n\nwagtail/wagtail: https://github.com/wagtail/wagtail\n\n#nocodefounder #cms #opensource #webdev #selfhosted",
       "archetype": "StarRising",
       "ts": "2026-09-22T06:03:15"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Apache Airflow, the self-hosted workflow orchestrator that replaces Zapier",
+      "title": "Apache Airflow: The Self\u2011Hosted Workflow Powerhouse That Beats Zapier",
+      "question": "What is apache/airflow and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "apache/airflow",
+      "repo_url": "https://github.com/apache/airflow",
+      "repo_stars": 46940,
+      "repo_replaces": "Zapier",
+      "youtube": "60jUtHrdCX8",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ab28a1735fabc92261bc543",
+      "tiktok_caption": "Apache Airflow: The Self\u2011Hosted Workflow Powerhouse That Beats Zapier\n\nDiscover how Apache Airflow lets you build and schedule complex data pipelines on your own servers, giving you full control and zero vendor lock\u2011in. Follow for more deep dives into open\u2011source workflow tools!\n\napache/airflow: https://github.com/apache/airflow\n\n#airflow #workflowautomation #opensource #dataengineering #devops",
+      "archetype": "StarRising",
+      "ts": "2026-09-22T14:00:49"
     }
   ],
   "repos": {
@@ -2123,7 +2144,8 @@
       "velobase/velobase-harness",
       "influxdata/influxdb",
       "D4Vinci/Scrapling",
-      "wagtail/wagtail"
+      "wagtail/wagtail",
+      "apache/airflow"
     ]
   },
   "modes": {
@@ -2132,6 +2154,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

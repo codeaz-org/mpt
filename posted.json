@@ -121,7 +121,8 @@
       "InfluxDB \u2013 the self-hosted metrics database that replaces paid monitoring services",
       "The open-source web scraping framework that replaces paid scraping services",
       "Wagtail: The self-hosted CMS that replaces paid headless platforms",
-      "Apache Airflow, the self-hosted workflow orchestrator that replaces Zapier"
+      "Apache Airflow, the self-hosted workflow orchestrator that replaces Zapier",
+      "Self-hosted Git platform that replaces GitHub"
     ]
   },
   "uploads": [
@@ -2091,6 +2092,26 @@
       "tiktok_caption": "Apache Airflow: The Self\u2011Hosted Workflow Powerhouse That Beats Zapier\n\nDiscover how Apache Airflow lets you build and schedule complex data pipelines on your own servers, giving you full control and zero vendor lock\u2011in. Follow for more deep dives into open\u2011source workflow tools!\n\napache/airflow: https://github.com/apache/airflow\n\n#airflow #workflowautomation #opensource #dataengineering #devops",
       "archetype": "StarRising",
       "ts": "2026-09-22T14:00:49"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Self-hosted Git platform that replaces GitHub",
+      "title": "Self\u2011Hosted Git Platform That Beats GitHub \u2013 Try It Now!",
+      "question": "What is kangarooking/cangjie-skill and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "kangarooking/cangjie-skill",
+      "repo_url": "https://github.com/kangarooking/cangjie-skill",
+      "repo_stars": 10459,
+      "repo_replaces": "GitHub",
+      "youtube": "nzVBGXMPTas",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ab2e567af9c1f0e77659921",
+      "tiktok_caption": "Self\u2011Hosted Git Platform That Beats GitHub \u2013 Try It Now!\n\nDiscover how this open\u2011source project can replace GitHub on your own servers, giving you full control and no vendor lock\u2011in. Follow our channel for more deep dives into tech tools that empower you on your own terms.\n\nkangarooking/cangjie-skill: https://github.com/kangarooking/cangjie-skill\n\n#opensource #selfhosted #devtools #nocodefounder #git",
+      "archetype": "StarRising",
+      "ts": "2026-09-22T20:30:27"
     }
   ],
   "repos": {
@@ -2145,7 +2166,8 @@
       "influxdata/influxdb",
       "D4Vinci/Scrapling",
       "wagtail/wagtail",
-      "apache/airflow"
+      "apache/airflow",
+      "kangarooking/cangjie-skill"
     ]
   },
   "modes": {
@@ -2154,6 +2176,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

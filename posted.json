@@ -124,7 +124,8 @@
       "Apache Airflow, the self-hosted workflow orchestrator that replaces Zapier",
       "Self-hosted Git platform that replaces GitHub",
       "Fastlane: the self-hosted automation that replaces manual iOS/Android app releases",
-      "The self-hosted Git, CI/CD, and package registry that replaces paid GitHub plans"
+      "The self-hosted Git, CI/CD, and package registry that replaces paid GitHub plans",
+      "SuiteCRM \u2013 Self-Hosted CRM that replaces paid Salesforce-like subscriptions"
     ]
   },
   "uploads": [
@@ -2154,6 +2155,26 @@
       "tiktok_caption": "Self\u2011Hosted Git, CI/CD & Package Registry\u2014Bye\u2011Bye GitHub Plans!\n\nDiscover how this open-source project gives you full control over Git, CI/CD, and package registry without the price tag. Hit follow for more deep dives into powerful free tools!\n\ngo-gitea/gitea: https://github.com/go-gitea/gitea\n\n#opensource #selfhosted #devops #git #devtools",
       "archetype": "mpt",
       "ts": "2026-09-23T14:26:24"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "SuiteCRM \u2013 Self-Hosted CRM that replaces paid Salesforce-like subscriptions",
+      "title": "SuiteCRM: The Free, Self\u2011Hosted CRM That Beats Salesforce!",
+      "question": "What is SuiteCRM/SuiteCRM and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "SuiteCRM/SuiteCRM",
+      "repo_url": "https://github.com/SuiteCRM/SuiteCRM",
+      "repo_stars": 5764,
+      "repo_replaces": "Salesforce / paid CRM subscriptions",
+      "youtube": "418Z0Cg2m8Q",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ab43602aee4d8965340fde4",
+      "tiktok_caption": "SuiteCRM: The Free, Self\u2011Hosted CRM That Beats Salesforce!\n\nDiscover how SuiteCRM lets you run a full\u2011featured CRM without costly subscriptions\u2014perfect for growing businesses. Try it today and see why so many choose this open\u2011source solution! Follow for more tips on maximizing your tools.\n\nSuiteCRM/SuiteCRM: https://github.com/SuiteCRM/SuiteCRM\n\n#crm #opensource #salesforcealternative #smallbusiness #techtools",
+      "archetype": "StarRising",
+      "ts": "2026-09-23T20:26:38"
     }
   ],
   "repos": {
@@ -2211,7 +2232,8 @@
       "apache/airflow",
       "kangarooking/cangjie-skill",
       "fastlane/fastlane",
-      "go-gitea/gitea"
+      "go-gitea/gitea",
+      "SuiteCRM/SuiteCRM"
     ]
   },
   "modes": {
@@ -2220,6 +2242,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

@@ -122,7 +122,8 @@
       "The open-source web scraping framework that replaces paid scraping services",
       "Wagtail: The self-hosted CMS that replaces paid headless platforms",
       "Apache Airflow, the self-hosted workflow orchestrator that replaces Zapier",
-      "Self-hosted Git platform that replaces GitHub"
+      "Self-hosted Git platform that replaces GitHub",
+      "Fastlane: the self-hosted automation that replaces manual iOS/Android app releases"
     ]
   },
   "uploads": [
@@ -2112,6 +2113,26 @@
       "tiktok_caption": "Self\u2011Hosted Git Platform That Beats GitHub \u2013 Try It Now!\n\nDiscover how this open\u2011source project can replace GitHub on your own servers, giving you full control and no vendor lock\u2011in. Follow our channel for more deep dives into tech tools that empower you on your own terms.\n\nkangarooking/cangjie-skill: https://github.com/kangarooking/cangjie-skill\n\n#opensource #selfhosted #devtools #nocodefounder #git",
       "archetype": "StarRising",
       "ts": "2026-09-22T20:30:27"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Fastlane: the self-hosted automation that replaces manual iOS/Android app releases",
+      "title": "Fastlane: Automate iOS & Android Releases in Seconds!",
+      "question": "What is fastlane/fastlane and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "fastlane/fastlane",
+      "repo_url": "https://github.com/fastlane/fastlane",
+      "repo_stars": 42145,
+      "repo_replaces": "manual app deployment",
+      "youtube": "4824KJoasaE",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ab3680a2aa0e20bb474879e",
+      "tiktok_caption": "Fastlane: Automate iOS & Android Releases in Seconds!\n\nDiscover how Fastlane, the open\u2011source tool, streamlines app deployments and saves hours of manual work. Hit follow for more automation hacks and stay ahead of the release curve!\n\nfastlane/fastlane: https://github.com/fastlane/fastlane\n\n#fastlane #devops #mobiledev #automation #nocodefounder",
+      "archetype": "StarRising",
+      "ts": "2026-09-23T05:47:50"
     }
   ],
   "repos": {
@@ -2167,7 +2188,8 @@
       "D4Vinci/Scrapling",
       "wagtail/wagtail",
       "apache/airflow",
-      "kangarooking/cangjie-skill"
+      "kangarooking/cangjie-skill",
+      "fastlane/fastlane"
     ]
   },
   "modes": {
@@ -2176,6 +2198,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

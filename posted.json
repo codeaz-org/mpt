@@ -123,7 +123,8 @@
       "Wagtail: The self-hosted CMS that replaces paid headless platforms",
       "Apache Airflow, the self-hosted workflow orchestrator that replaces Zapier",
       "Self-hosted Git platform that replaces GitHub",
-      "Fastlane: the self-hosted automation that replaces manual iOS/Android app releases"
+      "Fastlane: the self-hosted automation that replaces manual iOS/Android app releases",
+      "The self-hosted Git, CI/CD, and package registry that replaces paid GitHub plans"
     ]
   },
   "uploads": [
@@ -2133,6 +2134,26 @@
       "tiktok_caption": "Fastlane: Automate iOS & Android Releases in Seconds!\n\nDiscover how Fastlane, the open\u2011source tool, streamlines app deployments and saves hours of manual work. Hit follow for more automation hacks and stay ahead of the release curve!\n\nfastlane/fastlane: https://github.com/fastlane/fastlane\n\n#fastlane #devops #mobiledev #automation #nocodefounder",
       "archetype": "StarRising",
       "ts": "2026-09-23T05:47:50"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "The self-hosted Git, CI/CD, and package registry that replaces paid GitHub plans",
+      "title": "Self\u2011Hosted Git, CI/CD & Package Registry\u2014Bye\u2011Bye GitHub Plans!",
+      "question": "What is go-gitea/gitea and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "go-gitea/gitea",
+      "repo_url": "https://github.com/go-gitea/gitea",
+      "repo_stars": 58129,
+      "repo_replaces": "GitHub",
+      "youtube": "fy_YrPcyT2o",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ab3e194b1ee846b61ce2c2c",
+      "tiktok_caption": "Self\u2011Hosted Git, CI/CD & Package Registry\u2014Bye\u2011Bye GitHub Plans!\n\nDiscover how this open-source project gives you full control over Git, CI/CD, and package registry without the price tag. Hit follow for more deep dives into powerful free tools!\n\ngo-gitea/gitea: https://github.com/go-gitea/gitea\n\n#opensource #selfhosted #devops #git #devtools",
+      "archetype": "mpt",
+      "ts": "2026-09-23T14:26:24"
     }
   ],
   "repos": {
@@ -2189,7 +2210,8 @@
       "wagtail/wagtail",
       "apache/airflow",
       "kangarooking/cangjie-skill",
-      "fastlane/fastlane"
+      "fastlane/fastlane",
+      "go-gitea/gitea"
     ]
   },
   "modes": {
@@ -2198,6 +2220,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

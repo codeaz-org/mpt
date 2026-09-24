@@ -125,7 +125,8 @@
       "Self-hosted Git platform that replaces GitHub",
       "Fastlane: the self-hosted automation that replaces manual iOS/Android app releases",
       "The self-hosted Git, CI/CD, and package registry that replaces paid GitHub plans",
-      "SuiteCRM \u2013 Self-Hosted CRM that replaces paid Salesforce-like subscriptions"
+      "SuiteCRM \u2013 Self-Hosted CRM that replaces paid Salesforce-like subscriptions",
+      "The self-hosted time-series database that replaces cloud managed analytics"
     ]
   },
   "uploads": [
@@ -2175,6 +2176,26 @@
       "tiktok_caption": "SuiteCRM: The Free, Self\u2011Hosted CRM That Beats Salesforce!\n\nDiscover how SuiteCRM lets you run a full\u2011featured CRM without costly subscriptions\u2014perfect for growing businesses. Try it today and see why so many choose this open\u2011source solution! Follow for more tips on maximizing your tools.\n\nSuiteCRM/SuiteCRM: https://github.com/SuiteCRM/SuiteCRM\n\n#crm #opensource #salesforcealternative #smallbusiness #techtools",
       "archetype": "StarRising",
       "ts": "2026-09-23T20:26:38"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "The self-hosted time-series database that replaces cloud managed analytics",
+      "title": "Self\u2011Hosted Time\u2011Series DB: TimeScaleDB Wins Over Cloud Analytics",
+      "question": "What is timescale/timescaledb and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "timescale/timescaledb",
+      "repo_url": "https://github.com/timescale/timescaledb",
+      "repo_stars": 23580,
+      "repo_replaces": "cloud time-series database services",
+      "youtube": "5wLKBH0Y-tQ",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ab4bfca514df3bc1ecfac8d",
+      "tiktok_caption": "Self\u2011Hosted Time\u2011Series DB: TimeScaleDB Wins Over Cloud Analytics\n\nDiscover why TimeScaleDB, the open\u2011source time\u2011series database, is the best choice for self\u2011hosting and beating cloud\u2011managed analytics. Hit follow for more deep dives into powerful open\u2011source tech!\n\ntimescale/timescaledb: https://github.com/timescale/timescaledb\n\n#timeseries #opensource #selfhosted #databasetech #cloudalternatives",
+      "archetype": "StarRising",
+      "ts": "2026-09-24T06:14:31"
     }
   ],
   "repos": {
@@ -2233,7 +2254,8 @@
       "kangarooking/cangjie-skill",
       "fastlane/fastlane",
       "go-gitea/gitea",
-      "SuiteCRM/SuiteCRM"
+      "SuiteCRM/SuiteCRM",
+      "timescale/timescaledb"
     ]
   },
   "modes": {
@@ -2242,6 +2264,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

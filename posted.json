@@ -126,7 +126,8 @@
       "Fastlane: the self-hosted automation that replaces manual iOS/Android app releases",
       "The self-hosted Git, CI/CD, and package registry that replaces paid GitHub plans",
       "SuiteCRM \u2013 Self-Hosted CRM that replaces paid Salesforce-like subscriptions",
-      "The self-hosted time-series database that replaces cloud managed analytics"
+      "The self-hosted time-series database that replaces cloud managed analytics",
+      "Aimeos: Self-hosted e-commerce platform that replaces Shopify"
     ]
   },
   "uploads": [
@@ -2196,6 +2197,26 @@
       "tiktok_caption": "Self\u2011Hosted Time\u2011Series DB: TimeScaleDB Wins Over Cloud Analytics\n\nDiscover why TimeScaleDB, the open\u2011source time\u2011series database, is the best choice for self\u2011hosting and beating cloud\u2011managed analytics. Hit follow for more deep dives into powerful open\u2011source tech!\n\ntimescale/timescaledb: https://github.com/timescale/timescaledb\n\n#timeseries #opensource #selfhosted #databasetech #cloudalternatives",
       "archetype": "StarRising",
       "ts": "2026-09-24T06:14:31"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Aimeos: Self-hosted e-commerce platform that replaces Shopify",
+      "title": "Aimeos vs Shopify: Why Self\u2011Hosted E\u2011Commerce Wins",
+      "question": "What is aimeos/aimeos and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "aimeos/aimeos",
+      "repo_url": "https://github.com/aimeos/aimeos",
+      "repo_stars": 5458,
+      "repo_replaces": "Shopify",
+      "youtube": "Eic9ZN325js",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ab531913e8c1aa3fccd46e3",
+      "tiktok_caption": "Aimeos vs Shopify: Why Self\u2011Hosted E\u2011Commerce Wins\n\nDiscover how Aimeos transforms your online shop into a fully controllable, open\u2011source powerhouse that beats Shopify\u2019s limitations. Watch the full guide and follow for more e\u2011commerce secrets!\n\naimeos/aimeos: https://github.com/aimeos/aimeos\n\n#aimeos #ecommerce #opensource #selfhosted #shopify",
+      "archetype": "StarRising",
+      "ts": "2026-09-24T14:19:57"
     }
   ],
   "repos": {
@@ -2255,7 +2276,8 @@
       "fastlane/fastlane",
       "go-gitea/gitea",
       "SuiteCRM/SuiteCRM",
-      "timescale/timescaledb"
+      "timescale/timescaledb",
+      "aimeos/aimeos"
     ]
   },
   "modes": {
@@ -2264,6 +2286,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

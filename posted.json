@@ -127,7 +127,8 @@
       "The self-hosted Git, CI/CD, and package registry that replaces paid GitHub plans",
       "SuiteCRM \u2013 Self-Hosted CRM that replaces paid Salesforce-like subscriptions",
       "The self-hosted time-series database that replaces cloud managed analytics",
-      "Aimeos: Self-hosted e-commerce platform that replaces Shopify"
+      "Aimeos: Self-hosted e-commerce platform that replaces Shopify",
+      "Tududi: Self-hosted GTD app that replaces paid task managers"
     ]
   },
   "uploads": [
@@ -2217,6 +2218,26 @@
       "tiktok_caption": "Aimeos vs Shopify: Why Self\u2011Hosted E\u2011Commerce Wins\n\nDiscover how Aimeos transforms your online shop into a fully controllable, open\u2011source powerhouse that beats Shopify\u2019s limitations. Watch the full guide and follow for more e\u2011commerce secrets!\n\naimeos/aimeos: https://github.com/aimeos/aimeos\n\n#aimeos #ecommerce #opensource #selfhosted #shopify",
       "archetype": "StarRising",
       "ts": "2026-09-24T14:19:57"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Tududi: Self-hosted GTD app that replaces paid task managers",
+      "title": "Tududi: Free Self\u2011Hosted GTD App That Beats Paid Task Managers",
+      "question": "What is chrisvel/tududi and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "chrisvel/tududi",
+      "repo_url": "https://github.com/chrisvel/tududi",
+      "repo_stars": 3384,
+      "repo_replaces": "paid task manager",
+      "youtube": "ZF8_T5Z54iw",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ab58bfb7794ad3835658d86",
+      "tiktok_caption": "Tududi: Free Self\u2011Hosted GTD App That Beats Paid Task Managers\n\nDiscover how this open\u2011source project, Tududi, lets you manage tasks without paying a subscription. Try it today and reclaim your productivity\u2014follow us for more open\u2011source wins!\n\nchrisvel/tududi: https://github.com/chrisvel/tududi\n\n#gtd #selfhosted #opensource #productivity #nosubscription",
+      "archetype": "StarRising",
+      "ts": "2026-09-24T20:45:43"
     }
   ],
   "repos": {
@@ -2277,7 +2298,8 @@
       "go-gitea/gitea",
       "SuiteCRM/SuiteCRM",
       "timescale/timescaledb",
-      "aimeos/aimeos"
+      "aimeos/aimeos",
+      "chrisvel/tududi"
     ]
   },
   "modes": {
@@ -2286,6 +2308,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

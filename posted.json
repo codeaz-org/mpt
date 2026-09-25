@@ -130,7 +130,8 @@
       "Aimeos: Self-hosted e-commerce platform that replaces Shopify",
       "Tududi: Self-hosted GTD app that replaces paid task managers",
       "Monica \u2013 the self-hosted personal CRM that replaces paid subscription CRMs",
-      "AI Marketing Tools Small Teams Can Actually Use (No Overkill)"
+      "AI Marketing Tools Small Teams Can Actually Use (No Overkill)",
+      "freeplane \u2013 the free, self\u2011hosted mind\u2011mapping app that replaces paid tools like XMind"
     ]
   },
   "uploads": [
@@ -2280,6 +2281,26 @@
       "tiktok_caption": "AI Marketing Tools for Small Teams\u2014No Overkill, Just Wins\n\nDiscover the top AI tools that fit small teams without drowning in features. Ready to boost your marketing? Follow us for more game\u2011changing tips!\n\n#smallbusiness #marketing #aitools #nocodefounder #growthhacking",
       "archetype": "QuestionAnswer",
       "ts": "2026-09-25T14:50:46"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "freeplane \u2013 the free, self\u2011hosted mind\u2011mapping app that replaces paid tools like XMind",
+      "title": "Freeplane: The Free Mind\u2011Mapping App That Beats XMind",
+      "question": "What is freeplane/freeplane and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "freeplane/freeplane",
+      "repo_url": "https://github.com/freeplane/freeplane",
+      "repo_stars": 4381,
+      "repo_replaces": "Paid mind\u2011mapping tools",
+      "youtube": "Q41p904mw7k",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ab6dcd4b097c5b401a1f9e2",
+      "tiktok_caption": "Freeplane: The Free Mind\u2011Mapping App That Beats XMind\n\nDiscover how Freeplane, the open\u2011source mind\u2011mapping tool, can replace pricey competitors like XMind. It\u2019s free, self\u2011hosted, and packed with powerful features\u2014give it a try today!\n\nfreeplane/freeplane: https://github.com/freeplane/freeplane\n\n#mindmapping #opensource #nocode #productivity #freeware",
+      "archetype": "StarRising",
+      "ts": "2026-09-25T20:42:56"
     }
   ],
   "repos": {
@@ -2342,7 +2363,8 @@
       "timescale/timescaledb",
       "aimeos/aimeos",
       "chrisvel/tududi",
-      "monicahq/monica"
+      "monicahq/monica",
+      "freeplane/freeplane"
     ]
   },
   "modes": {
@@ -2407,7 +2429,8 @@
       "star_rising",
       "star_rising",
       "star_rising",
-      "question"
+      "question",
+      "star_rising"
     ]
   }
 }

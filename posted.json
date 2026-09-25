@@ -129,7 +129,8 @@
       "The self-hosted time-series database that replaces cloud managed analytics",
       "Aimeos: Self-hosted e-commerce platform that replaces Shopify",
       "Tududi: Self-hosted GTD app that replaces paid task managers",
-      "Monica \u2013 the self-hosted personal CRM that replaces paid subscription CRMs"
+      "Monica \u2013 the self-hosted personal CRM that replaces paid subscription CRMs",
+      "AI Marketing Tools Small Teams Can Actually Use (No Overkill)"
     ]
   },
   "uploads": [
@@ -2259,6 +2260,26 @@
       "tiktok_caption": "Monica: Free Personal CRM That Outshines Paid Subscriptions\n\nDiscover how this open-source project helps you manage relationships without breaking the bank. Smash that follow button for more free\u2011tool hacks!\n\nmonicahq/monica: https://github.com/monicahq/monica\n\n#nocodefounder #opensource #selfhosted #crm #productivity",
       "archetype": "StarRising",
       "ts": "2026-09-25T05:59:14"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "AI Marketing Tools Small Teams Can Actually Use (No Overkill)",
+      "title": "AI Marketing Tools for Small Teams\u2014No Overkill, Just Wins",
+      "question": "What AI marketing tools are actually useful for small teams?",
+      "question_id": "reddit:1wnc6ih",
+      "question_url": "https://reddit.com/r/digital_marketing/comments/1wnc6ih/what_ai_marketing_tools_are_actually_useful_for/",
+      "mode": "question",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "T8uj8Ks_VcE",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ab68a4a9e565efcf69ab212",
+      "tiktok_caption": "AI Marketing Tools for Small Teams\u2014No Overkill, Just Wins\n\nDiscover the top AI tools that fit small teams without drowning in features. Ready to boost your marketing? Follow us for more game\u2011changing tips!\n\n#smallbusiness #marketing #aitools #nocodefounder #growthhacking",
+      "archetype": "QuestionAnswer",
+      "ts": "2026-09-25T14:50:46"
     }
   ],
   "repos": {
@@ -2385,7 +2406,8 @@
       "star_rising",
       "star_rising",
       "star_rising",
-      "star_rising"
+      "star_rising",
+      "question"
     ]
   }
 }

@@ -128,7 +128,8 @@
       "SuiteCRM \u2013 Self-Hosted CRM that replaces paid Salesforce-like subscriptions",
       "The self-hosted time-series database that replaces cloud managed analytics",
       "Aimeos: Self-hosted e-commerce platform that replaces Shopify",
-      "Tududi: Self-hosted GTD app that replaces paid task managers"
+      "Tududi: Self-hosted GTD app that replaces paid task managers",
+      "Monica \u2013 the self-hosted personal CRM that replaces paid subscription CRMs"
     ]
   },
   "uploads": [
@@ -2238,6 +2239,26 @@
       "tiktok_caption": "Tududi: Free Self\u2011Hosted GTD App That Beats Paid Task Managers\n\nDiscover how this open\u2011source project, Tududi, lets you manage tasks without paying a subscription. Try it today and reclaim your productivity\u2014follow us for more open\u2011source wins!\n\nchrisvel/tududi: https://github.com/chrisvel/tududi\n\n#gtd #selfhosted #opensource #productivity #nosubscription",
       "archetype": "StarRising",
       "ts": "2026-09-24T20:45:43"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Monica \u2013 the self-hosted personal CRM that replaces paid subscription CRMs",
+      "title": "Monica: Free Personal CRM That Outshines Paid Subscriptions",
+      "question": "What is monicahq/monica and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "monicahq/monica",
+      "repo_url": "https://github.com/monicahq/monica",
+      "repo_stars": 25359,
+      "repo_replaces": "Paid CRM services",
+      "youtube": "QNCA5oH4hII",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ab60db7607bee5b0328b875",
+      "tiktok_caption": "Monica: Free Personal CRM That Outshines Paid Subscriptions\n\nDiscover how this open-source project helps you manage relationships without breaking the bank. Smash that follow button for more free\u2011tool hacks!\n\nmonicahq/monica: https://github.com/monicahq/monica\n\n#nocodefounder #opensource #selfhosted #crm #productivity",
+      "archetype": "StarRising",
+      "ts": "2026-09-25T05:59:14"
     }
   ],
   "repos": {
@@ -2299,7 +2320,8 @@
       "SuiteCRM/SuiteCRM",
       "timescale/timescaledb",
       "aimeos/aimeos",
-      "chrisvel/tududi"
+      "chrisvel/tududi",
+      "monicahq/monica"
     ]
   },
   "modes": {
@@ -2308,6 +2330,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

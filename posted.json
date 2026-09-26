@@ -133,7 +133,8 @@
       "AI Marketing Tools Small Teams Can Actually Use (No Overkill)",
       "freeplane \u2013 the free, self\u2011hosted mind\u2011mapping app that replaces paid tools like XMind",
       "Self-hosted Git-based CMS that replaces WordPress",
-      "Self-hosted inventory tracker after Shopify Stocky gone"
+      "Self-hosted inventory tracker after Shopify Stocky gone",
+      "Self-hosted file sync that replaces Dropbox"
     ]
   },
   "uploads": [
@@ -2343,6 +2344,26 @@
       "tiktok_caption": "Stop Losing Stock! Build Your Own Inventory Tracker \ud83d\ude80\n\nAfter Shopify Stocky was discontinued, many store owners needed a quick fix. Learn how to self-host an inventory tracker that keeps your stock in check. Hit follow for more quick tech hacks!\n\n#ecommerce #inventory #shopify #selfhosted #nocode",
       "archetype": "BuyOrBuild",
       "ts": "2026-09-26T13:56:28"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Self-hosted file sync that replaces Dropbox",
+      "title": "Drop the Cloud: Self\u2011Hosted File Sync That Beats Dropbox",
+      "question": "What is hbons/SparkleShare and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "hbons/SparkleShare",
+      "repo_url": "https://github.com/hbons/SparkleShare",
+      "repo_stars": 4982,
+      "repo_replaces": "Dropbox",
+      "youtube": "c_JK-zt_LAE",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ab8272005811e57373762f7",
+      "tiktok_caption": "Drop the Cloud: Self\u2011Hosted File Sync That Beats Dropbox\n\nDiscover how this open\u2011source project lets you keep control of your files without the cloud hassle. Try it today and feel the freedom\u2014follow for more tech hacks!\n\nhbons/SparkleShare: https://github.com/hbons/SparkleShare\n\n#opensource #selfhosted #filesync #dropboxalternative #nocodefounder",
+      "archetype": "StarRising",
+      "ts": "2026-09-26T20:12:13"
     }
   ],
   "repos": {
@@ -2407,7 +2428,9 @@
       "chrisvel/tududi",
       "monicahq/monica",
       "freeplane/freeplane",
-      "decaporg/decap-cms"
+      "decaporg/decap-cms",
+      "filamentphp/filament",
+      "hbons/SparkleShare"
     ]
   },
   "modes": {
@@ -2475,7 +2498,8 @@
       "question",
       "star_rising",
       "star_rising",
-      "question"
+      "question",
+      "star_rising"
     ]
   }
 }

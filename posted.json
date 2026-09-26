@@ -131,7 +131,8 @@
       "Tududi: Self-hosted GTD app that replaces paid task managers",
       "Monica \u2013 the self-hosted personal CRM that replaces paid subscription CRMs",
       "AI Marketing Tools Small Teams Can Actually Use (No Overkill)",
-      "freeplane \u2013 the free, self\u2011hosted mind\u2011mapping app that replaces paid tools like XMind"
+      "freeplane \u2013 the free, self\u2011hosted mind\u2011mapping app that replaces paid tools like XMind",
+      "Self-hosted Git-based CMS that replaces WordPress"
     ]
   },
   "uploads": [
@@ -2301,6 +2302,26 @@
       "tiktok_caption": "Freeplane: The Free Mind\u2011Mapping App That Beats XMind\n\nDiscover how Freeplane, the open\u2011source mind\u2011mapping tool, can replace pricey competitors like XMind. It\u2019s free, self\u2011hosted, and packed with powerful features\u2014give it a try today!\n\nfreeplane/freeplane: https://github.com/freeplane/freeplane\n\n#mindmapping #opensource #nocode #productivity #freeware",
       "archetype": "StarRising",
       "ts": "2026-09-25T20:42:56"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Self-hosted Git-based CMS that replaces WordPress",
+      "title": "Replace WordPress with a Self\u2011Hosted Git CMS in Minutes",
+      "question": "What is decaporg/decap-cms and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "decaporg/decap-cms",
+      "repo_url": "https://github.com/decaporg/decap-cms",
+      "repo_stars": 19404,
+      "repo_replaces": "WordPress",
+      "youtube": "JVXYDi5wKOI",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ab76038b097c5b401af6b8f",
+      "tiktok_caption": "Replace WordPress with a Self\u2011Hosted Git CMS in Minutes\n\nDiscover how the open\u2011source project decap-cms lets you control your content with Git, giving speed, security, and flexibility. Watch now, then hit follow for more tech hacks!\n\ndecaporg/decap-cms: https://github.com/decaporg/decap-cms\n\n#nocodefounder #devops #cms #opensource #git",
+      "archetype": "StarRising",
+      "ts": "2026-09-26T06:03:31"
     }
   ],
   "repos": {
@@ -2364,7 +2385,8 @@
       "aimeos/aimeos",
       "chrisvel/tududi",
       "monicahq/monica",
-      "freeplane/freeplane"
+      "freeplane/freeplane",
+      "decaporg/decap-cms"
     ]
   },
   "modes": {
@@ -2430,6 +2452,7 @@
       "star_rising",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising"
     ]
   }

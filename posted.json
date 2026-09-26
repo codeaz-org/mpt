@@ -132,7 +132,8 @@
       "Monica \u2013 the self-hosted personal CRM that replaces paid subscription CRMs",
       "AI Marketing Tools Small Teams Can Actually Use (No Overkill)",
       "freeplane \u2013 the free, self\u2011hosted mind\u2011mapping app that replaces paid tools like XMind",
-      "Self-hosted Git-based CMS that replaces WordPress"
+      "Self-hosted Git-based CMS that replaces WordPress",
+      "Self-hosted inventory tracker after Shopify Stocky gone"
     ]
   },
   "uploads": [
@@ -2322,6 +2323,26 @@
       "tiktok_caption": "Replace WordPress with a Self\u2011Hosted Git CMS in Minutes\n\nDiscover how the open\u2011source project decap-cms lets you control your content with Git, giving speed, security, and flexibility. Watch now, then hit follow for more tech hacks!\n\ndecaporg/decap-cms: https://github.com/decaporg/decap-cms\n\n#nocodefounder #devops #cms #opensource #git",
       "archetype": "StarRising",
       "ts": "2026-09-26T06:03:31"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Self-hosted inventory tracker after Shopify Stocky gone",
+      "title": "Stop Losing Stock! Build Your Own Inventory Tracker \ud83d\ude80",
+      "question": "I don't know how to track inventory adjustments now that Stocky was discontinued. What apps are you using?",
+      "question_id": "reddit:1wof4o9",
+      "question_url": "https://reddit.com/r/shopify/comments/1wof4o9/i_dont_know_how_to_track_inventory_adjustments/",
+      "mode": "question",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "-A2QVMY6Q9A",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ab7cf0f0f79a37c5d2ff56f",
+      "tiktok_caption": "Stop Losing Stock! Build Your Own Inventory Tracker \ud83d\ude80\n\nAfter Shopify Stocky was discontinued, many store owners needed a quick fix. Learn how to self-host an inventory tracker that keeps your stock in check. Hit follow for more quick tech hacks!\n\n#ecommerce #inventory #shopify #selfhosted #nocode",
+      "archetype": "BuyOrBuild",
+      "ts": "2026-09-26T13:56:28"
     }
   ],
   "repos": {
@@ -2453,7 +2474,8 @@
       "star_rising",
       "question",
       "star_rising",
-      "star_rising"
+      "star_rising",
+      "question"
     ]
   }
 }

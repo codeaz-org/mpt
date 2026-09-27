@@ -136,7 +136,8 @@
       "Self-hosted inventory tracker after Shopify Stocky gone",
       "Self-hosted file sync that replaces Dropbox",
       "Migrate from GoDaddy to Microsoft 365: Step\u2011by\u2011Step Guide",
-      "The local AI model training UI that replaces your paid LLM hosting"
+      "The local AI model training UI that replaces your paid LLM hosting",
+      "Appwrite: the self-hosted backend that replaces Firebase"
     ]
   },
   "uploads": [
@@ -2406,6 +2407,26 @@
       "tiktok_caption": "Stop Paying for LLM Hosting\u2014Train Your Own AI in Minutes!\n\nDiscover how unslothai/unsloth lets you train a local AI model right from your browser, cutting costs and boosting privacy. Hit follow for more open\u2011source AI hacks!\n\nunslothai/unsloth: https://github.com/unslothai/unsloth\n\n#unsloth #openai #localllm #nocodeai #aihacks",
       "archetype": "StarRising",
       "ts": "2026-09-27T14:43:10"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Appwrite: the self-hosted backend that replaces Firebase",
+      "title": "Appwrite vs Firebase: Why Self\u2011Hosting Wins \ud83d\ude80",
+      "question": "What is appwrite/appwrite and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "appwrite/appwrite",
+      "repo_url": "https://github.com/appwrite/appwrite",
+      "repo_stars": 57492,
+      "repo_replaces": "Firebase",
+      "youtube": "8FlhQ79EsQw",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ab97b3243493a0ede9d40eb",
+      "tiktok_caption": "Appwrite vs Firebase: Why Self\u2011Hosting Wins \ud83d\ude80\n\nDiscover how Appwrite, the open\u2011source backend, outshines Firebase with full control, zero vendor lock\u2011in, and powerful features. Dive in and see why devs are switching today! Follow for more tech insights.\n\nappwrite/appwrite: https://github.com/appwrite/appwrite\n\n#nocodefounder #backend #opensource #devtools #cloudfree",
+      "archetype": "StarRising",
+      "ts": "2026-09-27T20:23:11"
     }
   ],
   "repos": {
@@ -2473,7 +2494,8 @@
       "decaporg/decap-cms",
       "filamentphp/filament",
       "hbons/SparkleShare",
-      "unslothai/unsloth"
+      "unslothai/unsloth",
+      "appwrite/appwrite"
     ]
   },
   "modes": {
@@ -2544,6 +2566,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising"
     ]
   }

@@ -135,7 +135,8 @@
       "Self-hosted Git-based CMS that replaces WordPress",
       "Self-hosted inventory tracker after Shopify Stocky gone",
       "Self-hosted file sync that replaces Dropbox",
-      "Migrate from GoDaddy to Microsoft 365: Step\u2011by\u2011Step Guide"
+      "Migrate from GoDaddy to Microsoft 365: Step\u2011by\u2011Step Guide",
+      "The local AI model training UI that replaces your paid LLM hosting"
     ]
   },
   "uploads": [
@@ -2385,6 +2386,26 @@
       "tiktok_caption": "Switch from GoDaddy to Microsoft 365 in 5 Easy Steps! \ud83d\ude80\n\nFollow our quick guide to move your domain, email, and data to Microsoft 365 without downtime. Hit follow for more tech shortcuts!\n\n#microsoft365 #godaddy #emailmigration #nocodefounder #techtips",
       "archetype": "WorkflowDemo",
       "ts": "2026-09-27T06:37:33"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "The local AI model training UI that replaces your paid LLM hosting",
+      "title": "Stop Paying for LLM Hosting\u2014Train Your Own AI in Minutes!",
+      "question": "What is unslothai/unsloth and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "unslothai/unsloth",
+      "repo_url": "https://github.com/unslothai/unsloth",
+      "repo_stars": 76860,
+      "repo_replaces": "Paid LLM hosting",
+      "youtube": "3C_AcTj7WZI",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ab92b8243493a0ede92649f",
+      "tiktok_caption": "Stop Paying for LLM Hosting\u2014Train Your Own AI in Minutes!\n\nDiscover how unslothai/unsloth lets you train a local AI model right from your browser, cutting costs and boosting privacy. Hit follow for more open\u2011source AI hacks!\n\nunslothai/unsloth: https://github.com/unslothai/unsloth\n\n#unsloth #openai #localllm #nocodeai #aihacks",
+      "archetype": "StarRising",
+      "ts": "2026-09-27T14:43:10"
     }
   ],
   "repos": {
@@ -2451,7 +2472,8 @@
       "freeplane/freeplane",
       "decaporg/decap-cms",
       "filamentphp/filament",
-      "hbons/SparkleShare"
+      "hbons/SparkleShare",
+      "unslothai/unsloth"
     ]
   },
   "modes": {
@@ -2521,7 +2543,8 @@
       "star_rising",
       "question",
       "star_rising",
-      "question"
+      "question",
+      "star_rising"
     ]
   }
 }

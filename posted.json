@@ -138,7 +138,8 @@
       "Migrate from GoDaddy to Microsoft 365: Step\u2011by\u2011Step Guide",
       "The local AI model training UI that replaces your paid LLM hosting",
       "Appwrite: the self-hosted backend that replaces Firebase",
-      "Aimeos PHP e\u2011commerce framework that replaces Shopify"
+      "Aimeos PHP e\u2011commerce framework that replaces Shopify",
+      "Archify: Self-hosted architecture diagram tool that replaces Lucidchart"
     ]
   },
   "uploads": [
@@ -2448,6 +2449,26 @@
       "tiktok_caption": "Aimeos PHP: The Shopify Alternative You Can Own\n\nDiscover how this open\u2011source e\u2011commerce framework can replace Shopify and give you full control over your online store. Ready to take charge of your business? Follow for more insights!\n\naimeos/aimeos-core: https://github.com/aimeos/aimeos-core\n\n#ecommerce #php #opensource #shopifyalternative #smallbusiness",
       "archetype": "StarRising",
       "ts": "2026-09-28T06:28:03"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Archify: Self-hosted architecture diagram tool that replaces Lucidchart",
+      "title": "Stop Paying for Lucidchart\u2014Try Archify for Free!",
+      "question": "What is tt-a1i/archify and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "tt-a1i/archify",
+      "repo_url": "https://github.com/tt-a1i/archify",
+      "repo_stars": 73392,
+      "repo_replaces": "Lucidchart",
+      "youtube": "xMsrhiylbG8",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6abaa442ab4b279e3d63c86b",
+      "tiktok_caption": "Stop Paying for Lucidchart\u2014Try Archify for Free!\n\nDiscover Archify, the open\u2011source tool that lets you build architecture diagrams on your own server. Ready to ditch the subscription? Follow for more open\u2011source hacks!\n\ntt-a1i/archify: https://github.com/tt-a1i/archify\n\n#nocode #opensource #devops #cloudnative #selfhost",
+      "archetype": "StarRising",
+      "ts": "2026-09-28T17:30:38"
     }
   ],
   "repos": {
@@ -2517,7 +2538,8 @@
       "hbons/SparkleShare",
       "unslothai/unsloth",
       "appwrite/appwrite",
-      "aimeos/aimeos-core"
+      "aimeos/aimeos-core",
+      "tt-a1i/archify"
     ]
   },
   "modes": {
@@ -2588,6 +2610,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising"

@@ -139,7 +139,8 @@
       "The local AI model training UI that replaces your paid LLM hosting",
       "Appwrite: the self-hosted backend that replaces Firebase",
       "Aimeos PHP e\u2011commerce framework that replaces Shopify",
-      "Archify: Self-hosted architecture diagram tool that replaces Lucidchart"
+      "Archify: Self-hosted architecture diagram tool that replaces Lucidchart",
+      "OpenObserve \u2013 the self-hosted observability platform that replaces Datadog"
     ]
   },
   "uploads": [
@@ -2469,6 +2470,26 @@
       "tiktok_caption": "Stop Paying for Lucidchart\u2014Try Archify for Free!\n\nDiscover Archify, the open\u2011source tool that lets you build architecture diagrams on your own server. Ready to ditch the subscription? Follow for more open\u2011source hacks!\n\ntt-a1i/archify: https://github.com/tt-a1i/archify\n\n#nocode #opensource #devops #cloudnative #selfhost",
       "archetype": "StarRising",
       "ts": "2026-09-28T17:30:38"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "OpenObserve \u2013 the self-hosted observability platform that replaces Datadog",
+      "title": "OpenObserve vs Datadog: Why Self\u2011Hosted Observability Wins",
+      "question": "What is openobserve/openobserve and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "openobserve/openobserve",
+      "repo_url": "https://github.com/openobserve/openobserve",
+      "repo_stars": 22174,
+      "repo_replaces": "Datadog",
+      "youtube": "wK-PkjogHGM",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6abaef457889d8281c1f9d6d",
+      "tiktok_caption": "OpenObserve vs Datadog: Why Self\u2011Hosted Observability Wins\n\nDiscover how OpenObserve can replace Datadog with full control over your data and zero vendor lock\u2011in. Try it today and see the difference \u2013 follow for more open\u2011source deep dives!\n\nopenobserve/openobserve: https://github.com/openobserve/openobserve\n\n#openobserve #observability #selfhosted #devops #opensource",
+      "archetype": "mpt",
+      "ts": "2026-09-28T22:50:41"
     }
   ],
   "repos": {
@@ -2539,7 +2560,8 @@
       "unslothai/unsloth",
       "appwrite/appwrite",
       "aimeos/aimeos-core",
-      "tt-a1i/archify"
+      "tt-a1i/archify",
+      "openobserve/openobserve"
     ]
   },
   "modes": {
@@ -2610,6 +2632,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

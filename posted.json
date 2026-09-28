@@ -137,7 +137,8 @@
       "Self-hosted file sync that replaces Dropbox",
       "Migrate from GoDaddy to Microsoft 365: Step\u2011by\u2011Step Guide",
       "The local AI model training UI that replaces your paid LLM hosting",
-      "Appwrite: the self-hosted backend that replaces Firebase"
+      "Appwrite: the self-hosted backend that replaces Firebase",
+      "Aimeos PHP e\u2011commerce framework that replaces Shopify"
     ]
   },
   "uploads": [
@@ -2427,6 +2428,26 @@
       "tiktok_caption": "Appwrite vs Firebase: Why Self\u2011Hosting Wins \ud83d\ude80\n\nDiscover how Appwrite, the open\u2011source backend, outshines Firebase with full control, zero vendor lock\u2011in, and powerful features. Dive in and see why devs are switching today! Follow for more tech insights.\n\nappwrite/appwrite: https://github.com/appwrite/appwrite\n\n#nocodefounder #backend #opensource #devtools #cloudfree",
       "archetype": "StarRising",
       "ts": "2026-09-27T20:23:11"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Aimeos PHP e\u2011commerce framework that replaces Shopify",
+      "title": "Aimeos PHP: The Shopify Alternative You Can Own",
+      "question": "What is aimeos/aimeos-core and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "aimeos/aimeos-core",
+      "repo_url": "https://github.com/aimeos/aimeos-core",
+      "repo_stars": 4528,
+      "repo_replaces": "Shopify",
+      "youtube": "5qWqblnc63Q",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aba08f8a94ef4516f2cbe57",
+      "tiktok_caption": "Aimeos PHP: The Shopify Alternative You Can Own\n\nDiscover how this open\u2011source e\u2011commerce framework can replace Shopify and give you full control over your online store. Ready to take charge of your business? Follow for more insights!\n\naimeos/aimeos-core: https://github.com/aimeos/aimeos-core\n\n#ecommerce #php #opensource #shopifyalternative #smallbusiness",
+      "archetype": "StarRising",
+      "ts": "2026-09-28T06:28:03"
     }
   ],
   "repos": {
@@ -2495,7 +2516,8 @@
       "filamentphp/filament",
       "hbons/SparkleShare",
       "unslothai/unsloth",
-      "appwrite/appwrite"
+      "appwrite/appwrite",
+      "aimeos/aimeos-core"
     ]
   },
   "modes": {
@@ -2566,6 +2588,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising"
     ]

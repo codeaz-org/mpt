@@ -140,7 +140,8 @@
       "Appwrite: the self-hosted backend that replaces Firebase",
       "Aimeos PHP e\u2011commerce framework that replaces Shopify",
       "Archify: Self-hosted architecture diagram tool that replaces Lucidchart",
-      "OpenObserve \u2013 the self-hosted observability platform that replaces Datadog"
+      "OpenObserve \u2013 the self-hosted observability platform that replaces Datadog",
+      "Worklenz: Self-hosted project management tool that replaces Asana"
     ]
   },
   "uploads": [
@@ -2490,6 +2491,26 @@
       "tiktok_caption": "OpenObserve vs Datadog: Why Self\u2011Hosted Observability Wins\n\nDiscover how OpenObserve can replace Datadog with full control over your data and zero vendor lock\u2011in. Try it today and see the difference \u2013 follow for more open\u2011source deep dives!\n\nopenobserve/openobserve: https://github.com/openobserve/openobserve\n\n#openobserve #observability #selfhosted #devops #opensource",
       "archetype": "mpt",
       "ts": "2026-09-28T22:50:41"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Worklenz: Self-hosted project management tool that replaces Asana",
+      "title": "Say Goodbye to Asana with This Self\u2011Hosted Project Tool",
+      "question": "What is Worklenz/worklenz and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "Worklenz/worklenz",
+      "repo_url": "https://github.com/Worklenz/worklenz",
+      "repo_stars": 3191,
+      "repo_replaces": "Asana",
+      "youtube": "UjwkHHTCLN0",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6abb660f93a81b612b610fcb",
+      "tiktok_caption": "Say Goodbye to Asana with This Self\u2011Hosted Project Tool\n\nExplore how a free, self\u2011hosted solution can give you the same power as Asana without the subscription. Ready to simplify your workflow? Hit follow for more open\u2011source deep dives!\n\nWorklenz/worklenz: https://github.com/Worklenz/worklenz\n\n#opensource #projectmanagement #selfhosted #productivity #nocode",
+      "archetype": "StarRising",
+      "ts": "2026-09-29T07:17:31"
     }
   ],
   "repos": {
@@ -2561,7 +2582,8 @@
       "appwrite/appwrite",
       "aimeos/aimeos-core",
       "tt-a1i/archify",
-      "openobserve/openobserve"
+      "openobserve/openobserve",
+      "Worklenz/worklenz"
     ]
   },
   "modes": {
@@ -2632,6 +2654,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

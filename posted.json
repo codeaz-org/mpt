@@ -142,7 +142,8 @@
       "Archify: Self-hosted architecture diagram tool that replaces Lucidchart",
       "OpenObserve \u2013 the self-hosted observability platform that replaces Datadog",
       "Worklenz: Self-hosted project management tool that replaces Asana",
-      "Vue Storefront: self-hosted e\u2011commerce front\u2011end that replaces Shopify"
+      "Vue Storefront: self-hosted e\u2011commerce front\u2011end that replaces Shopify",
+      "Migrate Your Android App to iOS with Flutter in One Day"
     ]
   },
   "uploads": [
@@ -2532,6 +2533,26 @@
       "tiktok_caption": "Vue Storefront: Self\u2011Hosted Store That Beats Shopify\n\nDiscover how this open\u2011source project lets you run a full\u2011fledged e\u2011commerce front\u2011end without Shopify\u2019s limits. Ready to level up your online shop? Hit follow for more tech insights!\n\nvuestorefront/vue-storefront: https://github.com/vuestorefront/vue-storefront\n\n#vuejs #ecommerce #opensource #retailtech #webdev",
       "archetype": "StarRising",
       "ts": "2026-09-29T15:37:16"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Migrate Your Android App to iOS with Flutter in One Day",
+      "title": "Migrate Android App to iOS in 1 Day with Flutter \ud83d\ude80",
+      "question": "how to migrate from android to iphone",
+      "question_id": "gsuggest:how to migrate from android to iphone",
+      "question_url": "https://www.google.com/search?q=how%20to%20migrate%20from%20android%20to%20iphone",
+      "mode": "question",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "6gDYlo5Snuc",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6abc3075f3db08ac9268df76",
+      "tiktok_caption": "Migrate Android App to iOS in 1 Day with Flutter \ud83d\ude80\n\nLearn how to transform your Android app into an iOS masterpiece using Flutter in just one day. Follow for more quick tech hacks!\n\n#flutter #ios #android #migrate #onedaydev",
+      "archetype": "WorkflowDemo",
+      "ts": "2026-09-29T21:41:06"
     }
   ],
   "repos": {
@@ -2682,7 +2703,8 @@
       "star_rising",
       "star_rising",
       "star_rising",
-      "star_rising"
+      "star_rising",
+      "question"
     ]
   }
 }

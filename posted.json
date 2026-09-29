@@ -141,7 +141,8 @@
       "Aimeos PHP e\u2011commerce framework that replaces Shopify",
       "Archify: Self-hosted architecture diagram tool that replaces Lucidchart",
       "OpenObserve \u2013 the self-hosted observability platform that replaces Datadog",
-      "Worklenz: Self-hosted project management tool that replaces Asana"
+      "Worklenz: Self-hosted project management tool that replaces Asana",
+      "Vue Storefront: self-hosted e\u2011commerce front\u2011end that replaces Shopify"
     ]
   },
   "uploads": [
@@ -2511,6 +2512,26 @@
       "tiktok_caption": "Say Goodbye to Asana with This Self\u2011Hosted Project Tool\n\nExplore how a free, self\u2011hosted solution can give you the same power as Asana without the subscription. Ready to simplify your workflow? Hit follow for more open\u2011source deep dives!\n\nWorklenz/worklenz: https://github.com/Worklenz/worklenz\n\n#opensource #projectmanagement #selfhosted #productivity #nocode",
       "archetype": "StarRising",
       "ts": "2026-09-29T07:17:31"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Vue Storefront: self-hosted e\u2011commerce front\u2011end that replaces Shopify",
+      "title": "Vue Storefront: Self\u2011Hosted Store That Beats Shopify",
+      "question": "What is vuestorefront/vue-storefront and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "vuestorefront/vue-storefront",
+      "repo_url": "https://github.com/vuestorefront/vue-storefront",
+      "repo_stars": 10951,
+      "repo_replaces": "Shopify",
+      "youtube": "C5Ivh0lzqNM",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6abbdb30ba21fc0a061dcfd5",
+      "tiktok_caption": "Vue Storefront: Self\u2011Hosted Store That Beats Shopify\n\nDiscover how this open\u2011source project lets you run a full\u2011fledged e\u2011commerce front\u2011end without Shopify\u2019s limits. Ready to level up your online shop? Hit follow for more tech insights!\n\nvuestorefront/vue-storefront: https://github.com/vuestorefront/vue-storefront\n\n#vuejs #ecommerce #opensource #retailtech #webdev",
+      "archetype": "StarRising",
+      "ts": "2026-09-29T15:37:16"
     }
   ],
   "repos": {
@@ -2583,7 +2604,8 @@
       "aimeos/aimeos-core",
       "tt-a1i/archify",
       "openobserve/openobserve",
-      "Worklenz/worklenz"
+      "Worklenz/worklenz",
+      "vuestorefront/vue-storefront"
     ]
   },
   "modes": {
@@ -2654,6 +2676,7 @@
       "question",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

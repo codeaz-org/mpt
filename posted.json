@@ -144,7 +144,8 @@
       "Worklenz: Self-hosted project management tool that replaces Asana",
       "Vue Storefront: self-hosted e\u2011commerce front\u2011end that replaces Shopify",
       "Migrate Your Android App to iOS with Flutter in One Day",
-      "Lunar \u2013 Self-hosted Laravel e-commerce that replaces Shopify"
+      "Lunar \u2013 Self-hosted Laravel e-commerce that replaces Shopify",
+      "Unitech/pm2 \u2013 Self-hosted Node.js Process Manager that replaces paid PM2 Enterprise"
     ]
   },
   "uploads": [
@@ -2574,6 +2575,26 @@
       "tiktok_caption": "Lunar: The Self\u2011Hosted Laravel E\u2011Commerce That Could Replace Shopify\n\nExplore Lunar, an open\u2011source project that lets you run a full\u2011featured e\u2011commerce site on Laravel, offering flexibility beyond Shopify. Follow for more deep dives into tools that empower developers and entrepreneurs alike.\n\nlunarphp/lunar: https://github.com/lunarphp/lunar\n\n#lunarphp #ecommerce #laravel #shopify #opensource",
       "archetype": "StarRising",
       "ts": "2026-09-30T06:36:28"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Unitech/pm2 \u2013 Self-hosted Node.js Process Manager that replaces paid PM2 Enterprise",
+      "title": "Unitech/pm2: Free Node.js Process Manager \u2013 No More Paid PM2 Enterprise!",
+      "question": "What is Unitech/pm2 and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "Unitech/pm2",
+      "repo_url": "https://github.com/Unitech/pm2",
+      "repo_stars": 43298,
+      "repo_replaces": "PM2 Enterprise",
+      "youtube": "qZC4C9qvKT0",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6abd3505a6c68f15c91403e1",
+      "tiktok_caption": "Unitech/pm2: Free Node.js Process Manager \u2013 No More Paid PM2 Enterprise!\n\nDiscover how Unitech/pm2 gives you full process management for Node.js without the cost. Hit follow for more open-source hacks and tips!\n\nUnitech/pm2: https://github.com/Unitech/pm2\n\n#unitech #pm2 #nodejs #opensource #devtools",
+      "archetype": "StarRising",
+      "ts": "2026-09-30T16:12:49"
     }
   ],
   "repos": {
@@ -2648,7 +2669,8 @@
       "openobserve/openobserve",
       "Worklenz/worklenz",
       "vuestorefront/vue-storefront",
-      "lunarphp/lunar"
+      "lunarphp/lunar",
+      "Unitech/pm2"
     ]
   },
   "modes": {
@@ -2727,6 +2749,7 @@
       "star_rising",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising"
     ]
   }

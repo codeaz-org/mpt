@@ -146,7 +146,8 @@
       "Migrate Your Android App to iOS with Flutter in One Day",
       "Lunar \u2013 Self-hosted Laravel e-commerce that replaces Shopify",
       "Unitech/pm2 \u2013 Self-hosted Node.js Process Manager that replaces paid PM2 Enterprise",
-      "The self-hosted static site generator that replaces your WordPress subscription"
+      "The self-hosted static site generator that replaces your WordPress subscription",
+      "Partner with Ad Agencies: Where to Find Reliable Marketing Collaborators for Your Web Design Business"
     ]
   },
   "uploads": [
@@ -2616,6 +2617,26 @@
       "tiktok_caption": "Say Goodbye to WordPress Fees with This DIY Static Site Builder\n\nDiscover a free, open\u2011source alternative that lets you host your site on your own servers, cutting costs and boosting speed. Give it a try and follow for more budget\u2011friendly web hacks!\n\ngetzola/zola: https://github.com/getzola/zola\n\n#nocodefounder #opensource #webdev #selfhosted #staticwebsite",
       "archetype": "StarRising",
       "ts": "2026-10-01T07:19:22"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Partner with Ad Agencies: Where to Find Reliable Marketing Collaborators for Your Web Design Business",
+      "title": "Find the Perfect Ad Agency Partner for Your Web Design Biz!",
+      "question": "Where can I find advertising or marketing agencies that I can collaborate with as a web design agency owner?",
+      "question_id": "reddit:1wo9sm3",
+      "question_url": "https://reddit.com/r/digital_marketing/comments/1wo9sm3/where_can_i_find_advertising_or_marketing/",
+      "mode": "question",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "8LLdCUBvJTg",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6abe8a6ce5d0cf0501b3060b",
+      "tiktok_caption": "Find the Perfect Ad Agency Partner for Your Web Design Biz!\n\nDiscover where to scout reliable marketing collaborators and elevate your web design business. Hit follow for more insider tips on growing your agency!\n\n#webdesign #agencypartner #marketingcollab #growthhacks #nocodefounder",
+      "archetype": "QuestionAnswer",
+      "ts": "2026-10-01T16:29:26"
     }
   ],
   "repos": {
@@ -2773,7 +2794,8 @@
       "question",
       "star_rising",
       "star_rising",
-      "star_rising"
+      "star_rising",
+      "question"
     ]
   }
 }

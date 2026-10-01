@@ -147,7 +147,8 @@
       "Lunar \u2013 Self-hosted Laravel e-commerce that replaces Shopify",
       "Unitech/pm2 \u2013 Self-hosted Node.js Process Manager that replaces paid PM2 Enterprise",
       "The self-hosted static site generator that replaces your WordPress subscription",
-      "Partner with Ad Agencies: Where to Find Reliable Marketing Collaborators for Your Web Design Business"
+      "Partner with Ad Agencies: Where to Find Reliable Marketing Collaborators for Your Web Design Business",
+      "Aimeos Laravel \u2013 self-hosted e-commerce platform that replaces Shopify"
     ]
   },
   "uploads": [
@@ -2637,6 +2638,26 @@
       "tiktok_caption": "Find the Perfect Ad Agency Partner for Your Web Design Biz!\n\nDiscover where to scout reliable marketing collaborators and elevate your web design business. Hit follow for more insider tips on growing your agency!\n\n#webdesign #agencypartner #marketingcollab #growthhacks #nocodefounder",
       "archetype": "QuestionAnswer",
       "ts": "2026-10-01T16:29:26"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Aimeos Laravel \u2013 self-hosted e-commerce platform that replaces Shopify",
+      "title": "Aimeos Laravel: The Open\u2011Source Platform That Outsmarts Shopify",
+      "question": "What is aimeos/aimeos-laravel and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "aimeos/aimeos-laravel",
+      "repo_url": "https://github.com/aimeos/aimeos-laravel",
+      "repo_stars": 8707,
+      "repo_replaces": "Shopify",
+      "youtube": "X59tmANpxeo",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6abeda1345400a0e30fcbde4",
+      "tiktok_caption": "Aimeos Laravel: The Open\u2011Source Platform That Outsmarts Shopify\n\nDiscover how Aimeos Laravel lets you run a full\u2011featured e\u2011commerce shop on your own servers, cutting costs and giving you full control. Try it today and see why developers prefer this open\u2011source alternative \u2013 hit follow for more insights!\n\naimeos/aimeos-laravel: https://github.com/aimeos/aimeos-laravel\n\n#ecommerce #opensource #laravel #shopifyalternative #webdev",
+      "archetype": "StarRising",
+      "ts": "2026-10-01T22:09:18"
     }
   ],
   "repos": {
@@ -2713,7 +2734,8 @@
       "vuestorefront/vue-storefront",
       "lunarphp/lunar",
       "Unitech/pm2",
-      "getzola/zola"
+      "getzola/zola",
+      "aimeos/aimeos-laravel"
     ]
   },
   "modes": {
@@ -2795,7 +2817,8 @@
       "star_rising",
       "star_rising",
       "star_rising",
-      "question"
+      "question",
+      "star_rising"
     ]
   }
 }

@@ -148,7 +148,8 @@
       "Unitech/pm2 \u2013 Self-hosted Node.js Process Manager that replaces paid PM2 Enterprise",
       "The self-hosted static site generator that replaces your WordPress subscription",
       "Partner with Ad Agencies: Where to Find Reliable Marketing Collaborators for Your Web Design Business",
-      "Aimeos Laravel \u2013 self-hosted e-commerce platform that replaces Shopify"
+      "Aimeos Laravel \u2013 self-hosted e-commerce platform that replaces Shopify",
+      "Self-hosted Grok Bot Alternative that Replaces Your ChatGPT Subscription"
     ]
   },
   "uploads": [
@@ -2658,6 +2659,26 @@
       "tiktok_caption": "Aimeos Laravel: The Open\u2011Source Platform That Outsmarts Shopify\n\nDiscover how Aimeos Laravel lets you run a full\u2011featured e\u2011commerce shop on your own servers, cutting costs and giving you full control. Try it today and see why developers prefer this open\u2011source alternative \u2013 hit follow for more insights!\n\naimeos/aimeos-laravel: https://github.com/aimeos/aimeos-laravel\n\n#ecommerce #opensource #laravel #shopifyalternative #webdev",
       "archetype": "StarRising",
       "ts": "2026-10-01T22:09:18"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Self-hosted Grok Bot Alternative that Replaces Your ChatGPT Subscription",
+      "title": "Replace ChatGPT with a Self\u2011Hosted Grok Bot \u2013 Free & Open Source",
+      "question": "What is elie222/rakazo and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "elie222/rakazo",
+      "repo_url": "https://github.com/elie222/rakazo",
+      "repo_stars": 3236,
+      "repo_replaces": "ChatGPT subscription",
+      "youtube": "HaD0csIR-NI",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6abf55b78bccc8e6416e0b3b",
+      "tiktok_caption": "Replace ChatGPT with a Self\u2011Hosted Grok Bot \u2013 Free & Open Source\n\nExplore how the open\u2011source project elie222/rakazo lets you run a Grok bot on your own server, cutting subscription costs and keeping data private. Hit follow for more DIY tech hacks!\n\nelie222/rakazo: https://github.com/elie222/rakazo\n\n#opensource #selfhosted #grokbot #nocodefounder #privacy",
+      "archetype": "StarRising",
+      "ts": "2026-10-02T06:56:51"
     }
   ],
   "repos": {
@@ -2735,7 +2756,8 @@
       "lunarphp/lunar",
       "Unitech/pm2",
       "getzola/zola",
-      "aimeos/aimeos-laravel"
+      "aimeos/aimeos-laravel",
+      "elie222/rakazo"
     ]
   },
   "modes": {
@@ -2818,6 +2840,7 @@
       "star_rising",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising"
     ]
   }

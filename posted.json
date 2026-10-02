@@ -149,7 +149,8 @@
       "The self-hosted static site generator that replaces your WordPress subscription",
       "Partner with Ad Agencies: Where to Find Reliable Marketing Collaborators for Your Web Design Business",
       "Aimeos Laravel \u2013 self-hosted e-commerce platform that replaces Shopify",
-      "Self-hosted Grok Bot Alternative that Replaces Your ChatGPT Subscription"
+      "Self-hosted Grok Bot Alternative that Replaces Your ChatGPT Subscription",
+      "Macro \u2013 the self-hosted all\u2011in\u2011one workspace that replaces multiple SaaS collaboration tools"
     ]
   },
   "uploads": [
@@ -2679,6 +2680,26 @@
       "tiktok_caption": "Replace ChatGPT with a Self\u2011Hosted Grok Bot \u2013 Free & Open Source\n\nExplore how the open\u2011source project elie222/rakazo lets you run a Grok bot on your own server, cutting subscription costs and keeping data private. Hit follow for more DIY tech hacks!\n\nelie222/rakazo: https://github.com/elie222/rakazo\n\n#opensource #selfhosted #grokbot #nocodefounder #privacy",
       "archetype": "StarRising",
       "ts": "2026-10-02T06:56:51"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Macro \u2013 the self-hosted all\u2011in\u2011one workspace that replaces multiple SaaS collaboration tools",
+      "title": "Macro: One Self\u2011Hosted Workspace Beats All SaaS Tools",
+      "question": "What is macro-inc/macro and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "macro-inc/macro",
+      "repo_url": "https://github.com/macro-inc/macro",
+      "repo_stars": 4517,
+      "repo_replaces": "Multiple SaaS collaboration tools",
+      "youtube": "6PV_J41r6DE",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6abfcf7de11203baed2d57b6",
+      "tiktok_caption": "Macro: One Self\u2011Hosted Workspace Beats All SaaS Tools\n\nDiscover how Macro unifies docs, chat, and project management in a single open\u2011source platform. Want to streamline your workflow\u2014follow for more insights!\n\nmacro-inc/macro: https://github.com/macro-inc/macro\n\n#nocodefounder #opensource #productivity #devtools #workflow",
+      "archetype": "StarRising",
+      "ts": "2026-10-02T15:36:25"
     }
   ],
   "repos": {
@@ -2757,7 +2778,8 @@
       "Unitech/pm2",
       "getzola/zola",
       "aimeos/aimeos-laravel",
-      "elie222/rakazo"
+      "elie222/rakazo",
+      "macro-inc/macro"
     ]
   },
   "modes": {
@@ -2840,6 +2862,7 @@
       "star_rising",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising"
     ]

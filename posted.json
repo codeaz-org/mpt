@@ -150,7 +150,8 @@
       "Partner with Ad Agencies: Where to Find Reliable Marketing Collaborators for Your Web Design Business",
       "Aimeos Laravel \u2013 self-hosted e-commerce platform that replaces Shopify",
       "Self-hosted Grok Bot Alternative that Replaces Your ChatGPT Subscription",
-      "Macro \u2013 the self-hosted all\u2011in\u2011one workspace that replaces multiple SaaS collaboration tools"
+      "Macro \u2013 the self-hosted all\u2011in\u2011one workspace that replaces multiple SaaS collaboration tools",
+      "The self-hosted time-series database that replaces InfluxDB Cloud"
     ]
   },
   "uploads": [
@@ -2700,6 +2701,26 @@
       "tiktok_caption": "Macro: One Self\u2011Hosted Workspace Beats All SaaS Tools\n\nDiscover how Macro unifies docs, chat, and project management in a single open\u2011source platform. Want to streamline your workflow\u2014follow for more insights!\n\nmacro-inc/macro: https://github.com/macro-inc/macro\n\n#nocodefounder #opensource #productivity #devtools #workflow",
       "archetype": "StarRising",
       "ts": "2026-10-02T15:36:25"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "The self-hosted time-series database that replaces InfluxDB Cloud",
+      "title": "Drop InfluxDB Cloud? Meet the Self\u2011Hosted Titan!",
+      "question": "What is taosdata/TDengine and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "taosdata/TDengine",
+      "repo_url": "https://github.com/taosdata/TDengine",
+      "repo_stars": 25150,
+      "repo_replaces": "InfluxDB Cloud",
+      "youtube": "Qpjx-HFkkoo",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ac024bef942e39137fddf05",
+      "tiktok_caption": "Drop InfluxDB Cloud? Meet the Self\u2011Hosted Titan!\n\nDiscover how this open\u2011source project outperforms InfluxDB Cloud with blazing speed and zero vendor lock\u2011in. Hit follow for more deep dives into cutting\u2011edge tech!\n\ntaosdata/TDengine: https://github.com/taosdata/TDengine\n\n#taosdata #tdengine #timeseries #opensource #nocodefounder",
+      "archetype": "StarRising",
+      "ts": "2026-10-02T21:40:09"
     }
   ],
   "repos": {
@@ -2779,7 +2800,8 @@
       "getzola/zola",
       "aimeos/aimeos-laravel",
       "elie222/rakazo",
-      "macro-inc/macro"
+      "macro-inc/macro",
+      "taosdata/TDengine"
     ]
   },
   "modes": {
@@ -2862,6 +2884,7 @@
       "star_rising",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising"

@@ -151,7 +151,8 @@
       "Aimeos Laravel \u2013 self-hosted e-commerce platform that replaces Shopify",
       "Self-hosted Grok Bot Alternative that Replaces Your ChatGPT Subscription",
       "Macro \u2013 the self-hosted all\u2011in\u2011one workspace that replaces multiple SaaS collaboration tools",
-      "The self-hosted time-series database that replaces InfluxDB Cloud"
+      "The self-hosted time-series database that replaces InfluxDB Cloud",
+      "The free, open\u2011source video editor that replaces CapCut"
     ]
   },
   "uploads": [
@@ -2721,6 +2722,26 @@
       "tiktok_caption": "Drop InfluxDB Cloud? Meet the Self\u2011Hosted Titan!\n\nDiscover how this open\u2011source project outperforms InfluxDB Cloud with blazing speed and zero vendor lock\u2011in. Hit follow for more deep dives into cutting\u2011edge tech!\n\ntaosdata/TDengine: https://github.com/taosdata/TDengine\n\n#taosdata #tdengine #timeseries #opensource #nocodefounder",
       "archetype": "StarRising",
       "ts": "2026-10-02T21:40:09"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "The free, open\u2011source video editor that replaces CapCut",
+      "title": "Free Open\u2011Source Video Editor That Beats CapCut!",
+      "question": "What is jub0t/Concat and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "jub0t/Concat",
+      "repo_url": "https://github.com/jub0t/Concat",
+      "repo_stars": 3991,
+      "repo_replaces": "CapCut",
+      "youtube": "9V9eiFdDvyg",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ac09e87ca55406b4b24ee24",
+      "tiktok_caption": "Free Open\u2011Source Video Editor That Beats CapCut!\n\nDiscover this open\u2011source project that outshines CapCut with powerful editing tools, no ads, and full control. Love what you see? Follow for more indie tech insights!\n\njub0t/Concat: https://github.com/jub0t/Concat\n\n#opensource #videocreator #nocode #edit #tech",
+      "archetype": "StarRising",
+      "ts": "2026-10-03T06:19:48"
     }
   ],
   "repos": {
@@ -2801,7 +2822,8 @@
       "aimeos/aimeos-laravel",
       "elie222/rakazo",
       "macro-inc/macro",
-      "taosdata/TDengine"
+      "taosdata/TDengine",
+      "jub0t/Concat"
     ]
   },
   "modes": {
@@ -2884,6 +2906,7 @@
       "star_rising",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

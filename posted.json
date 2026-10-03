@@ -152,7 +152,8 @@
       "Self-hosted Grok Bot Alternative that Replaces Your ChatGPT Subscription",
       "Macro \u2013 the self-hosted all\u2011in\u2011one workspace that replaces multiple SaaS collaboration tools",
       "The self-hosted time-series database that replaces InfluxDB Cloud",
-      "The free, open\u2011source video editor that replaces CapCut"
+      "The free, open\u2011source video editor that replaces CapCut",
+      "Self-hosted analytics platform that replaces Google Analytics"
     ]
   },
   "uploads": [
@@ -2742,6 +2743,26 @@
       "tiktok_caption": "Free Open\u2011Source Video Editor That Beats CapCut!\n\nDiscover this open\u2011source project that outshines CapCut with powerful editing tools, no ads, and full control. Love what you see? Follow for more indie tech insights!\n\njub0t/Concat: https://github.com/jub0t/Concat\n\n#opensource #videocreator #nocode #edit #tech",
       "archetype": "StarRising",
       "ts": "2026-10-03T06:19:48"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Self-hosted analytics platform that replaces Google Analytics",
+      "title": "Ditch Google Analytics: Meet the Open\u2011Source Alternative",
+      "question": "What is matomo-org/matomo and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "matomo-org/matomo",
+      "repo_url": "https://github.com/matomo-org/matomo",
+      "repo_stars": 21921,
+      "repo_replaces": "Google Analytics",
+      "youtube": "p4waPe_hQso",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ac10ea3fec5913394795f88",
+      "tiktok_caption": "Ditch Google Analytics: Meet the Open\u2011Source Alternative\n\nExplore how this self\u2011hosted analytics platform can give you full control over your data while cutting out the cloud dependency. Dive into its features and start tracking smarter today \u2013 follow for more tech insights!\n\nmatomo-org/matomo: https://github.com/matomo-org/matomo\n\n#analytics #opensource #selfhosted #dataprivacy #nocodefounder",
+      "archetype": "StarRising",
+      "ts": "2026-10-03T14:18:06"
     }
   ],
   "repos": {
@@ -2823,7 +2844,8 @@
       "elie222/rakazo",
       "macro-inc/macro",
       "taosdata/TDengine",
-      "jub0t/Concat"
+      "jub0t/Concat",
+      "matomo-org/matomo"
     ]
   },
   "modes": {
@@ -2906,6 +2928,7 @@
       "star_rising",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

@@ -153,7 +153,8 @@
       "Macro \u2013 the self-hosted all\u2011in\u2011one workspace that replaces multiple SaaS collaboration tools",
       "The self-hosted time-series database that replaces InfluxDB Cloud",
       "The free, open\u2011source video editor that replaces CapCut",
-      "Self-hosted analytics platform that replaces Google Analytics"
+      "Self-hosted analytics platform that replaces Google Analytics",
+      "Grav \u2013 the self\u2011hosted flat\u2011file CMS that replaces WordPress"
     ]
   },
   "uploads": [
@@ -2763,6 +2764,26 @@
       "tiktok_caption": "Ditch Google Analytics: Meet the Open\u2011Source Alternative\n\nExplore how this self\u2011hosted analytics platform can give you full control over your data while cutting out the cloud dependency. Dive into its features and start tracking smarter today \u2013 follow for more tech insights!\n\nmatomo-org/matomo: https://github.com/matomo-org/matomo\n\n#analytics #opensource #selfhosted #dataprivacy #nocodefounder",
       "archetype": "StarRising",
       "ts": "2026-10-03T14:18:06"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Grav \u2013 the self\u2011hosted flat\u2011file CMS that replaces WordPress",
+      "title": "Grav: The Flat\u2011File CMS That Outshines WordPress",
+      "question": "What is getgrav/grav and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "getgrav/grav",
+      "repo_url": "https://github.com/getgrav/grav",
+      "repo_stars": 15677,
+      "repo_replaces": "WordPress",
+      "youtube": "pWsv0Z-5sKM",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ac16102814d657011d4ed01",
+      "tiktok_caption": "Grav: The Flat\u2011File CMS That Outshines WordPress\n\nDiscover how Grav brings speed, simplicity, and powerful templating to your website, all without a database. Want to level up your web game? Hit follow for more open\u2011source insights!\n\ngetgrav/grav: https://github.com/getgrav/grav\n\n#nocodefounder #webdev #cms #opensource #freelance",
+      "archetype": "StarRising",
+      "ts": "2026-10-03T20:09:34"
     }
   ],
   "repos": {
@@ -2845,7 +2866,8 @@
       "macro-inc/macro",
       "taosdata/TDengine",
       "jub0t/Concat",
-      "matomo-org/matomo"
+      "matomo-org/matomo",
+      "getgrav/grav"
     ]
   },
   "modes": {
@@ -2928,6 +2950,7 @@
       "star_rising",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

@@ -154,7 +154,8 @@
       "The self-hosted time-series database that replaces InfluxDB Cloud",
       "The free, open\u2011source video editor that replaces CapCut",
       "Self-hosted analytics platform that replaces Google Analytics",
-      "Grav \u2013 the self\u2011hosted flat\u2011file CMS that replaces WordPress"
+      "Grav \u2013 the self\u2011hosted flat\u2011file CMS that replaces WordPress",
+      "The self-hosted open commerce platform that replaces Shopify"
     ]
   },
   "uploads": [
@@ -2784,6 +2785,26 @@
       "tiktok_caption": "Grav: The Flat\u2011File CMS That Outshines WordPress\n\nDiscover how Grav brings speed, simplicity, and powerful templating to your website, all without a database. Want to level up your web game? Hit follow for more open\u2011source insights!\n\ngetgrav/grav: https://github.com/getgrav/grav\n\n#nocodefounder #webdev #cms #opensource #freelance",
       "archetype": "StarRising",
       "ts": "2026-10-03T20:09:34"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "The self-hosted open commerce platform that replaces Shopify",
+      "title": "\u26a1\ufe0f Replace Shopify with This Self\u2011Hosted Open\u2011Source Commerce Platform!",
+      "question": "What is Anil-matcha/open-dots and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "Anil-matcha/open-dots",
+      "repo_url": "https://github.com/Anil-matcha/open-dots",
+      "repo_stars": 5347,
+      "repo_replaces": "Shopify",
+      "youtube": "WJQWJUR4etk",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ac1f7fb8dc991c73c6df327",
+      "tiktok_caption": "\u26a1\ufe0f Replace Shopify with This Self\u2011Hosted Open\u2011Source Commerce Platform!\n\nDiscover how Anil\u2011matcha/open\u2011dots lets you run a full\u2011featured online store without vendor lock\u2011in. Hit follow for more open\u2011source biz hacks!\n\nAnil-matcha/open-dots: https://github.com/Anil-matcha/open-dots\n\n#opensource #ecommerce #selfhosted #shopifyalternative #devtools",
+      "archetype": "StarRising",
+      "ts": "2026-10-04T06:53:44"
     }
   ],
   "repos": {
@@ -2867,7 +2888,8 @@
       "taosdata/TDengine",
       "jub0t/Concat",
       "matomo-org/matomo",
-      "getgrav/grav"
+      "getgrav/grav",
+      "Anil-matcha/open-dots"
     ]
   },
   "modes": {
@@ -2950,6 +2972,7 @@
       "star_rising",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

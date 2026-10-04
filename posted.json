@@ -156,7 +156,8 @@
       "Self-hosted analytics platform that replaces Google Analytics",
       "Grav \u2013 the self\u2011hosted flat\u2011file CMS that replaces WordPress",
       "The self-hosted open commerce platform that replaces Shopify",
-      "OpenMausBot: The self-hosted alternative to the Grok Bot paid subscription"
+      "OpenMausBot: The self-hosted alternative to the Grok Bot paid subscription",
+      "Stop Blaming Traffic\u2014How to Diagnose and Fix Your Site\u2019s Performance Issues"
     ]
   },
   "uploads": [
@@ -2826,6 +2827,26 @@
       "tiktok_caption": "\ud83d\ude80 ShipGenAI: The Open-Source Powerhouse You Need!\n\nDiscover how ShipGenAI can transform your workflow with powerful AI tools\u2014no subscription required. Hit follow for more open-source tech insights!\n\nbenlamiro/ShipGenAI: https://github.com/benlamiro/ShipGenAI\n\n#opensource #aitools #productivity #nocodefounder #techcommunity",
       "archetype": "StarRising",
       "ts": "2026-10-04T14:46:18"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Stop Blaming Traffic\u2014How to Diagnose and Fix Your Site\u2019s Performance Issues",
+      "title": "Stop Blaming Traffic\u2014Pinpoint & Fix Your Site\u2019s Speed Issues Fast",
+      "question": "At what point do you stop blaming traffic and admit the website is the problem?",
+      "question_id": "reddit:1ww68wn",
+      "question_url": "https://reddit.com/r/ecommerce/comments/1ww68wn/at_what_point_do_you_stop_blaming_traffic_and/",
+      "mode": "question",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "tw1j19BSsxs",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ac2b57c283083e601c0c71a",
+      "tiktok_caption": "Stop Blaming Traffic\u2014Pinpoint & Fix Your Site\u2019s Speed Issues Fast\n\nDiscover how to identify real bottlenecks, not just traffic spikes, and fix them in minutes. Hit subscribe for more performance hacks!\n\n#webperformance #speedtest #frontend #debugging #optimization",
+      "archetype": "StatCard",
+      "ts": "2026-10-04T20:22:16"
     }
   ],
   "repos": {
@@ -3002,7 +3023,8 @@
       "star_rising",
       "star_rising",
       "star_rising",
-      "star_rising"
+      "star_rising",
+      "question"
     ]
   }
 }

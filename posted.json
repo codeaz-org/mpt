@@ -155,7 +155,8 @@
       "The free, open\u2011source video editor that replaces CapCut",
       "Self-hosted analytics platform that replaces Google Analytics",
       "Grav \u2013 the self\u2011hosted flat\u2011file CMS that replaces WordPress",
-      "The self-hosted open commerce platform that replaces Shopify"
+      "The self-hosted open commerce platform that replaces Shopify",
+      "OpenMausBot: The self-hosted alternative to the Grok Bot paid subscription"
     ]
   },
   "uploads": [
@@ -2805,6 +2806,26 @@
       "tiktok_caption": "\u26a1\ufe0f Replace Shopify with This Self\u2011Hosted Open\u2011Source Commerce Platform!\n\nDiscover how Anil\u2011matcha/open\u2011dots lets you run a full\u2011featured online store without vendor lock\u2011in. Hit follow for more open\u2011source biz hacks!\n\nAnil-matcha/open-dots: https://github.com/Anil-matcha/open-dots\n\n#opensource #ecommerce #selfhosted #shopifyalternative #devtools",
       "archetype": "StarRising",
       "ts": "2026-10-04T06:53:44"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "OpenMausBot: The self-hosted alternative to the Grok Bot paid subscription",
+      "title": "\ud83d\ude80 ShipGenAI: The Open-Source Powerhouse You Need!",
+      "question": "What is benlamiro/ShipGenAI and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "benlamiro/ShipGenAI",
+      "repo_url": "https://github.com/benlamiro/ShipGenAI",
+      "repo_stars": 276,
+      "repo_replaces": "Grok Bot",
+      "youtube": "v81iFOAzcGk",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ac266be365aeab50be6c2ff",
+      "tiktok_caption": "\ud83d\ude80 ShipGenAI: The Open-Source Powerhouse You Need!\n\nDiscover how ShipGenAI can transform your workflow with powerful AI tools\u2014no subscription required. Hit follow for more open-source tech insights!\n\nbenlamiro/ShipGenAI: https://github.com/benlamiro/ShipGenAI\n\n#opensource #aitools #productivity #nocodefounder #techcommunity",
+      "archetype": "StarRising",
+      "ts": "2026-10-04T14:46:18"
     }
   ],
   "repos": {
@@ -2889,7 +2910,8 @@
       "jub0t/Concat",
       "matomo-org/matomo",
       "getgrav/grav",
-      "Anil-matcha/open-dots"
+      "Anil-matcha/open-dots",
+      "benlamiro/ShipGenAI"
     ]
   },
   "modes": {
@@ -2972,6 +2994,7 @@
       "star_rising",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

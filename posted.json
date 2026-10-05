@@ -158,7 +158,8 @@
       "The self-hosted open commerce platform that replaces Shopify",
       "OpenMausBot: The self-hosted alternative to the Grok Bot paid subscription",
       "Stop Blaming Traffic\u2014How to Diagnose and Fix Your Site\u2019s Performance Issues",
-      "Self-hosted OS monitoring tool that replaces paid security analytics"
+      "Self-hosted OS monitoring tool that replaces paid security analytics",
+      "Agent\u2011Reach: Self\u2011hosted CLI that replaces paid social\u2011media and search APIs"
     ]
   },
   "uploads": [
@@ -2868,6 +2869,26 @@
       "tiktok_caption": "Stop Paying for Security Analytics\u2014Meet This Self\u2011Hosted OS Monitoring Tool\n\nDiscover how this open\u2011source project lets you monitor every system event without the cost of commercial analytics. Hit follow for more deep dives into powerful, free tools that keep your infrastructure secure.\n\nosquery/osquery: https://github.com/osquery/osquery\n\n#osquery #security #opensource #sysadmin #monitoring",
       "archetype": "StarRising",
       "ts": "2026-10-05T06:51:45"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Agent\u2011Reach: Self\u2011hosted CLI that replaces paid social\u2011media and search APIs",
+      "title": "Agent\u2011Reach: Slash Paid API Costs with a Self\u2011Hosted CLI",
+      "question": "What is Panniantong/Agent-Reach and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "Panniantong/Agent-Reach",
+      "repo_url": "https://github.com/Panniantong/Agent-Reach",
+      "repo_stars": 91693,
+      "repo_replaces": "SerpAPI and paid social media API subscriptions",
+      "youtube": "TqWvHycAMYg",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ac3e5c0f61ddb83b867b21a",
+      "tiktok_caption": "Agent\u2011Reach: Slash Paid API Costs with a Self\u2011Hosted CLI\n\nDiscover how Agent\u2011Reach lets you ditch pricey social\u2011media and search APIs while keeping full control. Try this open\u2011source project today and free up your budget!\n\nPanniantong/Agent-Reach: https://github.com/Panniantong/Agent-Reach\n\n#nocodefounder #opensource #cli #automation #devtools",
+      "archetype": "StarRising",
+      "ts": "2026-10-05T18:00:27"
     }
   ],
   "repos": {
@@ -2954,7 +2975,8 @@
       "getgrav/grav",
       "Anil-matcha/open-dots",
       "benlamiro/ShipGenAI",
-      "osquery/osquery"
+      "osquery/osquery",
+      "Panniantong/Agent-Reach"
     ]
   },
   "modes": {
@@ -3047,6 +3069,7 @@
       "star_rising",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising"
     ]
   }

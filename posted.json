@@ -159,7 +159,8 @@
       "OpenMausBot: The self-hosted alternative to the Grok Bot paid subscription",
       "Stop Blaming Traffic\u2014How to Diagnose and Fix Your Site\u2019s Performance Issues",
       "Self-hosted OS monitoring tool that replaces paid security analytics",
-      "Agent\u2011Reach: Self\u2011hosted CLI that replaces paid social\u2011media and search APIs"
+      "Agent\u2011Reach: Self\u2011hosted CLI that replaces paid social\u2011media and search APIs",
+      "Open-Design: The local-first design tool that replaces Figma"
     ]
   },
   "uploads": [
@@ -2889,6 +2890,26 @@
       "tiktok_caption": "Agent\u2011Reach: Slash Paid API Costs with a Self\u2011Hosted CLI\n\nDiscover how Agent\u2011Reach lets you ditch pricey social\u2011media and search APIs while keeping full control. Try this open\u2011source project today and free up your budget!\n\nPanniantong/Agent-Reach: https://github.com/Panniantong/Agent-Reach\n\n#nocodefounder #opensource #cli #automation #devtools",
       "archetype": "StarRising",
       "ts": "2026-10-05T18:00:27"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Open-Design: The local-first design tool that replaces Figma",
+      "title": "Open-Design: The Local-First Tool that Outsmarts Figma",
+      "question": "What is nexu-io/open-design and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "nexu-io/open-design",
+      "repo_url": "https://github.com/nexu-io/open-design",
+      "repo_stars": 99562,
+      "repo_replaces": "Figma",
+      "youtube": "QxysK6w3Shw",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ac431d3b0e0485fb4617d17",
+      "tiktok_caption": "Open-Design: The Local-First Tool that Outsmarts Figma\n\nDiscover how this open-source project revolutionizes design workflows by keeping everything on your machine. Hit follow for more deep dives into innovative tools!\n\nnexu-io/open-design: https://github.com/nexu-io/open-design\n\n#nocodefounder #opensource #designtool #localfirst #uiux",
+      "archetype": "StarRising",
+      "ts": "2026-10-05T23:25:02"
     }
   ],
   "repos": {
@@ -2976,7 +2997,8 @@
       "Anil-matcha/open-dots",
       "benlamiro/ShipGenAI",
       "osquery/osquery",
-      "Panniantong/Agent-Reach"
+      "Panniantong/Agent-Reach",
+      "nexu-io/open-design"
     ]
   },
   "modes": {
@@ -3069,6 +3091,7 @@
       "star_rising",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising"
     ]

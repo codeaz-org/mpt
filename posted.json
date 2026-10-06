@@ -160,7 +160,8 @@
       "Stop Blaming Traffic\u2014How to Diagnose and Fix Your Site\u2019s Performance Issues",
       "Self-hosted OS monitoring tool that replaces paid security analytics",
       "Agent\u2011Reach: Self\u2011hosted CLI that replaces paid social\u2011media and search APIs",
-      "Open-Design: The local-first design tool that replaces Figma"
+      "Open-Design: The local-first design tool that replaces Figma",
+      "Track Google Docs changes without paid add\u2011ons: a free workflow"
     ]
   },
   "uploads": [
@@ -2910,6 +2911,26 @@
       "tiktok_caption": "Open-Design: The Local-First Tool that Outsmarts Figma\n\nDiscover how this open-source project revolutionizes design workflows by keeping everything on your machine. Hit follow for more deep dives into innovative tools!\n\nnexu-io/open-design: https://github.com/nexu-io/open-design\n\n#nocodefounder #opensource #designtool #localfirst #uiux",
       "archetype": "StarRising",
       "ts": "2026-10-05T23:25:02"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Track Google Docs changes without paid add\u2011ons: a free workflow",
+      "title": "Track Google Docs Changes for Free \u2013 No Add\u2011Ons Needed!",
+      "question": "how do i track changes in google docs",
+      "question_id": "gsuggest:how do i track changes in google docs",
+      "question_url": "https://www.google.com/search?q=how%20do%20i%20track%20changes%20in%20google%20docs",
+      "mode": "question",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "vKIDMtlsr3g",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ac4a5962be1e9f5ca4ccc15",
+      "tiktok_caption": "Track Google Docs Changes for Free \u2013 No Add\u2011Ons Needed!\n\nLearn how to monitor edits, compare revisions, and keep your docs organized without spending a dime. Hit follow for more free productivity hacks!\n\n#googledocs #productivity #freetools #collaboration #docmanagement",
+      "archetype": "WorkflowDemo",
+      "ts": "2026-10-06T07:38:58"
     }
   ],
   "repos": {
@@ -3093,7 +3114,8 @@
       "question",
       "star_rising",
       "star_rising",
-      "star_rising"
+      "star_rising",
+      "question"
     ]
   }
 }

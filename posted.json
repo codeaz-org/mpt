@@ -161,7 +161,8 @@
       "Self-hosted OS monitoring tool that replaces paid security analytics",
       "Agent\u2011Reach: Self\u2011hosted CLI that replaces paid social\u2011media and search APIs",
       "Open-Design: The local-first design tool that replaces Figma",
-      "Track Google Docs changes without paid add\u2011ons: a free workflow"
+      "Track Google Docs changes without paid add\u2011ons: a free workflow",
+      "The self-hosted gym tracker that replaces your premium fitness app"
     ]
   },
   "uploads": [
@@ -2931,6 +2932,26 @@
       "tiktok_caption": "Track Google Docs Changes for Free \u2013 No Add\u2011Ons Needed!\n\nLearn how to monitor edits, compare revisions, and keep your docs organized without spending a dime. Hit follow for more free productivity hacks!\n\n#googledocs #productivity #freetools #collaboration #docmanagement",
       "archetype": "WorkflowDemo",
       "ts": "2026-10-06T07:38:58"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "The self-hosted gym tracker that replaces your premium fitness app",
+      "title": "Drop the Premium App: Meet the Self\u2011Hosted Gym Tracker!",
+      "question": "What is DuarteSantos8/openGym and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "DuarteSantos8/openGym",
+      "repo_url": "https://github.com/DuarteSantos8/openGym",
+      "repo_stars": 5187,
+      "repo_replaces": "Paid fitness tracker app",
+      "youtube": "8t0B-s-kPp8",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ac51a929d95cd8534290740",
+      "tiktok_caption": "Drop the Premium App: Meet the Self\u2011Hosted Gym Tracker!\n\nDiscover how this powerful open\u2011source project can replace your costly fitness app, giving you full control and privacy. Try it today and take your training to the next level\u2014follow for more tech hacks!\n\nDuarteSantos8/openGym: https://github.com/DuarteSantos8/openGym\n\n#nocodefounder #fitnesstech #opensource #selfhosted #gymtracker",
+      "archetype": "StarRising",
+      "ts": "2026-10-06T15:58:05"
     }
   ],
   "repos": {
@@ -3019,7 +3040,8 @@
       "benlamiro/ShipGenAI",
       "osquery/osquery",
       "Panniantong/Agent-Reach",
-      "nexu-io/open-design"
+      "nexu-io/open-design",
+      "DuarteSantos8/openGym"
     ]
   },
   "modes": {
@@ -3115,7 +3137,8 @@
       "star_rising",
       "star_rising",
       "star_rising",
-      "question"
+      "question",
+      "star_rising"
     ]
   }
 }

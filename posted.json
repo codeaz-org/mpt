@@ -162,7 +162,8 @@
       "Agent\u2011Reach: Self\u2011hosted CLI that replaces paid social\u2011media and search APIs",
       "Open-Design: The local-first design tool that replaces Figma",
       "Track Google Docs changes without paid add\u2011ons: a free workflow",
-      "The self-hosted gym tracker that replaces your premium fitness app"
+      "The self-hosted gym tracker that replaces your premium fitness app",
+      "Nanobot: Self-hosted AI agent framework that replaces your paid ChatGPT subscription"
     ]
   },
   "uploads": [
@@ -2952,6 +2953,26 @@
       "tiktok_caption": "Drop the Premium App: Meet the Self\u2011Hosted Gym Tracker!\n\nDiscover how this powerful open\u2011source project can replace your costly fitness app, giving you full control and privacy. Try it today and take your training to the next level\u2014follow for more tech hacks!\n\nDuarteSantos8/openGym: https://github.com/DuarteSantos8/openGym\n\n#nocodefounder #fitnesstech #opensource #selfhosted #gymtracker",
       "archetype": "StarRising",
       "ts": "2026-10-06T15:58:05"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Nanobot: Self-hosted AI agent framework that replaces your paid ChatGPT subscription",
+      "title": "Free AI Agent? Meet Nanobot \u2013 No ChatGPT Subscription Needed",
+      "question": "What is HKUDS/nanobot and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "HKUDS/nanobot",
+      "repo_url": "https://github.com/HKUDS/nanobot",
+      "repo_stars": 48827,
+      "repo_replaces": "ChatGPT subscription",
+      "youtube": "Lg2UpsMPWUE",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ac56e4b9833100fb5965e3c",
+      "tiktok_caption": "Free AI Agent? Meet Nanobot \u2013 No ChatGPT Subscription Needed\n\nDiscover how Nanobot lets you run a powerful AI agent right on your own server, cutting out the cost of paid ChatGPT. Dive into the code, set it up, and start exploring AI for free! Follow for more open\u2011source AI hacks.\n\nHKUDS/nanobot: https://github.com/HKUDS/nanobot\n\n#nanobot #opensource #selfhosted #aiagent #nocode",
+      "archetype": "StarRising",
+      "ts": "2026-10-06T21:55:19"
     }
   ],
   "repos": {
@@ -3041,7 +3062,8 @@
       "osquery/osquery",
       "Panniantong/Agent-Reach",
       "nexu-io/open-design",
-      "DuarteSantos8/openGym"
+      "DuarteSantos8/openGym",
+      "HKUDS/nanobot"
     ]
   },
   "modes": {
@@ -3138,6 +3160,7 @@
       "star_rising",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising"
     ]
   }

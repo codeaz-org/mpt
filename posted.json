@@ -164,7 +164,8 @@
       "Track Google Docs changes without paid add\u2011ons: a free workflow",
       "The self-hosted gym tracker that replaces your premium fitness app",
       "Nanobot: Self-hosted AI agent framework that replaces your paid ChatGPT subscription",
-      "Ever Demand: the self-hosted e-commerce platform that replaces Shopify"
+      "Ever Demand: the self-hosted e-commerce platform that replaces Shopify",
+      "Playwright: Self-hosted end\u2011to\u2011end web testing that replaces manual QA and paid testing services"
     ]
   },
   "uploads": [
@@ -2994,6 +2995,26 @@
       "tiktok_caption": "Ever Demand: The Shopify Killer? Self\u2011Hosted E\u2011Commerce Unleashed\n\nEver Demand is a cutting\u2011edge open\u2011source platform that lets you run your own e\u2011commerce store without relying on Shopify. Check out how it works and why it\u2019s a game\u2011changer for online businesses. Follow for more tech insights!\n\never-co/ever-demand: https://github.com/ever-co/ever-demand\n\n#ecommerce #opensource #nocode #saas #startup",
       "archetype": "StarRising",
       "ts": "2026-10-07T07:05:11"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Playwright: Self-hosted end\u2011to\u2011end web testing that replaces manual QA and paid testing services",
+      "title": "Playwright: Self\u2011Hosted E2E Testing That Cuts QA Costs",
+      "question": "What is microsoft/playwright and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "microsoft/playwright",
+      "repo_url": "https://github.com/microsoft/playwright",
+      "repo_stars": 97233,
+      "repo_replaces": "Manual QA / paid testing services",
+      "youtube": "afSgtCBriuY",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ac6c4f701166a3e1c081b13",
+      "tiktok_caption": "Playwright: Self\u2011Hosted E2E Testing That Cuts QA Costs\n\nDiscover how Playwright can replace manual QA and pricey testing services with a fully self\u2011hosted solution. Try it today and see the savings for yourself\u2014follow for more open\u2011source insights!\n\nmicrosoft/playwright: https://github.com/microsoft/playwright\n\n#playwright #e2etesting #qaautomation #opensource #webtesting",
+      "archetype": "StarRising",
+      "ts": "2026-10-07T22:17:24"
     }
   ],
   "repos": {
@@ -3085,7 +3106,8 @@
       "nexu-io/open-design",
       "DuarteSantos8/openGym",
       "HKUDS/nanobot",
-      "ever-co/ever-demand"
+      "ever-co/ever-demand",
+      "microsoft/playwright"
     ]
   },
   "modes": {
@@ -3182,6 +3204,7 @@
       "star_rising",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising"

@@ -163,7 +163,8 @@
       "Open-Design: The local-first design tool that replaces Figma",
       "Track Google Docs changes without paid add\u2011ons: a free workflow",
       "The self-hosted gym tracker that replaces your premium fitness app",
-      "Nanobot: Self-hosted AI agent framework that replaces your paid ChatGPT subscription"
+      "Nanobot: Self-hosted AI agent framework that replaces your paid ChatGPT subscription",
+      "Ever Demand: the self-hosted e-commerce platform that replaces Shopify"
     ]
   },
   "uploads": [
@@ -2973,6 +2974,26 @@
       "tiktok_caption": "Free AI Agent? Meet Nanobot \u2013 No ChatGPT Subscription Needed\n\nDiscover how Nanobot lets you run a powerful AI agent right on your own server, cutting out the cost of paid ChatGPT. Dive into the code, set it up, and start exploring AI for free! Follow for more open\u2011source AI hacks.\n\nHKUDS/nanobot: https://github.com/HKUDS/nanobot\n\n#nanobot #opensource #selfhosted #aiagent #nocode",
       "archetype": "StarRising",
       "ts": "2026-10-06T21:55:19"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Ever Demand: the self-hosted e-commerce platform that replaces Shopify",
+      "title": "Ever Demand: The Shopify Killer? Self\u2011Hosted E\u2011Commerce Unleashed",
+      "question": "What is ever-co/ever-demand and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "ever-co/ever-demand",
+      "repo_url": "https://github.com/ever-co/ever-demand",
+      "repo_stars": 1865,
+      "repo_replaces": "Shopify",
+      "youtube": "iOblJwUfHKc",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ac5ef2bdf05c83428d85be2",
+      "tiktok_caption": "Ever Demand: The Shopify Killer? Self\u2011Hosted E\u2011Commerce Unleashed\n\nEver Demand is a cutting\u2011edge open\u2011source platform that lets you run your own e\u2011commerce store without relying on Shopify. Check out how it works and why it\u2019s a game\u2011changer for online businesses. Follow for more tech insights!\n\never-co/ever-demand: https://github.com/ever-co/ever-demand\n\n#ecommerce #opensource #nocode #saas #startup",
+      "archetype": "StarRising",
+      "ts": "2026-10-07T07:05:11"
     }
   ],
   "repos": {
@@ -3063,7 +3084,8 @@
       "Panniantong/Agent-Reach",
       "nexu-io/open-design",
       "DuarteSantos8/openGym",
-      "HKUDS/nanobot"
+      "HKUDS/nanobot",
+      "ever-co/ever-demand"
     ]
   },
   "modes": {
@@ -3160,6 +3182,7 @@
       "star_rising",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising"
     ]

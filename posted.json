@@ -166,7 +166,8 @@
       "Nanobot: Self-hosted AI agent framework that replaces your paid ChatGPT subscription",
       "Ever Demand: the self-hosted e-commerce platform that replaces Shopify",
       "Playwright: Self-hosted end\u2011to\u2011end web testing that replaces manual QA and paid testing services",
-      "Smartstore: Self-hosted eCommerce platform that replaces Shopify"
+      "Smartstore: Self-hosted eCommerce platform that replaces Shopify",
+      "Self-hosted CRM that replaces HubSpot free tier"
     ]
   },
   "uploads": [
@@ -3036,6 +3037,26 @@
       "tiktok_caption": "Smartstore: The Self\u2011Hosted Game\u2011Changer for Shopify Users\n\nDiscover how Smartstore, an open\u2011source eCommerce platform, can replace Shopify by giving you full control and zero monthly fees. Hit follow for more deep dives into powerful, self\u2011hosted solutions!\n\nsmartstore/Smartstore: https://github.com/smartstore/Smartstore\n\n#smartstore #ecommerce #selfhosted #opensource #shopifyalternative",
       "archetype": "StarRising",
       "ts": "2026-10-08T07:21:00"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Self-hosted CRM that replaces HubSpot free tier",
+      "title": "Replace HubSpot Free Tier with a Self\u2011Hosted CRM \u2013 Volmarg PMS Demo",
+      "question": "What is Volmarg/personal-management-system and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "Volmarg/personal-management-system",
+      "repo_url": "https://github.com/Volmarg/personal-management-system",
+      "repo_stars": 4171,
+      "repo_replaces": "HubSpot CRM",
+      "youtube": "4tPjPKXPRb8",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ac7c3dde63932e2c5ab8f72",
+      "tiktok_caption": "Replace HubSpot Free Tier with a Self\u2011Hosted CRM \u2013 Volmarg PMS Demo\n\nSee how this open\u2011source project, Volmarg/personal\u2011management\u2011system, can replace HubSpot\u2019s free tier with full control and no vendor lock\u2011in. Try it yourself and join the community \u2013 follow for more open\u2011source tips!\n\nVolmarg/personal-management-system: https://github.com/Volmarg/personal-management-system\n\n#nocodefounder #opensourcecrm #selfhosted #volmarg #productivity",
+      "archetype": "StarRising",
+      "ts": "2026-10-08T16:24:56"
     }
   ],
   "repos": {
@@ -3129,7 +3150,8 @@
       "HKUDS/nanobot",
       "ever-co/ever-demand",
       "microsoft/playwright",
-      "smartstore/Smartstore"
+      "smartstore/Smartstore",
+      "Volmarg/personal-management-system"
     ]
   },
   "modes": {
@@ -3226,6 +3248,7 @@
       "star_rising",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

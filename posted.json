@@ -165,7 +165,8 @@
       "The self-hosted gym tracker that replaces your premium fitness app",
       "Nanobot: Self-hosted AI agent framework that replaces your paid ChatGPT subscription",
       "Ever Demand: the self-hosted e-commerce platform that replaces Shopify",
-      "Playwright: Self-hosted end\u2011to\u2011end web testing that replaces manual QA and paid testing services"
+      "Playwright: Self-hosted end\u2011to\u2011end web testing that replaces manual QA and paid testing services",
+      "Smartstore: Self-hosted eCommerce platform that replaces Shopify"
     ]
   },
   "uploads": [
@@ -3015,6 +3016,26 @@
       "tiktok_caption": "Playwright: Self\u2011Hosted E2E Testing That Cuts QA Costs\n\nDiscover how Playwright can replace manual QA and pricey testing services with a fully self\u2011hosted solution. Try it today and see the savings for yourself\u2014follow for more open\u2011source insights!\n\nmicrosoft/playwright: https://github.com/microsoft/playwright\n\n#playwright #e2etesting #qaautomation #opensource #webtesting",
       "archetype": "StarRising",
       "ts": "2026-10-07T22:17:24"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Smartstore: Self-hosted eCommerce platform that replaces Shopify",
+      "title": "Smartstore: The Self\u2011Hosted Game\u2011Changer for Shopify Users",
+      "question": "What is smartstore/Smartstore and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "smartstore/Smartstore",
+      "repo_url": "https://github.com/smartstore/Smartstore",
+      "repo_stars": 1726,
+      "repo_replaces": "Shopify",
+      "youtube": "WuN5uPp6FrE",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ac74460949fb89b29db0373",
+      "tiktok_caption": "Smartstore: The Self\u2011Hosted Game\u2011Changer for Shopify Users\n\nDiscover how Smartstore, an open\u2011source eCommerce platform, can replace Shopify by giving you full control and zero monthly fees. Hit follow for more deep dives into powerful, self\u2011hosted solutions!\n\nsmartstore/Smartstore: https://github.com/smartstore/Smartstore\n\n#smartstore #ecommerce #selfhosted #opensource #shopifyalternative",
+      "archetype": "StarRising",
+      "ts": "2026-10-08T07:21:00"
     }
   ],
   "repos": {
@@ -3107,7 +3128,8 @@
       "DuarteSantos8/openGym",
       "HKUDS/nanobot",
       "ever-co/ever-demand",
-      "microsoft/playwright"
+      "microsoft/playwright",
+      "smartstore/Smartstore"
     ]
   },
   "modes": {
@@ -3204,6 +3226,7 @@
       "star_rising",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

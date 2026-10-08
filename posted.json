@@ -167,7 +167,8 @@
       "Ever Demand: the self-hosted e-commerce platform that replaces Shopify",
       "Playwright: Self-hosted end\u2011to\u2011end web testing that replaces manual QA and paid testing services",
       "Smartstore: Self-hosted eCommerce platform that replaces Shopify",
-      "Self-hosted CRM that replaces HubSpot free tier"
+      "Self-hosted CRM that replaces HubSpot free tier",
+      "QloApps: Self\u2011Hosted Hotel Management System that Replaces Paid PMS Software"
     ]
   },
   "uploads": [
@@ -3057,6 +3058,26 @@
       "tiktok_caption": "Replace HubSpot Free Tier with a Self\u2011Hosted CRM \u2013 Volmarg PMS Demo\n\nSee how this open\u2011source project, Volmarg/personal\u2011management\u2011system, can replace HubSpot\u2019s free tier with full control and no vendor lock\u2011in. Try it yourself and join the community \u2013 follow for more open\u2011source tips!\n\nVolmarg/personal-management-system: https://github.com/Volmarg/personal-management-system\n\n#nocodefounder #opensourcecrm #selfhosted #volmarg #productivity",
       "archetype": "StarRising",
       "ts": "2026-10-08T16:24:56"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "QloApps: Self\u2011Hosted Hotel Management System that Replaces Paid PMS Software",
+      "title": "QloApps: Free Self\u2011Hosted Hotel System That Outperforms Paid PMS",
+      "question": "What is Qloapps/QloApps and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "Qloapps/QloApps",
+      "repo_url": "https://github.com/Qloapps/QloApps",
+      "repo_stars": 14416,
+      "repo_replaces": "Paid hotel PMS SaaS",
+      "youtube": "b2RWHcN6-hQ",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ac815b1bb31d6b59c5713a3",
+      "tiktok_caption": "QloApps: Free Self\u2011Hosted Hotel System That Outperforms Paid PMS\n\nDiscover how QloApps can replace costly PMS software with a powerful, open\u2011source solution that runs on your own servers. Try it today and see why hotels are switching\u2014follow for more tech insights!\n\nQloapps/QloApps: https://github.com/Qloapps/QloApps\n\n#qloapps #hoteltech #opensource #nocodefounder #selfhosted",
+      "archetype": "StarRising",
+      "ts": "2026-10-08T22:14:05"
     }
   ],
   "repos": {
@@ -3151,7 +3172,8 @@
       "ever-co/ever-demand",
       "microsoft/playwright",
       "smartstore/Smartstore",
-      "Volmarg/personal-management-system"
+      "Volmarg/personal-management-system",
+      "Qloapps/QloApps"
     ]
   },
   "modes": {
@@ -3248,6 +3270,7 @@
       "star_rising",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

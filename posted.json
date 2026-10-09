@@ -170,7 +170,8 @@
       "Self-hosted CRM that replaces HubSpot free tier",
       "QloApps: Self\u2011Hosted Hotel Management System that Replaces Paid PMS Software",
       "GoAccess \u2013 Self-hosted real-time web log analyzer that replaces paid log analytics services",
-      "Self-hosted personal finance app that replaces your budgeting SaaS"
+      "Self-hosted personal finance app that replaces your budgeting SaaS",
+      "Deploy a website in 30 minutes with free-tier Vercel vs Netlify"
     ]
   },
   "uploads": [
@@ -3120,6 +3121,26 @@
       "tiktok_caption": "Take Control: Self\u2011Hosted Finance App vs SaaS Budgets\n\nDiscover how LosaLosSantos/aurelio-finance lets you own your money data with a self\u2011hosted solution. Say goodbye to subscription fees and hello to full privacy. Follow for more finance hacks!\n\nLosaLosSantos/aurelio-finance: https://github.com/LosaLosSantos/aurelio-finance\n\n#finance #opensource #privacy #budgeting #selfhosted",
       "archetype": "StarRising",
       "ts": "2026-10-09T15:56:07"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Deploy a website in 30 minutes with free-tier Vercel vs Netlify",
+      "title": "30\u2011Minute Site Launch: Vercel vs Netlify Free Tier Showdown",
+      "question": "how do i deploy a website",
+      "question_id": "gsuggest:how do i deploy a website",
+      "question_url": "https://www.google.com/search?q=how%20do%20i%20deploy%20a%20website",
+      "mode": "question",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "8sXB_Tmaj10",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ac969b0d9cab260a7a5aac8",
+      "tiktok_caption": "30\u2011Minute Site Launch: Vercel vs Netlify Free Tier Showdown\n\nWatch how to deploy a website in just 30 minutes using the free tiers of Vercel and Netlify. Which platform wins for speed, features, and ease? Hit follow for more dev hacks!\n\n#vercel #netlify #webdev #devtools #freehosting",
+      "archetype": "WorkflowDemo",
+      "ts": "2026-10-09T22:24:44"
     }
   ],
   "repos": {
@@ -3322,7 +3343,8 @@
       "star_rising",
       "star_rising",
       "star_rising",
-      "star_rising"
+      "star_rising",
+      "question"
     ]
   }
 }

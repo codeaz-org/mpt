@@ -169,7 +169,8 @@
       "Smartstore: Self-hosted eCommerce platform that replaces Shopify",
       "Self-hosted CRM that replaces HubSpot free tier",
       "QloApps: Self\u2011Hosted Hotel Management System that Replaces Paid PMS Software",
-      "GoAccess \u2013 Self-hosted real-time web log analyzer that replaces paid log analytics services"
+      "GoAccess \u2013 Self-hosted real-time web log analyzer that replaces paid log analytics services",
+      "Self-hosted personal finance app that replaces your budgeting SaaS"
     ]
   },
   "uploads": [
@@ -3099,6 +3100,26 @@
       "tiktok_caption": "GoAccess: Free Real\u2011Time Log Analyzer for Self\u2011Hosted Sites\n\nExplore how GoAccess gives you instant log insights without the cost of paid analytics services. Watch now and learn to transform raw logs into actionable dashboards!\n\nallinurl/goaccess: https://github.com/allinurl/goaccess\n\n#goaccess #opensource #selfhosted #loganalytics #devops",
       "archetype": "StarRising",
       "ts": "2026-10-09T08:09:52"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Self-hosted personal finance app that replaces your budgeting SaaS",
+      "title": "Take Control: Self\u2011Hosted Finance App vs SaaS Budgets",
+      "question": "What is LosaLosSantos/aurelio-finance and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "LosaLosSantos/aurelio-finance",
+      "repo_url": "https://github.com/LosaLosSantos/aurelio-finance",
+      "repo_stars": 1046,
+      "repo_replaces": "budgeting SaaS",
+      "youtube": "NRH72q88osA",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ac90e9b57c4b87d9cf999d9",
+      "tiktok_caption": "Take Control: Self\u2011Hosted Finance App vs SaaS Budgets\n\nDiscover how LosaLosSantos/aurelio-finance lets you own your money data with a self\u2011hosted solution. Say goodbye to subscription fees and hello to full privacy. Follow for more finance hacks!\n\nLosaLosSantos/aurelio-finance: https://github.com/LosaLosSantos/aurelio-finance\n\n#finance #opensource #privacy #budgeting #selfhosted",
+      "archetype": "StarRising",
+      "ts": "2026-10-09T15:56:07"
     }
   ],
   "repos": {
@@ -3195,7 +3216,8 @@
       "smartstore/Smartstore",
       "Volmarg/personal-management-system",
       "Qloapps/QloApps",
-      "allinurl/goaccess"
+      "allinurl/goaccess",
+      "LosaLosSantos/aurelio-finance"
     ]
   },
   "modes": {
@@ -3292,6 +3314,7 @@
       "star_rising",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

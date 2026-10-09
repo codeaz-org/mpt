@@ -168,7 +168,8 @@
       "Playwright: Self-hosted end\u2011to\u2011end web testing that replaces manual QA and paid testing services",
       "Smartstore: Self-hosted eCommerce platform that replaces Shopify",
       "Self-hosted CRM that replaces HubSpot free tier",
-      "QloApps: Self\u2011Hosted Hotel Management System that Replaces Paid PMS Software"
+      "QloApps: Self\u2011Hosted Hotel Management System that Replaces Paid PMS Software",
+      "GoAccess \u2013 Self-hosted real-time web log analyzer that replaces paid log analytics services"
     ]
   },
   "uploads": [
@@ -3078,6 +3079,26 @@
       "tiktok_caption": "QloApps: Free Self\u2011Hosted Hotel System That Outperforms Paid PMS\n\nDiscover how QloApps can replace costly PMS software with a powerful, open\u2011source solution that runs on your own servers. Try it today and see why hotels are switching\u2014follow for more tech insights!\n\nQloapps/QloApps: https://github.com/Qloapps/QloApps\n\n#qloapps #hoteltech #opensource #nocodefounder #selfhosted",
       "archetype": "StarRising",
       "ts": "2026-10-08T22:14:05"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "GoAccess \u2013 Self-hosted real-time web log analyzer that replaces paid log analytics services",
+      "title": "GoAccess: Free Real\u2011Time Log Analyzer for Self\u2011Hosted Sites",
+      "question": "What is allinurl/goaccess and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "allinurl/goaccess",
+      "repo_url": "https://github.com/allinurl/goaccess",
+      "repo_stars": 21011,
+      "repo_replaces": "Paid log analytics platforms",
+      "youtube": "UWDqZ5nuCkE",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ac8a154f07e682de6aba8f3",
+      "tiktok_caption": "GoAccess: Free Real\u2011Time Log Analyzer for Self\u2011Hosted Sites\n\nExplore how GoAccess gives you instant log insights without the cost of paid analytics services. Watch now and learn to transform raw logs into actionable dashboards!\n\nallinurl/goaccess: https://github.com/allinurl/goaccess\n\n#goaccess #opensource #selfhosted #loganalytics #devops",
+      "archetype": "StarRising",
+      "ts": "2026-10-09T08:09:52"
     }
   ],
   "repos": {
@@ -3173,7 +3194,8 @@
       "microsoft/playwright",
       "smartstore/Smartstore",
       "Volmarg/personal-management-system",
-      "Qloapps/QloApps"
+      "Qloapps/QloApps",
+      "allinurl/goaccess"
     ]
   },
   "modes": {
@@ -3270,6 +3292,7 @@
       "star_rising",
       "star_rising",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising",

@@ -173,7 +173,8 @@
       "Self-hosted personal finance app that replaces your budgeting SaaS",
       "Deploy a website in 30 minutes with free-tier Vercel vs Netlify",
       "Automate monthly savings with Google Sheets + Make",
-      "Cheap SaaS Alternatives: Replace Expensive Tools with Free or Low\u2011Cost Open Source"
+      "Cheap SaaS Alternatives: Replace Expensive Tools with Free or Low\u2011Cost Open Source",
+      "Self-hosted Airtable alternative on a $5 droplet"
     ]
   },
   "uploads": [
@@ -3183,6 +3184,26 @@
       "tiktok_caption": "Slash Your SaaS Costs: Free & Low\u2011Cost Open\u2011Source Hacks \ud83d\ude80\n\nDiscover how to ditch pricey tools for powerful open\u2011source alternatives in minutes. Upgrade your workflow without breaking the bank\u2014follow for more budget\u2011saving tech tips!\n\n#opensource #savemoney #techhacks #freetools #budgettech",
       "archetype": "CostTeardown",
       "ts": "2026-10-10T15:47:51"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Self-hosted Airtable alternative on a $5 droplet",
+      "title": "$5 Droplet = Self\u2011Hosted Airtable Alternative! \ud83d\ude80",
+      "question": "They Can Freeze Your Business in 1 Click",
+      "question_id": "yts:ceVvEOIXc-Q",
+      "question_url": "https://youtube.com/watch?v=ceVvEOIXc-Q",
+      "mode": "question",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "s5F8IKSjtuY",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6acaaddcb07d37ac9788102d",
+      "tiktok_caption": "$5 Droplet = Self\u2011Hosted Airtable Alternative! \ud83d\ude80\n\nDiscover how to spin up a powerful Airtable clone on a $5 droplet in minutes. Ready to ditch the cloud? Hit follow for more budget\u2011friendly tech hacks!\n\n#selfhosted #nocode #devops #budgettech #cloudfree",
+      "archetype": "CostTeardown",
+      "ts": "2026-10-10T21:27:52"
     }
   ],
   "repos": {
@@ -3386,6 +3407,7 @@
       "star_rising",
       "star_rising",
       "star_rising",
+      "question",
       "question",
       "question",
       "question"

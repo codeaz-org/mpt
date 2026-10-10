@@ -172,7 +172,8 @@
       "GoAccess \u2013 Self-hosted real-time web log analyzer that replaces paid log analytics services",
       "Self-hosted personal finance app that replaces your budgeting SaaS",
       "Deploy a website in 30 minutes with free-tier Vercel vs Netlify",
-      "Automate monthly savings with Google Sheets + Make"
+      "Automate monthly savings with Google Sheets + Make",
+      "Cheap SaaS Alternatives: Replace Expensive Tools with Free or Low\u2011Cost Open Source"
     ]
   },
   "uploads": [
@@ -3162,6 +3163,26 @@
       "tiktok_caption": "Automate Your Monthly Savings in 5 Minutes with Google Sheets & Make\n\nWatch how to set up a zero\u2011based budget that auto\u2011saves every month using Google Sheets and Make\u2019s no\u2011code workflow. Don\u2019t forget to hit follow for more quick finance hacks!\n\n#nocode #fintech #budgeting #automation #savings",
       "archetype": "WorkflowDemo",
       "ts": "2026-10-10T07:27:59"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Cheap SaaS Alternatives: Replace Expensive Tools with Free or Low\u2011Cost Open Source",
+      "title": "Slash Your SaaS Costs: Free & Low\u2011Cost Open\u2011Source Hacks \ud83d\ude80",
+      "question": "There&#39;s almost always a cheaper AI Tool alternative",
+      "question_id": "yts:0K49i1ktB80",
+      "question_url": "https://youtube.com/watch?v=0K49i1ktB80",
+      "mode": "question",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "7c-6GD9CPQw",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aca5e2bd9cab260a7cc376f",
+      "tiktok_caption": "Slash Your SaaS Costs: Free & Low\u2011Cost Open\u2011Source Hacks \ud83d\ude80\n\nDiscover how to ditch pricey tools for powerful open\u2011source alternatives in minutes. Upgrade your workflow without breaking the bank\u2014follow for more budget\u2011saving tech tips!\n\n#opensource #savemoney #techhacks #freetools #budgettech",
+      "archetype": "CostTeardown",
+      "ts": "2026-10-10T15:47:51"
     }
   ],
   "repos": {
@@ -3365,6 +3386,7 @@
       "star_rising",
       "star_rising",
       "star_rising",
+      "question",
       "question",
       "question"
     ]

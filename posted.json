@@ -171,7 +171,8 @@
       "QloApps: Self\u2011Hosted Hotel Management System that Replaces Paid PMS Software",
       "GoAccess \u2013 Self-hosted real-time web log analyzer that replaces paid log analytics services",
       "Self-hosted personal finance app that replaces your budgeting SaaS",
-      "Deploy a website in 30 minutes with free-tier Vercel vs Netlify"
+      "Deploy a website in 30 minutes with free-tier Vercel vs Netlify",
+      "Automate monthly savings with Google Sheets + Make"
     ]
   },
   "uploads": [
@@ -3141,6 +3142,26 @@
       "tiktok_caption": "30\u2011Minute Site Launch: Vercel vs Netlify Free Tier Showdown\n\nWatch how to deploy a website in just 30 minutes using the free tiers of Vercel and Netlify. Which platform wins for speed, features, and ease? Hit follow for more dev hacks!\n\n#vercel #netlify #webdev #devtools #freehosting",
       "archetype": "WorkflowDemo",
       "ts": "2026-10-09T22:24:44"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Automate monthly savings with Google Sheets + Make",
+      "title": "Automate Your Monthly Savings in 5 Minutes with Google Sheets & Make",
+      "question": "how do i automate my savings",
+      "question_id": "gsuggest:how do i automate my savings",
+      "question_url": "https://www.google.com/search?q=how%20do%20i%20automate%20my%20savings",
+      "mode": "question",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "U9ZASrROFm4",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ac9e903c4de2d2b121bd9a9",
+      "tiktok_caption": "Automate Your Monthly Savings in 5 Minutes with Google Sheets & Make\n\nWatch how to set up a zero\u2011based budget that auto\u2011saves every month using Google Sheets and Make\u2019s no\u2011code workflow. Don\u2019t forget to hit follow for more quick finance hacks!\n\n#nocode #fintech #budgeting #automation #savings",
+      "archetype": "WorkflowDemo",
+      "ts": "2026-10-10T07:27:59"
     }
   ],
   "repos": {
@@ -3344,6 +3365,7 @@
       "star_rising",
       "star_rising",
       "star_rising",
+      "question",
       "question"
     ]
   }

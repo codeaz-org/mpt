@@ -176,7 +176,8 @@
       "Cheap SaaS Alternatives: Replace Expensive Tools with Free or Low\u2011Cost Open Source",
       "Self-hosted Airtable alternative on a $5 droplet",
       "DuckDB: Self\u2011hosted analytics database that replaces paid BI platforms",
-      "The self-hosted observability pipeline that can replace Datadog"
+      "The self-hosted observability pipeline that can replace Datadog",
+      "Watermarks Remover: Self-hosted app that replaces paid AI watermark removal services"
     ]
   },
   "uploads": [
@@ -3246,6 +3247,26 @@
       "tiktok_caption": "Replace Datadog with a Self\u2011Hosted Observability Pipeline? \ud83d\ude80\n\nDiscover how this open\u2011source project can power a full observability stack without cloud costs. Dive into the setup and learn why it\u2019s a game\u2011changer for developers. Follow for more deep dives!\n\nvectordotdev/vector: https://github.com/vectordotdev/vector\n\n#observability #opensource #selfhosted #devops #monitoring",
       "archetype": "StarRising",
       "ts": "2026-10-11T15:31:52"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Watermarks Remover: Self-hosted app that replaces paid AI watermark removal services",
+      "title": "Stop Paying for AI Watermarks \u2013 Self\u2011Hosted Watermark Remover!",
+      "question": "What is guillaumemeyer/watermarks-remover and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "guillaumemeyer/watermarks-remover",
+      "repo_url": "https://github.com/guillaumemeyer/watermarks-remover",
+      "repo_stars": 23861,
+      "repo_replaces": "Paid AI watermark removal services",
+      "youtube": "LkFtbOAzLWo",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6acbfc5b8e8dd50ffc576d44",
+      "tiktok_caption": "Stop Paying for AI Watermarks \u2013 Self\u2011Hosted Watermark Remover!\n\nDiscover how this open\u2011source project lets you remove watermarks on your own server, cutting costs and keeping control. Try it today and reclaim your media\u2014follow for more tech hacks!\n\nguillaumemeyer/watermarks-remover: https://github.com/guillaumemeyer/watermarks-remover\n\n#opensource #selfhosted #watermarkremoval #aitools #techhacks",
+      "archetype": "StarRising",
+      "ts": "2026-10-11T21:15:03"
     }
   ],
   "repos": {
@@ -3345,7 +3366,8 @@
       "allinurl/goaccess",
       "LosaLosSantos/aurelio-finance",
       "duckdb/duckdb",
-      "vectordotdev/vector"
+      "vectordotdev/vector",
+      "guillaumemeyer/watermarks-remover"
     ]
   },
   "modes": {
@@ -3455,6 +3477,7 @@
       "question",
       "question",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising"
     ]

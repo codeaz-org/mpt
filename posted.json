@@ -174,7 +174,8 @@
       "Deploy a website in 30 minutes with free-tier Vercel vs Netlify",
       "Automate monthly savings with Google Sheets + Make",
       "Cheap SaaS Alternatives: Replace Expensive Tools with Free or Low\u2011Cost Open Source",
-      "Self-hosted Airtable alternative on a $5 droplet"
+      "Self-hosted Airtable alternative on a $5 droplet",
+      "DuckDB: Self\u2011hosted analytics database that replaces paid BI platforms"
     ]
   },
   "uploads": [
@@ -3204,6 +3205,26 @@
       "tiktok_caption": "$5 Droplet = Self\u2011Hosted Airtable Alternative! \ud83d\ude80\n\nDiscover how to spin up a powerful Airtable clone on a $5 droplet in minutes. Ready to ditch the cloud? Hit follow for more budget\u2011friendly tech hacks!\n\n#selfhosted #nocode #devops #budgettech #cloudfree",
       "archetype": "CostTeardown",
       "ts": "2026-10-10T21:27:52"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "DuckDB: Self\u2011hosted analytics database that replaces paid BI platforms",
+      "title": "DuckDB: The Self\u2011Hosted Analytics DB That Beats Paid BI",
+      "question": "What is duckdb/duckdb and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "duckdb/duckdb",
+      "repo_url": "https://github.com/duckdb/duckdb",
+      "repo_stars": 42088,
+      "repo_replaces": "Paid BI platforms",
+      "youtube": "d_ezHEsYqZA",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6acb3573d9cab260a7eca317",
+      "tiktok_caption": "DuckDB: The Self\u2011Hosted Analytics DB That Beats Paid BI\n\nDiscover how DuckDB, a lightweight open\u2011source database, can replace expensive BI tools with powerful analytics on your own server. Hit follow for more deep dives into game\u2011changing tech!\n\nduckdb/duckdb: https://github.com/duckdb/duckdb\n\n#duckdb #dataanalytics #opensource #selfhosted #birevolution",
+      "archetype": "StarRising",
+      "ts": "2026-10-11T07:06:22"
     }
   ],
   "repos": {
@@ -3301,7 +3322,8 @@
       "Volmarg/personal-management-system",
       "Qloapps/QloApps",
       "allinurl/goaccess",
-      "LosaLosSantos/aurelio-finance"
+      "LosaLosSantos/aurelio-finance",
+      "duckdb/duckdb"
     ]
   },
   "modes": {
@@ -3410,7 +3432,8 @@
       "question",
       "question",
       "question",
-      "question"
+      "question",
+      "star_rising"
     ]
   }
 }

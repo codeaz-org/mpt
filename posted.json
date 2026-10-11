@@ -175,7 +175,8 @@
       "Automate monthly savings with Google Sheets + Make",
       "Cheap SaaS Alternatives: Replace Expensive Tools with Free or Low\u2011Cost Open Source",
       "Self-hosted Airtable alternative on a $5 droplet",
-      "DuckDB: Self\u2011hosted analytics database that replaces paid BI platforms"
+      "DuckDB: Self\u2011hosted analytics database that replaces paid BI platforms",
+      "The self-hosted observability pipeline that can replace Datadog"
     ]
   },
   "uploads": [
@@ -3225,6 +3226,26 @@
       "tiktok_caption": "DuckDB: The Self\u2011Hosted Analytics DB That Beats Paid BI\n\nDiscover how DuckDB, a lightweight open\u2011source database, can replace expensive BI tools with powerful analytics on your own server. Hit follow for more deep dives into game\u2011changing tech!\n\nduckdb/duckdb: https://github.com/duckdb/duckdb\n\n#duckdb #dataanalytics #opensource #selfhosted #birevolution",
       "archetype": "StarRising",
       "ts": "2026-10-11T07:06:22"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "The self-hosted observability pipeline that can replace Datadog",
+      "title": "Replace Datadog with a Self\u2011Hosted Observability Pipeline? \ud83d\ude80",
+      "question": "What is vectordotdev/vector and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "vectordotdev/vector",
+      "repo_url": "https://github.com/vectordotdev/vector",
+      "repo_stars": 22685,
+      "repo_replaces": "Datadog",
+      "youtube": "pM-Bz6pZ17c",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6acbabecf91f772d45d14558",
+      "tiktok_caption": "Replace Datadog with a Self\u2011Hosted Observability Pipeline? \ud83d\ude80\n\nDiscover how this open\u2011source project can power a full observability stack without cloud costs. Dive into the setup and learn why it\u2019s a game\u2011changer for developers. Follow for more deep dives!\n\nvectordotdev/vector: https://github.com/vectordotdev/vector\n\n#observability #opensource #selfhosted #devops #monitoring",
+      "archetype": "StarRising",
+      "ts": "2026-10-11T15:31:52"
     }
   ],
   "repos": {
@@ -3323,7 +3344,8 @@
       "Qloapps/QloApps",
       "allinurl/goaccess",
       "LosaLosSantos/aurelio-finance",
-      "duckdb/duckdb"
+      "duckdb/duckdb",
+      "vectordotdev/vector"
     ]
   },
   "modes": {
@@ -3433,6 +3455,7 @@
       "question",
       "question",
       "question",
+      "star_rising",
       "star_rising"
     ]
   }

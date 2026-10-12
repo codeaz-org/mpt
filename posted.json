@@ -3367,7 +3367,8 @@
       "LosaLosSantos/aurelio-finance",
       "duckdb/duckdb",
       "vectordotdev/vector",
-      "guillaumemeyer/watermarks-remover"
+      "guillaumemeyer/watermarks-remover",
+      "microsoft/skill-recorder"
     ]
   },
   "modes": {

@@ -3368,7 +3368,8 @@
       "duckdb/duckdb",
       "vectordotdev/vector",
       "guillaumemeyer/watermarks-remover",
-      "microsoft/skill-recorder"
+      "microsoft/skill-recorder",
+      "milind-soni/OpenMausBot"
     ]
   },
   "modes": {

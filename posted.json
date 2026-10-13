@@ -3370,7 +3370,9 @@
       "guillaumemeyer/watermarks-remover",
       "microsoft/skill-recorder",
       "milind-soni/OpenMausBot",
-      "gogs/gogs"
+      "gogs/gogs",
+      "googleworkspace/cli",
+      "DietrichGebert/ponytail"
     ]
   },
   "modes": {

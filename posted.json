@@ -3369,7 +3369,8 @@
       "vectordotdev/vector",
       "guillaumemeyer/watermarks-remover",
       "microsoft/skill-recorder",
-      "milind-soni/OpenMausBot"
+      "milind-soni/OpenMausBot",
+      "gogs/gogs"
     ]
   },
   "modes": {

@@ -1,0 +1,21 @@
+{
+  "niche": "codeaz",
+  "format": "checklist",
+  "topic_id": "rls-off",
+  "asked": null,
+  "title": "Row Level Security is off on a table",
+  "description": "Launch checklist, number 1: Row Level Security is on for every table. The public key ships inside every browser by design. Row Level Security is what stops it reading every row. With RLS off on a table, any visitor can query that whole table straight from the browser console.\n\nBuilt your app with Lovable, Bolt, v0 or Replit and it keeps breaking? Get it audited: https://rescue.codeaz.org\n\n#lovable #boltnew #supabase #vibecoding #nocode",
+  "hashtags": [
+    "#lovable",
+    "#boltnew",
+    "#supabase",
+    "#vibecoding",
+    "#nocode"
+  ],
+  "youtube": "CMnMDcjKk1Y",
+  "only": [
+    "tiktok",
+    "instagram",
+    "linkedin"
+  ]
+}

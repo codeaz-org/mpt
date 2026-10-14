@@ -1333,7 +1333,7 @@ def take_approved(niche):
     for post in sorted(QUEUE_DIR.glob("*/post.json")):
         try:
             data = json.loads(post.read_text())
-            if data.get("niche") != niche["id"]:
+            if data.get("niche") != niche["id"] or data.get("only"):
                 continue
             video = post.parent / "video.mp4"
             if not video.exists():
@@ -1386,6 +1386,7 @@ def run_niche(niche, state):
         log(f"[{niche['id']}] skipped: set YT_REFRESH_TOKEN_{niche['id'].upper()} "
             "once the channel exists")
         return
+    finish_queued(niche, state)
     used = state["topics"].setdefault(niche["id"], [])
     for _ in range(niche.get("videos_per_run", 1)):
         repo = None
@@ -1544,38 +1545,96 @@ def run_niche(niche, state):
         _record_mode(state, niche["id"], mode)
         state["uploads"].append(entry)
         save_state(state)
+        publish_secondary(video, meta, niche, caption, entry)
         if queued:
-            # Public now: drop it from the queue so the next run cannot post it again.
+            # Out on every platform now (or logged as failed): drop it from the queue
+            # so the next run cannot post it again. Only after the last platform --
+            # removing it straight after YouTube left nothing for TikTok, Instagram
+            # and LinkedIn to upload.
             shutil.rmtree(queued["dir"], ignore_errors=True)
+        save_state(state)
+        write_pending_captions(state)
+        if not queued:
+            try:
+                os.remove(video)  # keep disk clean
+            except OSError:
+                pass
 
+
+SECONDARY = ("tiktok", "instagram", "linkedin")
+
+
+def publish_secondary(video, meta, niche, caption, entry, only=SECONDARY):
+    """Everything after YouTube. Each platform fails on its own: YouTube already has the
+    video, so losing one of these must not lose the run. Returns the platforms that
+    went out."""
+    done = []
+    if "tiktok" in only:
         try:
             tt_ok, tt_via, tt_id = publish_tiktok(video, meta, niche, caption)
             entry.update(tiktok=tt_ok, tiktok_via=tt_via, tiktok_post_id=tt_id)
+            if tt_ok:
+                done.append("tiktok")
             if tt_via == "inbox":
                 # A draft carries no caption, so keep it for pasting from the phone.
                 log(f"[{niche['id']}] TikTok caption to paste:\n{caption}")
         except Exception as e:
-            # YouTube already has the video; losing TikTok must not lose the run.
             log(f"[{niche['id']}] TikTok publishing failed: {type(e).__name__}: {str(e)[:160]}")
+    if "instagram" in only:
         try:
             ig_id = publish_instagram(video, meta, niche, caption)
             entry.update(instagram=bool(ig_id), instagram_post_id=ig_id)
+            if ig_id:
+                done.append("instagram")
         except Exception as e:
-            # Same rule as TikTok: a lost Reel must not lose the run.
             log(f"[{niche['id']}] Instagram publishing failed: {type(e).__name__}: "
                 f"{str(e)[:160]}")
+    if "linkedin" in only:
         try:
             li_id = publish_linkedin(video, meta, niche, caption)
             entry.update(linkedin=bool(li_id), linkedin_post_id=li_id)
+            if li_id:
+                done.append("linkedin")
         except Exception as e:
             log(f"[{niche['id']}] LinkedIn publishing failed: {type(e).__name__}: "
                 f"{str(e)[:160]}")
-        save_state(state)
-        write_pending_captions(state)
+    return done
+
+
+def finish_queued(niche, state):
+    """Approved videos already on YouTube that still owe other platforms a post.
+
+    A queue item whose post.json carries "youtube": "<id>" and "only": [platforms] is a
+    catch-up: it posts to those platforms alone, records the posts on the existing
+    upload entry, and never re-uploads to YouTube or takes a rescue slot. It runs
+    every run until every listed platform has the video, then leaves the queue."""
+    for post in sorted(QUEUE_DIR.glob("*/post.json")):
         try:
-            os.remove(video)  # keep disk clean
-        except OSError:
-            pass
+            data = json.loads(post.read_text())
+        except Exception:
+            continue
+        if data.get("niche") != niche["id"] or not data.get("only") or not data.get("youtube"):
+            continue
+        video = post.parent / "video.mp4"
+        entry = next((u for u in state.get("uploads", []) if u.get("youtube") == data["youtube"]), None)
+        if entry is None or not video.exists():
+            log(f"[{niche['id']}] catch-up {post.parent.name}: no upload {data['youtube']} or no video")
+            continue
+        meta = {"title": data["title"], "description": data["description"],
+                "hashtags": data.get("hashtags") or []}
+        caption = tiktok_caption(meta, niche)
+        if DRY_RUN:
+            log(f"[{niche['id']}] DRY_RUN: would finish {post.parent.name} on {data['only']}")
+            continue
+        done = publish_secondary(str(video), meta, niche, caption, entry, only=tuple(data["only"]))
+        log(f"[{niche['id']}] catch-up {post.parent.name}: posted to {done or 'nothing'}")
+        left = [p for p in data["only"] if p not in done]
+        if left:
+            data["only"] = left
+            post.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+        else:
+            shutil.rmtree(post.parent, ignore_errors=True)
+        save_state(state)
 
 
 RUN_ATTEMPTS = int(os.environ.get("RUN_ATTEMPTS", "3"))

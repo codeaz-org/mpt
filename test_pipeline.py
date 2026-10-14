@@ -1655,15 +1655,53 @@ class AppRescueRunTest(RunNicheTest):
              mock.patch.object(autopilot, "make_metadata", fail), \
              mock.patch.object(autopilot, "DRY_RUN", False), \
              mock.patch.object(autopilot, "upload_youtube", yt), \
-             mock.patch.object(autopilot, "upload_tiktok", lambda v, m, n: "pub1"), \
+             mock.patch.object(autopilot, "upload_tiktok",
+                               lambda v, m, n: published.setdefault("tiktok", Path(v).read_bytes()) and "pub1"), \
+             mock.patch.object(autopilot, "publish_instagram",
+                               lambda v, m, n, c: published.setdefault("instagram", Path(v).read_bytes()) and "ig1"), \
+             mock.patch.object(autopilot, "publish_linkedin",
+                               lambda v, m, n, c: published.setdefault("linkedin", Path(v).read_bytes()) and "li1"), \
              mock.patch.object(buffer, "enabled", lambda: False):
             autopilot.run_niche(RESCUE_NICHE, state)
         self.assertEqual(published["video"], b"approved")
+        # The regression that shipped: the queue folder was deleted straight after
+        # YouTube, so every later platform failed with FileNotFoundError.
+        for platform in ("tiktok", "instagram", "linkedin"):
+            self.assertEqual(published.get(platform), b"approved", f"{platform} never got the video")
         self.assertEqual(published["meta"]["title"], "Approved title")
         entry = state["uploads"][-1]
         self.assertEqual((entry["mode"], entry["rescue_format"], entry["rescue"]), ("rescue", "check", "a"))
         self.assertEqual(state["rescue"]["codeaz"], {"check": ["a"]})
         self.assertFalse(item.exists(), "published items leave the queue")
+
+    def test_catch_up_finishes_other_platforms_without_youtube(self):
+        item = self.root / "queue" / "approved" / "00-finish"
+        item.mkdir(parents=True)
+        (item / "video.mp4").write_bytes(b"live")
+        (item / "post.json").write_text(json.dumps({
+            "niche": "codeaz", "format": "checklist", "topic_id": "a", "title": "T",
+            "description": "D", "youtube": "yt-live", "only": ["tiktok", "instagram", "linkedin"]}))
+        state = {"topics": {}, "uploads": [{"niche": "codeaz", "youtube": "yt-live", "tiktok": False,
+                                            "instagram": False, "linkedin": False}],
+                 "modes": {"codeaz": ["rescue"]}}
+        calls = []
+        def ig(v, m, n, c):
+            raise RuntimeError("instagram down")
+        with mock.patch.object(autopilot, "QUEUE_DIR", self.root / "queue" / "approved"), \
+             mock.patch.object(autopilot, "DRY_RUN", False), \
+             mock.patch.object(autopilot, "upload_youtube",
+                               lambda v, m, n: calls.append(Path(v).read_bytes()) or "yt-new"), \
+             mock.patch.object(autopilot, "upload_tiktok", lambda v, m, n: "pub1"), \
+             mock.patch.object(autopilot, "publish_instagram", ig), \
+             mock.patch.object(autopilot, "publish_linkedin", lambda v, m, n, c: "li1"), \
+             mock.patch.object(buffer, "enabled", lambda: False):
+            autopilot.run_niche(RESCUE_NICHE, state)
+        live = state["uploads"][0]
+        self.assertTrue(live["tiktok"])
+        self.assertEqual(live["linkedin_post_id"], "li1")
+        self.assertNotIn(b"live", calls, "a catch-up never re-uploads to YouTube")
+        left = json.loads((item / "post.json").read_text())["only"]
+        self.assertEqual(left, ["instagram"], "only the failed platform is retried next run")
 
     def test_the_queue_waits_for_a_rescue_slot(self):
         item = self.root / "queue" / "approved" / "01-check"

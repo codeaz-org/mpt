@@ -180,7 +180,8 @@
       "Watermarks Remover: Self-hosted app that replaces paid AI watermark removal services",
       "Open-Connector: Self-hosted auth gateway that replaces Auth0",
       "Row Level Security is off on a table",
-      "Automate Blog SEO with n8n: Draft \u2192 CMS \u2192 Social"
+      "Automate Blog SEO with n8n: Draft \u2192 CMS \u2192 Social",
+      "The self-hosted newsletter platform that replaces Mailchimp"
     ]
   },
   "uploads": [
@@ -3312,8 +3313,8 @@
       "tiktok_caption": "Row Level Security is off on a table\n\nLaunch checklist, number 1: Row Level Security is on for every table. The public key ships inside every browser by design. Row Level Security is what stops it reading every row. With RLS off on a table, any visitor can query that whole table straight from the browser console.\n\nBuilt your app with Lovable, Bolt, v0 or Replit and it keeps breaking? Get it audited: https://rescue.codeaz.org\n\n#lovable #boltnew #supabase #vibecoding #nocode",
       "instagram": true,
       "instagram_post_id": "6acf4afd1faf3fca4e4df550",
-      "linkedin": false,
-      "linkedin_post_id": null,
+      "linkedin": true,
+      "linkedin_post_id": "6acf8dfb5ae964ac12edd571",
       "archetype": "RescueSplit",
       "ts": "2026-10-14T09:14:01"
     },
@@ -3342,6 +3343,32 @@
       "linkedin_post_id": "6acf52061faf3fca4e4f48ea",
       "archetype": "WorkflowDemo",
       "ts": "2026-10-14T09:57:00"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "The self-hosted newsletter platform that replaces Mailchimp",
+      "title": "Say Goodbye to Mailchimp with This Self\u2011Hosted Newsletter Tool",
+      "question": "What is marclou/mailcheap and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "marclou/mailcheap",
+      "repo_url": "https://github.com/marclou/mailcheap",
+      "repo_stars": 918,
+      "repo_replaces": "Mailchimp",
+      "youtube": "WmrIzCe5NwY",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6acf92508b6c76b221ffa2f2",
+      "tiktok_caption": "Say Goodbye to Mailchimp with This Self\u2011Hosted Newsletter Tool\n\nDiscover how marclou/mailcheap offers a free, open\u2011source alternative for building newsletters without vendor lock\u2011in. Try it today and take control of your email list! for more tech insights\n\nmarclou/mailcheap: https://github.com/marclou/mailcheap\n\n#opensource #mailcheap #newsletter #selfhosted #nocodefounder",
+      "instagram": true,
+      "instagram_post_id": "6acf925bb22a3e84548ec331",
+      "linkedin": true,
+      "linkedin_post_id": "6acf9265ed762d924f227348",
+      "archetype": "StarRising",
+      "ts": "2026-10-14T14:31:39"
     }
   ],
   "repos": {
@@ -3450,7 +3477,8 @@
       "DietrichGebert/ponytail",
       "ClickHouse/ClickHouse",
       "tinacms/tinacms",
-      "oomol-lab/open-connector"
+      "oomol-lab/open-connector",
+      "marclou/mailcheap"
     ]
   },
   "modes": {
@@ -3565,7 +3593,8 @@
       "star_rising",
       "star_rising",
       "rescue",
-      "question"
+      "question",
+      "star_rising"
     ]
   },
   "rescue": {

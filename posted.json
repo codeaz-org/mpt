@@ -181,7 +181,8 @@
       "Open-Connector: Self-hosted auth gateway that replaces Auth0",
       "Row Level Security is off on a table",
       "Automate Blog SEO with n8n: Draft \u2192 CMS \u2192 Social",
-      "The self-hosted newsletter platform that replaces Mailchimp"
+      "The self-hosted newsletter platform that replaces Mailchimp",
+      "Google login works in preview but fails on real domain"
     ]
   },
   "uploads": [
@@ -3369,6 +3370,32 @@
       "linkedin_post_id": "6acf9265ed762d924f227348",
       "archetype": "StarRising",
       "ts": "2026-10-14T14:31:39"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Google login works in preview but fails on real domain",
+      "title": "Google login works in preview but fails on real domain",
+      "question": "My app has this problem: Google login works in the preview and breaks on your real domain. What is going on and how do I fix it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": "oauth-redirect-mismatch",
+      "rescue_format": "explainer",
+      "mode": "rescue",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "N4xiwim-lag",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6acfe7f349e261bd15205ef4",
+      "tiktok_caption": "Google login works in preview but fails on real domain\n\nGoogle login works in the preview and breaks on your real domain. Google only sends users back to redirect URLs you registered. A new domain that is not on the list is rejected, and the builder's preview URL is usually the only one registered.\n\nBuilt your app with Lovable, Bolt, v0 or Replit and it keeps breaking? Get it audited: https://rescue.codeaz.org\n\n#lovable #boltnew #supabase #vibecoding #nocode",
+      "instagram": true,
+      "instagram_post_id": "6acfe7fd49e261bd1520606b",
+      "linkedin": true,
+      "linkedin_post_id": "6acfe808709f67a4043759b7",
+      "archetype": "RescueSplit",
+      "ts": "2026-10-14T20:37:04"
     }
   ],
   "repos": {
@@ -3594,13 +3621,17 @@
       "star_rising",
       "rescue",
       "question",
-      "star_rising"
+      "star_rising",
+      "rescue"
     ]
   },
   "rescue": {
     "codeaz": {
       "checklist": [
         "rls-off"
+      ],
+      "explainer": [
+        "oauth-redirect-mismatch"
       ]
     }
   }

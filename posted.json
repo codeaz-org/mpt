@@ -177,7 +177,8 @@
       "Self-hosted Airtable alternative on a $5 droplet",
       "DuckDB: Self\u2011hosted analytics database that replaces paid BI platforms",
       "The self-hosted observability pipeline that can replace Datadog",
-      "Watermarks Remover: Self-hosted app that replaces paid AI watermark removal services"
+      "Watermarks Remover: Self-hosted app that replaces paid AI watermark removal services",
+      "Open-Connector: Self-hosted auth gateway that replaces Auth0"
     ]
   },
   "uploads": [
@@ -3267,6 +3268,26 @@
       "tiktok_caption": "Stop Paying for AI Watermarks \u2013 Self\u2011Hosted Watermark Remover!\n\nDiscover how this open\u2011source project lets you remove watermarks on your own server, cutting costs and keeping control. Try it today and reclaim your media\u2014follow for more tech hacks!\n\nguillaumemeyer/watermarks-remover: https://github.com/guillaumemeyer/watermarks-remover\n\n#opensource #selfhosted #watermarkremoval #aitools #techhacks",
       "archetype": "StarRising",
       "ts": "2026-10-11T21:15:03"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Open-Connector: Self-hosted auth gateway that replaces Auth0",
+      "title": "Replace Auth0 with a Self\u2011Hosted Auth Gateway in 30 Seconds!",
+      "question": "What is oomol-lab/open-connector and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "mode": "star_rising",
+      "repo": "oomol-lab/open-connector",
+      "repo_url": "https://github.com/oomol-lab/open-connector",
+      "repo_stars": 6007,
+      "repo_replaces": "Auth0",
+      "youtube": "hc6W9hKDKlI",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6acf1a330ab87a16c8e51456",
+      "tiktok_caption": "Replace Auth0 with a Self\u2011Hosted Auth Gateway in 30 Seconds!\n\nDiscover how Open\u2011Connector lets you self\u2011host your auth gateway, eliminating monthly costs and giving you full control. Want to learn more? Hit follow for quick dev hacks!\n\noomol-lab/open-connector: https://github.com/oomol-lab/open-connector\n\n#opensource #nocode #devtools #auth #selfhost",
+      "archetype": "StarRising",
+      "ts": "2026-10-14T05:59:11"
     }
   ],
   "repos": {
@@ -3374,7 +3395,8 @@
       "googleworkspace/cli",
       "DietrichGebert/ponytail",
       "ClickHouse/ClickHouse",
-      "tinacms/tinacms"
+      "tinacms/tinacms",
+      "oomol-lab/open-connector"
     ]
   },
   "modes": {
@@ -3484,6 +3506,7 @@
       "question",
       "question",
       "question",
+      "star_rising",
       "star_rising",
       "star_rising",
       "star_rising"

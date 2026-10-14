@@ -1792,10 +1792,23 @@ class LinkedInTest(unittest.TestCase):
             post = autopilot.publish_linkedin("v.mp4", {}, NICHE, caption)
         self.assertEqual(post, "li1")
         self.assertEqual(sent["channelId"], "li-page")
+        # Buffer's free plan rejects firstComment, so the link rides in the post body,
+        # on its own line above the three tags.
+        self.assertEqual(sent["metadata"], {"linkedin": {}})
+        self.assertIn("Get it audited\n\nhttps://rescue.codeaz.org\n\n#a #b #c", sent["text"])
+        self.assertEqual(sent["text"].count("https://"), 1)
+
+    def test_first_comment_when_the_plan_allows_it(self):
+        sent = {}
+        def gql(query, variables=None):
+            sent.update(variables["input"])
+            return {"createPost": {"__typename": "PostActionSuccess", "post": {"id": "li2"}}}
+        with mock.patch.object(buffer, "gql", gql), \
+             mock.patch.object(buffer, "host_file", lambda p: "https://x/v.mp4"), \
+             mock.patch.dict(os.environ, {"BUFFER_LINKEDIN_FIRST_COMMENT": "1"}):
+            buffer.publish_linkedin("v.mp4", "Body https://rescue.codeaz.org\n\n#a", "li-page")
         self.assertEqual(sent["metadata"], {"linkedin": {"firstComment": "https://rescue.codeaz.org"}})
         self.assertNotIn("http", sent["text"])
-        self.assertTrue(sent["text"].endswith("#a #b #c"))
-        self.assertIn("Get it audited", sent["text"])
 
 
 if __name__ == "__main__":

@@ -253,11 +253,20 @@ def linkedin_text(caption, max_tags=3):
 
 
 def publish_linkedin(video_path, caption, channel_id, video_url=None):
-    """Post the video natively to a LinkedIn page, with any link as the first comment."""
+    """Post the video natively to a LinkedIn page. Any link goes on its own line at the
+    end of the post: putting it in the first comment is the reach-friendly option, but
+    Buffer rejects firstComment on the free plan ("LinkedIn first comment requires a
+    paid plan"), which cost the first App Rescue episode its LinkedIn post. Set
+    BUFFER_LINKEDIN_FIRST_COMMENT=1 once the plan allows it."""
     if not video_url:
         video_url = host_file(video_path)
     text, link = linkedin_text(caption)
-    meta = {"firstComment": link} if link else {}
+    meta = {}
+    if link and (os.environ.get("BUFFER_LINKEDIN_FIRST_COMMENT") or "").strip() == "1":
+        meta["firstComment"] = link
+    elif link:
+        body, tags = (text.rsplit("\n\n", 1) + [""])[:2] if "#" in text.rsplit("\n\n", 1)[-1] else (text, "")
+        text = f"{body}\n\n{link}" + (f"\n\n{tags}" if tags else "")
     return _create_post(channel_id, text, [{"video": {"url": video_url}}], None,
                         metadata={"linkedin": meta})
 

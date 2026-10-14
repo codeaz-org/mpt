@@ -192,11 +192,16 @@ jobs:
           # Approved videos published this run were deleted from queue/; remember
           # which, because the checkout below restores the branch's copy.
           git ls-files --deleted -- queue > /tmp/queue-published || true
+          # A catch-up item that posted to some platforms is rewritten to list only
+          # what is left; keep that edit too, or the next run reposts the rest.
+          git ls-files --modified -- queue | grep -v -x -F -f /tmp/queue-published > /tmp/queue-edited || true
+          tar -cf /tmp/queue-edited.tar -T /tmp/queue-edited 2>/dev/null || true
           git fetch origin ${{ github.ref_name }}
           git checkout -B autopilot-state origin/${{ github.ref_name }}
           cp /tmp/posted.json posted.json
           cp /tmp/CAPTIONS.md CAPTIONS.md 2>/dev/null || true
           xargs -r git rm -q --ignore-unmatch -- < /tmp/queue-published
+          if [ -s /tmp/queue-edited ]; then tar -xf /tmp/queue-edited.tar && xargs -r git add -- < /tmp/queue-edited; fi
           git add posted.json CAPTIONS.md
           if git diff --cached --quiet; then
             echo "state unchanged, nothing to persist"

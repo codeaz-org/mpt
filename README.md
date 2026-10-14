@@ -82,7 +82,7 @@ The video is hosted once per run and shared by TikTok, Instagram and LinkedIn. A
 
 ## LinkedIn page (via Buffer)
 
-Same pattern: connect the company **page** in Buffer, find its id with `python3 buffer.py channels`, and set `BUFFER_CHANNEL_ID_LI_<NICHE>`. Posts go up as native video. The caption keeps three hashtags rather than TikTok's set, and any link (the rescue.codeaz.org line on App Rescue episodes) moves out of the body into the first comment, since links in the post body are widely reported to reduce reach.
+Same pattern: connect the company **page** in Buffer, find its id with `python3 buffer.py channels`, and set `BUFFER_CHANNEL_ID_LI_<NICHE>`. Posts go up as native video. The caption keeps three hashtags rather than TikTok's set, and any link (the rescue.codeaz.org line on App Rescue episodes) sits on its own line at the end of the post. Buffer only allows LinkedIn first comments on paid plans; once the plan allows it, set `BUFFER_LINKEDIN_FIRST_COMMENT=1` to move the link into the first comment, where it is widely reported to cost less reach.
 
 ## Tuning
 - `RUN_HOURS` (Docker) or the cron lines (Actions) control frequency. Default: 4 runs/day × 4 niches = 16 videos/day. **Start with 1–2 runs/day** — brand-new channels that suddenly post 4x/day get flagged as spam.

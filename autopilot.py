@@ -21,7 +21,8 @@ import buffer
 import critic
 import questions
 import repos
-from llm import NIM_MODEL, nim_chat
+import rescue
+from llm import NIM_MODEL, nim_chat, nim_json
 
 ROOT = Path(__file__).resolve().parent
 
@@ -437,14 +438,31 @@ def _recent_tools(state, niche_id, keep=4):
 
 
 def _write_script(topic, niche, feedback=None, drift=(), question=None, recent_tools=(),
-                  repo=None):
+                  repo=None, rescue_ep=None):
     """One draft. `feedback` carries the critic's instructions from the previous round.
     `recent_tools` lists product names cited in recent videos so we can nudge the writer
     to pick a different example this time. `repo` is set on Star Rising episodes and
     carries the GitHub facts the script is allowed to state."""
     system = (niche.get("repo_script_prompt") if repo else None) or \
+        (rescue.script_prompt(niche, rescue_ep["format"]) if rescue_ep else None) or \
         niche.get("script_prompt", SCRIPT_SYSTEM)
     notes = []
+    if rescue_ep:
+        # The bank entry is the whole of what this episode may claim. It is a sales
+        # segment, which is exactly when a model reaches for a client story or a
+        # statistic it cannot back up.
+        notes.append(
+            "THE PROBLEM -- these are the ONLY established facts for this episode:\n"
+            + rescue.brief(rescue_ep, niche) + "\n\n"
+            "Rules for this episode:\n"
+            "  * Explain the problem, why it happens, and the proper fix, using only "
+            "the facts above. Plain English; explain any technical word in a few words.\n"
+            "  * No client stories, no 'we fixed an app that...', no statistics, no "
+            "percentages, no 'most apps'. None of those are in the facts.\n"
+            "  * Do not name a builder as uniquely bad. The builders listed are where "
+            "the problem shows up, not who is to blame.\n"
+            "  * The last sentence points to the audit at the URL above, said the way "
+            "a person would say it ('rescue dot codeaz dot org'). One mention only.")
     if repo:
         # The repo brief replaces the usual research context. Everything the script
         # asserts about the project has to trace back to these lines -- a model that
@@ -513,7 +531,8 @@ def _write_script(topic, niche, feedback=None, drift=(), question=None, recent_t
     ))
 
 
-def generate_script(topic, niche, question=None, recent_tools=(), repo=None):
+def generate_script(topic, niche, question=None, recent_tools=(), repo=None,
+                    rescue_ep=None):
     """Draft, critique, revise, until an editor agent passes it.
 
     A model asked to write and approve its own work approves nearly everything, so the
@@ -528,12 +547,13 @@ def generate_script(topic, niche, question=None, recent_tools=(), repo=None):
     # shape Star Rising needs. A niche supplies the replacement rubric alongside
     # the rest of its star_rising config.
     critic_niche = niche
-    if repo:
-        cfg = niche.get("star_rising") or {}
+    if repo or rescue_ep:
+        cfg = (niche.get("star_rising") if repo else rescue.config(niche)) or {}
         # The axes have to travel with the rubric: critic.review builds its JSON
         # schema from the axis list, so a rubric naming an axis the list omits is
         # scored on axes the model was never asked for.
-        overrides = {k: cfg[k] for k in ("critic_rubric", "critic_axes") if cfg.get(k)}
+        overrides = ({k: cfg[k] for k in ("critic_rubric", "critic_axes") if cfg.get(k)}
+                     if repo else rescue.critic_overrides(niche, rescue_ep["format"]))
         if overrides:
             critic_niche = {**niche, **overrides}
     if recent_tools:
@@ -541,7 +561,10 @@ def generate_script(topic, niche, question=None, recent_tools=(), repo=None):
 
     def write(feedback):
         script = _write_script(topic, niche, feedback, state["drift"], asked,
-                                recent_tools=recent_tools, repo=repo)
+                                recent_tools=recent_tools, repo=repo,
+                                rescue_ep=rescue_ep)
+        if rescue_ep:
+            script = rescue.spoken(script, niche)
         if weak_hook(script, style=hook_style):
             script = _rewrite_hook(script, topic, asked, style=hook_style)
         state["drift"] = tuple(_drift_terms(script, topic, niche))
@@ -568,6 +591,14 @@ def generate_script(topic, niche, question=None, recent_tools=(), repo=None):
                     "visibly breaks, with a number or object: 'divide by 256 and every "
                     "colour comes out one shade dark'. ") + fix)
             verdict = "revise"
+        if rescue_ep:
+            # Format rules the reviewing model waved through in testing ('prompt vs
+            # fix' that never named the prompt scored 9). Code decides these.
+            hard = rescue.script_problems(rescue_ep, script)
+            if hard:
+                problems = [p for p, _ in hard] + problems
+                fix = " ".join(f for _, f in hard) + " " + fix
+                verdict = "revise"
         drift = _drift_terms(script, t, niche)
         if len(drift) > MAX_DRIFT:
             problems = [f"uses {', '.join(drift)}, which belong to another subject"] + problems
@@ -722,7 +753,7 @@ def _clean_hashtags(tags):
     return out
 
 
-def make_metadata(topic, niche, question=None, repo=None):
+def make_metadata(topic, niche, question=None, repo=None, rescue_topic=None):
     """Title, description, hashtags. Never let a metadata hiccup discard a rendered
     video -- fall back to the topic.
 
@@ -754,11 +785,24 @@ def make_metadata(topic, niche, question=None, repo=None):
         "'this open-source project'."
         if repo else ""
     )
+    # App Rescue sells a service: the call to action is the audit, not a follow, and
+    # the description may not invent results the episode never claimed.
+    cta_rule = (
+        " This video explains one specific problem that shows up in apps built with AI "
+        "app builders. Title: state the problem plainly in the viewer's terms, like a "
+        "headline -- no emoji, no exclamation marks, no urgency ('now', 'stop', 'before "
+        "it's too late'), no fear words ('breach', 'disaster'). Description: exactly two "
+        "calm sentences, what happens and why. Never generalise: no 'many', 'most', "
+        "'all' or 'every' about apps or builders, and never imply a builder is bad. No "
+        "call to action, no statistics, no guarantees -- the link is added separately."
+        if rescue_topic else " Description: 2 sentences + a call to action to follow."
+    )
     try:
         raw = nim_chat(
             "You write YouTube Shorts metadata. Respond ONLY with JSON: "
-            f"{schema}. Title under 90 chars, punchy hook. Description: 2 "
-            "sentences + a call to action to follow." + credit_rule + hashtag_rule,
+            f"{schema}. Title under 90 chars, punchy hook." + (
+                " Description: 2 sentences." if rescue_topic else "")
+            + cta_rule + credit_rule + hashtag_rule,
             f"Video topic: {topic}",
             temperature=0.7,
         )
@@ -766,6 +810,14 @@ def make_metadata(topic, niche, question=None, repo=None):
     except Exception as e:
         log(f"metadata generation failed ({type(e).__name__}), using the topic as-is")
         meta = {"title": topic, "description": topic}
+    if rescue_topic:
+        # The model writes the title; the description and tags are fixed. Model-picked
+        # tags came back as '#rld' and '#rowlevel'.
+        meta["description"] = rescue.description(rescue_topic)
+        if rescue_topic.get("asked"):
+            meta["title"] = rescue_topic["title"]
+        meta["hashtags"] = list(rescue.config(niche).get("hashtags") or [])[:HASHTAG_CAP]
+        source_tags = []
     hashtags = list(source_tags)
     for tag in _clean_hashtags(meta.get("hashtags") or []):
         if tag not in hashtags:
@@ -780,10 +832,28 @@ def make_metadata(topic, niche, question=None, repo=None):
     # A Star Rising episode is about someone else's work; the link is the credit,
     # and it goes above the hashtags where a viewer will actually see it.
     credit = f'\n\n{repo["full_name"]}: {repo["url"]}' if repo else ""
+    if rescue_topic:
+        # The link is the point of the episode, so it goes above the hashtags.
+        credit = (f"\n\nBuilt your app with Lovable, Bolt, v0 or Replit and it keeps "
+                  f"breaking? Get it audited: https://{rescue.url(niche)}")
     meta["description"] = (
         f'{meta.get("description", topic)}{credit}\n\n{tags_str}'.rstrip())
     meta["title"] = meta.get("title", topic)[:95]
+    if rescue_topic:
+        # Belt and braces for the rules above: the brand promises no hype.
+        meta["title"] = _calm(meta["title"])
+        meta["description"] = _calm(meta["description"], keep_newlines=True)
     return meta
+
+
+_EMOJI = re.compile("[\U0001F000-\U0001FAFF\u2600-\u27BF\uFE0F]")
+
+
+def _calm(text, keep_newlines=False):
+    text = _EMOJI.sub("", text).replace("!", ".")
+    text = re.sub(r"\.{2,}", ".", text)
+    text = re.sub(r"[ \t]{2,}", " ", text)
+    return text.strip() if keep_newlines else re.sub(r"\s+", " ", text).strip()
 
 
 def youtube_credentials(niche_id):
@@ -1017,6 +1087,29 @@ def publish_tiktok(video, meta, niche, caption):
     return bool(publish_id), "inbox", publish_id
 
 
+def publish_instagram(video, meta, niche, caption):
+    """Instagram Reels through Buffer. Off unless the niche names its Instagram
+    channel with BUFFER_CHANNEL_ID_IG_<NICHE>: guessing would post one niche's videos
+    to another brand's account. Returns the Buffer post id, or None when skipped."""
+    if not buffer.enabled():
+        return None
+    channel_id = buffer.instagram_channel(niche["id"])
+    if not channel_id:
+        return None
+    return buffer.publish_instagram(video, caption, channel_id)
+
+
+def publish_linkedin(video, meta, niche, caption):
+    """The niche's LinkedIn page through Buffer, under the same explicit-channel rule
+    as Instagram. Returns the Buffer post id, or None when skipped."""
+    if not buffer.enabled():
+        return None
+    channel_id = buffer.linkedin_channel(niche["id"])
+    if not channel_id:
+        return None
+    return buffer.publish_linkedin(video, caption, channel_id)
+
+
 # edge-tts at +8% lands around 2.6 words per second. A finished video much shorter than
 # the script implies the narration was truncated -- a three second clip carrying only the
 # opening line reached a channel once, and nothing downstream noticed.
@@ -1209,6 +1302,69 @@ def _record_mode(state, niche_id, mode):
     state.setdefault("modes", {}).setdefault(niche_id, []).append(mode)
 
 
+def _last_rescue_format(state, niche_id):
+    for u in reversed(state.get("uploads", [])):
+        if u.get("niche") == niche_id and u.get("rescue_format"):
+            return u["rescue_format"]
+    return None
+
+
+def _rescue_series_tag(state, niche_id, ep):
+    """The badge on screen: a per-format counter, so each format reads as its own
+    series ('CHECK · 03'); the launch checklist shows its item ('CHECKLIST · 07/20')."""
+    if ep["format"] == "checklist":
+        return f"CHECKLIST · {ep['number']:02d}/{ep['of']}"
+    n = 1 + sum(1 for u in state.get("uploads", [])
+                if u.get("niche") == niche_id and u.get("rescue_format") == ep["format"])
+    return f"{rescue.tag(ep)} · {n:02d}"
+
+
+QUEUE_DIR = ROOT / "queue" / "approved"
+
+
+def take_approved(niche):
+    """The oldest human-approved video waiting for this niche, or None.
+
+    queue/approved/<name>/ holds video.mp4 and post.json:
+      {"niche": "codeaz", "format": "check", "topic_id": "rls-off",
+       "asked": {...} or null, "title": "...", "description": "...", "hashtags": [...]}
+    Items publish one per App Rescue slot, oldest name first, in place of a generated
+    episode. A broken item is skipped with a log line rather than failing the run."""
+    for post in sorted(QUEUE_DIR.glob("*/post.json")):
+        try:
+            data = json.loads(post.read_text())
+            if data.get("niche") != niche["id"]:
+                continue
+            video = post.parent / "video.mp4"
+            if not video.exists():
+                raise RuntimeError("no video.mp4")
+            topic = next(t for t in rescue.load_bank() if t["id"] == data["topic_id"])
+            ep = {"format": data["format"], "topic": topic, "title": data["title"]}
+            if data.get("asked"):
+                ep["asked"] = data["asked"]
+            meta = {"title": data["title"], "description": data["description"],
+                    "hashtags": data.get("hashtags") or []}
+            return {"dir": post.parent, "video": str(video), "ep": ep, "meta": meta}
+        except Exception as e:
+            log(f"[{niche['id']}] skipping queued item {post.parent.name}: "
+                f"{type(e).__name__}: {str(e)[:120]}")
+    return None
+
+
+def pick_rescue_episode(niche, state):
+    return rescue.pick(
+        niche, state.get("rescue", {}).get(niche["id"]),
+        last_format=_last_rescue_format(state, niche["id"]),
+        used_question_ids=used_question_ids(state, niche["id"]),
+        harvest=questions.harvest,
+        matcher=lambda system, user: nim_json(system, user, temperature=0.2, max_tokens=700))
+
+
+def rescue_turn(niche, state):
+    """Is this run's video an App Rescue episode? See rescue.is_turn."""
+    return rescue.is_turn(niche, state.get("modes", {}).get(niche["id"]))
+
+
 def star_rising_turn(niche, state):
     """Is this run's video a Star Rising episode?
 
@@ -1233,8 +1389,24 @@ def run_niche(niche, state):
     used = state["topics"].setdefault(niche["id"], [])
     for _ in range(niche.get("videos_per_run", 1)):
         repo = None
+        rescue_ep = None
+        queued = None
         mode = "question"
-        if star_rising_turn(niche, state):
+        if rescue_turn(niche, state):
+            queued = take_approved(niche)
+            if queued:
+                rescue_ep, topic, mode = queued["ep"], queued["meta"]["title"], "rescue"
+        if rescue_turn(niche, state) and not queued:
+            try:
+                rescue_ep = pick_rescue_episode(niche, state)
+                topic = rescue_ep["title"]
+                mode = "rescue"
+            except Exception as e:
+                # A spent or broken bank must not cost the channel its upload: the
+                # run carries on in the niche's normal format.
+                log(f"[{niche['id']}] App Rescue skipped ({type(e).__name__}: "
+                    f"{str(e)[:140]}); using the normal format this run")
+        if not rescue_ep and star_rising_turn(niche, state):
             try:
                 topic, repo = repos.pick(
                     niche, posted_repos(state, niche["id"]),
@@ -1255,35 +1427,66 @@ def run_niche(niche, state):
                 # Tuesday, and the question pipeline keeps the run shipping.
                 log(f"[{niche['id']}] Star Rising skipped ({type(e).__name__}: "
                     f"{str(e)[:140]}); falling back to the question pipeline")
-        if repo:
-            # Burn the pick now so a crash mid-render cannot re-pick it. A dry run
-            # publishes nothing, so it stays in memory only -- reviewing an episode
-            # must not spend the repo that a real run would have covered.
-            _record_repo(state, niche["id"], repo["full_name"])
+        if queued:
+            # A video a person already reviewed and approved: publish it as it was
+            # approved -- no new script, render or metadata. Burn its topic exactly as
+            # a generated episode would, so the rotation and dedupe stay true.
+            rescue_store = state.setdefault("rescue", {})
+            rescue_store[niche["id"]] = rescue.record(rescue_store.get(niche["id"]), rescue_ep)
             if not DRY_RUN:
                 save_state(state)
-            # The critic scores `answers_question`, so give it the question this
-            # format answers rather than leaving the axis to guess.
-            question = f"What is {repo['full_name']} and should I run it?"
-            script = generate_script(topic, niche, question, repo=repo)
+            question = rescue.question(rescue_ep)
+            video, archetype = queued["video"], "RescueSplit"
+            meta = queued["meta"]
+            caption = tiktok_caption(meta, niche)
+            sourced = rescue_ep
+            log(f"[{niche['id']}] publishing approved video {queued['dir'].name}")
         else:
-            topic, question = pick_topic(niche, used, used_question_ids(state, niche["id"]))
-            script = generate_script(topic, niche, question,
-                                     recent_tools=_recent_tools(state, niche["id"]))
-        # Per-archetype episode counts. Whichever archetype the script gets
-        # classified into, the badge shows 'Q · 07' or 'COST · 03' etc.
-        # -- proof each format is a series, not a one-off.
-        video, archetype = render_video(
-            topic, niche, script, question=question,
-            recent_archetypes=_recent_archetypes(state, niche["id"]),
-            episode_counts=_episode_counts(state, niche["id"]),
-            force_archetype="StarRising" if repo else None,
-            base_props=_repo_props(repo) if repo else None,
-            fallback_props=_repo_fallback_props(repo) if repo else None)
-        log(f"[{niche['id']}] Video: {video}")
-        meta = make_metadata(topic, niche,
-                             question=None if repo else question, repo=repo)
-        caption = tiktok_caption(meta, niche)
+            if repo:
+                # Burn the pick now so a crash mid-render cannot re-pick it. A dry run
+                # publishes nothing, so it stays in memory only -- reviewing an episode
+                # must not spend the repo that a real run would have covered.
+                _record_repo(state, niche["id"], repo["full_name"])
+                if not DRY_RUN:
+                    save_state(state)
+                # The critic scores `answers_question`, so give it the question this
+                # format answers rather than leaving the axis to guess.
+                question = f"What is {repo['full_name']} and should I run it?"
+                script = generate_script(topic, niche, question, repo=repo)
+            elif rescue_ep:
+                # Burned at pick time for the same reason as a repo.
+                rescue_store = state.setdefault("rescue", {})
+                rescue_store[niche["id"]] = rescue.record(rescue_store.get(niche["id"]), rescue_ep)
+                if not DRY_RUN:
+                    save_state(state)
+                question = rescue.question(rescue_ep)
+                script = generate_script(topic, niche, question, rescue_ep=rescue_ep)
+            else:
+                topic, question = pick_topic(niche, used, used_question_ids(state, niche["id"]))
+                script = generate_script(topic, niche, question,
+                                         recent_tools=_recent_tools(state, niche["id"]))
+            # Per-archetype episode counts. Whichever archetype the script gets
+            # classified into, the badge shows 'Q · 07' or 'COST · 03' etc.
+            # -- proof each format is a series, not a one-off.
+            video, archetype = render_video(
+                topic, niche, script, question=question,
+                recent_archetypes=_recent_archetypes(state, niche["id"]),
+                episode_counts=_episode_counts(state, niche["id"]),
+                force_archetype=("StarRising" if repo else
+                                 "RescueSplit" if rescue_ep else None),
+                base_props=(_repo_props(repo) if repo else
+                            {**rescue.base_props(rescue_ep, niche),
+                             "seriesTag": _rescue_series_tag(state, niche["id"], rescue_ep)}
+                            if rescue_ep else None),
+                fallback_props=(_repo_fallback_props(repo) if repo else
+                                rescue.fallback_props(rescue_ep) if rescue_ep else None))
+            log(f"[{niche['id']}] Video: {video}")
+            # Star Rising and App Rescue questions are internal framing, not a viewer's.
+            sourced = repo or rescue_ep
+            meta = make_metadata(topic, niche,
+                                 question=None if sourced else question, repo=repo,
+                                 rescue_topic=rescue_ep)
+            caption = tiktok_caption(meta, niche)
 
         if DRY_RUN:
             # MPT writes into its own storage dir, so copy the result into ./out.
@@ -1304,6 +1507,7 @@ def run_niche(niche, state):
             _record_mode(state, niche["id"], mode)
             continue
 
+        asked = (rescue_ep or {}).get("asked")
         yt_id = upload_youtube(video, meta, niche)
         # Record the topic the moment the video is public. Waiting until after TikTok
         # meant a failure there left a published video whose topic was never marked
@@ -1312,9 +1516,16 @@ def run_niche(niche, state):
             "niche": niche["id"], "topic": topic, "title": meta["title"],
             # provenance: which human question this video answers, so it is never
             # answered twice and the channel can show its work
-            "question": question if repo else (question or {}).get("title"),
-            "question_id": None if repo else (question or {}).get("id"),
-            "question_url": None if repo else (question or {}).get("url"),
+            "question": question if sourced else (question or {}).get("title"),
+            # A founder-question episode answers a real harvested post, which is
+            # burned by id exactly like the question pipeline's.
+            "question_id": (asked.get("id") if asked else
+                            None if sourced else (question or {}).get("id")),
+            "question_url": (asked.get("url") if asked else
+                             None if sourced else (question or {}).get("url")),
+            # App Rescue provenance: which bank entry and format this episode used.
+            "rescue": rescue_ep["topic"]["id"] if rescue_ep else None,
+            "rescue_format": rescue_ep["format"] if rescue_ep else None,
             # Star Rising provenance: which repo this episode covered, so it is
             # never covered twice and the description can credit it.
             "mode": mode,
@@ -1324,6 +1535,8 @@ def run_niche(niche, state):
             "repo_replaces": repo.get("replaces") if repo else None,
             "youtube": yt_id, "tiktok": False, "tiktok_via": None,
             "tiktok_post_id": None, "tiktok_caption": caption,
+            "instagram": False, "instagram_post_id": None,
+            "linkedin": False, "linkedin_post_id": None,
             "archetype": archetype,
             "ts": time.strftime("%Y-%m-%dT%H:%M:%S"),
         }
@@ -1331,6 +1544,9 @@ def run_niche(niche, state):
         _record_mode(state, niche["id"], mode)
         state["uploads"].append(entry)
         save_state(state)
+        if queued:
+            # Public now: drop it from the queue so the next run cannot post it again.
+            shutil.rmtree(queued["dir"], ignore_errors=True)
 
         try:
             tt_ok, tt_via, tt_id = publish_tiktok(video, meta, niche, caption)
@@ -1341,6 +1557,19 @@ def run_niche(niche, state):
         except Exception as e:
             # YouTube already has the video; losing TikTok must not lose the run.
             log(f"[{niche['id']}] TikTok publishing failed: {type(e).__name__}: {str(e)[:160]}")
+        try:
+            ig_id = publish_instagram(video, meta, niche, caption)
+            entry.update(instagram=bool(ig_id), instagram_post_id=ig_id)
+        except Exception as e:
+            # Same rule as TikTok: a lost Reel must not lose the run.
+            log(f"[{niche['id']}] Instagram publishing failed: {type(e).__name__}: "
+                f"{str(e)[:160]}")
+        try:
+            li_id = publish_linkedin(video, meta, niche, caption)
+            entry.update(linkedin=bool(li_id), linkedin_post_id=li_id)
+        except Exception as e:
+            log(f"[{niche['id']}] LinkedIn publishing failed: {type(e).__name__}: "
+                f"{str(e)[:160]}")
         save_state(state)
         write_pending_captions(state)
         try:

@@ -1,0 +1,769 @@
+{
+  "_about": "App Rescue topic bank. One entry per episode; an entry is burned once published. Every field is the ONLY set of facts the writer may state about the problem. Keep entries to failure modes that are well documented and true of AI-built apps in general -- never a client story, never a statistic. Add entries freely; ids must stay unique and stable. Optional per-format fields: `check` (2-3 steps a founder runs on THEIR OWN app, dashboard or own test accounts only), `prompts` + `prompt_fails` (what founders typically ask the AI and why that cannot fix it), `checklist` (one launch-checklist line). `checklist_order` sets the launch checklist's numbering.",
+  "topics": [
+    {
+      "id": "rls-off",
+      "topic": "Your Supabase tables are readable by anyone because Row Level Security is off",
+      "symptoms": [
+        "App works perfectly",
+        "Anyone can read every user's rows",
+        "Nobody notices until someone looks"
+      ],
+      "cause": "The Supabase anon key ships inside every browser by design. Row Level Security is what stops it reading every row. With RLS off on a table, any visitor can query that whole table straight from the browser console.",
+      "fixes": [
+        "Turn RLS on for every table",
+        "Write a policy per table: users only see their own rows",
+        "Test it logged out and as a second user"
+      ],
+      "builders": [
+        "Lovable",
+        "Bolt",
+        "v0"
+      ],
+      "check": [
+        "Open Supabase, go to Table Editor",
+        "Look for tables marked 'RLS disabled'",
+        "Any table holding user data must say enabled"
+      ],
+      "prompts": [
+        "Make the app secure",
+        "Only show users their own data"
+      ],
+      "prompt_fails": "The AI can filter what each screen displays, but the database still hands every row to anyone who asks. The rule has to live in the database.",
+      "checklist": "Row Level Security is on for every table"
+    },
+    {
+      "id": "rls-on-no-policy",
+      "topic": "You turned on Row Level Security and now your app shows no data at all",
+      "symptoms": [
+        "Lists are suddenly empty",
+        "No error on screen",
+        "The AI keeps rewriting the frontend"
+      ],
+      "cause": "With RLS enabled and no policy, Postgres denies every read and returns an empty result, not an error. The bug is in the database rules, so editing the screens never fixes it.",
+      "fixes": [
+        "Add a select policy that matches who should see the row",
+        "Add separate insert and update policies",
+        "Check the user id column the policy compares against"
+      ],
+      "builders": [
+        "Lovable",
+        "Bolt"
+      ],
+      "check": [
+        "Open Supabase, go to Authentication, then Policies",
+        "Find tables with RLS on and no policies",
+        "Those tables return nothing to anyone"
+      ],
+      "prompts": [
+        "The list is empty, fix it",
+        "Data stopped loading"
+      ],
+      "prompt_fails": "The AI looks at the screen that shows the empty list and rewrites it. The screen is fine; the database is refusing to answer."
+    },
+    {
+      "id": "service-role-in-frontend",
+      "topic": "The Supabase service role key is in your frontend code",
+      "symptoms": [
+        "Everything 'just works'",
+        "No permission errors ever",
+        "The key is visible in the browser"
+      ],
+      "cause": "The service role key bypasses Row Level Security completely. It is meant for servers only. If it is in frontend code, anyone who opens dev tools has full read and write access to your database.",
+      "fixes": [
+        "Rotate the key in the Supabase dashboard today",
+        "Move privileged work into an Edge Function or server",
+        "Use only the anon key in the browser"
+      ],
+      "builders": [
+        "Lovable",
+        "Bolt",
+        "v0",
+        "Replit"
+      ],
+      "check": [
+        "Search your code for 'service_role'",
+        "Open your live site, then dev tools, then Sources",
+        "If that key appears in the browser, rotate it now"
+      ],
+      "prompts": [
+        "Fix the permission denied error",
+        "Make the insert work"
+      ],
+      "prompt_fails": "Using the all-powerful key makes the error disappear, so the AI reaches for it. The error was the security working.",
+      "checklist": "No service role key anywhere in the browser"
+    },
+    {
+      "id": "vite-env-exposed",
+      "topic": "Your API keys are public because of how frontend environment variables work",
+      "symptoms": [
+        "Keys stored in .env",
+        "You assumed .env meant secret",
+        "Strange charges on your OpenAI or Stripe account"
+      ],
+      "cause": "In Vite apps, any variable starting with VITE_ is compiled into the JavaScript the browser downloads. Next.js does the same for NEXT_PUBLIC_. A secret key with that prefix is published to every visitor.",
+      "fixes": [
+        "Rotate every exposed key",
+        "Call paid APIs from a server or Edge Function",
+        "Keep only publishable keys in the browser"
+      ],
+      "builders": [
+        "Lovable",
+        "Bolt",
+        "v0"
+      ],
+      "check": [
+        "List your environment variables",
+        "Any secret with VITE_ or NEXT_PUBLIC_ in front is public",
+        "Search your live site's JavaScript for the key"
+      ],
+      "prompts": [
+        "Hide my API key",
+        "Put the key in the .env file"
+      ],
+      "prompt_fails": "Moving a key into .env feels like hiding it, but with that prefix the build tool copies it straight back into the browser.",
+      "checklist": "No secret keys in public environment variables"
+    },
+    {
+      "id": "openai-key-browser",
+      "topic": "Your app calls the OpenAI API straight from the browser",
+      "symptoms": [
+        "AI feature works great",
+        "Usage bill climbing with no new users",
+        "Key visible in network tab"
+      ],
+      "cause": "If the browser calls the AI API directly, the API key travels with every request, and anyone can copy it from the network tab and run up your bill.",
+      "fixes": [
+        "Move the call behind your own server endpoint",
+        "Rotate the key",
+        "Add per-user rate limits"
+      ],
+      "builders": [
+        "Lovable",
+        "Bolt",
+        "v0",
+        "Replit"
+      ],
+      "check": [
+        "Open your live app with dev tools, Network tab",
+        "Use your AI feature once",
+        "Your key in a request to the AI provider means it's public"
+      ],
+      "prompts": [
+        "Add an AI chat feature",
+        "Connect to OpenAI"
+      ],
+      "prompt_fails": "The quickest way to make the feature work is to call the AI from the browser, so that is what gets built. It works, and it hands out your key.",
+      "checklist": "Paid APIs are only called from your server"
+    },
+    {
+      "id": "stripe-success-page",
+      "topic": "Your app unlocks paid features when someone visits the Stripe success page",
+      "symptoms": [
+        "Payments seem to work",
+        "Some users have Pro without paying",
+        "Refunds keep their access"
+      ],
+      "cause": "A success page URL can be opened by anyone, paid or not. The trustworthy signal is Stripe's webhook, sent server to server and checked with a signing secret.",
+      "fixes": [
+        "Grant access only from a verified Stripe webhook",
+        "Verify the webhook signature",
+        "Handle refunds and failed renewals too"
+      ],
+      "builders": [
+        "Lovable",
+        "Bolt",
+        "Replit"
+      ],
+      "check": [
+        "Log in with a test account that never paid",
+        "Visit your payment success URL directly",
+        "If that unlocks paid features, anyone can do it"
+      ],
+      "prompts": [
+        "Give users Pro after they pay",
+        "Unlock features on the success page"
+      ],
+      "prompt_fails": "Unlocking on the success page is the simplest thing that passes a quick test. It is also something anyone can visit without paying.",
+      "checklist": "Paid access is granted only by a verified Stripe webhook"
+    },
+    {
+      "id": "stripe-webhook-unverified",
+      "topic": "Your Stripe webhook accepts any request without checking the signature",
+      "symptoms": [
+        "Webhook endpoint is public",
+        "No signature check in the code",
+        "Anyone could fake a 'payment succeeded'"
+      ],
+      "cause": "Stripe signs every webhook with a secret. If your endpoint does not verify that signature, anyone who finds the URL can send a fake payment event and get access for free.",
+      "fixes": [
+        "Verify the Stripe-Signature header with your webhook secret",
+        "Reject anything that fails",
+        "Log every event you process"
+      ],
+      "builders": [
+        "Lovable",
+        "Bolt",
+        "Replit"
+      ],
+      "check": [
+        "Find your Stripe webhook handler",
+        "Look for a signature check using your webhook secret",
+        "No check means the endpoint trusts anyone"
+      ],
+      "prompts": [
+        "Set up Stripe webhooks",
+        "Payments aren't updating the user"
+      ],
+      "prompt_fails": "A webhook that skips the signature check works in every test, so nothing tells the AI it is missing.",
+      "checklist": "Every webhook checks its signature"
+    },
+    {
+      "id": "price-from-client",
+      "topic": "Your checkout trusts the price the browser sends",
+      "symptoms": [
+        "Checkout works",
+        "Price comes from the page",
+        "A user could change it to one cent"
+      ],
+      "cause": "Anything the browser sends can be edited. If the server creates the checkout with an amount supplied by the page, a user can change it before paying.",
+      "fixes": [
+        "Look up the price on the server from a product or price id",
+        "Use Stripe Price objects",
+        "Never accept amounts from the client"
+      ],
+      "builders": [
+        "Lovable",
+        "Bolt",
+        "v0",
+        "Replit"
+      ],
+      "check": [
+        "Find where checkout is created",
+        "See where the amount comes from",
+        "If it comes from the page, the user controls the price"
+      ],
+      "prompts": [
+        "Add a checkout button",
+        "Pass the cart total to Stripe"
+      ],
+      "prompt_fails": "Sending the total from the page is the shortest path to a working checkout. The AI is solving 'make it work', not 'make it safe'.",
+      "checklist": "Prices are looked up on the server, never sent by the page"
+    },
+    {
+      "id": "admin-check-frontend",
+      "topic": "Your admin page is only hidden, not protected",
+      "symptoms": [
+        "Admin link hidden for normal users",
+        "isAdmin flag checked in the browser",
+        "Admin actions still work if called directly"
+      ],
+      "cause": "Hiding a button is not security. If the database and API do not check the user's role, anyone can call the admin actions directly or flip the flag in the browser.",
+      "fixes": [
+        "Check roles in the database or server, not the UI",
+        "Store roles where users cannot edit them",
+        "Test admin endpoints as a normal user"
+      ],
+      "builders": [
+        "Lovable",
+        "Bolt",
+        "v0",
+        "Replit"
+      ],
+      "check": [
+        "Log in as a normal test user",
+        "Try opening your admin page's address directly",
+        "Check whether admin actions still succeed"
+      ],
+      "prompts": [
+        "Only show the admin page to admins",
+        "Hide the admin button"
+      ],
+      "prompt_fails": "'Only show it to admins' gets you a hidden button. Protection is a separate rule on the server, and nobody asked for it.",
+      "checklist": "Admin actions are checked on the server, not just hidden"
+    },
+    {
+      "id": "auth-redirect-localhost",
+      "topic": "Your password reset and signup emails send people to localhost",
+      "symptoms": [
+        "Works on your laptop",
+        "Users click the email link and get an error page",
+        "Only after you deployed"
+      ],
+      "cause": "Supabase Auth builds email links from its Site URL and allowed redirect URLs. If those still point at your development address, real users land on a page that does not exist.",
+      "fixes": [
+        "Set the Site URL to your real domain",
+        "Add every production and preview URL to the redirect list",
+        "Send yourself a reset email on the live site"
+      ],
+      "builders": [
+        "Lovable",
+        "Bolt"
+      ],
+      "check": [
+        "Open Supabase, Authentication, URL Configuration",
+        "Check the Site URL is your real domain",
+        "Send yourself a password reset on the live site"
+      ],
+      "prompts": [
+        "Password reset is broken",
+        "Fix the signup email link"
+      ],
+      "prompt_fails": "The links are built from a setting in your auth dashboard, not from your code, so code changes cannot fix them.",
+      "checklist": "Auth emails link to your real domain"
+    },
+    {
+      "id": "oauth-redirect-mismatch",
+      "topic": "Google login works in the preview and breaks on your real domain",
+      "symptoms": [
+        "Login with Google fails on the live site",
+        "redirect_uri_mismatch error",
+        "Fine in the builder's preview"
+      ],
+      "cause": "Google only sends users back to redirect URLs you registered. A new domain that is not on the list is rejected, and the builder's preview URL is usually the only one registered.",
+      "fixes": [
+        "Add the production callback URL in Google Cloud",
+        "Add it in Supabase Auth too",
+        "Test login on the real domain before launch"
+      ],
+      "builders": [
+        "Lovable",
+        "Bolt",
+        "v0"
+      ],
+      "check": [
+        "Try Google login on your real domain",
+        "Open Google Cloud, Credentials, your OAuth client",
+        "Confirm your production callback URL is listed"
+      ],
+      "prompts": [
+        "Google login doesn't work",
+        "Fix redirect_uri_mismatch"
+      ],
+      "prompt_fails": "The allowed addresses live in Google's console, outside your code. The AI can only change the code.",
+      "checklist": "Login works on your real domain, not just the preview"
+    },
+    {
+      "id": "fix-loop",
+      "topic": "Every fix the AI makes breaks something else",
+      "symptoms": [
+        "Fix the login, payments break",
+        "Fix payments, the dashboard breaks",
+        "Credits gone, app still broken"
+      ],
+      "cause": "The AI edits the files it is shown, not the whole system. When one root cause shows up in several places, patching each symptom creates new conflicts instead of removing the cause.",
+      "fixes": [
+        "Stop prompting and get the code into GitHub",
+        "Find the one root cause",
+        "Fix it once, then add a test so it stays fixed"
+      ],
+      "builders": [
+        "Lovable",
+        "Bolt",
+        "v0",
+        "Replit"
+      ],
+      "check": [
+        "Count how many prompts the last bug took",
+        "Note whether each fix broke something new",
+        "Three or more in a row means a root cause, not bad luck"
+      ],
+      "prompts": [
+        "Fix the bug",
+        "That broke something else, fix it again"
+      ],
+      "prompt_fails": "Each prompt shows the AI a few files and one symptom. When the cause is shared across the app, every local fix moves the problem instead of removing it."
+    },
+    {
+      "id": "no-version-control",
+      "topic": "You have no way to undo the change that broke your app",
+      "symptoms": [
+        "It worked yesterday",
+        "Nobody knows what changed",
+        "Restoring means prompting again"
+      ],
+      "cause": "Without version control there is no record of what changed or a clean way back. Connecting the project to GitHub keeps every change and lets you roll back to the last working state.",
+      "fixes": [
+        "Connect the project to GitHub",
+        "Commit before every big prompt",
+        "Roll back instead of re-prompting"
+      ],
+      "builders": [
+        "Lovable",
+        "Bolt",
+        "Replit"
+      ],
+      "check": [
+        "Check whether your project is connected to GitHub",
+        "Look for a history of changes you can restore",
+        "No history means no clean way back"
+      ],
+      "prompts": [
+        "Undo the last change",
+        "Go back to how it was yesterday"
+      ],
+      "prompt_fails": "Asking the AI to undo means asking it to rewrite from memory. A real rollback restores the exact files that worked.",
+      "checklist": "The project is in GitHub with a working history"
+    },
+    {
+      "id": "env-missing-on-deploy",
+      "topic": "Your app works in the builder and shows a blank page once deployed",
+      "symptoms": [
+        "Blank white page in production",
+        "Works in preview",
+        "Console says a variable is undefined"
+      ],
+      "cause": "Environment variables set in the builder are not automatically copied to your host. Without them the app cannot reach its database or APIs, and often renders nothing at all.",
+      "fixes": [
+        "Add every environment variable in your host's settings",
+        "Redeploy after adding them",
+        "Check the browser console on the live site"
+      ],
+      "builders": [
+        "Lovable",
+        "Bolt",
+        "v0",
+        "Replit"
+      ],
+      "check": [
+        "Open your live site's browser console",
+        "Look for 'undefined' or missing key errors",
+        "Compare your host's environment variables with the builder's"
+      ],
+      "prompts": [
+        "The deployed site is blank",
+        "Fix the white screen"
+      ],
+      "prompt_fails": "The code is fine; the settings never reached your host. The AI cannot see your host's settings page.",
+      "checklist": "Every environment variable is set on your host"
+    },
+    {
+      "id": "public-storage-bucket",
+      "topic": "Your users' uploaded files are public to anyone with the link",
+      "symptoms": [
+        "Uploads work",
+        "File links never expire",
+        "Private documents openable without logging in"
+      ],
+      "cause": "A public storage bucket serves every file to anyone who has or guesses the URL. Private files need a private bucket and short-lived signed URLs.",
+      "fixes": [
+        "Make the bucket private",
+        "Serve files with signed URLs that expire",
+        "Add storage policies per user"
+      ],
+      "builders": [
+        "Lovable",
+        "Bolt"
+      ],
+      "check": [
+        "Open Supabase, then Storage",
+        "See which buckets are marked public",
+        "Private documents should never be in a public bucket"
+      ],
+      "prompts": [
+        "Let users upload files",
+        "Show the uploaded image"
+      ],
+      "prompt_fails": "A public bucket is the fastest way to make an uploaded file display, so that is what gets built.",
+      "checklist": "Private files are in private buckets"
+    },
+    {
+      "id": "no-rate-limit",
+      "topic": "Nothing stops one person from hammering your app's most expensive feature",
+      "symptoms": [
+        "AI or email feature open to everyone",
+        "No limit per user",
+        "Bill spikes overnight"
+      ],
+      "cause": "Without rate limits, a single script can call an endpoint thousands of times. On features that cost money per call, that becomes your bill.",
+      "fixes": [
+        "Limit requests per user and per IP",
+        "Require login for paid features",
+        "Set spending caps on the API provider"
+      ],
+      "builders": [
+        "Lovable",
+        "Bolt",
+        "v0",
+        "Replit"
+      ],
+      "check": [
+        "List features that cost money per use",
+        "Check whether a user can trigger them without limit",
+        "Check your provider has a spending cap"
+      ],
+      "prompts": [
+        "Add AI to the app",
+        "Send a welcome email"
+      ],
+      "prompt_fails": "Limits are never part of the feature request, so they are never part of the result.",
+      "checklist": "Costly features have rate limits and spending caps"
+    },
+    {
+      "id": "no-server-validation",
+      "topic": "Your form checks happen only in the browser",
+      "symptoms": [
+        "Form shows nice errors",
+        "Bad data still ends up in the database",
+        "Empty or huge values break pages"
+      ],
+      "cause": "Browser validation is for convenience. Anyone can skip it and send data straight to your API, so the server or database must check it again.",
+      "fixes": [
+        "Validate on the server or in database constraints",
+        "Set column types, lengths and not-null rules",
+        "Reject what does not fit"
+      ],
+      "builders": [
+        "Lovable",
+        "Bolt",
+        "v0",
+        "Replit"
+      ],
+      "check": [
+        "Look at a few rows in your database",
+        "Spot empty, huge, or malformed values",
+        "Check your columns have length and required rules"
+      ],
+      "prompts": [
+        "Add form validation",
+        "Show an error if the email is wrong"
+      ],
+      "prompt_fails": "'Add validation' usually means messages in the form. The database still accepts whatever arrives.",
+      "checklist": "The server rejects bad data, not just the form"
+    },
+    {
+      "id": "double-charge",
+      "topic": "Customers get charged twice when they double-click pay",
+      "symptoms": [
+        "Occasional duplicate charges",
+        "Duplicate orders in the database",
+        "Support emails about refunds"
+      ],
+      "cause": "If nothing makes the payment request idempotent, two clicks or a retried request create two charges. Stripe supports idempotency keys for exactly this.",
+      "fixes": [
+        "Disable the button while paying",
+        "Send an idempotency key with the request",
+        "Make the webhook handler ignore events it already processed"
+      ],
+      "builders": [
+        "Lovable",
+        "Bolt",
+        "Replit"
+      ],
+      "check": [
+        "Look in Stripe for twin charges seconds apart",
+        "Check whether your pay button disables after one click",
+        "Check your webhook ignores repeats"
+      ],
+      "prompts": [
+        "Some customers got charged twice",
+        "Prevent double payments"
+      ],
+      "prompt_fails": "Disabling the button helps, but retries and repeated webhooks happen on the server, where the screen fix cannot reach.",
+      "checklist": "Payments cannot be charged twice"
+    },
+    {
+      "id": "slow-no-index",
+      "topic": "Your app was fast with 10 users and crawls with 1,000 rows",
+      "symptoms": [
+        "Pages get slower every week",
+        "Fine in testing",
+        "Database CPU high"
+      ],
+      "cause": "Without indexes on the columns you filter and sort by, the database reads every row on every request. It is invisible with test data and painful with real data.",
+      "fixes": [
+        "Index the columns used in filters and joins",
+        "Paginate long lists",
+        "Check slow queries in the database dashboard"
+      ],
+      "builders": [
+        "Lovable",
+        "Bolt",
+        "Replit"
+      ],
+      "check": [
+        "Open your database's slow query report",
+        "Note which queries take longest",
+        "Check whether their filter columns have indexes"
+      ],
+      "prompts": [
+        "Make the app faster",
+        "The dashboard is slow"
+      ],
+      "prompt_fails": "Speed problems from missing indexes live in the database. Rewriting the page around them barely moves the number.",
+      "checklist": "Columns you filter and sort by are indexed"
+    },
+    {
+      "id": "n-plus-one",
+      "topic": "One page of your app makes a hundred database calls",
+      "symptoms": [
+        "One page is much slower than the rest",
+        "Lots of identical requests in the network tab",
+        "Gets worse with more data"
+      ],
+      "cause": "Generated code often loads a list, then fetches related data one row at a time. That is one request per item instead of one request for the whole page.",
+      "fixes": [
+        "Fetch related data in one query with a join or select",
+        "Batch requests",
+        "Measure the page before and after"
+      ],
+      "builders": [
+        "Lovable",
+        "Bolt",
+        "v0",
+        "Replit"
+      ],
+      "check": [
+        "Open the slow page with dev tools, Network tab",
+        "Count the requests the page makes",
+        "Dozens of near-identical requests is the pattern"
+      ],
+      "prompts": [
+        "This page is slow",
+        "Optimise loading"
+      ],
+      "prompt_fails": "The AI tends to add a loading spinner or caching. The real fix is fewer requests, which means changing how the data is fetched."
+    },
+    {
+      "id": "errors-swallowed",
+      "topic": "Your app fails silently, so you only hear about bugs from angry users",
+      "symptoms": [
+        "Buttons do nothing sometimes",
+        "No error message",
+        "No idea how often it happens"
+      ],
+      "cause": "If errors are caught and ignored, the user sees nothing and you get no record. You cannot fix what you cannot see.",
+      "fixes": [
+        "Show a clear error to the user",
+        "Log errors to a monitoring tool",
+        "Get alerted when error rates spike"
+      ],
+      "builders": [
+        "Lovable",
+        "Bolt",
+        "v0",
+        "Replit"
+      ],
+      "check": [
+        "Search your code for empty catch blocks",
+        "Turn off your Wi-Fi and press a few buttons",
+        "If nothing tells you it failed, users get nothing either"
+      ],
+      "prompts": [
+        "Remove the error popups",
+        "The app crashes, fix it"
+      ],
+      "prompt_fails": "'Make the error go away' is often solved by hiding it. The failure still happens; now nobody sees it.",
+      "checklist": "Errors are shown to users and logged for you"
+    },
+    {
+      "id": "edge-function-no-auth",
+      "topic": "Your backend function runs for anyone, logged in or not",
+      "symptoms": [
+        "Function URL is public",
+        "No user check inside it",
+        "Anyone can trigger it"
+      ],
+      "cause": "A serverless function that does not check who is calling it will do its work for anyone who finds the URL, including sending emails or spending credits.",
+      "fixes": [
+        "Require a valid user token",
+        "Check the user's permissions inside the function",
+        "Keep secrets in the function's environment"
+      ],
+      "builders": [
+        "Lovable",
+        "Bolt"
+      ],
+      "check": [
+        "List your Edge Functions",
+        "For each, check it verifies the user's token",
+        "Check whether it is set to require authentication"
+      ],
+      "prompts": [
+        "Create a function to send the email",
+        "Fix the 401 error"
+      ],
+      "prompt_fails": "A 401 is the function refusing an unknown caller. Removing the check fixes the error and opens the door.",
+      "checklist": "Every backend function checks who is calling"
+    },
+    {
+      "id": "no-backups",
+      "topic": "One bad prompt could delete your production data and you have no backup plan",
+      "symptoms": [
+        "The AI can run database changes",
+        "Prototype and production share one database",
+        "Never tested a restore"
+      ],
+      "cause": "If development changes run against the same database real users depend on, one wrong migration can delete real data. A backup you have never restored is a hope, not a plan.",
+      "fixes": [
+        "Separate development and production databases",
+        "Check what backups your plan includes",
+        "Practise a restore once"
+      ],
+      "builders": [
+        "Lovable",
+        "Bolt",
+        "Replit"
+      ],
+      "check": [
+        "Check whether your builder edits your production database",
+        "Check what backups your database plan includes",
+        "Check when you last restored one"
+      ],
+      "prompts": [
+        "Change the database structure",
+        "Delete the old table"
+      ],
+      "prompt_fails": "The AI runs the change you asked for against whatever database it is connected to. If that is production, there is no undo.",
+      "checklist": "Production has backups, and you have restored one"
+    },
+    {
+      "id": "fix-or-rebuild",
+      "topic": "How to tell if your AI-built app needs fixing or rebuilding",
+      "symptoms": [
+        "Every change takes longer than the last",
+        "Nobody understands the structure",
+        "You're afraid to touch it"
+      ],
+      "cause": "Most AI-built apps are fixable: the problems cluster in a few places like auth, database rules and payments. A rebuild only makes sense when the structure itself fights every change. The way to know is to read the code, not to guess.",
+      "fixes": [
+        "Get the code out of the builder into GitHub",
+        "Have someone read it and list the real problems",
+        "Decide fix or rebuild from that list"
+      ],
+      "builders": [
+        "Lovable",
+        "Bolt",
+        "v0",
+        "Replit"
+      ],
+      "prompts": [
+        "Rebuild the whole app from scratch",
+        "Clean up the code"
+      ],
+      "prompt_fails": "A rebuild by the same tool tends to recreate the same weak spots, just in fresh files."
+    }
+  ],
+  "checklist_order": [
+    "rls-off",
+    "service-role-in-frontend",
+    "vite-env-exposed",
+    "openai-key-browser",
+    "stripe-success-page",
+    "stripe-webhook-unverified",
+    "price-from-client",
+    "admin-check-frontend",
+    "auth-redirect-localhost",
+    "oauth-redirect-mismatch",
+    "env-missing-on-deploy",
+    "public-storage-bucket",
+    "edge-function-no-auth",
+    "no-rate-limit",
+    "no-server-validation",
+    "double-charge",
+    "errors-swallowed",
+    "no-version-control",
+    "no-backups",
+    "slow-no-index"
+  ]
+}

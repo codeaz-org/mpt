@@ -9,6 +9,7 @@ import { QuestionAnswer, QuestionAnswerProps } from "./QuestionAnswer";
 import { BeforeAfter, BeforeAfterProps } from "./BeforeAfter";
 import { BuyOrBuild, BuyOrBuildProps } from "./BuyOrBuild";
 import { StarRising, StarRisingProps } from "./StarRising";
+import { RescueSplit, RescueSplitProps } from "./RescueSplit";
 
 const FPS = 30;
 const DEFAULT_SECONDS = 30;
@@ -126,6 +127,17 @@ const starRisingDefaults: StarRisingProps = {
   audioDuration: 24, theme: codeazTheme,
 };
 
+const rescueSplitDefaults: RescueSplitProps = {
+  hook: "Anyone can read every row in your app's database from their browser.",
+  symptoms: ["App works perfectly", "Anyone can read every user's rows", "Nobody notices until someone looks"],
+  cause: "Row Level Security is off, so the public key in every browser can read whole tables.",
+  fixes: ["Turn RLS on for every table", "Users only see their own rows", "Test it as a second user"],
+  payoff: "Check this before your first real user signs up.",
+  url: "rescue.codeaz.org", builders: "Lovable · Bolt · v0",
+  audioDuration: 40, episode: 1, archetypeTag: "RESCUE",
+  format: "explainer",
+};
+
 export const Root: React.FC = () => (
   <>
     <Composition
@@ -159,6 +171,10 @@ export const Root: React.FC = () => (
     <Composition
       id="StarRising" component={StarRising} {...shared}
       defaultProps={starRisingDefaults} calculateMetadata={calcMeta}
+    />
+    <Composition
+      id="RescueSplit" component={RescueSplit} {...shared}
+      defaultProps={rescueSplitDefaults} calculateMetadata={calcMeta}
     />
   </>
 );

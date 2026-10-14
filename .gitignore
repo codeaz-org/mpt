@@ -18,3 +18,7 @@ remotion/public/*.mp4
 remotion/public/*.mp3
 # Repo-page capture for Star Rising, shot fresh by headless Chrome each render
 remotion/public/*.png
+
+# App Rescue previews awaiting review (approved ones move to queue/approved)
+queue/pending/
+queue/_sample*

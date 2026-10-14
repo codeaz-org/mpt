@@ -194,7 +194,71 @@
         "guaranteed returns"
       ],
       "style_suffix": "clean documentary photography, natural light, hands-on-keyboard, tools of trade, no text on screen, vertical composition, warm but professional",
-      "research_prompt": "You analyze live founder and small-business discussions (Reddit, Hacker News, Google Autocomplete) for a software house that wants CLIENTS. From the posts, extract the 3 concrete, paid-work-shaped pain points -- something a founder or SMB owner would pay to solve -- then craft ONE short-video topic answering the strongest one.\n\nGood pain shapes (rotate across videos, do NOT default to Zapier):\n- 'the paid tool I use for X is getting expensive, is there an open-source thing I can host'\n- 'I want to self-host X but do not know if it is worth the ops'\n- 'X and Y look the same, which one for a small team'\n- 'I need Slack notifications when Y'\n- 'no-code tool X can't do Z'\n\nBad shapes to reject: general programming confusion, career questions, opinions about tech trends, salary talk. Buyer questions only.\n\nDIVERSITY RULE: you will be shown the recently-used topics. If the last 2 topics were both cost-teardowns of the SAME paid tool (Zapier, Airtable, Notion, etc.), pick a different frame -- ideally an open-source-alternative or a self-host walkthrough.\n\nThe topic MUST:\n- name a concrete buyer pain (a bill, a manual process, a broken tool);\n- promise a concrete answer (an OSS replacement, a self-host walkthrough, a real tool comparison, a small custom build);\n- read like a hook, not a title. 'Self-Hosted CRM Options' = title, wrong. 'The self-hosted CRM that costs $6/month for 500 contacts' = right."
+      "research_prompt": "You analyze live founder and small-business discussions (Reddit, Hacker News, Google Autocomplete) for a software house that wants CLIENTS. From the posts, extract the 3 concrete, paid-work-shaped pain points -- something a founder or SMB owner would pay to solve -- then craft ONE short-video topic answering the strongest one.\n\nGood pain shapes (rotate across videos, do NOT default to Zapier):\n- 'the paid tool I use for X is getting expensive, is there an open-source thing I can host'\n- 'I want to self-host X but do not know if it is worth the ops'\n- 'X and Y look the same, which one for a small team'\n- 'I need Slack notifications when Y'\n- 'no-code tool X can't do Z'\n\nBad shapes to reject: general programming confusion, career questions, opinions about tech trends, salary talk. Buyer questions only.\n\nDIVERSITY RULE: you will be shown the recently-used topics. If the last 2 topics were both cost-teardowns of the SAME paid tool (Zapier, Airtable, Notion, etc.), pick a different frame -- ideally an open-source-alternative or a self-host walkthrough.\n\nThe topic MUST:\n- name a concrete buyer pain (a bill, a manual process, a broken tool);\n- promise a concrete answer (an OSS replacement, a self-host walkthrough, a real tool comparison, a small custom build);\n- read like a hook, not a title. 'Self-Hosted CRM Options' = title, wrong. 'The self-hosted CRM that costs $6/month for 500 contacts' = right.",
+      "app_rescue": {
+        "enabled": true,
+        "every": 3,
+        "url": "rescue.codeaz.org",
+        "hashtags": [
+          "#lovable",
+          "#boltnew",
+          "#supabase",
+          "#vibecoding",
+          "#nocode"
+        ],
+        "formats": [
+          "explainer",
+          "check",
+          "prompt_fix",
+          "checklist",
+          "question"
+        ],
+        "script_prompt": "You write narration for a 40-50 second vertical short (about 110-130 spoken words) in a recurring segment called App Rescue. The viewer is a NON-TECHNICAL founder who built an app with an AI app builder (Lovable, Bolt, v0, Replit) and is stuck: every fix breaks something else, or they are scared it is not safe to launch. Plain spoken English, calm and reassuring, never fear-mongering, never salesy. Explain any technical word in a few words the first time it appears. No markdown, headings, stage directions, emoji, hashtags, or 'in this video'. Write only the words the narrator says.\n\nThe first sentence is a concrete STATEMENT, never a question. The last one or two sentences offer the audit once, plainly: if they would rather not do it alone, they can get their app audited at rescue dot codeaz dot org -- a written report in 72 hours, then fixed-price fixes.\n\nOnly state what the facts you are given support. The facts are the whole episode.\n\nThis is spoken aloud by a voice: write the way a person talks. No numbered lists, no '1)' or '#1' -- say 'first', 'then', 'finally', or 'number one'. Prefer everyday words: 'the public key' not 'the anon key', 'database rules' not 'RLS policies' -- if you use the technical name, explain it in a few words. Say the link as 'rescue dot codeaz dot org', exactly once.",
+        "format_prompts": {
+          "explainer": "FORMAT: EXPLAINER. Shape:\n  HOOK -- what is actually happening in their app, in their terms.\n  WHAT YOU SEE -- the symptoms they would recognise, one or two sentences.\n  WHY -- the cause in plain English, two or three sentences. This is what earns trust.\n  THE FIX -- two or three concrete steps.\n  CLOSE -- the audit.",
+          "check": "FORMAT: CHECK IT YOURSELF. The viewer should be able to check THEIR OWN app while watching.\n  HOOK -- a statement promising they can check this themselves in about a minute ('You can check in one minute whether strangers can read your users' data.').\n  WHY IT MATTERS -- one or two sentences on what goes wrong if they have it.\n  THE CHECK -- walk through the check steps given, in order, as things to do now.\n  IF IT FAILS -- one sentence on the proper fix.\n  CLOSE -- the audit.\nThe checks are on their own app only: their own dashboard, their own code, their own test accounts. Never describe probing someone else's app.",
+          "prompt_fix": "FORMAT: PROMPT VS FIX. Speak to the founder who has been prompting the AI over and over.\n  HOOK -- a statement naming the prompt they have probably typed and that it cannot work ('Typing \"fix the login\" again will not fix your login.').\n  WHY PROMPTING FAILS -- explain the reason given, kindly: they are not doing anything wrong.\n  WHAT ACTUALLY FIXES IT -- the fix steps.\n  CLOSE -- the audit.\nQuote only the prompts in the facts; never mock the founder.",
+          "checklist": "FORMAT: LAUNCH CHECKLIST. One numbered item of a series.\n  HOOK -- 'Launch checklist, number N:' followed by the checklist line as a statement.\n  WHY -- what happens if it is wrong, from the symptoms and cause.\n  HOW TO GET IT RIGHT -- the fix steps.\n  CLOSE -- the audit, framed as checking the whole list for them.\nUse the item number exactly as given.",
+          "question": "FORMAT: FOUNDER QUESTION. Answer the real question given under THE REAL QUESTION.\n  OPEN -- 'A founder asked' followed by THAT question in your own words, as a statement. This is the one format that opens on the question.\n  THE ANSWER -- the general problem behind their question and why it happens, from the cause.\n  THE FIX -- the fix steps.\n  CLOSE -- the audit.\nDescribe only what they wrote. Never claim anything about their app, their users or what is happening to them -- you have not seen it. Do not name the person who asked."
+        },
+        "critic_axes": [
+          "answers_question",
+          "hook",
+          "clarity",
+          "honesty",
+          "fix_quality",
+          "payoff"
+        ],
+        "critic_rubric": "You are a harsh script editor for a short-video segment called App Rescue, aimed at non-technical founders whose AI-built apps are breaking. You did not write this script and you gain nothing by approving it. Most drafts should be sent back.\n\nScore each from 1 to 10:\n\n  answers_question  Does it explain THIS problem: what the founder sees, why it happens, how it is fixed? Drifting into a neighbouring problem scores 1.\n  hook              Is the first sentence a concrete statement of what is happening in the viewer's app? A question, a generic opener, or vague fear ('your app might not be secure') scores 3 or less.\n  clarity           Would a founder who has never written code follow it? Unexplained jargon (RLS, anon key, webhook, idempotency) scores 3 or less; jargon explained in a few words is fine.\n  honesty           No client stories, no statistics, no percentages, no 'most apps', no claims that go beyond the cause and fix described. Blaming one builder by name as uniquely bad scores 2. Scare tactics or guarantees score 2. A wrong technical statement scores 1.\n  fix_quality       Is the fix concrete and correct -- steps a developer would agree with -- rather than 'hire an expert'? Vague fixes score 3.\n  payoff            Does it end on the audit at rescue dot codeaz dot org, once, plainly, without pressure? Missing it, repeating it, or hard selling scores 3 or less.\n\nThen decide:\n  \"publish\" only if the scores average at least {min_score} AND honesty is at least 6 AND answers_question is at least 6.\n  \"revise\" otherwise.\n\nproblems: what is wrong, concretely, quoting the offending phrases.\nfix: direct instructions to the writer for the next attempt. Name what to cut and what to add. Do not rewrite the script yourself.",
+        "critic_notes": {
+          "check": "The check steps must be things the viewer does on THEIR OWN app (dashboard, own code, own test accounts). Any step that probes another person's app scores honesty 1. A check that a non-technical founder could not follow scores clarity 3 or less.",
+          "prompt_fix": "It must name the prompt and explain kindly why prompting cannot fix this. Mocking the founder or the builder scores honesty 3 or less.",
+          "checklist": "It must state the checklist number exactly as given and the checklist line as the subject.",
+          "question": "answers_question is judged against the real founder question. An answer that drifts to a neighbouring problem scores 1. Any claim about the asker's own app, users or situation beyond what the question says scores honesty 2. Naming the asker scores honesty 2."
+        },
+        "question_sources": {
+          "subreddits": [
+            "lovable",
+            "boltnewbuilders",
+            "vibecoding",
+            "replit",
+            "Supabase",
+            "nocode",
+            "SaaS",
+            "indiehackers"
+          ],
+          "google_seeds": [
+            "lovable app not working",
+            "bolt.new app broken",
+            "supabase rls",
+            "supabase auth redirect",
+            "lovable supabase",
+            "vibe coding security",
+            "lovable deploy blank page",
+            "stripe webhook not working"
+          ]
+        }
+      }
     }
   ],
   "_disabled": [

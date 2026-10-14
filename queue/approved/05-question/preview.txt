@@ -1,0 +1,36 @@
+FORMAT: question
+TOPIC: rls-off -- How do you prove one tenant can't read another tenant's data in Supabase?
+REAL QUESTION: How do you prove one tenant can't read another tenant's data in Supabase? (r/Supabase, https://reddit.com/r/Supabase/comments/1x2cgw8/how_do_you_prove_one_tenant_cant_read_another/)
+
+--- SCRIPT (119 words) ---
+A founder asked how to prove one tenant can’t read another tenant’s data in Supabase. The issue is that Supabase ships the public key inside every browser, and if Row Level Security (RLS) is off, anyone can query a table and see every row. RLS is the safety switch that blocks those queries unless a rule says otherwise. To fix it, turn RLS on for each table, then write a policy that lets a user see only rows where the user‑id column matches their own ID. Test by logging out and logging in as a second user to confirm the restriction works. If you’d rather not do it alone, get your app audited at rescue dot codeaz dot org.
+
+--- YOUTUBE TITLE ---
+How do you prove one tenant can't read another tenant's data in Supabase?
+
+--- YOUTUBE DESCRIPTION ---
+A founder asked: "How do you prove one tenant can't read another tenant's data in Supabase?" The public key ships inside every browser by design. Row Level Security is what stops it reading every row. With RLS off on a table, any visitor can query that whole table straight from the browser console.
+
+Built your app with Lovable, Bolt, v0 or Replit and it keeps breaking? Get it audited: https://rescue.codeaz.org
+
+#lovable #boltnew #supabase #vibecoding #nocode
+
+--- TIKTOK / INSTAGRAM CAPTION ---
+How do you prove one tenant can't read another tenant's data in Supabase?
+
+A founder asked: "How do you prove one tenant can't read another tenant's data in Supabase?" The public key ships inside every browser by design. Row Level Security is what stops it reading every row. With RLS off on a table, any visitor can query that whole table straight from the browser console.
+
+Built your app with Lovable, Bolt, v0 or Replit and it keeps breaking? Get it audited: https://rescue.codeaz.org
+
+#lovable #boltnew #supabase #vibecoding #nocode
+
+--- LINKEDIN POST ---
+How do you prove one tenant can't read another tenant's data in Supabase?
+
+A founder asked: "How do you prove one tenant can't read another tenant's data in Supabase?" The public key ships inside every browser by design. Row Level Security is what stops it reading every row. With RLS off on a table, any visitor can query that whole table straight from the browser console.
+
+Built your app with Lovable, Bolt, v0 or Replit and it keeps breaking? Get it audited
+
+#lovable #boltnew #supabase
+
+FIRST COMMENT: https://rescue.codeaz.org

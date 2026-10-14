@@ -1,0 +1,35 @@
+FORMAT: prompt_fix
+TOPIC: vite-env-exposed
+
+--- SCRIPT (125 words) ---
+Your API keys are public because of how frontend environment variables work. If you type "hide my api key" or "put the key in the .env file" you’ll still see the key in the browser. In Vite apps any variable starting with VITE_ is baked into the JavaScript that the browser downloads. Next.js does the same for NEXT_PUBLIC_. A secret key with that prefix is published to every visitor. The fix is simple: rotate every exposed key, call paid APIs from a server or an Edge Function, and keep only publishable keys in the browser. If you’d rather not do it alone, we can audit your app and give you a written report in 72 hours, then fixed‑price fixes at rescue dot codeaz dot org.
+
+--- YOUTUBE TITLE ---
+Your API keys are public because of how frontend environment variables work
+
+--- YOUTUBE DESCRIPTION ---
+Your API keys are public because of how frontend environment variables work. Moving a key into .env feels like hiding it, but with that prefix the build tool copies it straight back into the browser.
+
+Built your app with Lovable, Bolt, v0 or Replit and it keeps breaking? Get it audited: https://rescue.codeaz.org
+
+#lovable #boltnew #supabase #vibecoding #nocode
+
+--- TIKTOK / INSTAGRAM CAPTION ---
+Your API keys are public because of how frontend environment variables work
+
+Your API keys are public because of how frontend environment variables work. Moving a key into .env feels like hiding it, but with that prefix the build tool copies it straight back into the browser.
+
+Built your app with Lovable, Bolt, v0 or Replit and it keeps breaking? Get it audited: https://rescue.codeaz.org
+
+#lovable #boltnew #supabase #vibecoding #nocode
+
+--- LINKEDIN POST ---
+Your API keys are public because of how frontend environment variables work
+
+Your API keys are public because of how frontend environment variables work. Moving a key into .env feels like hiding it, but with that prefix the build tool copies it straight back into the browser.
+
+Built your app with Lovable, Bolt, v0 or Replit and it keeps breaking? Get it audited
+
+#lovable #boltnew #supabase
+
+FIRST COMMENT: https://rescue.codeaz.org

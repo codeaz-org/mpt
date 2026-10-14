@@ -141,6 +141,10 @@ jobs:
           YT_CLIENT_ID_AIWORKS: ${{ secrets.YT_CLIENT_ID_AIWORKS }}
           YT_CLIENT_SECRET_AIWORKS: ${{ secrets.YT_CLIENT_SECRET_AIWORKS }}
           BUFFER_CHANNEL_ID_CODEAZ: ${{ secrets.BUFFER_CHANNEL_ID_CODEAZ }}
+          # Instagram Reels via Buffer. Unset = that niche does not post to Instagram.
+          BUFFER_CHANNEL_ID_IG_CODEAZ: ${{ secrets.BUFFER_CHANNEL_ID_IG_CODEAZ }}
+          # LinkedIn company page via Buffer. Unset = no LinkedIn for that niche.
+          BUFFER_CHANNEL_ID_LI_CODEAZ: ${{ secrets.BUFFER_CHANNEL_ID_LI_CODEAZ }}
           BUFFER_CHANNEL_ID_MONEYMECH: ${{ secrets.BUFFER_CHANNEL_ID_MONEYMECH }}
           BUFFER_CHANNEL_ID_AIWORKS: ${{ secrets.BUFFER_CHANNEL_ID_AIWORKS }}
           TIKTOK_CLIENT_KEY: ${{ secrets.TIKTOK_CLIENT_KEY }}
@@ -185,10 +189,14 @@ jobs:
           # top of whatever main is now instead of rebasing onto it.
           cp posted.json /tmp/posted.json
           cp CAPTIONS.md /tmp/CAPTIONS.md 2>/dev/null || true
+          # Approved videos published this run were deleted from queue/; remember
+          # which, because the checkout below restores the branch's copy.
+          git ls-files --deleted -- queue > /tmp/queue-published || true
           git fetch origin ${{ github.ref_name }}
           git checkout -B autopilot-state origin/${{ github.ref_name }}
           cp /tmp/posted.json posted.json
           cp /tmp/CAPTIONS.md CAPTIONS.md 2>/dev/null || true
+          xargs -r git rm -q --ignore-unmatch -- < /tmp/queue-published
           git add posted.json CAPTIONS.md
           if git diff --cached --quiet; then
             echo "state unchanged, nothing to persist"

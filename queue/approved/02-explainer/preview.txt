@@ -1,0 +1,35 @@
+FORMAT: explainer
+TOPIC: oauth-redirect-mismatch
+
+--- SCRIPT (114 words) ---
+Google login works in the preview but fails on your live site. You see a redirect error that says redirect_uri_mismatch. That happens because Google will only send users back to URLs you have explicitly registered. In the builder’s preview, that URL is automatically added, but your real domain isn’t on the list, so Google rejects the request. Fix it by adding your production callback URL to your Google Cloud project’s Authorized Redirect URLs. Then add the same URL in Supabase Auth’s redirect settings. Finally, test the login on the live domain before you launch. If you’d rather not do it alone, get a written audit of your app at rescue dot codeaz dot org.
+
+--- YOUTUBE TITLE ---
+Google login works in preview but fails on real domain
+
+--- YOUTUBE DESCRIPTION ---
+Google login works in the preview and breaks on your real domain. Google only sends users back to redirect URLs you registered. A new domain that is not on the list is rejected, and the builder's preview URL is usually the only one registered.
+
+Built your app with Lovable, Bolt, v0 or Replit and it keeps breaking? Get it audited: https://rescue.codeaz.org
+
+#lovable #boltnew #supabase #vibecoding #nocode
+
+--- TIKTOK / INSTAGRAM CAPTION ---
+Google login works in preview but fails on real domain
+
+Google login works in the preview and breaks on your real domain. Google only sends users back to redirect URLs you registered. A new domain that is not on the list is rejected, and the builder's preview URL is usually the only one registered.
+
+Built your app with Lovable, Bolt, v0 or Replit and it keeps breaking? Get it audited: https://rescue.codeaz.org
+
+#lovable #boltnew #supabase #vibecoding #nocode
+
+--- LINKEDIN POST ---
+Google login works in preview but fails on real domain
+
+Google login works in the preview and breaks on your real domain. Google only sends users back to redirect URLs you registered. A new domain that is not on the list is rejected, and the builder's preview URL is usually the only one registered.
+
+Built your app with Lovable, Bolt, v0 or Replit and it keeps breaking? Get it audited
+
+#lovable #boltnew #supabase
+
+FIRST COMMENT: https://rescue.codeaz.org

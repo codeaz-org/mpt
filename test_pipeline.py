@@ -20,6 +20,8 @@ import critic  # noqa: F401,E402
 import questions  # noqa: E402
 import llm  # noqa: E402
 import repos  # noqa: E402
+import rescue  # noqa: E402
+import remotion_render  # noqa: E402
 import research  # noqa: E402
 
 SCRIPT = ("Two waiters just sold the same table twice. Picture a Friday night restaurant "
@@ -1163,7 +1165,7 @@ class RunNicheTest(unittest.TestCase):
             # the stub file is not a real video; the render check has its own tests
             mock.patch.object(autopilot, "check_rendered_video", lambda p, s: 60.0),
             mock.patch.object(autopilot, "make_metadata",
-                              lambda t, n, question=None, repo=None:
+                              lambda t, n, question=None, repo=None, **kw:
                               {"title": "Race Conditions", "description": "desc",
                                "hashtags": ["#test", "#tags"]}),
         ]
@@ -1316,6 +1318,446 @@ class RunNicheTest(unittest.TestCase):
         self.assertEqual(calls, ["bad"] * autopilot.RUN_ATTEMPTS + ["good"],
                          "a failing niche must not stop the rest")
         self.assertIn("bad", str(ctx.exception))
+
+
+RESCUE_NICHE = {**NICHE, "app_rescue": {
+    "enabled": True, "every": 3, "url": "rescue.example.org",
+    "script_prompt": "VOICE", "format_prompts": {"check": "CHECK SHAPE"},
+    "critic_rubric": "RUBRIC {min_score}", "critic_axes": ["honesty"],
+    "critic_notes": {"check": "OWN APP ONLY"},
+    "question_sources": {"subreddits": ["lovable"]}}}
+BANK = [
+    {"id": "a", "topic": "Problem A", "symptoms": ["s1", "s2"], "cause": "Because. More.",
+     "fixes": ["f1", "f2"], "builders": ["Lovable"], "check": ["c1", "c2"],
+     "prompts": ["fix it"], "prompt_fails": "Prompting fails. Really.", "checklist": "A is right"},
+    {"id": "b", "topic": "Problem B", "symptoms": ["s1"], "cause": "Why.", "fixes": ["f1"],
+     "builders": ["Bolt"], "checklist": "B is right"},
+]
+CHECKLIST = ["b", "a"]
+
+
+def pick(used=None, last=None, harvest=None, matcher=None, qids=()):
+    return rescue.pick(RESCUE_NICHE, used or {}, last_format=last, used_question_ids=qids,
+                       bank=BANK, checklist=CHECKLIST, harvest=harvest, matcher=matcher)
+
+
+class AppRescueTest(unittest.TestCase):
+    """The App Rescue segment: rotation, the five formats, and the bank."""
+
+    def test_one_rescue_every_third_video(self):
+        on = RESCUE_NICHE
+        self.assertFalse(rescue.is_turn(NICHE, []), "off unless the niche enables it")
+        self.assertTrue(rescue.is_turn(on, []), "a freshly enabled niche starts on rescue")
+        self.assertTrue(rescue.is_turn(on, ["star_rising"] * 5))
+        self.assertFalse(rescue.is_turn(on, ["rescue"]))
+        self.assertFalse(rescue.is_turn(on, ["rescue", "star_rising"]))
+        self.assertTrue(rescue.is_turn(on, ["rescue", "star_rising", "star_rising"]))
+
+    def test_formats_take_turns_in_order(self):
+        self.assertEqual(rescue.rotation(RESCUE_NICHE),
+                         ["explainer", "check", "prompt_fix", "checklist", "question"])
+        self.assertEqual(rescue.rotation(RESCUE_NICHE, "prompt_fix")[:2], ["checklist", "question"])
+        self.assertEqual(rescue.rotation(RESCUE_NICHE, "question")[0], "explainer")
+        self.assertEqual(pick(last="explainer")["format"], "check")
+
+    def test_each_format_only_uses_topics_that_can_carry_it(self):
+        for _ in range(10):
+            self.assertEqual(pick(last="explainer")["topic"]["id"], "a", "only a has checks")
+            self.assertEqual(pick(last="check")["topic"]["id"], "a", "only a has prompts")
+
+    def test_a_topic_burns_per_format_not_globally(self):
+        used = {"explainer": ["a", "b"]}
+        ep = pick(used, last="explainer")
+        self.assertEqual((ep["format"], ep["topic"]["id"]), ("check", "a"),
+                         "a used as an explainer can still be a check episode")
+        self.assertEqual(rescue.record(used, ep), {"explainer": ["a", "b"], "check": ["a"]})
+
+    def test_old_flat_record_counts_as_explainers(self):
+        ep = pick(["a"], last="question")
+        self.assertEqual((ep["format"], ep["topic"]["id"]), ("explainer", "b"))
+        self.assertEqual(rescue.record(["a"], ep), {"explainer": ["a", "b"]})
+
+    def test_a_dry_format_hands_over_to_the_next(self):
+        used = {"check": ["a"]}
+        self.assertEqual(pick(used, last="explainer")["format"], "prompt_fix")
+
+    def test_checklist_runs_in_order_and_numbers_its_items(self):
+        ep = pick(last="prompt_fix")
+        self.assertEqual((ep["format"], ep["topic"]["id"], ep["number"], ep["of"]),
+                         ("checklist", "b", 1, 2))
+        self.assertIn("#1", ep["title"])
+        ep = pick({"checklist": ["b"]}, last="prompt_fix")
+        self.assertEqual((ep["topic"]["id"], ep["number"]), ("a", 2))
+        done = pick({"checklist": ["a", "b"]}, last="prompt_fix", harvest=lambda n: [])
+        self.assertEqual(done["format"], "explainer", "a finished checklist hands over")
+
+    def test_founder_question_is_matched_to_a_bank_topic(self):
+        asked = [{"id": "q1", "title": "Why is my list empty?", "source": "r/lovable", "url": "u"},
+                 {"id": "q2", "title": "Which builder is best?", "source": "r/x"}]
+        seen = {}
+        def matcher(system, user):
+            if system is rescue.VERIFY_SYSTEM:
+                return {"score": 9}
+            seen["user"] = user
+            return {"index": 0, "problem_id": "b", "score": 8, "title": "Why your list is empty"}
+        ep = pick(last="checklist", harvest=lambda n: (seen.setdefault("subs", n["subreddits"]), asked)[1],
+                  matcher=matcher)
+        self.assertEqual((ep["format"], ep["topic"]["id"], ep["asked"]["id"]), ("question", "b", "q1"))
+        self.assertEqual(ep["title"], "Why is my list empty?", "the title is the founder's question")
+        self.assertEqual(seen["subs"], ["lovable"], "questions come from the rescue sources")
+        self.assertIn("a: Problem A", seen["user"])
+
+    def test_no_forced_match_and_no_reused_question(self):
+        asked = [{"id": "q1", "title": "Why?", "source": "r/lovable"}]
+        none = pick(last="checklist", harvest=lambda n: asked,
+                    matcher=lambda s, u: {"index": -1})
+        self.assertEqual(none["format"], "explainer", "no strong match means no question video")
+        reused = pick(last="checklist", harvest=lambda n: asked, qids={"q1"},
+                      matcher=lambda s, u: self.fail("an answered question must not be offered"))
+        self.assertEqual(reused["format"], "explainer")
+
+    def test_the_best_of_several_matches_wins(self):
+        asked = [{"id": "q1", "title": "Credits?", "source": "r/x"},
+                 {"id": "q2", "title": "Tenant data?", "source": "r/Supabase"}]
+        ep = pick(last="checklist", harvest=lambda n: asked,
+                  matcher=lambda s, u: {"score": 9} if s is rescue.VERIFY_SYSTEM else
+                  {"matches": [{"index": 0, "problem_id": "a", "score": 3},
+                               {"index": 1, "problem_id": "b", "score": 9, "title": "T"}]})
+        self.assertEqual((ep["format"], ep["asked"]["id"], ep["topic"]["id"]), ("question", "q2", "b"))
+
+    def test_the_verifier_can_veto_a_match(self):
+        asked = [{"id": "q1", "title": "Is RLS enough?", "source": "r/Supabase"}]
+        ep = pick(last="checklist", harvest=lambda n: asked,
+                  matcher=lambda s, u: {"score": 4} if s is rescue.VERIFY_SYSTEM else
+                  {"matches": [{"index": 0, "problem_id": "b", "score": 8}]})
+        self.assertEqual(ep["format"], "explainer", "a vetoed pairing is not published")
+
+    def test_question_titles_are_the_founders_words(self):
+        self.assertEqual(rescue.clean_question("is RLS enough or am I screwed????"),
+                         "Is RLS enough or am I screwed?")
+
+    def test_a_weak_match_is_refused(self):
+        asked = [{"id": "q1", "title": "Why?", "source": "r/lovable"}]
+        ep = pick(last="checklist", harvest=lambda n: asked,
+                  matcher=lambda s, u: {"index": 0, "problem_id": "b", "score": 5})
+        self.assertEqual(ep["format"], "explainer", "a 5/10 match is not an answer")
+
+    def test_narration_is_written_the_way_it_is_said(self):
+        out = rescue.spoken("LAUNCH CHECKLIST #3: RLS is on. Visit https://rescue.example.org today.",
+                            RESCUE_NICHE)
+        self.assertEqual(out, "Launch checklist number 3: RLS is on. Visit rescue dot codeaz dot org today.")
+
+    def test_format_rules_are_checked_in_code(self):
+        ok = "First do this, then that. Get it audited at rescue dot codeaz dot org."
+        explainer = rescue._episode("explainer", BANK[0], "t")
+        self.assertEqual(rescue.script_problems(explainer, ok), [])
+        listy = "Fix it: 1) this 2) that. rescue dot codeaz dot org."
+        self.assertIn("numbered list", rescue.script_problems(explainer, listy)[0][0])
+        twice = ok + " Again: rescue dot codeaz dot org."
+        self.assertIn("2 times", rescue.script_problems(explainer, twice)[0][0])
+        pf = rescue._episode("prompt_fix", BANK[0], "t")
+        self.assertIn("never names the prompt", rescue.script_problems(pf, ok)[0][0])
+        self.assertEqual(rescue.script_problems(pf, 'You typed "fix it" again. ' + ok), [])
+        cl = rescue._episode("checklist", BANK[1], "t", number=4, of=9)
+        self.assertIn("number 4", rescue.script_problems(cl, ok)[0][0])
+        self.assertEqual(rescue.script_problems(cl, "Launch checklist, number 4. " + ok), [])
+        self.assertEqual(rescue.script_problems(cl, "Launch checklist, number four. " + ok), [])
+
+    def test_descriptions_come_from_the_bank(self):
+        by = {t["id"]: t for t in BANK}
+        self.assertEqual(rescue.description(rescue._episode("explainer", by["a"], "t")),
+                         "Problem A. Because. More.")
+        self.assertEqual(rescue.description(rescue._episode("prompt_fix", by["a"], "t")),
+                         "Problem A. Prompting fails. Really.")
+        self.assertEqual(rescue.description(rescue._episode("checklist", by["b"], "t", number=3, of=9)),
+                         "Launch checklist, number 3: B is right. Why.")
+        self.assertTrue(rescue.description(rescue._episode(
+            "question", by["b"], "t", asked={"title": "Why empty?"})).startswith('A founder asked: "Why empty?"'))
+
+    def test_founder_question_cannot_describe_the_askers_app(self):
+        ep = rescue._episode("question", BANK[1], "t", asked={"title": "How do I keep data private?"})
+        tail = " Explain the fix. Get it audited at rescue dot codeaz dot org."
+        good = "A founder asked how to keep data private." + tail
+        other = "A founder asked how to handle login tokens." + tail
+        self.assertIn("does not restate", rescue.script_problems(ep, other)[0][0])
+        self.assertEqual(rescue.script_problems(ep, good), [])
+        no_frame = "Data leaks when rules are off." + tail
+        self.assertIn("does not open", rescue.script_problems(ep, no_frame)[0][0])
+        invented = "A founder asked about private data. The founder built a multi-tenant app." + tail
+        self.assertIn("claims things", rescue.script_problems(ep, invented)[0][0])
+        long = "A founder asked about private data. " + "word " * 140 + tail
+        self.assertIn("runs long", rescue.script_problems(ep, long)[0][0])
+
+    def test_rescue_titles_are_calm(self):
+        self.assertEqual(autopilot._calm("Stop Data Breaches—Lock Every Table First! 🔒"),
+                         "Stop Data Breaches—Lock Every Table First.")
+
+    def test_briefs_carry_each_formats_facts(self):
+        by = {t["id"]: t for t in BANK}
+        b = rescue.brief(rescue._episode("check", by["a"], "t"), RESCUE_NICHE)
+        self.assertIn("HOW TO CHECK, ON YOUR OWN APP", b)
+        self.assertIn("rescue.example.org", b)
+        b = rescue.brief(rescue._episode("prompt_fix", by["a"], "t"), RESCUE_NICHE)
+        self.assertIn('"fix it"', b)
+        self.assertIn("WHY PROMPTING CANNOT FIX IT: Prompting fails", b)
+        b = rescue.brief(rescue._episode("checklist", by["b"], "t", number=1, of=2), RESCUE_NICHE)
+        self.assertIn("LAUNCH CHECKLIST ITEM #1 of 2: B is right", b)
+        b = rescue.brief(rescue._episode("question", by["b"], "t",
+                                         asked={"title": "Why?", "source": "r/lovable"}), RESCUE_NICHE)
+        self.assertIn('asked on r/lovable): "Why?"', b)
+
+    def test_each_format_gets_its_own_shape_and_review_rules(self):
+        self.assertEqual(rescue.script_prompt(RESCUE_NICHE, "check"), "VOICE\n\nCHECK SHAPE")
+        rules = rescue.critic_overrides(RESCUE_NICHE, "check")
+        self.assertIn("OWN APP ONLY", rules["critic_rubric"])
+        self.assertEqual(rules["critic_axes"], ["honesty"])
+        self.assertNotIn("OWN APP ONLY", rescue.critic_overrides(RESCUE_NICHE, "explainer")["critic_rubric"])
+
+    def test_screen_props_per_format(self):
+        by = {t["id"]: t for t in BANK}
+        p = rescue.base_props(rescue._episode("check", by["a"], "t"), RESCUE_NICHE)
+        self.assertEqual((p["format"], p["fixes"], p["labelAfter"]), ("check", ["c1", "c2"], "Check it yourself"))
+        p = rescue.base_props(rescue._episode("prompt_fix", by["a"], "t"), RESCUE_NICHE)
+        self.assertEqual(p["symptoms"], ["fix it"])
+        p = rescue.base_props(rescue._episode("checklist", by["b"], "t", number=1, of=2), RESCUE_NICHE)
+        self.assertEqual((p["number"], p["of"], p["symptoms"]), (1, 2, ["B is right"]))
+        p = rescue.base_props(rescue._episode("question", by["b"], "t",
+                                              asked={"title": "Why?", "source": "r/lovable"}), RESCUE_NICHE)
+        self.assertEqual((p["asked"], p["askedOn"]), ("Why?", "r/lovable"))
+        merged = remotion_render.merge_props(
+            {"hook": "h", "cause": "", "fixes": ["invented"]}, p,
+            rescue.fallback_props(rescue._episode("question", by["b"], "t")))
+        self.assertEqual(merged["fixes"], ["f1"], "fixes come from the bank")
+        self.assertEqual(merged["cause"], "Why.", "the why line is the bank's first sentence")
+        self.assertTrue(remotion_render._is_complete("RescueSplit", merged)[0])
+
+    def test_the_writer_gets_the_bank_facts_and_the_honesty_rules(self):
+        seen = {}
+        ep = rescue._episode("explainer", BANK[0], "Problem A")
+        with mock.patch.object(autopilot, "nim_chat",
+                               lambda system, user, **kw: seen.setdefault("system", system) and SCRIPT):
+            autopilot._write_script("Problem A", RESCUE_NICHE, rescue_ep=ep)
+        self.assertIn("WHY IT HAPPENS: Because. More.", seen["system"])
+        self.assertIn("No client stories", seen["system"])
+        self.assertTrue(seen["system"].startswith("VOICE"))
+
+    def test_the_real_bank_and_config_are_complete(self):
+        topics = rescue.load_bank()
+        order = rescue.load_checklist()
+        by = {t["id"]: t for t in topics}
+        caps = remotion_render._FIELD_CAPS
+        self.assertGreaterEqual(len(topics), 20)
+        self.assertGreaterEqual(len(order), 15)
+        for tid in order:
+            self.assertTrue(by[tid].get("checklist"), tid)
+            self.assertLessEqual(len(by[tid]["checklist"]), caps["symptoms"], tid)
+        for t in topics:
+            for key in ("id", "topic", "symptoms", "cause", "fixes", "builders"):
+                self.assertTrue(t.get(key), f"{t.get('id')} is missing {key}")
+            for key in ("symptoms", "fixes", "check", "prompts"):
+                for line in (t.get(key) or [])[:3]:
+                    self.assertLessEqual(len(line), caps["symptoms"], f"{t['id']} {key}: {line}")
+        for fmt in rescue.FORMATS:
+            self.assertTrue(any(rescue.eligible(t, fmt) for t in topics), fmt)
+        niche = next(n for n in json.loads((Path(autopilot.__file__).parent / "niches.json")
+                                           .read_text())["niches"] if n["id"] == "codeaz")
+        cfg = rescue.config(niche)
+        self.assertEqual(rescue.formats(niche), list(rescue.FORMATS))
+        for fmt in rescue.FORMATS:
+            self.assertIn("FORMAT:", rescue.script_prompt(niche, fmt), fmt)
+            rubric = rescue.critic_overrides(niche, fmt)["critic_rubric"]
+            rubric.format(min_score=7)  # the critic formats it; a stray brace would crash a run
+        self.assertTrue(cfg["question_sources"]["subreddits"])
+
+
+class AppRescueRunTest(RunNicheTest):
+    """Rescue runs end to end, reusing the RunNiche stubs."""
+
+    def run_rescue(self, state, **patches):
+        calls = {}
+        def script(t, n, q=None, **kw):
+            calls["ep"] = kw.get("rescue_ep")
+            return SCRIPT
+        def render(t, n, s, **kw):
+            calls["render"] = kw
+            return str(self.root / "video.mp4"), kw.get("force_archetype")
+        with mock.patch.object(autopilot, "DRY_RUN", False), \
+             mock.patch.object(rescue, "load_bank", lambda path=None: BANK), \
+             mock.patch.object(rescue, "load_checklist", lambda path=None: CHECKLIST), \
+             mock.patch.object(autopilot, "generate_script", script), \
+             mock.patch.object(autopilot, "render_video", render), \
+             mock.patch.object(autopilot, "upload_youtube", lambda v, m, n: "yt123"), \
+             mock.patch.object(autopilot, "upload_tiktok", lambda v, m, n: "pub1"), \
+             mock.patch.object(autopilot, "publish_instagram", lambda v, m, n, c: "ig9"), \
+             mock.patch.object(autopilot, "publish_linkedin", lambda v, m, n, c: "li9"), \
+             mock.patch.object(buffer, "enabled", lambda: False), \
+             mock.patch.multiple(autopilot, **patches) if patches else mock.patch.object(autopilot, "log"):
+            autopilot.run_niche(RESCUE_NICHE, state)
+        return calls
+
+    def test_a_rescue_run_records_everything_and_posts_everywhere(self):
+        state = {"topics": {}, "uploads": [], "modes": {"codeaz": ["star_rising"] * 2}}
+        calls = self.run_rescue(state)
+        entry = state["uploads"][-1]
+        self.assertEqual((entry["mode"], entry["archetype"], entry["rescue_format"]),
+                         ("rescue", "RescueSplit", "explainer"))
+        self.assertEqual(state["rescue"]["codeaz"], {"explainer": [entry["rescue"]]})
+        self.assertEqual(calls["render"]["base_props"]["url"], "rescue.example.org")
+        self.assertEqual(calls["render"]["base_props"]["seriesTag"], "RESCUE · 01")
+        self.assertEqual((entry["instagram_post_id"], entry["linkedin_post_id"]), ("ig9", "li9"))
+        self.assertIsNone(entry["question_id"])
+        self.assertFalse(autopilot.rescue_turn(RESCUE_NICHE, state), "the next two are not rescue")
+
+    def test_the_next_rescue_run_moves_to_the_next_format(self):
+        state = {"topics": {}, "uploads": [], "modes": {"codeaz": ["star_rising"] * 2}}
+        self.run_rescue(state)
+        state["modes"]["codeaz"] += ["star_rising", "star_rising"]
+        calls = self.run_rescue(state)
+        self.assertEqual(calls["ep"]["format"], "check")
+        self.assertEqual(calls["render"]["base_props"]["seriesTag"], "CHECK · 01")
+
+    def test_a_founder_question_run_burns_the_question(self):
+        asked = {"id": "reddit:q1", "title": "Why is my list empty?", "source": "r/lovable", "url": "https://r"}
+        ep = rescue._episode("question", BANK[1], "Why your list is empty", asked=asked)
+        state = {"topics": {}, "uploads": [], "modes": {"codeaz": ["star_rising"] * 2}}
+        self.run_rescue(state, pick_rescue_episode=lambda n, s: ep)
+        entry = state["uploads"][-1]
+        self.assertEqual((entry["rescue_format"], entry["question_id"], entry["question_url"]),
+                         ("question", "reddit:q1", "https://r"))
+        self.assertIn("reddit:q1", autopilot.used_question_ids(state, "codeaz"))
+
+    def test_a_spent_segment_falls_back_to_the_normal_format(self):
+        used = {f: ["a", "b"] for f in rescue.FORMATS}
+        state = {"topics": {}, "uploads": [], "rescue": {"codeaz": used}}
+        with mock.patch.object(autopilot.questions, "harvest", lambda n: []):
+            self.run_rescue(state)
+        self.assertEqual(state["uploads"][-1]["mode"], "question")
+
+    def test_an_approved_video_is_published_as_approved_then_leaves_the_queue(self):
+        item = self.root / "queue" / "approved" / "01-check"
+        item.mkdir(parents=True)
+        (item / "video.mp4").write_bytes(b"approved")
+        (item / "post.json").write_text(json.dumps({
+            "niche": "codeaz", "format": "check", "topic_id": "a",
+            "title": "Approved title", "description": "Approved description.",
+            "hashtags": ["#one"]}))
+        published = {}
+        def yt(v, m, n):
+            published.update(video=Path(v).read_bytes(), meta=m)
+            return "yt9"
+        def fail(*a, **k):
+            raise AssertionError("an approved video must not be regenerated")
+        state = {"topics": {}, "uploads": [], "modes": {"codeaz": ["star_rising"] * 2}}
+        with mock.patch.object(autopilot, "QUEUE_DIR", self.root / "queue" / "approved"), \
+             mock.patch.object(rescue, "load_bank", lambda path=None: BANK), \
+             mock.patch.object(autopilot, "generate_script", fail), \
+             mock.patch.object(autopilot, "render_video", fail), \
+             mock.patch.object(autopilot, "make_metadata", fail), \
+             mock.patch.object(autopilot, "DRY_RUN", False), \
+             mock.patch.object(autopilot, "upload_youtube", yt), \
+             mock.patch.object(autopilot, "upload_tiktok", lambda v, m, n: "pub1"), \
+             mock.patch.object(buffer, "enabled", lambda: False):
+            autopilot.run_niche(RESCUE_NICHE, state)
+        self.assertEqual(published["video"], b"approved")
+        self.assertEqual(published["meta"]["title"], "Approved title")
+        entry = state["uploads"][-1]
+        self.assertEqual((entry["mode"], entry["rescue_format"], entry["rescue"]), ("rescue", "check", "a"))
+        self.assertEqual(state["rescue"]["codeaz"], {"check": ["a"]})
+        self.assertFalse(item.exists(), "published items leave the queue")
+
+    def test_the_queue_waits_for_a_rescue_slot(self):
+        item = self.root / "queue" / "approved" / "01-check"
+        item.mkdir(parents=True)
+        (item / "video.mp4").write_bytes(b"approved")
+        (item / "post.json").write_text(json.dumps({
+            "niche": "codeaz", "format": "check", "topic_id": "a", "title": "T", "description": "D"}))
+        state = {"topics": {}, "uploads": [], "modes": {"codeaz": ["rescue"]}}
+        with mock.patch.object(autopilot, "QUEUE_DIR", self.root / "queue" / "approved"), \
+             mock.patch.object(autopilot, "DRY_RUN", False), \
+             mock.patch.object(autopilot, "upload_youtube", lambda v, m, n: "yt"), \
+             mock.patch.object(autopilot, "upload_tiktok", lambda v, m, n: "pub1"), \
+             mock.patch.object(buffer, "enabled", lambda: False):
+            autopilot.run_niche(RESCUE_NICHE, state)
+        self.assertTrue(item.exists(), "not rescue's turn: the approved video waits")
+        self.assertNotEqual(state["uploads"][-1]["mode"], "rescue")
+
+    def test_a_failed_reel_does_not_lose_the_run(self):
+        def boom(*a):
+            raise RuntimeError("instagram down")
+        with mock.patch.object(autopilot, "DRY_RUN", False), \
+             mock.patch.object(autopilot, "upload_youtube", lambda v, m, n: "yt123"), \
+             mock.patch.object(autopilot, "upload_tiktok", lambda v, m, n: "pub1"), \
+             mock.patch.object(autopilot, "publish_instagram", boom), \
+             mock.patch.object(buffer, "enabled", lambda: False):
+            state = {"topics": {}, "uploads": []}
+            autopilot.run_niche(NICHE, state)
+        self.assertEqual(state["uploads"][-1]["youtube"], "yt123")
+        self.assertFalse(state["uploads"][-1]["instagram"])
+
+class InstagramTest(unittest.TestCase):
+    def test_off_unless_the_niche_names_its_channel(self):
+        with mock.patch.object(buffer, "enabled", lambda: True), \
+             mock.patch.dict(os.environ, {}, clear=False):
+            os.environ.pop("BUFFER_CHANNEL_ID_IG_CODEAZ", None)
+            self.assertIsNone(autopilot.publish_instagram("v.mp4", {}, NICHE, "cap"))
+
+    def test_posts_a_reel_shared_to_feed_and_disclosed_as_ai(self):
+        sent = {}
+        def gql(query, variables=None):
+            sent.update(variables["input"])
+            return {"createPost": {"__typename": "PostActionSuccess", "post": {"id": "p1"}}}
+        with mock.patch.object(buffer, "enabled", lambda: True), \
+             mock.patch.object(buffer, "gql", gql), \
+             mock.patch.object(buffer, "host_file", lambda p: "https://x/v.mp4"), \
+             mock.patch.dict(os.environ, {"BUFFER_CHANNEL_ID_IG_CODEAZ": "ig-chan"}):
+            post = autopilot.publish_instagram("v.mp4", {}, NICHE, "caption")
+        self.assertEqual(post, "p1")
+        self.assertEqual(sent["channelId"], "ig-chan")
+        self.assertEqual(sent["metadata"],
+                         {"instagram": {"type": "reel", "shouldShareToFeed": True,
+                                        "isAiGenerated": True}})
+        self.assertEqual(sent["assets"], [{"video": {"url": "https://x/v.mp4"}}])
+
+    def test_one_upload_serves_tiktok_and_instagram(self):
+        buffer._hosted.clear()
+        uploads = []
+        with mock.patch.object(buffer, "_release",
+                               lambda r, t: {"upload_url": "https://u{?name}", "assets": []}), \
+             mock.patch.object(buffer, "_prune", lambda *a, **k: None), \
+             mock.patch.object(buffer, "_gh_api",
+                               lambda *a, **k: (uploads.append(1), Response(
+                                   payload={"browser_download_url": "https://dl"}))[1]):
+            with tempfile.NamedTemporaryFile(suffix=".mp4") as f:
+                a = buffer.host_file(f.name, token="t", repo="o/r")
+                b = buffer.host_file(f.name, token="t", repo="o/r")
+        self.assertEqual((a, b, len(uploads)), ("https://dl", "https://dl", 1))
+        buffer._hosted.clear()
+
+
+class LinkedInTest(unittest.TestCase):
+    def test_off_unless_the_niche_names_its_page(self):
+        with mock.patch.object(buffer, "enabled", lambda: True):
+            os.environ.pop("BUFFER_CHANNEL_ID_LI_CODEAZ", None)
+            self.assertIsNone(autopilot.publish_linkedin("v.mp4", {}, NICHE, "cap"))
+
+    def test_link_moves_to_the_first_comment_and_tags_are_trimmed(self):
+        caption = ("Your app fails silently\n\nWhy it happens.\n\nBuilt your app with Lovable? "
+                   "Get it audited: https://rescue.codeaz.org\n\n#a #b #c #d #e")
+        sent = {}
+        def gql(query, variables=None):
+            sent.update(variables["input"])
+            return {"createPost": {"__typename": "PostActionSuccess", "post": {"id": "li1"}}}
+        with mock.patch.object(buffer, "enabled", lambda: True), \
+             mock.patch.object(buffer, "gql", gql), \
+             mock.patch.object(buffer, "host_file", lambda p: "https://x/v.mp4"), \
+             mock.patch.dict(os.environ, {"BUFFER_CHANNEL_ID_LI_CODEAZ": "li-page"}):
+            post = autopilot.publish_linkedin("v.mp4", {}, NICHE, caption)
+        self.assertEqual(post, "li1")
+        self.assertEqual(sent["channelId"], "li-page")
+        self.assertEqual(sent["metadata"], {"linkedin": {"firstComment": "https://rescue.codeaz.org"}})
+        self.assertNotIn("http", sent["text"])
+        self.assertTrue(sent["text"].endswith("#a #b #c"))
+        self.assertIn("Get it audited", sent["text"])
 
 
 if __name__ == "__main__":

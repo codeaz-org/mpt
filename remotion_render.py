@@ -53,7 +53,14 @@ ARCHETYPES = {
     # come from the API rather than from the narration. It is absent from
     # _ARCH_DESCRIPTIONS for that reason.
     "StarRising": ("hook", "repo", "tagline", "stars", "payoff"),
+    # App Rescue is forced the same way, when the run sources its topic from the
+    # rescue bank. symptoms/fixes/url come from the bank, not the narration.
+    "RescueSplit": ("hook", "symptoms", "cause", "fixes", "url"),
 }
+
+# Formats that draw their own ground instead of a stock-footage montage. Fetching
+# clips for them would only spend Pexels quota and render time.
+NO_FOOTAGE = {"RescueSplit"}
 
 # Compact archetype label for the ChannelBadge. Paired with a running per-
 # archetype counter so a viewer sees "Q · 07" or "COST · 03" -- proof that
@@ -67,6 +74,7 @@ ARCHETYPE_TAGS = {
     "BeforeAfter": "B/A",
     "BuyOrBuild": "DECIDE",
     "StarRising": "RISING",
+    "RescueSplit": "RESCUE",
 }
 
 
@@ -243,6 +251,10 @@ _FIELD_CAPS = {
     # extraction, so their caps only guard a studio-side prop.
     "repo": 40, "tagline": 100, "stars": 12, "starsNote": 60,
     "replaces": 70, "tradeoff": 100,
+    # RescueSplit. symptoms/fixes arrive from the bank already sized for the screen;
+    # the caps only stop a hand-edited bank entry from running off the frame.
+    "symptoms": 60, "fixes": 60, "cause": 130, "url": 40, "builders": 60,
+    "asked": 150, "askedOn": 30, "labelNow": 40, "labelAfter": 40, "seriesTag": 30,
 }
 
 
@@ -293,6 +305,9 @@ _EXTRACT_SCHEMAS = {
     # the GitHub API so no model can round a star count on screen.
     "StarRising":
         '{"hook":"...","tagline":"...","replaces":"...","tradeoff":"...","payoff":"..."}',
+    # symptoms/fixes/url are supplied from the rescue bank as base props.
+    "RescueSplit":
+        '{"hook":"...","payoff":"..."}',
 }
 
 
@@ -409,12 +424,14 @@ def render(topic, niche, script, question=None, recent_archetypes=(),
     generate_narration(script, voice, narration_path)
 
     from autopilot import generate_terms
-    terms = generate_terms(topic, script, niche) or topic
+    terms = topic if archetype in NO_FOOTAGE else (generate_terms(topic, script, niche) or topic)
     # Wipe any bg-*.mp4 from a previous run so the next fetch starts clean.
     for old in PUBLIC_DIR.glob("bg-*.mp4"):
         old.unlink(missing_ok=True)
     audio_secs = audio_duration(narration_path)
     try:
+        if archetype in NO_FOOTAGE:
+            raise RuntimeError(f"{archetype} draws its own ground")
         clips = fetch_pexels_clips(terms, audio_secs, PUBLIC_DIR)
         props["bgClips"] = clips
     except Exception as e:

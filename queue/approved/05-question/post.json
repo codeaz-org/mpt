@@ -1,0 +1,23 @@
+{
+  "niche": "codeaz",
+  "format": "question",
+  "topic_id": "rls-off",
+  "asked": {
+    "title": "How do you prove one tenant can't read another tenant's data in Supabase?",
+    "text": "After a year of migrations, tenant isolation in most Supabase projects is spread across hundreds of files. When a customer asks \"can another tenant see our data?\", the honest answer is usually \"we think not\".\n\nSupabase's own docs list four gaps that stay open even with RLS on every table:\n\n* **Views** bypass RLS by default. The fix is `security_invoker = true`.\n* **raw\\_user\\_meta\\_data** is edita",
+    "score": 9,
+    "num_comments": 20,
+    "id": "reddit:1x2cgw8",
+    "url": "https://reddit.com/r/Supabase/comments/1x2cgw8/how_do_you_prove_one_tenant_cant_read_another/",
+    "source": "r/Supabase"
+  },
+  "title": "How do you prove one tenant can't read another tenant's data in Supabase?",
+  "description": "A founder asked: \"How do you prove one tenant can't read another tenant's data in Supabase?\" The public key ships inside every browser by design. Row Level Security is what stops it reading every row. With RLS off on a table, any visitor can query that whole table straight from the browser console.\n\nBuilt your app with Lovable, Bolt, v0 or Replit and it keeps breaking? Get it audited: https://rescue.codeaz.org\n\n#lovable #boltnew #supabase #vibecoding #nocode",
+  "hashtags": [
+    "#lovable",
+    "#boltnew",
+    "#supabase",
+    "#vibecoding",
+    "#nocode"
+  ]
+}

@@ -51,6 +51,39 @@ Enable the segment per niche in `niches.json`:
 
 `every_other_run` alternates with the question pipeline; it is false for codeaz, so every video is a Star Rising episode and the question pipeline is only the fallback for when no repo passes the filters. Each episode burns a repo permanently, so the window settings have to keep pace with the publishing rate -- 3 videos/day is ~90 repos a month, against ~125 candidates at 180 days / 200 stars plus whatever newly trends. `repos.py` logs a warning once fewer than 15 uncovered repos remain. `fallback_to_questions` is false for codeaz, so a run that finds no coverable repo publishes nothing and says so, rather than quietly shipping a video in the paused format; set it true for a niche that would rather always ship something. Its narration prompt is the niche's `repo_script_prompt`, and it always renders through the `StarRising` Remotion template (badge `RISING`). When GitHub has nothing that passes the filters, the run falls back to the question pipeline instead of failing.
 
+## App Rescue segment (codeaz)
+
+Markets [rescue.codeaz.org](https://rescue.codeaz.org): one in every three codeaz videos (`app_rescue.every`) is an App Rescue episode about one real way AI-built apps (Lovable, Bolt, v0, Replit) break, ending on the audit offer. Five formats take turns, each a complete system in `rescue.py`:
+
+| Format | Topic source | On screen | Repeats prevented by |
+|---|---|---|---|
+| `explainer` | any bank topic | crooked "Broken" symptoms → why → "Fixed" | topic id, per format |
+| `check` | bank topics with `check` steps | "Is this your app?" → numbered self-checks | topic id, per format |
+| `prompt_fix` | bank topics with `prompts` + `prompt_fails` | the prompts as chat bubbles → why prompting fails → the fix | topic id, per format |
+| `checklist` | `checklist_order` in the bank, in order | big item number → how to get it right | item, numbered 1..N |
+| `question` | real posts from `question_sources` (r/lovable, r/boltnewbuilders, ...) matched by the model to ONE bank topic, or skipped | the question, quoted, with where it was asked → the answer | question id + topic id |
+
+- **Facts.** `rescue_topics.json` is curated, and an episode's bank entry is the only set of facts its script may state: no client stories, no statistics. A founder question is never answered freehand; if no bank topic answers it, the format is skipped. Self-checks are always on the viewer's own app (dashboard, own code, own test accounts).
+- **Rotation.** Formats go in order after the last one used. A format with nothing left this run hands over to the next, so one dry format never costs an upload; if the whole segment is spent, the run uses the niche's normal format. `rescue.py` warns as each pool runs low -- add topics to keep it going.
+- **Writing and review.** `app_rescue.script_prompt` holds the shared voice and rules, `format_prompts` each format's shape, and the critic uses the rescue rubric plus that format's `critic_notes`.
+- **Video.** Always the `RescueSplit` template, matching the landing page: dark "now" side, an orange line sweeping up to the light "after" side, then the URL. Each format draws its dark side differently and carries its own series badge ("CHECK · 03", "CHECKLIST · 07/20"). No stock footage; text stays inside the Shorts/TikTok/Reels safe area.
+- **Captions** carry the link above the hashtags on every platform.
+- **Later:** real rescue stories (before/after from client work) become a sixth format once there is real, permitted material. Never invented.
+
+## Instagram Reels (via Buffer)
+
+Every niche can also post to Instagram as a Reel (shared to the feed, marked as AI-generated) through the same Buffer account that posts TikTok. It is off until the niche names its channel; Instagram is never guessed, so one brand's videos cannot land on another's account.
+
+1. Connect the Instagram business/creator account in Buffer.
+2. Find its channel id: `BUFFER_ACCESS_TOKEN=... python3 buffer.py channels`
+3. Add it as the repo secret `BUFFER_CHANNEL_ID_IG_<NICHE>` (for example `BUFFER_CHANNEL_ID_IG_CODEAZ`) and add the matching line to the workflow env.
+
+The video is hosted once per run and shared by TikTok, Instagram and LinkedIn. A failed Reel is logged and never loses the run.
+
+## LinkedIn page (via Buffer)
+
+Same pattern: connect the company **page** in Buffer, find its id with `python3 buffer.py channels`, and set `BUFFER_CHANNEL_ID_LI_<NICHE>`. Posts go up as native video. The caption keeps three hashtags rather than TikTok's set, and any link (the rescue.codeaz.org line on App Rescue episodes) moves out of the body into the first comment, since links in the post body are widely reported to reduce reach.
+
 ## Tuning
 - `RUN_HOURS` (Docker) or the cron lines (Actions) control frequency. Default: 4 runs/day × 4 niches = 16 videos/day. **Start with 1–2 runs/day** — brand-new channels that suddenly post 4x/day get flagged as spam.
 - Edit `niches.json` to change prompts, voices, hashtags, or add niches; add a matching `YT_REFRESH_TOKEN_<ID>` secret.

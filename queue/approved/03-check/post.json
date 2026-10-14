@@ -1,0 +1,15 @@
+{
+  "niche": "codeaz",
+  "format": "check",
+  "topic_id": "edge-function-no-auth",
+  "asked": null,
+  "title": "Your Backend Function Runs for Anyone, Logged In or Not",
+  "description": "How to check your own app for this: your backend function runs for anyone, logged in or not. A serverless function that does not check who is calling it will do its work for anyone who finds the URL, including sending emails or spending credits.\n\nBuilt your app with Lovable, Bolt, v0 or Replit and it keeps breaking? Get it audited: https://rescue.codeaz.org\n\n#lovable #boltnew #supabase #vibecoding #nocode",
+  "hashtags": [
+    "#lovable",
+    "#boltnew",
+    "#supabase",
+    "#vibecoding",
+    "#nocode"
+  ]
+}

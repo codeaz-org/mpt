@@ -12,12 +12,15 @@ Env:
   BUFFER_ACCESS_TOKEN   personal API key from publish.buffer.com/settings/api
   BUFFER_CHANNEL_ID_<NICHE>  which TikTok channel a niche posts to
   BUFFER_CHANNEL_ID     fallback for a single-channel setup
+  BUFFER_CHANNEL_ID_IG_<NICHE>  the Instagram channel a niche posts Reels to; unset
+                        means no Instagram for that niche (never guessed)
+  BUFFER_CHANNEL_ID_LI_<NICHE>  the LinkedIn page a niche posts to; same rule
   BUFFER_MODE           shareNow (default, publishes at once), addToQueue, customScheduled
   BUFFER_DRAFT          set to 1 to stage posts as Buffer drafts instead of publishing
   GITHUB_TOKEN          for the release upload; Actions provides it automatically
   GITHUB_REPOSITORY     owner/repo; Actions provides it automatically
 """
-import json, mimetypes, os, time
+import json, mimetypes, os, re, time
 from pathlib import Path
 
 import requests
@@ -124,8 +127,15 @@ def _prune(repo, token, release, keep=KEEP_ASSETS):
             log(f"could not delete old asset {asset.get('name')}: {str(e)[:80]}")
 
 
+_hosted = {}  # local path -> public URL, so TikTok and Instagram share one upload
+
+
 def host_file(path, token=None, repo=None):
-    """Upload a file as a release asset and return its public URL."""
+    """Upload a file as a release asset and return its public URL. A file already
+    hosted in this run is not uploaded again."""
+    key = str(Path(path).resolve())
+    if key in _hosted:
+        return _hosted[key]
     token = token or (os.environ.get("GITHUB_TOKEN") or "").strip()
     repo = repo or (os.environ.get("GITHUB_REPOSITORY") or "").strip()
     if not token or not repo:
@@ -140,7 +150,8 @@ def host_file(path, token=None, repo=None):
                         headers={"Content-Type": ctype}, data=f).json()
     _prune(repo, token, release)
     log(f"hosted {name} ({path.stat().st_size // 1024}KB)")
-    return asset["browser_download_url"]
+    _hosted[key] = asset["browser_download_url"]
+    return _hosted[key]
 
 
 # ---------- publishing ----------
@@ -163,7 +174,7 @@ mutation($input: CreatePostInput!) {
 """
 
 
-def _create_post(channel_id, caption, assets, title):
+def _create_post(channel_id, caption, assets, title, metadata=None):
     # shareNow publishes immediately. addToQueue drops the post into Buffer's posting
     # schedule instead, which with a backlog meant videos sat unpublished for days.
     mode = (os.environ.get("BUFFER_MODE") or "shareNow").strip()
@@ -177,7 +188,7 @@ def _create_post(channel_id, caption, assets, title):
         "needsApproval": False,
         "saveToDraft": draft,
         "source": "mpt-autopilot",
-        "metadata": {"tiktok": {"title": (title or caption)[:150]}},
+        "metadata": metadata or {"tiktok": {"title": (title or caption)[:150]}},
     }})
     result = data["createPost"]
     if result.get("__typename") != "PostActionSuccess":
@@ -201,11 +212,75 @@ def publish(video_path, caption, title=None, video_url=None, niche_id=None):
     return _create_post(channel_id, caption, [{"video": {"url": video_url}}], title)
 
 
+def instagram_channel(niche_id):
+    """The Instagram channel id a niche posts Reels to, or None. Explicit only."""
+    return (os.environ.get(f"BUFFER_CHANNEL_ID_IG_{niche_id.upper()}") or "").strip() or None
+
+
+def publish_instagram(video_path, caption, channel_id, video_url=None):
+    """Post the video as an Instagram Reel, shared to the feed too. The narration
+    and script are AI-generated, so the post says so: Instagram labels undisclosed
+    AI content itself, and disclosing is the honest default."""
+    if not video_url:
+        video_url = host_file(video_path)
+    return _create_post(
+        channel_id, caption[:2200], [{"video": {"url": video_url}}], None,
+        metadata={"instagram": {"type": "reel", "shouldShareToFeed": True,
+                                "isAiGenerated": True}})
+
+
+def linkedin_channel(niche_id):
+    """The LinkedIn page channel id a niche posts to, or None. Explicit only."""
+    return (os.environ.get(f"BUFFER_CHANNEL_ID_LI_{niche_id.upper()}") or "").strip() or None
+
+
+_URL = re.compile(r"https?://\S+")
+
+
+def linkedin_text(caption, max_tags=3):
+    """LinkedIn reads differently from TikTok: a wall of hashtags looks like spam, and
+    a link in the post body is widely reported to cut reach. Keep three tags and move
+    the link out; the caller posts it as the first comment. Returns (text, link)."""
+    links = _URL.findall(caption)
+    text = _URL.sub("", caption)
+    tags = re.findall(r"#\w+", text)
+    text = re.sub(r"\s*#\w+", "", text)
+    text = re.sub(r"[ \t]+\n", "\n", re.sub(r"\n{3,}", "\n\n", text)).strip()
+    text = re.sub(r":\s*$", "", text, flags=re.M).strip()
+    if tags:
+        text += "\n\n" + " ".join(tags[:max_tags])
+    return text[:3000], (links[0] if links else None)
+
+
+def publish_linkedin(video_path, caption, channel_id, video_url=None):
+    """Post the video natively to a LinkedIn page, with any link as the first comment."""
+    if not video_url:
+        video_url = host_file(video_path)
+    text, link = linkedin_text(caption)
+    meta = {"firstComment": link} if link else {}
+    return _create_post(channel_id, text, [{"video": {"url": video_url}}], None,
+                        metadata={"linkedin": meta})
+
+
+def channels():
+    """Every connected channel, for finding the ids the env vars need."""
+    org = gql("{ account { organizations { id } } }")["account"]["organizations"][0]["id"]
+    return gql("query($i: ChannelsInput!){ channels(input: $i){ id name service } }",
+               {"i": {"organizationId": org}})["channels"]
+
+
 def delete(post_id):
     return gql("""mutation($input: DeletePostInput!){ deletePost(input: $input){
                     __typename ... on VoidMutationError { message } } }""",
                {"input": {"id": post_id}})
 
 
-if __name__ == "__main__":  # quick manual check: python3 buffer.py
-    print(json.dumps(gql("{ account { email organizations { id name } } }"), indent=1))
+if __name__ == "__main__":
+    # python3 buffer.py            account check
+    # python3 buffer.py channels   list channel ids (for BUFFER_CHANNEL_ID_IG_<NICHE>)
+    import sys
+    if sys.argv[1:] == ["channels"]:
+        for c in channels():
+            print(f"{c['service']:<12} {c['name']:<30} {c['id']}")
+    else:
+        print(json.dumps(gql("{ account { email organizations { id name } } }"), indent=1))

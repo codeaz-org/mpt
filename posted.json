@@ -178,7 +178,8 @@
       "DuckDB: Self\u2011hosted analytics database that replaces paid BI platforms",
       "The self-hosted observability pipeline that can replace Datadog",
       "Watermarks Remover: Self-hosted app that replaces paid AI watermark removal services",
-      "Open-Connector: Self-hosted auth gateway that replaces Auth0"
+      "Open-Connector: Self-hosted auth gateway that replaces Auth0",
+      "Row Level Security is off on a table"
     ]
   },
   "uploads": [
@@ -3288,6 +3289,32 @@
       "tiktok_caption": "Replace Auth0 with a Self\u2011Hosted Auth Gateway in 30 Seconds!\n\nDiscover how Open\u2011Connector lets you self\u2011host your auth gateway, eliminating monthly costs and giving you full control. Want to learn more? Hit follow for quick dev hacks!\n\noomol-lab/open-connector: https://github.com/oomol-lab/open-connector\n\n#opensource #nocode #devtools #auth #selfhost",
       "archetype": "StarRising",
       "ts": "2026-10-14T05:59:11"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Row Level Security is off on a table",
+      "title": "Row Level Security is off on a table",
+      "question": "Before launch, how do I make sure that: Row Level Security is on for every table?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": "rls-off",
+      "rescue_format": "checklist",
+      "mode": "rescue",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "CMnMDcjKk1Y",
+      "tiktok": false,
+      "tiktok_via": "inbox",
+      "tiktok_post_id": null,
+      "tiktok_caption": "Row Level Security is off on a table\n\nLaunch checklist, number 1: Row Level Security is on for every table. The public key ships inside every browser by design. Row Level Security is what stops it reading every row. With RLS off on a table, any visitor can query that whole table straight from the browser console.\n\nBuilt your app with Lovable, Bolt, v0 or Replit and it keeps breaking? Get it audited: https://rescue.codeaz.org\n\n#lovable #boltnew #supabase #vibecoding #nocode",
+      "instagram": false,
+      "instagram_post_id": null,
+      "linkedin": false,
+      "linkedin_post_id": null,
+      "archetype": "RescueSplit",
+      "ts": "2026-10-14T09:14:01"
     }
   ],
   "repos": {
@@ -3509,7 +3536,15 @@
       "star_rising",
       "star_rising",
       "star_rising",
-      "star_rising"
+      "star_rising",
+      "rescue"
     ]
+  },
+  "rescue": {
+    "codeaz": {
+      "checklist": [
+        "rls-off"
+      ]
+    }
   }
 }

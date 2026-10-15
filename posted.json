@@ -182,7 +182,8 @@
       "Row Level Security is off on a table",
       "Automate Blog SEO with n8n: Draft \u2192 CMS \u2192 Social",
       "The self-hosted newsletter platform that replaces Mailchimp",
-      "Google login works in preview but fails on real domain"
+      "Google login works in preview but fails on real domain",
+      "The self-hosted invoicing app that replaces your paid subscription"
     ]
   },
   "uploads": [
@@ -3396,6 +3397,32 @@
       "linkedin_post_id": "6acfe808709f67a4043759b7",
       "archetype": "RescueSplit",
       "ts": "2026-10-14T20:37:04"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "The self-hosted invoicing app that replaces your paid subscription",
+      "title": "Stop Paying for Invoicing\u2014Host Your Own With InvoicePlane",
+      "question": "What is InvoicePlane/InvoicePlane and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "InvoicePlane/InvoicePlane",
+      "repo_url": "https://github.com/InvoicePlane/InvoicePlane",
+      "repo_stars": 3191,
+      "repo_replaces": "Paid invoicing SaaS",
+      "youtube": "HmeK_afNvpc",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ad0691f9394473638f2d441",
+      "tiktok_caption": "Stop Paying for Invoicing\u2014Host Your Own With InvoicePlane\n\nDiscover how InvoicePlane lets you keep control and cut costs by self\u2011hosting your invoicing. Ready to ditch the subscription? Follow for more open\u2011source hacks!\n\nInvoicePlane/InvoicePlane: https://github.com/InvoicePlane/InvoicePlane\n\n#opensource #selfhosting #invoice #smallbusiness #nocode",
+      "instagram": true,
+      "instagram_post_id": "6ad0692a5f56ab2b39be1085",
+      "linkedin": true,
+      "linkedin_post_id": "6ad069345f56ab2b39be1225",
+      "archetype": "StarRising",
+      "ts": "2026-10-15T05:48:11"
     }
   ],
   "repos": {
@@ -3505,7 +3532,8 @@
       "ClickHouse/ClickHouse",
       "tinacms/tinacms",
       "oomol-lab/open-connector",
-      "marclou/mailcheap"
+      "marclou/mailcheap",
+      "InvoicePlane/InvoicePlane"
     ]
   },
   "modes": {
@@ -3622,7 +3650,8 @@
       "rescue",
       "question",
       "star_rising",
-      "rescue"
+      "rescue",
+      "star_rising"
     ]
   },
   "rescue": {

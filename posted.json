@@ -183,7 +183,8 @@
       "Automate Blog SEO with n8n: Draft \u2192 CMS \u2192 Social",
       "The self-hosted newsletter platform that replaces Mailchimp",
       "Google login works in preview but fails on real domain",
-      "The self-hosted invoicing app that replaces your paid subscription"
+      "The self-hosted invoicing app that replaces your paid subscription",
+      "Pinvou Agent: Self-hosted automation platform that replaces Zapier"
     ]
   },
   "uploads": [
@@ -3423,6 +3424,32 @@
       "linkedin_post_id": "6ad069345f56ab2b39be1225",
       "archetype": "StarRising",
       "ts": "2026-10-15T05:48:11"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Pinvou Agent: Self-hosted automation platform that replaces Zapier",
+      "title": "Pinvou Agent: Zapier Killer for Self\u2011Hosted Workflows",
+      "question": "What is Pinvou/pinvou-agent and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "Pinvou/pinvou-agent",
+      "repo_url": "https://github.com/Pinvou/pinvou-agent",
+      "repo_stars": 2512,
+      "repo_replaces": "Zapier",
+      "youtube": "8AK59IOYwrk",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ad0de83b7bdcc4fb8825788",
+      "tiktok_caption": "Pinvou Agent: Zapier Killer for Self\u2011Hosted Workflows\n\nDiscover how Pinvou Agent lets you automate tasks without cloud dependency, replacing Zapier on your own server. Try it today and reclaim control over your data!\n\nPinvou/pinvou-agent: https://github.com/Pinvou/pinvou-agent\n\n#automation #selfhosted #opensource #nocodefounder #productivity",
+      "instagram": true,
+      "instagram_post_id": "6ad0de8ea0df5987c75dc5c1",
+      "linkedin": true,
+      "linkedin_post_id": "6ad0de9995ffe9ea3268991d",
+      "archetype": "StarRising",
+      "ts": "2026-10-15T14:09:03"
     }
   ],
   "repos": {
@@ -3533,7 +3560,8 @@
       "tinacms/tinacms",
       "oomol-lab/open-connector",
       "marclou/mailcheap",
-      "InvoicePlane/InvoicePlane"
+      "InvoicePlane/InvoicePlane",
+      "Pinvou/pinvou-agent"
     ]
   },
   "modes": {
@@ -3651,6 +3679,7 @@
       "question",
       "star_rising",
       "rescue",
+      "star_rising",
       "star_rising"
     ]
   },

@@ -186,7 +186,8 @@
       "The self-hosted invoicing app that replaces your paid subscription",
       "Pinvou Agent: Self-hosted automation platform that replaces Zapier",
       "Your Backend Function Runs for Anyone, Logged In or Not",
-      "PhotoCraft: Self-hosted photo editor that replaces paid Lightroom"
+      "PhotoCraft: Self-hosted photo editor that replaces paid Lightroom",
+      "Cube: the self-hosted BI layer that replaces Power BI"
     ]
   },
   "uploads": [
@@ -3504,6 +3505,32 @@
       "linkedin_post_id": "6ad1b8fce991a49db3ccc9d8",
       "archetype": "StarRising",
       "ts": "2026-10-16T05:40:52"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Cube: the self-hosted BI layer that replaces Power BI",
+      "title": "Cube: The Self\u2011Hosted BI Layer That Beats Power BI",
+      "question": "What is cube-js/cube and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "cube-js/cube",
+      "repo_url": "https://github.com/cube-js/cube",
+      "repo_stars": 21022,
+      "repo_replaces": "Power BI",
+      "youtube": "XuY0NLaTtZY",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ad22c4db948bf9e9d99f2c6",
+      "tiktok_caption": "Cube: The Self\u2011Hosted BI Layer That Beats Power BI\n\nDiscover how Cube transforms data analytics with a self\u2011hosted, open\u2011source solution that outpaces Power BI in speed and flexibility. Dive into real\u2011time dashboards and power your business insights\u2014follow for more tech deep dives!\n\ncube-js/cube: https://github.com/cube-js/cube\n\n#bi #opensource #cubejs #dataanalytics #selfhosted",
+      "instagram": true,
+      "instagram_post_id": "6ad22c58f24c5797a2415516",
+      "linkedin": true,
+      "linkedin_post_id": "6ad22c6225d13dd62eec1f7f",
+      "archetype": "StarRising",
+      "ts": "2026-10-16T13:53:12"
     }
   ],
   "repos": {
@@ -3616,7 +3643,8 @@
       "marclou/mailcheap",
       "InvoicePlane/InvoicePlane",
       "Pinvou/pinvou-agent",
-      "storytold/photocraft"
+      "storytold/photocraft",
+      "cube-js/cube"
     ]
   },
   "modes": {
@@ -3737,6 +3765,7 @@
       "star_rising",
       "star_rising",
       "rescue",
+      "star_rising",
       "star_rising"
     ]
   },

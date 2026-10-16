@@ -185,7 +185,8 @@
       "Google login works in preview but fails on real domain",
       "The self-hosted invoicing app that replaces your paid subscription",
       "Pinvou Agent: Self-hosted automation platform that replaces Zapier",
-      "Your Backend Function Runs for Anyone, Logged In or Not"
+      "Your Backend Function Runs for Anyone, Logged In or Not",
+      "PhotoCraft: Self-hosted photo editor that replaces paid Lightroom"
     ]
   },
   "uploads": [
@@ -3477,6 +3478,32 @@
       "linkedin_post_id": "6ad135bd4fd04e4eb3ac3a98",
       "archetype": "RescueSplit",
       "ts": "2026-10-15T20:20:53"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "PhotoCraft: Self-hosted photo editor that replaces paid Lightroom",
+      "title": "PhotoCraft: Free Self\u2011Hosted Photo Editor That Beats Lightroom",
+      "question": "What is storytold/photocraft and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "storytold/photocraft",
+      "repo_url": "https://github.com/storytold/photocraft",
+      "repo_stars": 63711,
+      "repo_replaces": "Lightroom",
+      "youtube": "H57vZVBmAsQ",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ad1b8e7e991a49db3ccc74a",
+      "tiktok_caption": "PhotoCraft: Free Self\u2011Hosted Photo Editor That Beats Lightroom\n\nDiscover how PhotoCraft, a powerful open\u2011source editor, can replace pricey Lightroom without compromising on features. Try it now and level up your photo workflow\u2014follow for more tech insights!\n\nstorytold/photocraft: https://github.com/storytold/photocraft\n\n#photography #opensource #nocode #selfhosted #lightroomalternative",
+      "instagram": true,
+      "instagram_post_id": "6ad1b8f2ee2c696029bf26b4",
+      "linkedin": true,
+      "linkedin_post_id": "6ad1b8fce991a49db3ccc9d8",
+      "archetype": "StarRising",
+      "ts": "2026-10-16T05:40:52"
     }
   ],
   "repos": {
@@ -3588,7 +3615,8 @@
       "oomol-lab/open-connector",
       "marclou/mailcheap",
       "InvoicePlane/InvoicePlane",
-      "Pinvou/pinvou-agent"
+      "Pinvou/pinvou-agent",
+      "storytold/photocraft"
     ]
   },
   "modes": {
@@ -3708,7 +3736,8 @@
       "rescue",
       "star_rising",
       "star_rising",
-      "rescue"
+      "rescue",
+      "star_rising"
     ]
   },
   "rescue": {

@@ -188,7 +188,8 @@
       "Your Backend Function Runs for Anyone, Logged In or Not",
       "PhotoCraft: Self-hosted photo editor that replaces paid Lightroom",
       "Cube: the self-hosted BI layer that replaces Power BI",
-      "Your API keys are public because of how frontend environment variables work"
+      "Your API keys are public because of how frontend environment variables work",
+      "Is Apple HomeView worth the $399? Compare to Nest Hub and Echo Show"
     ]
   },
   "uploads": [
@@ -3558,6 +3559,32 @@
       "linkedin_post_id": "6ad2819f186b9df91d5ab4ed",
       "archetype": "RescueSplit",
       "ts": "2026-10-16T19:56:54"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Is Apple HomeView worth the $399? Compare to Nest Hub and Echo Show",
+      "title": "Apple HomeView $399? Worth It vs Nest Hub & Echo Show!",
+      "question": "Apple Homeview Impressions: Not Convinced!",
+      "question_id": "yt:QVv3mQzlrN0",
+      "question_url": "https://youtube.com/watch?v=QVv3mQzlrN0",
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "question",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "R02HUCvdluo",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ad30a9052adf2bfae78d762",
+      "tiktok_caption": "Apple HomeView $399? Worth It vs Nest Hub & Echo Show!\n\nFind out if the pricey Apple HomeView lives up to the hype compared to Nest Hub and Echo Show in just 60 seconds. Hit follow for more tech reviews and quick gadget insights!\n\n#applehomeview #smarthome #techreview #homehub #gadgetguide",
+      "instagram": true,
+      "instagram_post_id": "6ad30a9bc34368e4b0ab76bd",
+      "linkedin": true,
+      "linkedin_post_id": "6ad30aa652adf2bfae78d906",
+      "archetype": "mpt",
+      "ts": "2026-10-17T05:41:31"
     }
   ],
   "repos": {
@@ -3794,7 +3821,8 @@
       "rescue",
       "star_rising",
       "star_rising",
-      "rescue"
+      "rescue",
+      "question"
     ]
   },
   "rescue": {

@@ -189,7 +189,8 @@
       "PhotoCraft: Self-hosted photo editor that replaces paid Lightroom",
       "Cube: the self-hosted BI layer that replaces Power BI",
       "Your API keys are public because of how frontend environment variables work",
-      "Is Apple HomeView worth the $399? Compare to Nest Hub and Echo Show"
+      "Is Apple HomeView worth the $399? Compare to Nest Hub and Echo Show",
+      "The local LLM inference engine that replaces your paid OpenAI API"
     ]
   },
   "uploads": [
@@ -3585,6 +3586,32 @@
       "linkedin_post_id": "6ad30aa652adf2bfae78d906",
       "archetype": "mpt",
       "ts": "2026-10-17T05:41:31"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "The local LLM inference engine that replaces your paid OpenAI API",
+      "title": "Replace OpenAI API Calls with a Local LLM Engine \u2013 Meet Strata!",
+      "question": "What is Niko1221/Strata and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "Niko1221/Strata",
+      "repo_url": "https://github.com/Niko1221/Strata",
+      "repo_stars": 26614,
+      "repo_replaces": "OpenAI API",
+      "youtube": "jdQDSZwqABQ",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ad36f1f769b457934795b59",
+      "tiktok_caption": "Replace OpenAI API Calls with a Local LLM Engine \u2013 Meet Strata!\n\nDiscover how this open\u2011source project lets you run LLM inference locally, cutting costs and boosting privacy. Watch the demo and follow for more open\u2011source insights!\n\nNiko1221/Strata: https://github.com/Niko1221/Strata\n\n#nocodefounder #opensource #llm #devtools #privacy",
+      "instagram": true,
+      "instagram_post_id": "6ad36f2a769b457934795dbc",
+      "linkedin": true,
+      "linkedin_post_id": "6ad36f34938409f1d0870be6",
+      "archetype": "StarRising",
+      "ts": "2026-10-17T12:50:36"
     }
   ],
   "repos": {
@@ -3698,7 +3725,8 @@
       "InvoicePlane/InvoicePlane",
       "Pinvou/pinvou-agent",
       "storytold/photocraft",
-      "cube-js/cube"
+      "cube-js/cube",
+      "Niko1221/Strata"
     ]
   },
   "modes": {
@@ -3822,7 +3850,8 @@
       "star_rising",
       "star_rising",
       "rescue",
-      "question"
+      "question",
+      "star_rising"
     ]
   },
   "rescue": {

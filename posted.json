@@ -190,7 +190,8 @@
       "Cube: the self-hosted BI layer that replaces Power BI",
       "Your API keys are public because of how frontend environment variables work",
       "Is Apple HomeView worth the $399? Compare to Nest Hub and Echo Show",
-      "The local LLM inference engine that replaces your paid OpenAI API"
+      "The local LLM inference engine that replaces your paid OpenAI API",
+      "How do you prove one tenant can't read another tenant's data in Supabase?"
     ]
   },
   "uploads": [
@@ -3612,6 +3613,32 @@
       "linkedin_post_id": "6ad36f34938409f1d0870be6",
       "archetype": "StarRising",
       "ts": "2026-10-17T12:50:36"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "How do you prove one tenant can't read another tenant's data in Supabase?",
+      "title": "How do you prove one tenant can't read another tenant's data in Supabase?",
+      "question": "How do you prove one tenant can't read another tenant's data in Supabase?",
+      "question_id": "reddit:1x2cgw8",
+      "question_url": "https://reddit.com/r/Supabase/comments/1x2cgw8/how_do_you_prove_one_tenant_cant_read_another/",
+      "rescue": "rls-off",
+      "rescue_format": "question",
+      "mode": "rescue",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "tNfH3FXQbbc",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ad3c869938409f1d09cab9d",
+      "tiktok_caption": "How do you prove one tenant can't read another tenant's data in Supabase?\n\nA founder asked: \"How do you prove one tenant can't read another tenant's data in Supabase?\" The public key ships inside every browser by design. Row Level Security is what stops it reading every row. With RLS off on a table, any visitor can query that whole table straight from the browser console.\n\nBuilt your app with Lovable, Bolt, v0 or Replit and it keeps breaking? Get it audited: https://rescue.codeaz.org\n\n#lovable #boltnew #supabase #vibecoding #nocode",
+      "instagram": true,
+      "instagram_post_id": "6ad3c874769b4579348f90aa",
+      "linkedin": true,
+      "linkedin_post_id": "6ad3c87e769b4579348f91a9",
+      "archetype": "RescueSplit",
+      "ts": "2026-10-17T19:11:35"
     }
   ],
   "repos": {
@@ -3851,7 +3878,8 @@
       "star_rising",
       "rescue",
       "question",
-      "star_rising"
+      "star_rising",
+      "rescue"
     ]
   },
   "rescue": {
@@ -3867,6 +3895,9 @@
       ],
       "prompt_fix": [
         "vite-env-exposed"
+      ],
+      "question": [
+        "rls-off"
       ]
     }
   }

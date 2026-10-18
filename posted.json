@@ -191,7 +191,8 @@
       "Your API keys are public because of how frontend environment variables work",
       "Is Apple HomeView worth the $399? Compare to Nest Hub and Echo Show",
       "The local LLM inference engine that replaces your paid OpenAI API",
-      "How do you prove one tenant can't read another tenant's data in Supabase?"
+      "How do you prove one tenant can't read another tenant's data in Supabase?",
+      "Automate Instagram Posting: How to Schedule Posts Like a Pro"
     ]
   },
   "uploads": [
@@ -3639,6 +3640,32 @@
       "linkedin_post_id": "6ad3c87e769b4579348f91a9",
       "archetype": "RescueSplit",
       "ts": "2026-10-17T19:11:35"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Automate Instagram Posting: How to Schedule Posts Like a Pro",
+      "title": "Schedule IG Posts Like a Pro in 5 Minutes!",
+      "question": "how do i schedule a post on instagram",
+      "question_id": "gsuggest:how do i schedule a post on instagram",
+      "question_url": "https://www.google.com/search?q=how%20do%20i%20schedule%20a%20post%20on%20instagram",
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "question",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "uWMwq1xSL2c",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ad45cd7ae173d6e00e9cd4a",
+      "tiktok_caption": "Schedule IG Posts Like a Pro in 5 Minutes!\n\nLearn the quickest way to automate your Instagram posts and stay on top of your content calendar. Hit follow for more social media hacks!\n\n#socialmedia #instaautomation #contentplanning #growyourbrand #digitalmarketing",
+      "instagram": true,
+      "instagram_post_id": "6ad45ce20a208cb323505852",
+      "linkedin": true,
+      "linkedin_post_id": "6ad45ced0b0d72757a0baa50",
+      "archetype": "WorkflowDemo",
+      "ts": "2026-10-18T05:44:52"
     }
   ],
   "repos": {
@@ -3879,7 +3906,8 @@
       "rescue",
       "question",
       "star_rising",
-      "rescue"
+      "rescue",
+      "question"
     ]
   },
   "rescue": {

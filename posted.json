@@ -196,7 +196,8 @@
       "Cut Apparel Returns: Size Charts, Fit Predictors, and Real Tools",
       "Your backend function runs for anyone, logged in or not",
       "Step\u2011by\u2011Step MVP Blueprint for Founders: From Idea to First Release",
-      "Paperclip \u2013 the self\u2011hosted agent orchestration platform that replaces paid workflow services"
+      "Paperclip \u2013 the self\u2011hosted agent orchestration platform that replaces paid workflow services",
+      "Your app calls the OpenAI API straight from the browser"
     ]
   },
   "uploads": [
@@ -3774,6 +3775,32 @@
       "linkedin_post_id": "6ad643a78652c01563b000de",
       "archetype": "StarRising",
       "ts": "2026-10-19T16:21:33"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Your app calls the OpenAI API straight from the browser",
+      "title": "Your App Exposes Your OpenAI Key When Calling API From Browser",
+      "question": "How do I check whether my app has this problem: Your app calls the OpenAI API straight from the browser?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": "openai-key-browser",
+      "rescue_format": "check",
+      "mode": "rescue",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "5PRu8DsLlqs",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ad68dc81e32a1d1fe17adfe",
+      "tiktok_caption": "Your App Exposes Your OpenAI Key When Calling API From Browser\n\nHow to check your own app for this: your app calls the OpenAI API straight from the browser. If the browser calls the AI API directly, the API key travels with every request, and anyone can copy it from the network tab and run up your bill.\n\nBuilt your app with Lovable, Bolt, v0 or Replit and it keeps breaking? Get it audited: https://rescue.codeaz.org\n\n#lovable #boltnew #supabase #vibecoding #nocode",
+      "instagram": true,
+      "instagram_post_id": "6ad68dd30bce67c2fd3f0f67",
+      "linkedin": true,
+      "linkedin_post_id": "6ad68ddd1e32a1d1fe17b0fa",
+      "archetype": "RescueSplit",
+      "ts": "2026-10-19T21:38:14"
     }
   ],
   "repos": {
@@ -4020,7 +4047,8 @@
       "question",
       "rescue",
       "question",
-      "star_rising"
+      "star_rising",
+      "rescue"
     ]
   },
   "rescue": {
@@ -4033,7 +4061,8 @@
         "edge-function-no-auth"
       ],
       "check": [
-        "edge-function-no-auth"
+        "edge-function-no-auth",
+        "openai-key-browser"
       ],
       "prompt_fix": [
         "vite-env-exposed"

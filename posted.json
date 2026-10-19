@@ -194,7 +194,8 @@
       "How do you prove one tenant can't read another tenant's data in Supabase?",
       "Automate Instagram Posting: How to Schedule Posts Like a Pro",
       "Cut Apparel Returns: Size Charts, Fit Predictors, and Real Tools",
-      "Your backend function runs for anyone, logged in or not"
+      "Your backend function runs for anyone, logged in or not",
+      "Step\u2011by\u2011Step MVP Blueprint for Founders: From Idea to First Release"
     ]
   },
   "uploads": [
@@ -3720,6 +3721,32 @@
       "linkedin_post_id": "6ad51ed3a48c8f8371afeb33",
       "archetype": "RescueSplit",
       "ts": "2026-10-18T19:32:11"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Step\u2011by\u2011Step MVP Blueprint for Founders: From Idea to First Release",
+      "title": "Build Your MVP in 5 Easy Steps \u2013 From Idea to First Release",
+      "question": "how to build an mvp step by step",
+      "question_id": "gsuggest:how to build an mvp step by step",
+      "question_url": "https://www.google.com/search?q=how%20to%20build%20an%20mvp%20step%20by%20step",
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "question",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "yM-qM-mKKCA",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ad5b2ee38c1835cd43dedae",
+      "tiktok_caption": "Build Your MVP in 5 Easy Steps \u2013 From Idea to First Release\n\nLearn the step\u2011by\u2011step blueprint to turn your idea into a launch-ready MVP. Follow for more founder hacks and start building today!\n\n#mvp #founders #startup #launch #productlaunch",
+      "instagram": true,
+      "instagram_post_id": "6ad5b2f838c1835cd43df3e2",
+      "linkedin": true,
+      "linkedin_post_id": "6ad5b303aa3b6d94b202b0a2",
+      "archetype": "BuyOrBuild",
+      "ts": "2026-10-19T06:04:26"
     }
   ],
   "repos": {
@@ -3963,7 +3990,8 @@
       "rescue",
       "question",
       "question",
-      "rescue"
+      "rescue",
+      "question"
     ]
   },
   "rescue": {

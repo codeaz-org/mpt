@@ -197,7 +197,8 @@
       "Your backend function runs for anyone, logged in or not",
       "Step\u2011by\u2011Step MVP Blueprint for Founders: From Idea to First Release",
       "Paperclip \u2013 the self\u2011hosted agent orchestration platform that replaces paid workflow services",
-      "Your app calls the OpenAI API straight from the browser"
+      "Your app calls the OpenAI API straight from the browser",
+      "Project Maya: Self-hosted GLM-5.3-Flash LLM to replace paid AI API"
     ]
   },
   "uploads": [
@@ -3801,6 +3802,32 @@
       "linkedin_post_id": "6ad68ddd1e32a1d1fe17b0fa",
       "archetype": "RescueSplit",
       "ts": "2026-10-19T21:38:14"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Project Maya: Self-hosted GLM-5.3-Flash LLM to replace paid AI API",
+      "title": "Free AI API? Meet Project Maya \u2013 Self\u2011Hosted LLM Powerhouse",
+      "question": "What is mw00/project-maya and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "mw00/project-maya",
+      "repo_url": "https://github.com/mw00/project-maya",
+      "repo_stars": 1122,
+      "repo_replaces": "Paid LLM API",
+      "youtube": "ygOhjk7Ok78",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ad70311cba41b0140626ed0",
+      "tiktok_caption": "Free AI API? Meet Project Maya \u2013 Self\u2011Hosted LLM Powerhouse\n\nDiscover how Project Maya lets you run GLM\u20115.3\u2011Flash on your own server, cutting out costly API fees. Dive into the setup, performance, and real\u2011world uses\u2014follow for more open\u2011source AI hacks!\n\nmw00/project-maya: https://github.com/mw00/project-maya\n\n#projectmaya #opensourceai #llm #selfhosted #ai",
+      "instagram": true,
+      "instagram_post_id": "6ad7031c2fcafd0f1851bebb",
+      "linkedin": true,
+      "linkedin_post_id": "6ad703262d48e20f64cda783",
+      "archetype": "StarRising",
+      "ts": "2026-10-20T05:58:38"
     }
   ],
   "repos": {
@@ -3916,7 +3943,8 @@
       "storytold/photocraft",
       "cube-js/cube",
       "Niko1221/Strata",
-      "paperclipai/paperclip"
+      "paperclipai/paperclip",
+      "mw00/project-maya"
     ]
   },
   "modes": {
@@ -4048,7 +4076,8 @@
       "rescue",
       "question",
       "star_rising",
-      "rescue"
+      "rescue",
+      "star_rising"
     ]
   },
   "rescue": {

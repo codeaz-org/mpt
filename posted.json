@@ -198,7 +198,8 @@
       "Step\u2011by\u2011Step MVP Blueprint for Founders: From Idea to First Release",
       "Paperclip \u2013 the self\u2011hosted agent orchestration platform that replaces paid workflow services",
       "Your app calls the OpenAI API straight from the browser",
-      "Project Maya: Self-hosted GLM-5.3-Flash LLM to replace paid AI API"
+      "Project Maya: Self-hosted GLM-5.3-Flash LLM to replace paid AI API",
+      "The open\u2011source PDF editor that replaces Adobe Acrobat"
     ]
   },
   "uploads": [
@@ -3828,6 +3829,32 @@
       "linkedin_post_id": "6ad703262d48e20f64cda783",
       "archetype": "StarRising",
       "ts": "2026-10-20T05:58:38"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "The open\u2011source PDF editor that replaces Adobe Acrobat",
+      "title": "Free PDF Editor That Beats Adobe Acrobat\u2014Open\u2011Source Power!",
+      "question": "What is storytold/pdfcraft and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "storytold/pdfcraft",
+      "repo_url": "https://github.com/storytold/pdfcraft",
+      "repo_stars": 16501,
+      "repo_replaces": "Adobe Acrobat",
+      "youtube": "Cq9-xe8cCLA",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ad77912009aee68644278b0",
+      "tiktok_caption": "Free PDF Editor That Beats Adobe Acrobat\u2014Open\u2011Source Power!\n\nDiscover how this open\u2011source PDF editor can replace Adobe Acrobat with powerful editing tools and zero cost. Follow for more game\u2011changing software insights!\n\nstorytold/pdfcraft: https://github.com/storytold/pdfcraft\n\n#opensource #pdfedit #nocodefounder #startuptools #techrevolution",
+      "instagram": true,
+      "instagram_post_id": "6ad7791d1192ad93fbd3b69e",
+      "linkedin": true,
+      "linkedin_post_id": "6ad77928009aee6864427c11",
+      "archetype": "StarRising",
+      "ts": "2026-10-20T14:22:03"
     }
   ],
   "repos": {
@@ -3944,7 +3971,8 @@
       "cube-js/cube",
       "Niko1221/Strata",
       "paperclipai/paperclip",
-      "mw00/project-maya"
+      "mw00/project-maya",
+      "storytold/pdfcraft"
     ]
   },
   "modes": {
@@ -4077,6 +4105,7 @@
       "question",
       "star_rising",
       "rescue",
+      "star_rising",
       "star_rising"
     ]
   },

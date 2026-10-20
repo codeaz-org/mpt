@@ -199,7 +199,8 @@
       "Paperclip \u2013 the self\u2011hosted agent orchestration platform that replaces paid workflow services",
       "Your app calls the OpenAI API straight from the browser",
       "Project Maya: Self-hosted GLM-5.3-Flash LLM to replace paid AI API",
-      "The open\u2011source PDF editor that replaces Adobe Acrobat"
+      "The open\u2011source PDF editor that replaces Adobe Acrobat",
+      "Nothing stops one person from hammering your app's most expensive feature"
     ]
   },
   "uploads": [
@@ -3855,6 +3856,32 @@
       "linkedin_post_id": "6ad77928009aee6864427c11",
       "archetype": "StarRising",
       "ts": "2026-10-20T14:22:03"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Nothing stops one person from hammering your app's most expensive feature",
+      "title": "A Single User Can Exhaust Your App\u2019s Most Expensive Feature",
+      "question": "Why hasn't prompting the AI fixed this: Nothing stops one person from hammering your app's most expensive feature?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": "no-rate-limit",
+      "rescue_format": "prompt_fix",
+      "mode": "rescue",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "ktFXCfDf6UU",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ad7d1e67e12a7e54940668e",
+      "tiktok_caption": "A Single User Can Exhaust Your App\u2019s Most Expensive Feature\n\nNothing stops one person from hammering your app's most expensive feature. Limits are never part of the feature request, so they are never part of the result.\n\nBuilt your app with Lovable, Bolt, v0 or Replit and it keeps breaking? Get it audited: https://rescue.codeaz.org\n\n#lovable #boltnew #supabase #vibecoding #nocode",
+      "instagram": true,
+      "instagram_post_id": "6ad7d1f1b88e1e23bf79baad",
+      "linkedin": true,
+      "linkedin_post_id": "6ad7d1fc3a9ca84966b4ba65",
+      "archetype": "RescueSplit",
+      "ts": "2026-10-20T20:41:08"
     }
   ],
   "repos": {
@@ -4106,7 +4133,8 @@
       "star_rising",
       "rescue",
       "star_rising",
-      "star_rising"
+      "star_rising",
+      "rescue"
     ]
   },
   "rescue": {
@@ -4123,7 +4151,8 @@
         "openai-key-browser"
       ],
       "prompt_fix": [
-        "vite-env-exposed"
+        "vite-env-exposed",
+        "no-rate-limit"
       ],
       "question": [
         "rls-off"

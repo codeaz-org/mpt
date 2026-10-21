@@ -200,7 +200,8 @@
       "Your app calls the OpenAI API straight from the browser",
       "Project Maya: Self-hosted GLM-5.3-Flash LLM to replace paid AI API",
       "The open\u2011source PDF editor that replaces Adobe Acrobat",
-      "Nothing stops one person from hammering your app's most expensive feature"
+      "Nothing stops one person from hammering your app's most expensive feature",
+      "Witr: Self-hosted process tracing that replaces manual debugging workflows"
     ]
   },
   "uploads": [
@@ -3882,6 +3883,32 @@
       "linkedin_post_id": "6ad7d1fc3a9ca84966b4ba65",
       "archetype": "RescueSplit",
       "ts": "2026-10-20T20:41:08"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Witr: Self-hosted process tracing that replaces manual debugging workflows",
+      "title": "Witr: Self\u2011Hosted Process Tracing That Eliminates Manual Debugging",
+      "question": "What is pranshuparmar/witr and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "pranshuparmar/witr",
+      "repo_url": "https://github.com/pranshuparmar/witr",
+      "repo_stars": 22736,
+      "repo_replaces": "manual process tracing",
+      "youtube": "RRl5np3aC2Q",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ad8558850009d9e950f6915",
+      "tiktok_caption": "Witr: Self\u2011Hosted Process Tracing That Eliminates Manual Debugging\n\nDiscover how pranshuparmar/witr lets you trace processes on your own servers, cutting out the old-school debugging grind. Hit follow for more deep dives into open\u2011source tools that streamline your workflow!\n\npranshuparmar/witr: https://github.com/pranshuparmar/witr\n\n#nocodefounder #opensource #devtools #processtracing #automation",
+      "instagram": true,
+      "instagram_post_id": "6ad855939fdbc474fb02d332",
+      "linkedin": true,
+      "linkedin_post_id": "6ad8559daff466fe090446cb",
+      "archetype": "StarRising",
+      "ts": "2026-10-21T06:02:43"
     }
   ],
   "repos": {
@@ -3999,7 +4026,8 @@
       "Niko1221/Strata",
       "paperclipai/paperclip",
       "mw00/project-maya",
-      "storytold/pdfcraft"
+      "storytold/pdfcraft",
+      "pranshuparmar/witr"
     ]
   },
   "modes": {
@@ -4134,7 +4162,8 @@
       "rescue",
       "star_rising",
       "star_rising",
-      "rescue"
+      "rescue",
+      "star_rising"
     ]
   },
   "rescue": {

@@ -202,7 +202,8 @@
       "The open\u2011source PDF editor that replaces Adobe Acrobat",
       "Nothing stops one person from hammering your app's most expensive feature",
       "Witr: Self-hosted process tracing that replaces manual debugging workflows",
-      "The self-hosted storefront that replaces Shopify"
+      "The self-hosted storefront that replaces Shopify",
+      "Launch checklist #2: No service role key anywhere in the browser"
     ]
   },
   "uploads": [
@@ -3936,6 +3937,32 @@
       "linkedin_post_id": "6ad8cdf8b535ec9954c6860b",
       "archetype": "StarRising",
       "ts": "2026-10-21T14:36:14"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Launch checklist #2: No service role key anywhere in the browser",
+      "title": "Launch Checklist #2: Don\u2019t Store Service Role Key in Browser",
+      "question": "Before launch, how do I make sure that: No service role key anywhere in the browser?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": "service-role-in-frontend",
+      "rescue_format": "checklist",
+      "mode": "rescue",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "ShC-wHbBc6M",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ad924b54989bea5baf507d9",
+      "tiktok_caption": "Launch Checklist #2: Don\u2019t Store Service Role Key in Browser\n\nLaunch checklist, number 2: No service role key anywhere in the browser. The service role key bypasses Row Level Security completely. It is meant for servers only. If it is in frontend code, anyone who opens dev tools has full read and write access to your database.\n\nBuilt your app with Lovable, Bolt, v0 or Replit and it keeps breaking? Get it audited: https://rescue.codeaz.org\n\n#lovable #boltnew #supabase #vibecoding #nocode",
+      "instagram": true,
+      "instagram_post_id": "6ad924bfe7a121c462de5358",
+      "linkedin": true,
+      "linkedin_post_id": "6ad924ca90c04b400b020bf8",
+      "archetype": "RescueSplit",
+      "ts": "2026-10-21T20:46:42"
     }
   ],
   "repos": {
@@ -4192,13 +4219,15 @@
       "star_rising",
       "rescue",
       "star_rising",
-      "star_rising"
+      "star_rising",
+      "rescue"
     ]
   },
   "rescue": {
     "codeaz": {
       "checklist": [
-        "rls-off"
+        "rls-off",
+        "service-role-in-frontend"
       ],
       "explainer": [
         "oauth-redirect-mismatch",

@@ -201,7 +201,8 @@
       "Project Maya: Self-hosted GLM-5.3-Flash LLM to replace paid AI API",
       "The open\u2011source PDF editor that replaces Adobe Acrobat",
       "Nothing stops one person from hammering your app's most expensive feature",
-      "Witr: Self-hosted process tracing that replaces manual debugging workflows"
+      "Witr: Self-hosted process tracing that replaces manual debugging workflows",
+      "The self-hosted storefront that replaces Shopify"
     ]
   },
   "uploads": [
@@ -3909,6 +3910,32 @@
       "linkedin_post_id": "6ad8559daff466fe090446cb",
       "archetype": "StarRising",
       "ts": "2026-10-21T06:02:43"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "The self-hosted storefront that replaces Shopify",
+      "title": "Why This Open\u2011Source Storefront Beats Shopify\u2014Self\u2011Hosted Freedom",
+      "question": "What is saleor/storefront and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "saleor/storefront",
+      "repo_url": "https://github.com/saleor/storefront",
+      "repo_stars": 1632,
+      "repo_replaces": "Shopify",
+      "youtube": "Zg1dUAQhiEw",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ad8cde2df27e4a2784ebb1d",
+      "tiktok_caption": "Why This Open\u2011Source Storefront Beats Shopify\u2014Self\u2011Hosted Freedom\n\nDiscover how this open\u2011source storefront gives you full control over your ecommerce site, eliminating platform fees and lock\u2011in. Ready to take the next step? Hit follow for more deep dives into powerful tools!\n\nsaleor/storefront: https://github.com/saleor/storefront\n\n#saleor #ecommerce #opensource #selfhosted #nocodefounder",
+      "instagram": true,
+      "instagram_post_id": "6ad8cded7b5905295c2b90be",
+      "linkedin": true,
+      "linkedin_post_id": "6ad8cdf8b535ec9954c6860b",
+      "archetype": "StarRising",
+      "ts": "2026-10-21T14:36:14"
     }
   ],
   "repos": {
@@ -4027,7 +4054,8 @@
       "paperclipai/paperclip",
       "mw00/project-maya",
       "storytold/pdfcraft",
-      "pranshuparmar/witr"
+      "pranshuparmar/witr",
+      "saleor/storefront"
     ]
   },
   "modes": {
@@ -4163,6 +4191,7 @@
       "star_rising",
       "star_rising",
       "rescue",
+      "star_rising",
       "star_rising"
     ]
   },

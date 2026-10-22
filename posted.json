@@ -204,7 +204,8 @@
       "Witr: Self-hosted process tracing that replaces manual debugging workflows",
       "The self-hosted storefront that replaces Shopify",
       "Launch checklist #2: No service role key anywhere in the browser",
-      "Self-hosted Google Backup: Automate with Google Takeout + Rclone"
+      "Self-hosted Google Backup: Automate with Google Takeout + Rclone",
+      "Open-Duet: Self-hosted AI coworker that replaces your Claude Duet subscription"
     ]
   },
   "uploads": [
@@ -3990,6 +3991,32 @@
       "linkedin_post_id": "6ad9a7ccdeacf5d2533165f4",
       "archetype": "WorkflowDemo",
       "ts": "2026-10-22T06:05:41"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Open-Duet: Self-hosted AI coworker that replaces your Claude Duet subscription",
+      "title": "Replace Claude Duet with a Free Open\u2011Source AI Coworker!",
+      "question": "What is Anil-matcha/open-duet and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "Anil-matcha/open-duet",
+      "repo_url": "https://github.com/Anil-matcha/open-duet",
+      "repo_stars": 5984,
+      "repo_replaces": "Claude Duet",
+      "youtube": "yWj1ReiII38",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ada1e59e8cca8cdcc57da50",
+      "tiktok_caption": "Replace Claude Duet with a Free Open\u2011Source AI Coworker!\n\nDiscover how the open\u2011source project Anil\u2011matcha/open\u2011duet lets you self\u2011host an AI coworker that rivals Claude Duet. Try it now and free up your budget\u2014follow for more tech hacks!\n\nAnil-matcha/open-duet: https://github.com/Anil-matcha/open-duet\n\n#opensource #ai #selfhosted #nocodefounder #techhacks",
+      "instagram": true,
+      "instagram_post_id": "6ada1e63e8cca8cdcc57dbb1",
+      "linkedin": true,
+      "linkedin_post_id": "6ada1e6ef09f431dcae2eeb5",
+      "archetype": "StarRising",
+      "ts": "2026-10-22T14:31:48"
     }
   ],
   "repos": {
@@ -4109,7 +4136,8 @@
       "mw00/project-maya",
       "storytold/pdfcraft",
       "pranshuparmar/witr",
-      "saleor/storefront"
+      "saleor/storefront",
+      "Anil-matcha/open-duet"
     ]
   },
   "modes": {
@@ -4248,7 +4276,8 @@
       "star_rising",
       "star_rising",
       "rescue",
-      "question"
+      "question",
+      "star_rising"
     ]
   },
   "rescue": {

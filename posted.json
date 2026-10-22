@@ -205,7 +205,8 @@
       "The self-hosted storefront that replaces Shopify",
       "Launch checklist #2: No service role key anywhere in the browser",
       "Self-hosted Google Backup: Automate with Google Takeout + Rclone",
-      "Open-Duet: Self-hosted AI coworker that replaces your Claude Duet subscription"
+      "Open-Duet: Self-hosted AI coworker that replaces your Claude Duet subscription",
+      "When Lovable keeps saying it\u2019s fixed and nothing changes"
     ]
   },
   "uploads": [
@@ -4017,6 +4018,32 @@
       "linkedin_post_id": "6ada1e6ef09f431dcae2eeb5",
       "archetype": "StarRising",
       "ts": "2026-10-22T14:31:48"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "When Lovable keeps saying it\u2019s fixed and nothing changes",
+      "title": "When Lovable keeps saying it\u2019s fixed and nothing changes",
+      "question": "When Lovable keeps saying it\u2019s fixed and nothing changes",
+      "question_id": "reddit:1x9sido",
+      "question_url": "https://reddit.com/r/lovable/comments/1x9sido/when_lovable_keeps_saying_its_fixed_and_nothing/",
+      "rescue": "fix-loop",
+      "rescue_format": "question",
+      "mode": "rescue",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "PixBfbAPG64",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ada77141ef43d26398667cf",
+      "tiktok_caption": "When Lovable keeps saying it\u2019s fixed and nothing changes\n\nA founder asked: \"When Lovable keeps saying it\u2019s fixed and nothing changes\" The AI edits the files it is shown, not the whole system. When one root cause shows up in several places, patching each symptom creates new conflicts instead of removing the cause.\n\nBuilt your app with Lovable, Bolt, v0 or Replit and it keeps breaking? Get it audited: https://rescue.codeaz.org\n\n#lovable #boltnew #supabase #vibecoding #nocode",
+      "instagram": true,
+      "instagram_post_id": "6ada771f793513d242f3311c",
+      "linkedin": true,
+      "linkedin_post_id": "6ada772a03768a8d4fd50da2",
+      "archetype": "RescueSplit",
+      "ts": "2026-10-22T20:50:25"
     }
   ],
   "repos": {
@@ -4277,7 +4304,8 @@
       "star_rising",
       "rescue",
       "question",
-      "star_rising"
+      "star_rising",
+      "rescue"
     ]
   },
   "rescue": {
@@ -4299,7 +4327,8 @@
         "no-rate-limit"
       ],
       "question": [
-        "rls-off"
+        "rls-off",
+        "fix-loop"
       ]
     }
   }

@@ -207,7 +207,8 @@
       "Self-hosted Google Backup: Automate with Google Takeout + Rclone",
       "Open-Duet: Self-hosted AI coworker that replaces your Claude Duet subscription",
       "When Lovable keeps saying it\u2019s fixed and nothing changes",
-      "The self-hosted agent-powered project manager that replaces Asana"
+      "The self-hosted agent-powered project manager that replaces Asana",
+      "The Docker stack that runs ERPNext, replacing paid cloud ERP subscriptions"
     ]
   },
   "uploads": [
@@ -4071,6 +4072,32 @@
       "linkedin_post_id": "6adaf6671dc335d347f84230",
       "archetype": "StarRising",
       "ts": "2026-10-23T05:53:18"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "The Docker stack that runs ERPNext, replacing paid cloud ERP subscriptions",
+      "title": "Run ERPNext on Your Own Docker Stack \u2013 No Paid Cloud Needed",
+      "question": "What is frappe/frappe_docker and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "frappe/frappe_docker",
+      "repo_url": "https://github.com/frappe/frappe_docker",
+      "repo_stars": 2604,
+      "repo_replaces": "cloud ERP subscriptions",
+      "youtube": "3CbBaFWuquE",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6adb6c6591ffb6bdb08a54ba",
+      "tiktok_caption": "Run ERPNext on Your Own Docker Stack \u2013 No Paid Cloud Needed\n\nDiscover how the open-source project frappe/frappe_docker powers a full ERPNext stack, letting you run everything locally or in the cloud without subscription fees. Follow for more deep dives into cost\u2011saving tech hacks!\n\nfrappe/frappe_docker: https://github.com/frappe/frappe_docker\n\n#erpnext #docker #opensource #nocodefounder #smallbusiness",
+      "instagram": true,
+      "instagram_post_id": "6adb6c7010223fea5669bb3c",
+      "linkedin": true,
+      "linkedin_post_id": "6adb6c7bce9fbd2e3b4eefbb",
+      "archetype": "StarRising",
+      "ts": "2026-10-23T14:17:06"
     }
   ],
   "repos": {
@@ -4192,7 +4219,8 @@
       "pranshuparmar/witr",
       "saleor/storefront",
       "Anil-matcha/open-duet",
-      "automazeio/ccpm"
+      "automazeio/ccpm",
+      "frappe/frappe_docker"
     ]
   },
   "modes": {
@@ -4334,6 +4362,7 @@
       "question",
       "star_rising",
       "rescue",
+      "star_rising",
       "star_rising"
     ]
   },

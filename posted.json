@@ -206,7 +206,8 @@
       "Launch checklist #2: No service role key anywhere in the browser",
       "Self-hosted Google Backup: Automate with Google Takeout + Rclone",
       "Open-Duet: Self-hosted AI coworker that replaces your Claude Duet subscription",
-      "When Lovable keeps saying it\u2019s fixed and nothing changes"
+      "When Lovable keeps saying it\u2019s fixed and nothing changes",
+      "The self-hosted agent-powered project manager that replaces Asana"
     ]
   },
   "uploads": [
@@ -4044,6 +4045,32 @@
       "linkedin_post_id": "6ada772a03768a8d4fd50da2",
       "archetype": "RescueSplit",
       "ts": "2026-10-22T20:50:25"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "The self-hosted agent-powered project manager that replaces Asana",
+      "title": "Replace Asana with This Self\u2011Hosted Agent\u2011Powered Project Manager",
+      "question": "What is automazeio/ccpm and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "automazeio/ccpm",
+      "repo_url": "https://github.com/automazeio/ccpm",
+      "repo_stars": 8415,
+      "repo_replaces": "Asana",
+      "youtube": "mR0j9f66GPE",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6adaf652535235087b847ea1",
+      "tiktok_caption": "Replace Asana with This Self\u2011Hosted Agent\u2011Powered Project Manager\n\nDiscover automazeio/ccpm, an open\u2011source solution that brings AI agents into project management. Try it, see the difference, and follow for more tech insights!\n\nautomazeio/ccpm: https://github.com/automazeio/ccpm\n\n#nocodefounder #opensource #aiagent #projectmanagement #selfhosted",
+      "instagram": true,
+      "instagram_post_id": "6adaf65d535235087b848092",
+      "linkedin": true,
+      "linkedin_post_id": "6adaf6671dc335d347f84230",
+      "archetype": "StarRising",
+      "ts": "2026-10-23T05:53:18"
     }
   ],
   "repos": {
@@ -4164,7 +4191,8 @@
       "storytold/pdfcraft",
       "pranshuparmar/witr",
       "saleor/storefront",
-      "Anil-matcha/open-duet"
+      "Anil-matcha/open-duet",
+      "automazeio/ccpm"
     ]
   },
   "modes": {
@@ -4305,7 +4333,8 @@
       "rescue",
       "question",
       "star_rising",
-      "rescue"
+      "rescue",
+      "star_rising"
     ]
   },
   "rescue": {

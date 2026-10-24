@@ -209,7 +209,8 @@
       "When Lovable keeps saying it\u2019s fixed and nothing changes",
       "The self-hosted agent-powered project manager that replaces Asana",
       "The Docker stack that runs ERPNext, replacing paid cloud ERP subscriptions",
-      "One bad prompt could delete your production data and you have no backup plan"
+      "One bad prompt could delete your production data and you have no backup plan",
+      "Self-hosted CMS that replaces paid website builders"
     ]
   },
   "uploads": [
@@ -4125,6 +4126,32 @@
       "linkedin_post_id": "6adbc3470b5343d0704c3080",
       "archetype": "RescueSplit",
       "ts": "2026-10-23T20:27:26"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Self-hosted CMS that replaces paid website builders",
+      "title": "Free Self\u2011Hosted CMS That Beats Paid Builders",
+      "question": "What is emdash-cms/emdash and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "emdash-cms/emdash",
+      "repo_url": "https://github.com/emdash-cms/emdash",
+      "repo_stars": 13913,
+      "repo_replaces": "Paid website builders",
+      "youtube": "x97oHkrRT5Y",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6adc4517bd33ce99c3099edf",
+      "tiktok_caption": "Free Self\u2011Hosted CMS That Beats Paid Builders\n\nDiscover how emdash-cms/emdash lets you launch a professional site without monthly fees. Try it now, and follow for more open\u2011source tech hacks!\n\nemdash-cms/emdash: https://github.com/emdash-cms/emdash\n\n#emdash #nocode #opensource #cms #webdev",
+      "instagram": true,
+      "instagram_post_id": "6adc45220b5343d070696e37",
+      "linkedin": true,
+      "linkedin_post_id": "6adc452c3d5b27036b6bc6f5",
+      "archetype": "StarRising",
+      "ts": "2026-10-24T05:41:39"
     }
   ],
   "repos": {
@@ -4247,7 +4274,8 @@
       "saleor/storefront",
       "Anil-matcha/open-duet",
       "automazeio/ccpm",
-      "frappe/frappe_docker"
+      "frappe/frappe_docker",
+      "emdash-cms/emdash"
     ]
   },
   "modes": {
@@ -4391,7 +4419,8 @@
       "rescue",
       "star_rising",
       "star_rising",
-      "rescue"
+      "rescue",
+      "star_rising"
     ]
   },
   "rescue": {

@@ -210,7 +210,8 @@
       "The self-hosted agent-powered project manager that replaces Asana",
       "The Docker stack that runs ERPNext, replacing paid cloud ERP subscriptions",
       "One bad prompt could delete your production data and you have no backup plan",
-      "Self-hosted CMS that replaces paid website builders"
+      "Self-hosted CMS that replaces paid website builders",
+      "FilmCraft: the open\u2011source video editor that replaces your paid video\u2011editing subscription"
     ]
   },
   "uploads": [
@@ -4152,6 +4153,32 @@
       "linkedin_post_id": "6adc452c3d5b27036b6bc6f5",
       "archetype": "StarRising",
       "ts": "2026-10-24T05:41:39"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "FilmCraft: the open\u2011source video editor that replaces your paid video\u2011editing subscription",
+      "title": "Revolutionize Editing: FilmCraft, the Free Open\u2011Source Video Editor",
+      "question": "What is storytold/filmcraft and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "storytold/filmcraft",
+      "repo_url": "https://github.com/storytold/filmcraft",
+      "repo_stars": 15981,
+      "repo_replaces": "paid video\u2011editing software",
+      "youtube": "VO7wfKSaJc8",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6adcafb43d5b27036b86a6bf",
+      "tiktok_caption": "Revolutionize Editing: FilmCraft, the Free Open\u2011Source Video Editor\n\nDiscover how FilmCraft can replace pricey subscriptions, giving you professional tools without the cost. Hit follow for more open\u2011source hacks and tips!\n\nstorytold/filmcraft: https://github.com/storytold/filmcraft\n\n#filmcraft #opensource #videoediting #nocost #techhacks",
+      "instagram": true,
+      "instagram_post_id": "6adcafbebd33ce99c32490a6",
+      "linkedin": true,
+      "linkedin_post_id": "6adcafc98b3d437ddcbdd7ca",
+      "archetype": "StarRising",
+      "ts": "2026-10-24T13:16:31"
     }
   ],
   "repos": {
@@ -4275,7 +4302,8 @@
       "Anil-matcha/open-duet",
       "automazeio/ccpm",
       "frappe/frappe_docker",
-      "emdash-cms/emdash"
+      "emdash-cms/emdash",
+      "storytold/filmcraft"
     ]
   },
   "modes": {
@@ -4420,6 +4448,7 @@
       "star_rising",
       "star_rising",
       "rescue",
+      "star_rising",
       "star_rising"
     ]
   },

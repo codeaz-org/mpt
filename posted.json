@@ -211,7 +211,8 @@
       "The Docker stack that runs ERPNext, replacing paid cloud ERP subscriptions",
       "One bad prompt could delete your production data and you have no backup plan",
       "Self-hosted CMS that replaces paid website builders",
-      "FilmCraft: the open\u2011source video editor that replaces your paid video\u2011editing subscription"
+      "FilmCraft: the open\u2011source video editor that replaces your paid video\u2011editing subscription",
+      "Your app was fast with 10 users and crawls with 1,000 rows"
     ]
   },
   "uploads": [
@@ -4179,6 +4180,32 @@
       "linkedin_post_id": "6adcafc98b3d437ddcbdd7ca",
       "archetype": "StarRising",
       "ts": "2026-10-24T13:16:31"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Your app was fast with 10 users and crawls with 1,000 rows",
+      "title": "Your app is fast with 10 users but slows with 1,000 rows",
+      "question": "How do I check whether my app has this problem: Your app was fast with 10 users and crawls with 1,000 rows?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": "slow-no-index",
+      "rescue_format": "check",
+      "mode": "rescue",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "O6Me534VyZ4",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6add07c5bd33ce99c33c495c",
+      "tiktok_caption": "Your app is fast with 10 users but slows with 1,000 rows\n\nHow to check your own app for this: your app was fast with 10 users and crawls with 1,000 rows. Without indexes on the columns you filter and sort by, the database reads every row on every request. It is invisible with test data and painful with real data.\n\nBuilt your app with Lovable, Bolt, v0 or Replit and it keeps breaking? Get it audited: https://rescue.codeaz.org\n\n#lovable #boltnew #supabase #vibecoding #nocode",
+      "instagram": true,
+      "instagram_post_id": "6add07d00b5343d0709c83cb",
+      "linkedin": true,
+      "linkedin_post_id": "6add07dbbd33ce99c33c4f7c",
+      "archetype": "RescueSplit",
+      "ts": "2026-10-24T19:32:18"
     }
   ],
   "repos": {
@@ -4449,7 +4476,8 @@
       "star_rising",
       "rescue",
       "star_rising",
-      "star_rising"
+      "star_rising",
+      "rescue"
     ]
   },
   "rescue": {
@@ -4465,7 +4493,8 @@
       ],
       "check": [
         "edge-function-no-auth",
-        "openai-key-browser"
+        "openai-key-browser",
+        "slow-no-index"
       ],
       "prompt_fix": [
         "vite-env-exposed",

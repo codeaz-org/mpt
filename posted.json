@@ -213,7 +213,8 @@
       "Self-hosted CMS that replaces paid website builders",
       "FilmCraft: the open\u2011source video editor that replaces your paid video\u2011editing subscription",
       "Your app was fast with 10 users and crawls with 1,000 rows",
-      "Self-hosted n8n: Automate Your Small Business Without Zapier"
+      "Self-hosted n8n: Automate Your Small Business Without Zapier",
+      "Tracely\u2011ai: Self\u2011hosted CI/CD for AI agents that replaces manual AI workflow monitoring"
     ]
   },
   "uploads": [
@@ -4233,6 +4234,32 @@
       "linkedin_post_id": "6add9b7d0b5343d070b9c948",
       "archetype": "CostTeardown",
       "ts": "2026-10-25T06:02:12"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Tracely\u2011ai: Self\u2011hosted CI/CD for AI agents that replaces manual AI workflow monitoring",
+      "title": "Tracely\u2011ai: Automate AI Workflow Monitoring in One Click",
+      "question": "What is jwuthri-cloud/Tracely-ai and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "jwuthri-cloud/Tracely-ai",
+      "repo_url": "https://github.com/jwuthri-cloud/Tracely-ai",
+      "repo_stars": 1171,
+      "repo_replaces": "manual AI agent CI/CD processes",
+      "youtube": "YLrjGv12dWQ",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ade0a643d5b27036bd5c148",
+      "tiktok_caption": "Tracely\u2011ai: Automate AI Workflow Monitoring in One Click\n\nDiscover how Tracely\u2011ai, a self\u2011hosted CI/CD platform for AI agents, eliminates manual monitoring and speeds up deployment. Dive into the open\u2011source project and streamline your AI pipelines today\u2014follow for more AI automation insights!\n\njwuthri-cloud/Tracely-ai: https://github.com/jwuthri-cloud/Tracely-ai\n\n#nocodefounder #aidevelopment #opensource #cicd #automation",
+      "instagram": true,
+      "instagram_post_id": "6ade0a6f8b3d437ddc0e033b",
+      "linkedin": true,
+      "linkedin_post_id": "6ade0a79bd33ce99c374387c",
+      "archetype": "StarRising",
+      "ts": "2026-10-25T13:55:44"
     }
   ],
   "repos": {
@@ -4357,7 +4384,8 @@
       "automazeio/ccpm",
       "frappe/frappe_docker",
       "emdash-cms/emdash",
-      "storytold/filmcraft"
+      "storytold/filmcraft",
+      "jwuthri-cloud/Tracely-ai"
     ]
   },
   "modes": {
@@ -4505,7 +4533,8 @@
       "star_rising",
       "star_rising",
       "rescue",
-      "question"
+      "question",
+      "star_rising"
     ]
   },
   "rescue": {

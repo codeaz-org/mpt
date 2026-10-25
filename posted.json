@@ -214,7 +214,8 @@
       "FilmCraft: the open\u2011source video editor that replaces your paid video\u2011editing subscription",
       "Your app was fast with 10 users and crawls with 1,000 rows",
       "Self-hosted n8n: Automate Your Small Business Without Zapier",
-      "Tracely\u2011ai: Self\u2011hosted CI/CD for AI agents that replaces manual AI workflow monitoring"
+      "Tracely\u2011ai: Self\u2011hosted CI/CD for AI agents that replaces manual AI workflow monitoring",
+      "Your users' uploaded files are public to anyone with the link"
     ]
   },
   "uploads": [
@@ -4260,6 +4261,32 @@
       "linkedin_post_id": "6ade0a79bd33ce99c374387c",
       "archetype": "StarRising",
       "ts": "2026-10-25T13:55:44"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Your users' uploaded files are public to anyone with the link",
+      "title": "Files Uploaded by Users Are Public to Anyone With the Link",
+      "question": "Why hasn't prompting the AI fixed this: Your users' uploaded files are public to anyone with the link?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": "public-storage-bucket",
+      "rescue_format": "prompt_fix",
+      "mode": "rescue",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "J-Uz4V5wi2E",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ade5cd83d5b27036beca446",
+      "tiktok_caption": "Files Uploaded by Users Are Public to Anyone With the Link\n\nYour users' uploaded files are public to anyone with the link. A public bucket is the fastest way to make an uploaded file display, so that is what gets built.\n\nBuilt your app with Lovable, Bolt, v0 or Replit and it keeps breaking? Get it audited: https://rescue.codeaz.org\n\n#lovable #boltnew #supabase #vibecoding #nocode",
+      "instagram": true,
+      "instagram_post_id": "6ade5ce33d5b27036beca608",
+      "linkedin": true,
+      "linkedin_post_id": "6ade5cef3d5b27036beca78c",
+      "archetype": "RescueSplit",
+      "ts": "2026-10-25T19:47:34"
     }
   ],
   "repos": {
@@ -4534,7 +4561,8 @@
       "star_rising",
       "rescue",
       "question",
-      "star_rising"
+      "star_rising",
+      "rescue"
     ]
   },
   "rescue": {
@@ -4555,7 +4583,9 @@
       ],
       "prompt_fix": [
         "vite-env-exposed",
-        "no-rate-limit"
+        "no-rate-limit",
+        "stripe-success-page",
+        "public-storage-bucket"
       ],
       "question": [
         "rls-off",

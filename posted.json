@@ -216,7 +216,8 @@
       "Self-hosted n8n: Automate Your Small Business Without Zapier",
       "Tracely\u2011ai: Self\u2011hosted CI/CD for AI agents that replaces manual AI workflow monitoring",
       "Your users' uploaded files are public to anyone with the link",
-      "Shopify Apps for Group Discounts Across Separate Orders"
+      "Shopify Apps for Group Discounts Across Separate Orders",
+      "Automate Your YouTube Channel with Make: No-code Workflow to Publish and Promote"
     ]
   },
   "uploads": [
@@ -4314,6 +4315,32 @@
       "linkedin_post_id": "6adef060d62a2f4f00437523",
       "archetype": "BuyOrBuild",
       "ts": "2026-10-26T06:16:39"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Automate Your YouTube Channel with Make: No-code Workflow to Publish and Promote",
+      "title": "Automate Your YouTube Channel with Make: No-code Workflow to Publish & Promote",
+      "question": "how can i automate my youtube channel",
+      "question_id": "gsuggest:how can i automate my youtube channel",
+      "question_url": "https://www.google.com/search?q=how%20can%20i%20automate%20my%20youtube%20channel",
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "question",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "Db88FymYtKA",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6adf7f7efbcc83d9686da261",
+      "tiktok_caption": "Automate Your YouTube Channel with Make: No-code Workflow to Publish & Promote\n\nLearn how to use Make to set up a fully automated YouTube publishing and promotion pipeline without writing a single line of code. Start boosting your channel\u2019s efficiency today\u2014follow for more no-code hacks!\n\n#nocode #youtubeautomation #workflow #videopromotion #maketools",
+      "instagram": true,
+      "instagram_post_id": "6adf7f882bcc043904f9e96f",
+      "linkedin": true,
+      "linkedin_post_id": "6adf7f931675899b76ea329d",
+      "archetype": "CostTeardown",
+      "ts": "2026-10-26T16:27:38"
     }
   ],
   "repos": {
@@ -4439,7 +4466,9 @@
       "frappe/frappe_docker",
       "emdash-cms/emdash",
       "storytold/filmcraft",
-      "jwuthri-cloud/Tracely-ai"
+      "jwuthri-cloud/Tracely-ai",
+      "stablyai/orca",
+      "melgarafael/DeskcommCRM"
     ]
   },
   "modes": {
@@ -4590,6 +4619,7 @@
       "question",
       "star_rising",
       "rescue",
+      "question",
       "question"
     ]
   },

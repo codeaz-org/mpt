@@ -217,7 +217,8 @@
       "Tracely\u2011ai: Self\u2011hosted CI/CD for AI agents that replaces manual AI workflow monitoring",
       "Your users' uploaded files are public to anyone with the link",
       "Shopify Apps for Group Discounts Across Separate Orders",
-      "Automate Your YouTube Channel with Make: No-code Workflow to Publish and Promote"
+      "Automate Your YouTube Channel with Make: No-code Workflow to Publish and Promote",
+      "Launch checklist #4: Paid APIs are only called from your server"
     ]
   },
   "uploads": [
@@ -4341,6 +4342,32 @@
       "linkedin_post_id": "6adf7f931675899b76ea329d",
       "archetype": "CostTeardown",
       "ts": "2026-10-26T16:27:38"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Launch checklist #4: Paid APIs are only called from your server",
+      "title": "Paid APIs are only called from your server",
+      "question": "Before launch, how do I make sure that: Paid APIs are only called from your server?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": "openai-key-browser",
+      "rescue_format": "checklist",
+      "mode": "rescue",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "ntrb-MrE57I",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6adfcc5b9a87effac42727b9",
+      "tiktok_caption": "Paid APIs are only called from your server\n\nLaunch checklist, number 4: Paid APIs are only called from your server. If the browser calls the AI API directly, the API key travels with every request, and anyone can copy it from the network tab and run up your bill.\n\nBuilt your app with Lovable, Bolt, v0 or Replit and it keeps breaking? Get it audited: https://rescue.codeaz.org\n\n#lovable #boltnew #supabase #vibecoding #nocode",
+      "instagram": true,
+      "instagram_post_id": "6adfcc665d20d74bbd9bf5c7",
+      "linkedin": true,
+      "linkedin_post_id": "6adfcc709a87effac4272b8e",
+      "archetype": "RescueSplit",
+      "ts": "2026-10-26T21:55:36"
     }
   ],
   "repos": {
@@ -4620,14 +4647,17 @@
       "star_rising",
       "rescue",
       "question",
-      "question"
+      "question",
+      "rescue"
     ]
   },
   "rescue": {
     "codeaz": {
       "checklist": [
         "rls-off",
-        "service-role-in-frontend"
+        "service-role-in-frontend",
+        "vite-env-exposed",
+        "openai-key-browser"
       ],
       "explainer": [
         "oauth-redirect-mismatch",

@@ -219,7 +219,8 @@
       "Shopify Apps for Group Discounts Across Separate Orders",
       "Automate Your YouTube Channel with Make: No-code Workflow to Publish and Promote",
       "Launch checklist #4: Paid APIs are only called from your server",
-      "TugraWork Creator: Self-hosted motion video kit that replaces paid video editing"
+      "TugraWork Creator: Self-hosted motion video kit that replaces paid video editing",
+      "Metasfresh \u2013 Self\u2011Hosted ERP that replaces paid cloud accounting suites"
     ]
   },
   "uploads": [
@@ -4395,6 +4396,32 @@
       "linkedin_post_id": "6ae0408b42a6730401252f30",
       "archetype": "StarRising",
       "ts": "2026-10-27T06:10:58"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Metasfresh \u2013 Self\u2011Hosted ERP that replaces paid cloud accounting suites",
+      "title": "Metasfresh: The Self\u2011Hosted ERP That Outshines Paid Cloud Accounting",
+      "question": "What is metasfresh/metasfresh and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "metasfresh/metasfresh",
+      "repo_url": "https://github.com/metasfresh/metasfresh",
+      "repo_stars": 2458,
+      "repo_replaces": "Paid ERP subscriptions",
+      "youtube": "xFvQSFy_rlc",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ae0c2a00574aed3d268afbd",
+      "tiktok_caption": "Metasfresh: The Self\u2011Hosted ERP That Outshines Paid Cloud Accounting\n\nDiscover how metasfresh is reshaping the ERP landscape with a free, open\u2011source alternative to pricey cloud suites. Dive in, try it out, and share your thoughts\u2014follow for more insights!\n\nmetasfresh/metasfresh: https://github.com/metasfresh/metasfresh\n\n#erp #opensource #selfhosted #accounting #fintech",
+      "instagram": true,
+      "instagram_post_id": "6ae0c2aa0574aed3d268b351",
+      "linkedin": true,
+      "linkedin_post_id": "6ae0c2b593ca59e809f5ac59",
+      "archetype": "mpt",
+      "ts": "2026-10-27T15:26:20"
     }
   ],
   "repos": {
@@ -4523,7 +4550,8 @@
       "jwuthri-cloud/Tracely-ai",
       "stablyai/orca",
       "melgarafael/DeskcommCRM",
-      "rociiu/talorys"
+      "rociiu/talorys",
+      "metasfresh/metasfresh"
     ]
   },
   "modes": {
@@ -4677,6 +4705,7 @@
       "question",
       "question",
       "rescue",
+      "star_rising",
       "star_rising"
     ]
   },

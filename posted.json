@@ -218,7 +218,8 @@
       "Your users' uploaded files are public to anyone with the link",
       "Shopify Apps for Group Discounts Across Separate Orders",
       "Automate Your YouTube Channel with Make: No-code Workflow to Publish and Promote",
-      "Launch checklist #4: Paid APIs are only called from your server"
+      "Launch checklist #4: Paid APIs are only called from your server",
+      "TugraWork Creator: Self-hosted motion video kit that replaces paid video editing"
     ]
   },
   "uploads": [
@@ -4368,6 +4369,32 @@
       "linkedin_post_id": "6adfcc709a87effac4272b8e",
       "archetype": "RescueSplit",
       "ts": "2026-10-26T21:55:36"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "TugraWork Creator: Self-hosted motion video kit that replaces paid video editing",
+      "title": "Replace Expensive Video Editing with TugraWork Creator!",
+      "question": "What is rociiu/talorys and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "rociiu/talorys",
+      "repo_url": "https://github.com/rociiu/talorys",
+      "repo_stars": 1391,
+      "repo_replaces": "paid video editing software",
+      "youtube": "vNEN6f1fbfU",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ae04075e03df6c473fc07a6",
+      "tiktok_caption": "Replace Expensive Video Editing with TugraWork Creator!\n\nDiscover how TugraWork Creator, a self\u2011hosted motion video kit, can replace pricey paid editors in a snap. Try it out and share your creations\u2014follow for more open\u2011source hacks!\n\nrociiu/talorys: https://github.com/rociiu/talorys\n\n#opensource #videoediting #selfhosted #motiongraphics #tugrawork",
+      "instagram": true,
+      "instagram_post_id": "6ae0408045abed2fb7bd6f85",
+      "linkedin": true,
+      "linkedin_post_id": "6ae0408b42a6730401252f30",
+      "archetype": "StarRising",
+      "ts": "2026-10-27T06:10:58"
     }
   ],
   "repos": {
@@ -4495,7 +4522,8 @@
       "storytold/filmcraft",
       "jwuthri-cloud/Tracely-ai",
       "stablyai/orca",
-      "melgarafael/DeskcommCRM"
+      "melgarafael/DeskcommCRM",
+      "rociiu/talorys"
     ]
   },
   "modes": {
@@ -4648,7 +4676,8 @@
       "rescue",
       "question",
       "question",
-      "rescue"
+      "rescue",
+      "star_rising"
     ]
   },
   "rescue": {

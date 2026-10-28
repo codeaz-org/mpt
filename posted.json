@@ -223,7 +223,8 @@
       "Metasfresh \u2013 Self\u2011Hosted ERP that replaces paid cloud accounting suites",
       "You turned on Row Level Security and now your app shows no data at all",
       "Company\u2011wide Outlook Signatures? Exclaimer or CodeTwo for 200 Users",
-      "The no-code RAG server that replaces paid document search services"
+      "The no-code RAG server that replaces paid document search services",
+      "Your checkout trusts the price the browser sends"
     ]
   },
   "uploads": [
@@ -4503,6 +4504,32 @@
       "linkedin_post_id": "6ae21aa34785904534fb702a",
       "archetype": "StarRising",
       "ts": "2026-10-28T15:53:44"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Your checkout trusts the price the browser sends",
+      "title": "Checkout Trusts Browser Price",
+      "question": "How do I check whether my app has this problem: Your checkout trusts the price the browser sends?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": "price-from-client",
+      "rescue_format": "check",
+      "mode": "rescue",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "ggsgLOJ6XlA",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ae26db0ceaf0c51f3f85375",
+      "tiktok_caption": "Checkout Trusts Browser Price\n\nHow to check your own app for this: your checkout trusts the price the browser sends. Anything the browser sends can be edited. If the server creates the checkout with an amount supplied by the page, a user can change it before paying.\n\nBuilt your app with Lovable, Bolt, v0 or Replit and it keeps breaking? Get it audited: https://rescue.codeaz.org\n\n#lovable #boltnew #supabase #vibecoding #nocode",
+      "instagram": true,
+      "instagram_post_id": "6ae26dba98678c04af5ba66b",
+      "linkedin": true,
+      "linkedin_post_id": "6ae26dc5d61dd1a312ac4eba",
+      "archetype": "RescueSplit",
+      "ts": "2026-10-28T21:48:30"
     }
   ],
   "repos": {
@@ -4791,7 +4818,8 @@
       "star_rising",
       "rescue",
       "question",
-      "star_rising"
+      "star_rising",
+      "rescue"
     ]
   },
   "rescue": {
@@ -4811,7 +4839,8 @@
       "check": [
         "edge-function-no-auth",
         "openai-key-browser",
-        "slow-no-index"
+        "slow-no-index",
+        "price-from-client"
       ],
       "prompt_fix": [
         "vite-env-exposed",

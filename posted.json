@@ -222,7 +222,8 @@
       "TugraWork Creator: Self-hosted motion video kit that replaces paid video editing",
       "Metasfresh \u2013 Self\u2011Hosted ERP that replaces paid cloud accounting suites",
       "You turned on Row Level Security and now your app shows no data at all",
-      "Company\u2011wide Outlook Signatures? Exclaimer or CodeTwo for 200 Users"
+      "Company\u2011wide Outlook Signatures? Exclaimer or CodeTwo for 200 Users",
+      "The no-code RAG server that replaces paid document search services"
     ]
   },
   "uploads": [
@@ -4476,6 +4477,32 @@
       "linkedin_post_id": "6ae19b6de673d1e58950b7ac",
       "archetype": "BuyOrBuild",
       "ts": "2026-10-28T06:51:00"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "The no-code RAG server that replaces paid document search services",
+      "title": "No\u2011Code RAG Server: Free Document Search Powerhouse",
+      "question": "What is pathwaycom/serviette and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "pathwaycom/serviette",
+      "repo_url": "https://github.com/pathwaycom/serviette",
+      "repo_stars": 58756,
+      "repo_replaces": "Paid RAG/document search platforms",
+      "youtube": "tl0R52YoEEI",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ae21a8df835de4f32564ee6",
+      "tiktok_caption": "No\u2011Code RAG Server: Free Document Search Powerhouse\n\nDiscover how this open\u2011source RAG server can replace expensive document search services, giving you instant, scalable retrieval without coding. Smash the like button and follow for more free\u2011tool hacks!\n\npathwaycom/serviette: https://github.com/pathwaycom/serviette\n\n#nocode #opensource #rag #devtools #productivity",
+      "instagram": true,
+      "instagram_post_id": "6ae21a984785904534fb6da3",
+      "linkedin": true,
+      "linkedin_post_id": "6ae21aa34785904534fb702a",
+      "archetype": "StarRising",
+      "ts": "2026-10-28T15:53:44"
     }
   ],
   "repos": {
@@ -4605,7 +4632,8 @@
       "stablyai/orca",
       "melgarafael/DeskcommCRM",
       "rociiu/talorys",
-      "metasfresh/metasfresh"
+      "metasfresh/metasfresh",
+      "pathwaycom/serviette"
     ]
   },
   "modes": {
@@ -4762,7 +4790,8 @@
       "star_rising",
       "star_rising",
       "rescue",
-      "question"
+      "question",
+      "star_rising"
     ]
   },
   "rescue": {

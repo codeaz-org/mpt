@@ -225,7 +225,8 @@
       "Company\u2011wide Outlook Signatures? Exclaimer or CodeTwo for 200 Users",
       "The no-code RAG server that replaces paid document search services",
       "Your checkout trusts the price the browser sends",
-      "The self-hosted job search app that writes resumes and cover letters"
+      "The self-hosted job search app that writes resumes and cover letters",
+      "Self-hosted AI gateway that replaces paid LLM API subscriptions"
     ]
   },
   "uploads": [
@@ -4557,6 +4558,32 @@
       "linkedin_post_id": "6ae2f09f35657f219b31ba6f",
       "archetype": "StarRising",
       "ts": "2026-10-29T07:06:44"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Self-hosted AI gateway that replaces paid LLM API subscriptions",
+      "title": "Free AI Gateway: Replace Paid LLM APIs with QuantumNous/new-api",
+      "question": "What is QuantumNous/new-api and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "QuantumNous/new-api",
+      "repo_url": "https://github.com/QuantumNous/new-api",
+      "repo_stars": 50963,
+      "repo_replaces": "Paid LLM API subscriptions",
+      "youtube": "XCAU07OMHNY",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ae36f90041e128612bc30b9",
+      "tiktok_caption": "Free AI Gateway: Replace Paid LLM APIs with QuantumNous/new-api\n\nDiscover how a self\u2011hosted AI gateway can cut costs and give you full control over your models. Try QuantumNous/new-api today and see how it simplifies your workflow. Follow for more open\u2011source AI insights!\n\nQuantumNous/new-api: https://github.com/QuantumNous/new-api\n\n#quantumnous #aigateway #opensource #llm #nocode",
+      "instagram": true,
+      "instagram_post_id": "6ae36f9b263de33373414e47",
+      "linkedin": true,
+      "linkedin_post_id": "6ae36fa6263de33373415204",
+      "archetype": "StarRising",
+      "ts": "2026-10-29T16:08:42"
     }
   ],
   "repos": {
@@ -4688,7 +4715,8 @@
       "rociiu/talorys",
       "metasfresh/metasfresh",
       "pathwaycom/serviette",
-      "AienTech/dossier"
+      "AienTech/dossier",
+      "QuantumNous/new-api"
     ]
   },
   "modes": {
@@ -4848,6 +4876,7 @@
       "question",
       "star_rising",
       "rescue",
+      "star_rising",
       "star_rising"
     ]
   },

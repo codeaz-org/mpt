@@ -224,7 +224,8 @@
       "You turned on Row Level Security and now your app shows no data at all",
       "Company\u2011wide Outlook Signatures? Exclaimer or CodeTwo for 200 Users",
       "The no-code RAG server that replaces paid document search services",
-      "Your checkout trusts the price the browser sends"
+      "Your checkout trusts the price the browser sends",
+      "The self-hosted job search app that writes resumes and cover letters"
     ]
   },
   "uploads": [
@@ -4530,6 +4531,32 @@
       "linkedin_post_id": "6ae26dc5d61dd1a312ac4eba",
       "archetype": "RescueSplit",
       "ts": "2026-10-28T21:48:30"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "The self-hosted job search app that writes resumes and cover letters",
+      "title": "Build a Self\u2011Hosted Job Search App That Auto\u2011Writes Resumes",
+      "question": "What is AienTech/dossier and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "AienTech/dossier",
+      "repo_url": "https://github.com/AienTech/dossier",
+      "repo_stars": 2898,
+      "repo_replaces": "Paid job search and resume\u2011writing services",
+      "youtube": "8td-14ygEoc",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ae2f089f66393dd56927cbd",
+      "tiktok_caption": "Build a Self\u2011Hosted Job Search App That Auto\u2011Writes Resumes\n\nDiscover how this open\u2011source project streamlines the job hunt by auto\u2011generating resumes and cover letters. Try it today and boost your career search\u2014follow for more tech hacks!\n\nAienTech/dossier: https://github.com/AienTech/dossier\n\n#opensource #devtools #careerapps #automation #nocodefounder",
+      "instagram": true,
+      "instagram_post_id": "6ae2f0949c83386213528a14",
+      "linkedin": true,
+      "linkedin_post_id": "6ae2f09f35657f219b31ba6f",
+      "archetype": "StarRising",
+      "ts": "2026-10-29T07:06:44"
     }
   ],
   "repos": {
@@ -4660,7 +4687,8 @@
       "melgarafael/DeskcommCRM",
       "rociiu/talorys",
       "metasfresh/metasfresh",
-      "pathwaycom/serviette"
+      "pathwaycom/serviette",
+      "AienTech/dossier"
     ]
   },
   "modes": {
@@ -4819,7 +4847,8 @@
       "rescue",
       "question",
       "star_rising",
-      "rescue"
+      "rescue",
+      "star_rising"
     ]
   },
   "rescue": {

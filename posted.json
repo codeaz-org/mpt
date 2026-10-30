@@ -228,7 +228,8 @@
       "The self-hosted job search app that writes resumes and cover letters",
       "Self-hosted AI gateway that replaces paid LLM API subscriptions",
       "Your Stripe webhook accepts any request without checking the signature",
-      "Treesheets: Self-hosted hierarchical spreadsheet that replaces paid outliners and spreadsheets"
+      "Treesheets: Self-hosted hierarchical spreadsheet that replaces paid outliners and spreadsheets",
+      "Storytold Wordcraft: The Self\u2011Hosted Word Alternative that Replaces Your Office Subscription"
     ]
   },
   "uploads": [
@@ -4638,6 +4639,32 @@
       "linkedin_post_id": "6ae4452a4b8768bfb2e61be8",
       "archetype": "StarRising",
       "ts": "2026-10-30T07:19:45"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Storytold Wordcraft: The Self\u2011Hosted Word Alternative that Replaces Your Office Subscription",
+      "title": "Say Goodbye to Office Subscriptions with Wordcraft!",
+      "question": "What is storytold/wordcraft and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "storytold/wordcraft",
+      "repo_url": "https://github.com/storytold/wordcraft",
+      "repo_stars": 16707,
+      "repo_replaces": "Microsoft Word",
+      "youtube": "jfhUuFjksGU",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ae4bbb5a351214acf953389",
+      "tiktok_caption": "Say Goodbye to Office Subscriptions with Wordcraft!\n\nDive into Storytold Wordcraft, the self\u2011hosted open\u2011source alternative that replaces your Office suite. Learn how to set it up and get more control over your documents\u2014hit follow for more open\u2011source tips!\n\nstorytold/wordcraft: https://github.com/storytold/wordcraft\n\n#opensource #selfhosted #productivity #tech #nocodefounder",
+      "instagram": true,
+      "instagram_post_id": "6ae4bbc0cd8290b9b9fa55bc",
+      "linkedin": true,
+      "linkedin_post_id": "6ae4bbcb2a4d923bf40752dc",
+      "archetype": "StarRising",
+      "ts": "2026-10-30T15:45:53"
     }
   ],
   "repos": {
@@ -4772,7 +4799,8 @@
       "AienTech/dossier",
       "QuantumNous/new-api",
       "KnifeLemon/Filee",
-      "aardappel/treesheets"
+      "aardappel/treesheets",
+      "storytold/wordcraft"
     ]
   },
   "modes": {
@@ -4935,6 +4963,7 @@
       "star_rising",
       "star_rising",
       "rescue",
+      "star_rising",
       "star_rising"
     ]
   },

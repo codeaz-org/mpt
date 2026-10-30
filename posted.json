@@ -227,7 +227,8 @@
       "Your checkout trusts the price the browser sends",
       "The self-hosted job search app that writes resumes and cover letters",
       "Self-hosted AI gateway that replaces paid LLM API subscriptions",
-      "Your Stripe webhook accepts any request without checking the signature"
+      "Your Stripe webhook accepts any request without checking the signature",
+      "Treesheets: Self-hosted hierarchical spreadsheet that replaces paid outliners and spreadsheets"
     ]
   },
   "uploads": [
@@ -4611,6 +4612,32 @@
       "linkedin_post_id": "6ae3c13f8d19aa0a5be70bb8",
       "archetype": "RescueSplit",
       "ts": "2026-10-29T21:56:54"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Treesheets: Self-hosted hierarchical spreadsheet that replaces paid outliners and spreadsheets",
+      "title": "Treesheets: The Free, Self\u2011Hosted Hierarchical Spreadsheet",
+      "question": "What is aardappel/treesheets and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "aardappel/treesheets",
+      "repo_url": "https://github.com/aardappel/treesheets",
+      "repo_stars": 3180,
+      "repo_replaces": "outliners, mind maps, spreadsheets",
+      "youtube": "66cDx-671Js",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ae445156385db216a2e14bc",
+      "tiktok_caption": "Treesheets: The Free, Self\u2011Hosted Hierarchical Spreadsheet\n\nDiscover Treesheets, an open\u2011source project that lets you manage data like a spreadsheet but with powerful tree structures\u2014no paid outliners needed. Try it today and share your workflow hacks!\n\naardappel/treesheets: https://github.com/aardappel/treesheets\n\n#opensource #selfhosted #hierarchysheets #productivity #datamanagement",
+      "instagram": true,
+      "instagram_post_id": "6ae4451f56e01b9763915d26",
+      "linkedin": true,
+      "linkedin_post_id": "6ae4452a4b8768bfb2e61be8",
+      "archetype": "StarRising",
+      "ts": "2026-10-30T07:19:45"
     }
   ],
   "repos": {
@@ -4743,7 +4770,9 @@
       "metasfresh/metasfresh",
       "pathwaycom/serviette",
       "AienTech/dossier",
-      "QuantumNous/new-api"
+      "QuantumNous/new-api",
+      "KnifeLemon/Filee",
+      "aardappel/treesheets"
     ]
   },
   "modes": {
@@ -4905,7 +4934,8 @@
       "rescue",
       "star_rising",
       "star_rising",
-      "rescue"
+      "rescue",
+      "star_rising"
     ]
   },
   "rescue": {

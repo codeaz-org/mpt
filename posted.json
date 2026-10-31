@@ -232,7 +232,8 @@
       "Storytold Wordcraft: The Self\u2011Hosted Word Alternative that Replaces Your Office Subscription",
       "Launch checklist #5: Paid access is granted only by a verified Stripe webhook",
       "Replica Skill: Clone any app to replace paid app\u2011cloning services",
-      "OpenShip: Self-hosted order router that replaces paid 3PL fulfillment"
+      "OpenShip: Self-hosted order router that replaces paid 3PL fulfillment",
+      "One page of your app makes a hundred database calls"
     ]
   },
   "uploads": [
@@ -4746,6 +4747,32 @@
       "linkedin_post_id": "6ae6073babbfa4c0cc1ccbdc",
       "archetype": "StarRising",
       "ts": "2026-10-31T15:20:01"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "One page of your app makes a hundred database calls",
+      "title": "One page makes 100 database calls",
+      "question": "My app has this problem: One page of your app makes a hundred database calls. What is going on and how do I fix it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": "n-plus-one",
+      "rescue_format": "explainer",
+      "mode": "rescue",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "xXgVtl3BtC4",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ae652d837c1acd2a0ccde72",
+      "tiktok_caption": "One page makes 100 database calls\n\nOne page of your app makes a hundred database calls. Generated code often loads a list, then fetches related data one row at a time. That is one request per item instead of one request for the whole page.\n\nBuilt your app with Lovable, Bolt, v0 or Replit and it keeps breaking? Get it audited: https://rescue.codeaz.org\n\n#lovable #boltnew #supabase #vibecoding #nocode",
+      "instagram": true,
+      "instagram_post_id": "6ae652e2f0984eef332dcf83",
+      "linkedin": true,
+      "linkedin_post_id": "6ae652ed1ee172cd6dc0f890",
+      "archetype": "RescueSplit",
+      "ts": "2026-10-31T20:43:01"
     }
   ],
   "repos": {
@@ -5050,7 +5077,8 @@
       "star_rising",
       "rescue",
       "star_rising",
-      "star_rising"
+      "star_rising",
+      "rescue"
     ]
   },
   "rescue": {
@@ -5066,7 +5094,8 @@
         "oauth-redirect-mismatch",
         "edge-function-no-auth",
         "no-backups",
-        "rls-on-no-policy"
+        "rls-on-no-policy",
+        "n-plus-one"
       ],
       "check": [
         "edge-function-no-auth",

@@ -230,7 +230,8 @@
       "Your Stripe webhook accepts any request without checking the signature",
       "Treesheets: Self-hosted hierarchical spreadsheet that replaces paid outliners and spreadsheets",
       "Storytold Wordcraft: The Self\u2011Hosted Word Alternative that Replaces Your Office Subscription",
-      "Launch checklist #5: Paid access is granted only by a verified Stripe webhook"
+      "Launch checklist #5: Paid access is granted only by a verified Stripe webhook",
+      "Replica Skill: Clone any app to replace paid app\u2011cloning services"
     ]
   },
   "uploads": [
@@ -4692,6 +4693,32 @@
       "linkedin_post_id": "6ae51061406ab8a01884421d",
       "archetype": "RescueSplit",
       "ts": "2026-10-30T21:46:48"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Replica Skill: Clone any app to replace paid app\u2011cloning services",
+      "title": "Clone Any App with Replica Skill \u2013 No Paid Service Needed!",
+      "question": "What is Jakeschincariol/replica-skill and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "Jakeschincariol/replica-skill",
+      "repo_url": "https://github.com/Jakeschincariol/replica-skill",
+      "repo_stars": 6696,
+      "repo_replaces": "Paid app\u2011cloning services",
+      "youtube": "1-8kyPjl-ss",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ae590e31891472093ba86f1",
+      "tiktok_caption": "Clone Any App with Replica Skill \u2013 No Paid Service Needed!\n\nLearn how to use the open-source project Jakeschincariol/replica-skill to replicate apps effortlessly. Try it today and level up your dev game!\n\nJakeschincariol/replica-skill: https://github.com/Jakeschincariol/replica-skill\n\n#nocodefounder #opensource #devtools #appclone #automation",
+      "instagram": true,
+      "instagram_post_id": "6ae590eeb84259308bc0c2a5",
+      "linkedin": true,
+      "linkedin_post_id": "6ae590f8b84259308bc0c371",
+      "archetype": "StarRising",
+      "ts": "2026-10-31T06:55:27"
     }
   ],
   "repos": {
@@ -4827,7 +4854,8 @@
       "QuantumNous/new-api",
       "KnifeLemon/Filee",
       "aardappel/treesheets",
-      "storytold/wordcraft"
+      "storytold/wordcraft",
+      "Jakeschincariol/replica-skill"
     ]
   },
   "modes": {
@@ -4992,7 +5020,8 @@
       "rescue",
       "star_rising",
       "star_rising",
-      "rescue"
+      "rescue",
+      "star_rising"
     ]
   },
   "rescue": {

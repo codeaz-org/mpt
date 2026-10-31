@@ -231,7 +231,8 @@
       "Treesheets: Self-hosted hierarchical spreadsheet that replaces paid outliners and spreadsheets",
       "Storytold Wordcraft: The Self\u2011Hosted Word Alternative that Replaces Your Office Subscription",
       "Launch checklist #5: Paid access is granted only by a verified Stripe webhook",
-      "Replica Skill: Clone any app to replace paid app\u2011cloning services"
+      "Replica Skill: Clone any app to replace paid app\u2011cloning services",
+      "OpenShip: Self-hosted order router that replaces paid 3PL fulfillment"
     ]
   },
   "uploads": [
@@ -4719,6 +4720,32 @@
       "linkedin_post_id": "6ae590f8b84259308bc0c371",
       "archetype": "StarRising",
       "ts": "2026-10-31T06:55:27"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "OpenShip: Self-hosted order router that replaces paid 3PL fulfillment",
+      "title": "OpenShip: Free, Self\u2011Hosted 3PL Replacement \ud83d\ude80",
+      "question": "What is openshiporg/openship and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "openshiporg/openship",
+      "repo_url": "https://github.com/openshiporg/openship",
+      "repo_stars": 1656,
+      "repo_replaces": "Paid 3PL fulfillment services",
+      "youtube": "KYZ3cZnnwq0",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ae60726ab019b90870d445c",
+      "tiktok_caption": "OpenShip: Free, Self\u2011Hosted 3PL Replacement \ud83d\ude80\n\nDiscover how OpenShip can handle your order routing without the high fees of traditional 3PLs. Watch now and learn to scale your shipping workflow!\n\nopenshiporg/openship: https://github.com/openshiporg/openship\n\n#opensource #ecommerce #logistics #nocode #startup",
+      "instagram": true,
+      "instagram_post_id": "6ae607301ee172cd6dab144d",
+      "linkedin": true,
+      "linkedin_post_id": "6ae6073babbfa4c0cc1ccbdc",
+      "archetype": "StarRising",
+      "ts": "2026-10-31T15:20:01"
     }
   ],
   "repos": {
@@ -4855,7 +4882,8 @@
       "KnifeLemon/Filee",
       "aardappel/treesheets",
       "storytold/wordcraft",
-      "Jakeschincariol/replica-skill"
+      "Jakeschincariol/replica-skill",
+      "openshiporg/openship"
     ]
   },
   "modes": {
@@ -5021,6 +5049,7 @@
       "star_rising",
       "star_rising",
       "rescue",
+      "star_rising",
       "star_rising"
     ]
   },

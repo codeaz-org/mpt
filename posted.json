@@ -233,7 +233,8 @@
       "Launch checklist #5: Paid access is granted only by a verified Stripe webhook",
       "Replica Skill: Clone any app to replace paid app\u2011cloning services",
       "OpenShip: Self-hosted order router that replaces paid 3PL fulfillment",
-      "One page of your app makes a hundred database calls"
+      "One page of your app makes a hundred database calls",
+      "Aimeos TYPO3 \u2013 Self-hosted e-commerce platform that replaces Shopify"
     ]
   },
   "uploads": [
@@ -4773,6 +4774,32 @@
       "linkedin_post_id": "6ae652ed1ee172cd6dc0f890",
       "archetype": "RescueSplit",
       "ts": "2026-10-31T20:43:01"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Aimeos TYPO3 \u2013 Self-hosted e-commerce platform that replaces Shopify",
+      "title": "Aimeos TYPO3: Replace Shopify with a Self\u2011Hosted Powerhouse",
+      "question": "What is aimeos/aimeos-typo3 and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "aimeos/aimeos-typo3",
+      "repo_url": "https://github.com/aimeos/aimeos-typo3",
+      "repo_stars": 1581,
+      "repo_replaces": "Shopify",
+      "youtube": "abNAesCQ-JM",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ae6e960cf3a3112f3e5993e",
+      "tiktok_caption": "Aimeos TYPO3: Replace Shopify with a Self\u2011Hosted Powerhouse\n\nDiscover how the open-source project aimeos/aimeos-typo3 can power your e\u2011commerce store without the fees of Shopify. Follow for more deep dives into cutting\u2011edge e\u2011commerce solutions!\n\naimeos/aimeos-typo3: https://github.com/aimeos/aimeos-typo3\n\n#ecommerce #opensource #typo3 #shopifyalternative #selfhosted",
+      "instagram": true,
+      "instagram_post_id": "6ae6e96b1ee172cd6de48a3f",
+      "linkedin": true,
+      "linkedin_post_id": "6ae6e975cf3a3112f3e59b8f",
+      "archetype": "StarRising",
+      "ts": "2026-11-01T07:25:17"
     }
   ],
   "repos": {
@@ -4910,7 +4937,8 @@
       "aardappel/treesheets",
       "storytold/wordcraft",
       "Jakeschincariol/replica-skill",
-      "openshiporg/openship"
+      "openshiporg/openship",
+      "aimeos/aimeos-typo3"
     ]
   },
   "modes": {
@@ -5078,7 +5106,8 @@
       "rescue",
       "star_rising",
       "star_rising",
-      "rescue"
+      "rescue",
+      "star_rising"
     ]
   },
   "rescue": {

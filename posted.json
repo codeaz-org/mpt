@@ -236,7 +236,8 @@
       "One page of your app makes a hundred database calls",
       "Aimeos TYPO3 \u2013 Self-hosted e-commerce platform that replaces Shopify",
       "Redis vs PostgreSQL: Do You Really Need Redis for Your SaaS?",
-      "Your app unlocks paid features when someone visits the Stripe success page"
+      "Your app unlocks paid features when someone visits the Stripe success page",
+      "Self-hosted JavaScript runner that replaces paid browser automation services"
     ]
   },
   "uploads": [
@@ -4854,6 +4855,32 @@
       "linkedin_post_id": "6ae7abed779ee9f13cb6f7a4",
       "archetype": "RescueSplit",
       "ts": "2026-11-01T21:15:00"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Self-hosted JavaScript runner that replaces paid browser automation services",
+      "title": "Self\u2011Hosted JavaScript Runner: Stop Paying for Browser Automation",
+      "question": "What is cutetailbud/ff-ruyijs and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "cutetailbud/ff-ruyijs",
+      "repo_url": "https://github.com/cutetailbud/ff-ruyijs",
+      "repo_stars": 512,
+      "repo_replaces": "Paid browser automation services",
+      "youtube": "bSDPKwDLCbE",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ae83aba759fc887b6d4dbad",
+      "tiktok_caption": "Self\u2011Hosted JavaScript Runner: Stop Paying for Browser Automation\n\nDiscover how this open\u2011source project lets you run JavaScript in a browser without costly services. Try it free and level up your automation game today \u2013 hit follow for more tech insights!\n\ncutetailbud/ff-ruyijs: https://github.com/cutetailbud/ff-ruyijs\n\n#javascript #automation #opensource #selfhosted #nocode",
+      "instagram": true,
+      "instagram_post_id": "6ae83ac476279ec7eb9be2c1",
+      "linkedin": true,
+      "linkedin_post_id": "6ae83acfc60bdbcc33dffb5e",
+      "archetype": "StarRising",
+      "ts": "2026-11-02T07:24:38"
     }
   ],
   "repos": {
@@ -4992,7 +5019,8 @@
       "storytold/wordcraft",
       "Jakeschincariol/replica-skill",
       "openshiporg/openship",
-      "aimeos/aimeos-typo3"
+      "aimeos/aimeos-typo3",
+      "cutetailbud/ff-ruyijs"
     ]
   },
   "modes": {
@@ -5163,7 +5191,8 @@
       "rescue",
       "star_rising",
       "question",
-      "rescue"
+      "rescue",
+      "star_rising"
     ]
   },
   "rescue": {

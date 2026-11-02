@@ -237,7 +237,8 @@
       "Aimeos TYPO3 \u2013 Self-hosted e-commerce platform that replaces Shopify",
       "Redis vs PostgreSQL: Do You Really Need Redis for Your SaaS?",
       "Your app unlocks paid features when someone visits the Stripe success page",
-      "Self-hosted JavaScript runner that replaces paid browser automation services"
+      "Self-hosted JavaScript runner that replaces paid browser automation services",
+      "Chat-on-Steroids: Self-hosted local ChatGPT alternative"
     ]
   },
   "uploads": [
@@ -4881,6 +4882,32 @@
       "linkedin_post_id": "6ae83acfc60bdbcc33dffb5e",
       "archetype": "StarRising",
       "ts": "2026-11-02T07:24:38"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Chat-on-Steroids: Self-hosted local ChatGPT alternative",
+      "title": "Chat\u2011On\u2011Steroids: The Self\u2011Hosted ChatGPT Alternative Everyone\u2019s Talking About",
+      "question": "What is totec448-spec/chat-on-steroids and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "totec448-spec/chat-on-steroids",
+      "repo_url": "https://github.com/totec448-spec/chat-on-steroids",
+      "repo_stars": 5127,
+      "repo_replaces": "ChatGPT subscription",
+      "youtube": "nEW5jlD80rM",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ae8e2acff93b610bb942b6f",
+      "tiktok_caption": "Chat\u2011On\u2011Steroids: The Self\u2011Hosted ChatGPT Alternative Everyone\u2019s Talking About\n\nDiscover how this open\u2011source project lets you run a powerful chatbot locally, no cloud costs, no data sharing. Ready to boost your projects? Hit follow for more tech insights!\n\ntotec448-spec/chat-on-steroids: https://github.com/totec448-spec/chat-on-steroids\n\n#opensource #chatbot #selfhosted #nocode #tech",
+      "instagram": true,
+      "instagram_post_id": "6ae8e2b7fb05897d9d36cac5",
+      "linkedin": true,
+      "linkedin_post_id": "6ae8e2c2e0045ccb8d7b7f0e",
+      "archetype": "StarRising",
+      "ts": "2026-11-02T19:21:11"
     }
   ],
   "repos": {
@@ -5020,7 +5047,8 @@
       "Jakeschincariol/replica-skill",
       "openshiporg/openship",
       "aimeos/aimeos-typo3",
-      "cutetailbud/ff-ruyijs"
+      "cutetailbud/ff-ruyijs",
+      "totec448-spec/chat-on-steroids"
     ]
   },
   "modes": {
@@ -5192,6 +5220,7 @@
       "star_rising",
       "question",
       "rescue",
+      "star_rising",
       "star_rising"
     ]
   },

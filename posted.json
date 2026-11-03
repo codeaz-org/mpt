@@ -239,7 +239,8 @@
       "Your app unlocks paid features when someone visits the Stripe success page",
       "Self-hosted JavaScript runner that replaces paid browser automation services",
       "Chat-on-Steroids: Self-hosted local ChatGPT alternative",
-      "Your admin page is only hidden, not protected"
+      "Your admin page is only hidden, not protected",
+      "Noria: The Agentic Data Extractor That Replaces Paid Scraping Services"
     ]
   },
   "uploads": [
@@ -4935,6 +4936,32 @@
       "linkedin_post_id": "6ae924ee9e9bda3b49d85c73",
       "archetype": "RescueSplit",
       "ts": "2026-11-03T00:03:33"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Noria: The Agentic Data Extractor That Replaces Paid Scraping Services",
+      "title": "Noria: The Free Agentic Data Extractor That Outsources Paid Scraping",
+      "question": "What is AhmadHassan-BTed/Noria and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "AhmadHassan-BTed/Noria",
+      "repo_url": "https://github.com/AhmadHassan-BTed/Noria",
+      "repo_stars": 4640,
+      "repo_replaces": "Paid data extraction services",
+      "youtube": "x0NHHdwYqzM",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6ae9927164e1ad8ea2efe31f",
+      "tiktok_caption": "Noria: The Free Agentic Data Extractor That Outsources Paid Scraping\n\nExplore how Noria, an open\u2011source project, can replace costly scraping services with intelligent data extraction. Dive into its features and see why it\u2019s a game\u2011changer for developers and businesses alike. Follow for more tech insights!\n\nAhmadHassan-BTed/Noria: https://github.com/AhmadHassan-BTed/Noria\n\n#nocodefounder #datascience #opensource #webscraping #automation",
+      "instagram": true,
+      "instagram_post_id": "6ae9927c64e1ad8ea2efe4d8",
+      "linkedin": true,
+      "linkedin_post_id": "6ae9928764e1ad8ea2efe738",
+      "archetype": "StarRising",
+      "ts": "2026-11-03T07:51:09"
     }
   ],
   "repos": {
@@ -5075,7 +5102,8 @@
       "openshiporg/openship",
       "aimeos/aimeos-typo3",
       "cutetailbud/ff-ruyijs",
-      "totec448-spec/chat-on-steroids"
+      "totec448-spec/chat-on-steroids",
+      "AhmadHassan-BTed/Noria"
     ]
   },
   "modes": {
@@ -5249,7 +5277,8 @@
       "rescue",
       "star_rising",
       "star_rising",
-      "rescue"
+      "rescue",
+      "star_rising"
     ]
   },
   "rescue": {

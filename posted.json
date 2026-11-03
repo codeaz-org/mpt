@@ -240,7 +240,8 @@
       "Self-hosted JavaScript runner that replaces paid browser automation services",
       "Chat-on-Steroids: Self-hosted local ChatGPT alternative",
       "Your admin page is only hidden, not protected",
-      "Noria: The Agentic Data Extractor That Replaces Paid Scraping Services"
+      "Noria: The Agentic Data Extractor That Replaces Paid Scraping Services",
+      "ActivityWatch \u2013 the self-hosted time tracker that replaces Toggl"
     ]
   },
   "uploads": [
@@ -4962,6 +4963,32 @@
       "linkedin_post_id": "6ae9928764e1ad8ea2efe738",
       "archetype": "StarRising",
       "ts": "2026-11-03T07:51:09"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "ActivityWatch \u2013 the self-hosted time tracker that replaces Toggl",
+      "title": "Stop Paying for Toggl \u2013 Meet ActivityWatch, the Free Self\u2011Hosted Tracker",
+      "question": "What is ActivityWatch/activitywatch and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "ActivityWatch/activitywatch",
+      "repo_url": "https://github.com/ActivityWatch/activitywatch",
+      "repo_stars": 19486,
+      "repo_replaces": "Toggl",
+      "youtube": "Le7boFNAveg",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aea12fc2ea34807059ab0b7",
+      "tiktok_caption": "Stop Paying for Toggl \u2013 Meet ActivityWatch, the Free Self\u2011Hosted Tracker\n\nActivityWatch is a powerful open\u2011source time tracker that runs on your own machine, giving you full privacy and no subscription fees. Try it today and see how easy it is to keep tabs on your productivity\u2014follow for more open\u2011source tips!\n\nActivityWatch/activitywatch: https://github.com/ActivityWatch/activitywatch\n\n#activitywatch #opensource #timetracking #privacy #nocode",
+      "instagram": true,
+      "instagram_post_id": "6aea130714ad6fc490c33fab",
+      "linkedin": true,
+      "linkedin_post_id": "6aea131651b33df410651274",
+      "archetype": "StarRising",
+      "ts": "2026-11-03T16:59:36"
     }
   ],
   "repos": {
@@ -5103,7 +5130,8 @@
       "aimeos/aimeos-typo3",
       "cutetailbud/ff-ruyijs",
       "totec448-spec/chat-on-steroids",
-      "AhmadHassan-BTed/Noria"
+      "AhmadHassan-BTed/Noria",
+      "ActivityWatch/activitywatch"
     ]
   },
   "modes": {
@@ -5278,6 +5306,7 @@
       "star_rising",
       "star_rising",
       "rescue",
+      "star_rising",
       "star_rising"
     ]
   },

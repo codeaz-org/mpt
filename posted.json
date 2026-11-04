@@ -242,7 +242,8 @@
       "Your admin page is only hidden, not protected",
       "Noria: The Agentic Data Extractor That Replaces Paid Scraping Services",
       "ActivityWatch \u2013 the self-hosted time tracker that replaces Toggl",
-      "Launch checklist #8: Admin actions are checked on the server, not just hidden"
+      "Launch checklist #8: Admin actions are checked on the server, not just hidden",
+      "The self-hostable WhatsApp CRM that replaces paid WhatsApp\u2011CRM services"
     ]
   },
   "uploads": [
@@ -5016,6 +5017,32 @@
       "linkedin_post_id": "6aea671da54767472d4a49bf",
       "archetype": "RescueSplit",
       "ts": "2026-11-03T22:58:12"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "The self-hostable WhatsApp CRM that replaces paid WhatsApp\u2011CRM services",
+      "title": "Free Self\u2011Hosted WhatsApp CRM \u2013 No Paid Plans Needed",
+      "question": "What is ArnasDon/wacrm and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "ArnasDon/wacrm",
+      "repo_url": "https://github.com/ArnasDon/wacrm",
+      "repo_stars": 2666,
+      "repo_replaces": "Paid WhatsApp\u2011CRM services",
+      "youtube": "BWFu7tKSR9o",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aeadee6d59713e4342984d4",
+      "tiktok_caption": "Free Self\u2011Hosted WhatsApp CRM \u2013 No Paid Plans Needed\n\nDiscover how ArnasDon/wacrm can replace expensive WhatsApp\u2011CRM services with a self\u2011hosted solution. Try it now and take control of your customer conversations!\n\nArnasDon/wacrm: https://github.com/ArnasDon/wacrm\n\n#whatsappcrm #opensource #selfhosted #freetools #customerengagement",
+      "instagram": true,
+      "instagram_post_id": "6aeadef1c63bd995bd17ba3d",
+      "linkedin": true,
+      "linkedin_post_id": "6aeadefd394911f9f12022ba",
+      "archetype": "StarRising",
+      "ts": "2026-11-04T07:29:38"
     }
   ],
   "repos": {
@@ -5158,7 +5185,8 @@
       "cutetailbud/ff-ruyijs",
       "totec448-spec/chat-on-steroids",
       "AhmadHassan-BTed/Noria",
-      "ActivityWatch/activitywatch"
+      "ActivityWatch/activitywatch",
+      "ArnasDon/wacrm"
     ]
   },
   "modes": {
@@ -5335,7 +5363,8 @@
       "rescue",
       "star_rising",
       "star_rising",
-      "rescue"
+      "rescue",
+      "star_rising"
     ]
   },
   "rescue": {

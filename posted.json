@@ -244,7 +244,8 @@
       "ActivityWatch \u2013 the self-hosted time tracker that replaces Toggl",
       "Launch checklist #8: Admin actions are checked on the server, not just hidden",
       "The self-hostable WhatsApp CRM that replaces paid WhatsApp\u2011CRM services",
-      "Self-hosted Cloudflare Workers platform that replaces your Cloudflare Workers subscription"
+      "Self-hosted Cloudflare Workers platform that replaces your Cloudflare Workers subscription",
+      "Your app calls the OpenAI API straight from the browser"
     ]
   },
   "uploads": [
@@ -5070,6 +5071,32 @@
       "linkedin_post_id": "6aeb684cde5163115e19a216",
       "archetype": "StarRising",
       "ts": "2026-11-04T17:15:28"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Your app calls the OpenAI API straight from the browser",
+      "title": "Your App Exposes OpenAI Key When Calling API Directly From Browser",
+      "question": "My app has this problem: Your app calls the OpenAI API straight from the browser. What is going on and how do I fix it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": "openai-key-browser",
+      "rescue_format": "explainer",
+      "mode": "rescue",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "M9lyIpfhilU",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aebbbf0571331155354ba29",
+      "tiktok_caption": "Your App Exposes OpenAI Key When Calling API Directly From Browser\n\nYour app calls the OpenAI API straight from the browser. If the browser calls the AI API directly, the API key travels with every request, and anyone can copy it from the network tab and run up your bill.\n\nBuilt your app with Lovable, Bolt, v0 or Replit and it keeps breaking? Get it audited: https://rescue.codeaz.org\n\n#lovable #boltnew #supabase #vibecoding #nocode",
+      "instagram": true,
+      "instagram_post_id": "6aebbbfb34dd0163dbe52667",
+      "linkedin": true,
+      "linkedin_post_id": "6aebbc05022b8f16d7d88931",
+      "archetype": "RescueSplit",
+      "ts": "2026-11-04T23:12:45"
     }
   ],
   "repos": {
@@ -5394,7 +5421,8 @@
       "star_rising",
       "rescue",
       "star_rising",
-      "star_rising"
+      "star_rising",
+      "rescue"
     ]
   },
   "rescue": {
@@ -5414,7 +5442,8 @@
         "edge-function-no-auth",
         "no-backups",
         "rls-on-no-policy",
-        "n-plus-one"
+        "n-plus-one",
+        "openai-key-browser"
       ],
       "check": [
         "edge-function-no-auth",
@@ -5433,7 +5462,8 @@
       ],
       "question": [
         "rls-off",
-        "fix-loop"
+        "fix-loop",
+        "fix-or-rebuild"
       ]
     }
   }

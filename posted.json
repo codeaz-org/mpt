@@ -243,7 +243,8 @@
       "Noria: The Agentic Data Extractor That Replaces Paid Scraping Services",
       "ActivityWatch \u2013 the self-hosted time tracker that replaces Toggl",
       "Launch checklist #8: Admin actions are checked on the server, not just hidden",
-      "The self-hostable WhatsApp CRM that replaces paid WhatsApp\u2011CRM services"
+      "The self-hostable WhatsApp CRM that replaces paid WhatsApp\u2011CRM services",
+      "Self-hosted Cloudflare Workers platform that replaces your Cloudflare Workers subscription"
     ]
   },
   "uploads": [
@@ -5043,6 +5044,32 @@
       "linkedin_post_id": "6aeadefd394911f9f12022ba",
       "archetype": "StarRising",
       "ts": "2026-11-04T07:29:38"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Self-hosted Cloudflare Workers platform that replaces your Cloudflare Workers subscription",
+      "title": "Self\u2011Hosted Workers: Cut Your Cloudflare Bill in Half",
+      "question": "What is elliothux/open-compute and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "elliothux/open-compute",
+      "repo_url": "https://github.com/elliothux/open-compute",
+      "repo_stars": 2930,
+      "repo_replaces": "Cloudflare Workers subscription",
+      "youtube": "XaR85QuX-K4",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aeb6836610a51b44ddd36c0",
+      "tiktok_caption": "Self\u2011Hosted Workers: Cut Your Cloudflare Bill in Half\n\nDiscover how the open\u2011source project elliothux/open\u2011compute lets you run Cloudflare\u2011style Workers on your own hardware, cutting costs and boosting control. Hit follow for more DIY cloud hacks!\n\nelliothux/open-compute: https://github.com/elliothux/open-compute\n\n#opensource #cloudflare #selfhosted #devops #nocodefounder",
+      "instagram": true,
+      "instagram_post_id": "6aeb6841de5163115e199a37",
+      "linkedin": true,
+      "linkedin_post_id": "6aeb684cde5163115e19a216",
+      "archetype": "StarRising",
+      "ts": "2026-11-04T17:15:28"
     }
   ],
   "repos": {
@@ -5186,7 +5213,9 @@
       "totec448-spec/chat-on-steroids",
       "AhmadHassan-BTed/Noria",
       "ActivityWatch/activitywatch",
-      "ArnasDon/wacrm"
+      "ArnasDon/wacrm",
+      "octobercms/october",
+      "elliothux/open-compute"
     ]
   },
   "modes": {
@@ -5364,6 +5393,7 @@
       "star_rising",
       "star_rising",
       "rescue",
+      "star_rising",
       "star_rising"
     ]
   },

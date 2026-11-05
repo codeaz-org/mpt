@@ -245,7 +245,8 @@
       "Launch checklist #8: Admin actions are checked on the server, not just hidden",
       "The self-hostable WhatsApp CRM that replaces paid WhatsApp\u2011CRM services",
       "Self-hosted Cloudflare Workers platform that replaces your Cloudflare Workers subscription",
-      "Your app calls the OpenAI API straight from the browser"
+      "Your app calls the OpenAI API straight from the browser",
+      "Pirate Ship Alternatives for Shopify: How to Cut Label Costs & Automate Shipping"
     ]
   },
   "uploads": [
@@ -5097,6 +5098,32 @@
       "linkedin_post_id": "6aebbc05022b8f16d7d88931",
       "archetype": "RescueSplit",
       "ts": "2026-11-04T23:12:45"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Pirate Ship Alternatives for Shopify: How to Cut Label Costs & Automate Shipping",
+      "title": "Cut Shipping Costs on Shopify\u2014No More Pirate Ship! \ud83d\ude80",
+      "question": "Pirate Ship alternatives for Shopify?",
+      "question_id": "reddit:1xnawq1",
+      "question_url": "https://reddit.com/r/shopify/comments/1xnawq1/pirate_ship_alternatives_for_shopify/",
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "question",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "Fepx0W0mm5o",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aec37a775052a1eb82d6e7e",
+      "tiktok_caption": "Cut Shipping Costs on Shopify\u2014No More Pirate Ship! \ud83d\ude80\n\nDiscover the top Shopify shipping apps that slash label fees and automate your orders. Follow for more e\u2011commerce hacks that boost profits!\n\n#shopify #shipping #ecommerce #dropshipping #automation",
+      "instagram": true,
+      "instagram_post_id": "6aec37b2e22643a9879ed564",
+      "linkedin": true,
+      "linkedin_post_id": "6aec37be3ddb81d221164a6a",
+      "archetype": "CostTeardown",
+      "ts": "2026-11-05T08:00:35"
     }
   ],
   "repos": {
@@ -5422,7 +5449,8 @@
       "rescue",
       "star_rising",
       "star_rising",
-      "rescue"
+      "rescue",
+      "question"
     ]
   },
   "rescue": {

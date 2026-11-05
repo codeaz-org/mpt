@@ -246,7 +246,8 @@
       "The self-hostable WhatsApp CRM that replaces paid WhatsApp\u2011CRM services",
       "Self-hosted Cloudflare Workers platform that replaces your Cloudflare Workers subscription",
       "Your app calls the OpenAI API straight from the browser",
-      "Pirate Ship Alternatives for Shopify: How to Cut Label Costs & Automate Shipping"
+      "Pirate Ship Alternatives for Shopify: How to Cut Label Costs & Automate Shipping",
+      "Self-hosted TikTok uploader that replaces paid social media scheduling services"
     ]
   },
   "uploads": [
@@ -5124,6 +5125,32 @@
       "linkedin_post_id": "6aec37be3ddb81d221164a6a",
       "archetype": "CostTeardown",
       "ts": "2026-11-05T08:00:35"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Self-hosted TikTok uploader that replaces paid social media scheduling services",
+      "title": "Self\u2011Hosted TikTok Uploader Beats Paid Scheduling!",
+      "question": "What is TagPhaseArcade/tiktok-uploader and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "TagPhaseArcade/tiktok-uploader",
+      "repo_url": "https://github.com/TagPhaseArcade/tiktok-uploader",
+      "repo_stars": 426,
+      "repo_replaces": "TikTok scheduling tools",
+      "youtube": "dpDFrauQLms",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aecb9eeedcdac2ffd6d637c",
+      "tiktok_caption": "Self\u2011Hosted TikTok Uploader Beats Paid Scheduling!\n\nThis open\u2011source project lets you upload TikTok videos from your own server, eliminating costly social media tools. Try it out and join the free\u2011software movement\u2014follow for more hacks!\n\nTagPhaseArcade/tiktok-uploader: https://github.com/TagPhaseArcade/tiktok-uploader\n\n#opensource #tiktok #selfhosted #socialmedia #nocode",
+      "instagram": true,
+      "instagram_post_id": "6aecb9f9edcdac2ffd6d65f8",
+      "linkedin": true,
+      "linkedin_post_id": "6aecba04f28015a0fe5dcd42",
+      "archetype": "StarRising",
+      "ts": "2026-11-05T17:16:26"
     }
   ],
   "repos": {
@@ -5269,7 +5296,8 @@
       "ActivityWatch/activitywatch",
       "ArnasDon/wacrm",
       "octobercms/october",
-      "elliothux/open-compute"
+      "elliothux/open-compute",
+      "TagPhaseArcade/tiktok-uploader"
     ]
   },
   "modes": {
@@ -5450,7 +5478,8 @@
       "star_rising",
       "star_rising",
       "rescue",
-      "question"
+      "question",
+      "star_rising"
     ]
   },
   "rescue": {

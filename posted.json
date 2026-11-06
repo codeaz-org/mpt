@@ -248,7 +248,8 @@
       "Your app calls the OpenAI API straight from the browser",
       "Pirate Ship Alternatives for Shopify: How to Cut Label Costs & Automate Shipping",
       "Self-hosted TikTok uploader that replaces paid social media scheduling services",
-      "One page of your app makes a hundred database calls"
+      "One page of your app makes a hundred database calls",
+      "Jotform to Salesforce: Automate Form Data with Zapier or Integromat"
     ]
   },
   "uploads": [
@@ -5178,6 +5179,32 @@
       "linkedin_post_id": "6aed879c07f945cca94c543f",
       "archetype": "RescueSplit",
       "ts": "2026-11-06T07:53:39"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Jotform to Salesforce: Automate Form Data with Zapier or Integromat",
+      "title": "Zapier vs Integromat: Jotform to Salesforce in 60 Seconds!",
+      "question": "Jotform alternative when the data has to be land in Salesforce?",
+      "question_id": "reddit:1xobsro",
+      "question_url": "https://reddit.com/r/nocode/comments/1xobsro/jotform_alternative_when_the_data_has_to_be_land/",
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "question",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "d_GaL4B204Q",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aee05d29214322f689b2880",
+      "tiktok_caption": "Zapier vs Integromat: Jotform to Salesforce in 60 Seconds!\n\nWatch how to instantly sync Jotform submissions to Salesforce using Zapier or Integromat\u2014no coding required! Hit follow for quick automation hacks that boost your workflow.\n\n#nocode #salesforceautomation #zapier #integromat #jotform",
+      "instagram": true,
+      "instagram_post_id": "6aee05dd004e4879a700c1a5",
+      "linkedin": true,
+      "linkedin_post_id": "6aee05e8229bf05daff8dc2e",
+      "archetype": "BuyOrBuild",
+      "ts": "2026-11-06T16:52:30"
     }
   ],
   "repos": {
@@ -5507,7 +5534,8 @@
       "rescue",
       "question",
       "star_rising",
-      "rescue"
+      "rescue",
+      "question"
     ]
   },
   "rescue": {

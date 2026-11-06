@@ -249,7 +249,8 @@
       "Pirate Ship Alternatives for Shopify: How to Cut Label Costs & Automate Shipping",
       "Self-hosted TikTok uploader that replaces paid social media scheduling services",
       "One page of your app makes a hundred database calls",
-      "Jotform to Salesforce: Automate Form Data with Zapier or Integromat"
+      "Jotform to Salesforce: Automate Form Data with Zapier or Integromat",
+      "Automated YouTube uploader that replaces paid scheduling tools"
     ]
   },
   "uploads": [
@@ -5205,6 +5206,32 @@
       "linkedin_post_id": "6aee05e8229bf05daff8dc2e",
       "archetype": "BuyOrBuild",
       "ts": "2026-11-06T16:52:30"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Automated YouTube uploader that replaces paid scheduling tools",
+      "title": "Free Auto-Uploader: Replace Paid YouTube Schedulers!",
+      "question": "What is dragonwolfshovel/youtube-uploader and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "dragonwolfshovel/youtube-uploader",
+      "repo_url": "https://github.com/dragonwolfshovel/youtube-uploader",
+      "repo_stars": 429,
+      "repo_replaces": "Paid YouTube scheduling tools",
+      "youtube": "30sPrlOzDd4",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aee5a78229bf05daf14bb50",
+      "tiktok_caption": "Free Auto-Uploader: Replace Paid YouTube Schedulers!\n\nCheck out this open-source project that lets you schedule uploads automatically, cutting costs and hassle. Follow for more tech hacks that save you time and money!\n\ndragonwolfshovel/youtube-uploader: https://github.com/dragonwolfshovel/youtube-uploader\n\n#nocodefounder #opensource #youtubeautomation #techhacks #savetime",
+      "instagram": true,
+      "instagram_post_id": "6aee5a83004e4879a71d7fd3",
+      "linkedin": true,
+      "linkedin_post_id": "6aee5a8d004e4879a71d80c2",
+      "archetype": "StarRising",
+      "ts": "2026-11-06T22:53:39"
     }
   ],
   "repos": {
@@ -5351,7 +5378,8 @@
       "ArnasDon/wacrm",
       "octobercms/october",
       "elliothux/open-compute",
-      "TagPhaseArcade/tiktok-uploader"
+      "TagPhaseArcade/tiktok-uploader",
+      "dragonwolfshovel/youtube-uploader"
     ]
   },
   "modes": {
@@ -5535,7 +5563,8 @@
       "question",
       "star_rising",
       "rescue",
-      "question"
+      "question",
+      "star_rising"
     ]
   },
   "rescue": {

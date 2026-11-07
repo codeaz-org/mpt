@@ -250,7 +250,8 @@
       "Self-hosted TikTok uploader that replaces paid social media scheduling services",
       "One page of your app makes a hundred database calls",
       "Jotform to Salesforce: Automate Form Data with Zapier or Integromat",
-      "Automated YouTube uploader that replaces paid scheduling tools"
+      "Automated YouTube uploader that replaces paid scheduling tools",
+      "Your form checks happen only in the browser"
     ]
   },
   "uploads": [
@@ -5232,6 +5233,32 @@
       "linkedin_post_id": "6aee5a8d004e4879a71d80c2",
       "archetype": "StarRising",
       "ts": "2026-11-06T22:53:39"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Your form checks happen only in the browser",
+      "title": "Form Validation Only Happens in the Browser",
+      "question": "Why hasn't prompting the AI fixed this: Your form checks happen only in the browser?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": "no-server-validation",
+      "rescue_format": "prompt_fix",
+      "mode": "rescue",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "5Umqih7UCpU",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aeed09ba7751de7c9d0d6e6",
+      "tiktok_caption": "Form Validation Only Happens in the Browser\n\nYour form checks happen only in the browser. 'Add validation' usually means messages in the form. The database still accepts whatever arrives.\n\nBuilt your app with Lovable, Bolt, v0 or Replit and it keeps breaking? Get it audited: https://rescue.codeaz.org\n\n#lovable #boltnew #supabase #vibecoding #nocode",
+      "instagram": true,
+      "instagram_post_id": "6aeed0a6004e4879a73d8fd1",
+      "linkedin": true,
+      "linkedin_post_id": "6aeed0b1229bf05daf3469e5",
+      "archetype": "RescueSplit",
+      "ts": "2026-11-07T07:17:44"
     }
   ],
   "repos": {
@@ -5564,7 +5591,8 @@
       "star_rising",
       "rescue",
       "question",
-      "star_rising"
+      "star_rising",
+      "rescue"
     ]
   },
   "rescue": {
@@ -5602,7 +5630,9 @@
         "stripe-success-page",
         "public-storage-bucket",
         "stripe-webhook-unverified",
-        "admin-check-frontend"
+        "admin-check-frontend",
+        "service-role-in-frontend",
+        "no-server-validation"
       ],
       "question": [
         "rls-off",

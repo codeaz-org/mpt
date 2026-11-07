@@ -251,7 +251,8 @@
       "One page of your app makes a hundred database calls",
       "Jotform to Salesforce: Automate Form Data with Zapier or Integromat",
       "Automated YouTube uploader that replaces paid scheduling tools",
-      "Your form checks happen only in the browser"
+      "Your form checks happen only in the browser",
+      "Organice: Self-hosted Org\u2011mode Project Manager that replaces Asana"
     ]
   },
   "uploads": [
@@ -5259,6 +5260,32 @@
       "linkedin_post_id": "6aeed0b1229bf05daf3469e5",
       "archetype": "RescueSplit",
       "ts": "2026-11-07T07:17:44"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Organice: Self-hosted Org\u2011mode Project Manager that replaces Asana",
+      "title": "Replace Asana with Organice: A Self\u2011Hosted Org\u2011mode Project Manager",
+      "question": "What is 200ok-ch/organice and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "200ok-ch/organice",
+      "repo_url": "https://github.com/200ok-ch/organice",
+      "repo_stars": 2701,
+      "repo_replaces": "Asana",
+      "youtube": "OnfNKDgOqK4",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aef44c0229bf05daf5bc4f5",
+      "tiktok_caption": "Replace Asana with Organice: A Self\u2011Hosted Org\u2011mode Project Manager\n\nDiscover how Organice, the open\u2011source project, brings powerful Org\u2011mode project management to your own server. Try it today and boost your productivity\u2014follow for more open\u2011source tips!\n\n200ok-ch/organice: https://github.com/200ok-ch/organice\n\n#nocodefounder #opensource #productivity #orgmode #selfhosted",
+      "instagram": true,
+      "instagram_post_id": "6aef44cb004e4879a7651bab",
+      "linkedin": true,
+      "linkedin_post_id": "6aef44d5004e4879a7651dd0",
+      "archetype": "StarRising",
+      "ts": "2026-11-07T15:33:16"
     }
   ],
   "repos": {
@@ -5406,7 +5433,8 @@
       "octobercms/october",
       "elliothux/open-compute",
       "TagPhaseArcade/tiktok-uploader",
-      "dragonwolfshovel/youtube-uploader"
+      "dragonwolfshovel/youtube-uploader",
+      "200ok-ch/organice"
     ]
   },
   "modes": {
@@ -5592,7 +5620,8 @@
       "rescue",
       "question",
       "star_rising",
-      "rescue"
+      "rescue",
+      "star_rising"
     ]
   },
   "rescue": {

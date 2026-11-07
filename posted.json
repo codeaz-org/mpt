@@ -252,7 +252,8 @@
       "Jotform to Salesforce: Automate Form Data with Zapier or Integromat",
       "Automated YouTube uploader that replaces paid scheduling tools",
       "Your form checks happen only in the browser",
-      "Organice: Self-hosted Org\u2011mode Project Manager that replaces Asana"
+      "Organice: Self-hosted Org\u2011mode Project Manager that replaces Asana",
+      "Self-hosted fail2ban daemon that replaces paid intrusion\u2011prevention services"
     ]
   },
   "uploads": [
@@ -5286,6 +5287,32 @@
       "linkedin_post_id": "6aef44d5004e4879a7651dd0",
       "archetype": "StarRising",
       "ts": "2026-11-07T15:33:16"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Self-hosted fail2ban daemon that replaces paid intrusion\u2011prevention services",
+      "title": "Stop Hackers Fast: Self\u2011Hosted Fail2Ban That Beats Paid Services",
+      "question": "What is fail2ban/fail2ban and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "fail2ban/fail2ban",
+      "repo_url": "https://github.com/fail2ban/fail2ban",
+      "repo_stars": 18971,
+      "repo_replaces": "Paid intrusion prevention services",
+      "youtube": "bU8Yz1H128U",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aef930c562f2e6de97f2800",
+      "tiktok_caption": "Stop Hackers Fast: Self\u2011Hosted Fail2Ban That Beats Paid Services\n\nDiscover how this open\u2011source project protects your servers without the cost of paid intrusion\u2011prevention services. Set it up today and keep your systems safe\u2014follow for more security hacks!\n\nfail2ban/fail2ban: https://github.com/fail2ban/fail2ban\n\n#fail2ban #cybersecurity #opensource #selfhosted #infosec",
+      "instagram": true,
+      "instagram_post_id": "6aef9316229bf05daf7430f1",
+      "linkedin": true,
+      "linkedin_post_id": "6aef9321004e4879a77d2c9e",
+      "archetype": "StarRising",
+      "ts": "2026-11-07T21:07:19"
     }
   ],
   "repos": {
@@ -5434,7 +5461,8 @@
       "elliothux/open-compute",
       "TagPhaseArcade/tiktok-uploader",
       "dragonwolfshovel/youtube-uploader",
-      "200ok-ch/organice"
+      "200ok-ch/organice",
+      "fail2ban/fail2ban"
     ]
   },
   "modes": {
@@ -5621,6 +5649,7 @@
       "question",
       "star_rising",
       "rescue",
+      "star_rising",
       "star_rising"
     ]
   },

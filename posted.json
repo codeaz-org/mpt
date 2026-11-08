@@ -255,7 +255,8 @@
       "Organice: Self-hosted Org\u2011mode Project Manager that replaces Asana",
       "Self-hosted fail2ban daemon that replaces paid intrusion\u2011prevention services",
       "Launch checklist #9: Auth emails link to your real domain",
-      "Which no-code AI builder should I use for a cross\u2011platform mobile app?"
+      "Which no-code AI builder should I use for a cross\u2011platform mobile app?",
+      "Stop Spam Emails in Your New Shopify Store \u2013 Quick Authentication Fix"
     ]
   },
   "uploads": [
@@ -5367,6 +5368,32 @@
       "linkedin_post_id": "6af0a818562f2e6de9cd8bee",
       "archetype": "QuestionAnswer",
       "ts": "2026-11-08T16:49:02"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Stop Spam Emails in Your New Shopify Store \u2013 Quick Authentication Fix",
+      "title": "\ud83d\udeab Stop Spam Emails in Your Shopify Store \u2013 Fast Auth Fix!",
+      "question": "New Shopify store. Why all the spam emails?",
+      "question_id": "reddit:1xp2opm",
+      "question_url": "https://reddit.com/r/shopify/comments/1xp2opm/new_shopify_store_why_all_the_spam_emails/",
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "question",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "mLMEsHGZeg4",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6af0eadbd6bbae6fa1120819",
+      "tiktok_caption": "\ud83d\udeab Stop Spam Emails in Your Shopify Store \u2013 Fast Auth Fix!\n\nLearn the quick authentication tweak that blocks spam emails for your new Shopify store. Drop a comment if you found this helpful and hit follow for more e\u2011commerce hacks!\n\n#shopifystore #emailauth #shopifyhacks #ecommerce #nocodefounder",
+      "instagram": true,
+      "instagram_post_id": "6af0eae69214322f687a6cdc",
+      "linkedin": true,
+      "linkedin_post_id": "6af0eaf1004e4879a7e1068c",
+      "archetype": "QuestionAnswer",
+      "ts": "2026-11-08T21:34:15"
     }
   ],
   "repos": {
@@ -5707,6 +5734,7 @@
       "star_rising",
       "star_rising",
       "rescue",
+      "question",
       "question"
     ]
   },

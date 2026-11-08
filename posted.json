@@ -253,7 +253,8 @@
       "Automated YouTube uploader that replaces paid scheduling tools",
       "Your form checks happen only in the browser",
       "Organice: Self-hosted Org\u2011mode Project Manager that replaces Asana",
-      "Self-hosted fail2ban daemon that replaces paid intrusion\u2011prevention services"
+      "Self-hosted fail2ban daemon that replaces paid intrusion\u2011prevention services",
+      "Launch checklist #9: Auth emails link to your real domain"
     ]
   },
   "uploads": [
@@ -5313,6 +5314,32 @@
       "linkedin_post_id": "6aef9321004e4879a77d2c9e",
       "archetype": "StarRising",
       "ts": "2026-11-07T21:07:19"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Launch checklist #9: Auth emails link to your real domain",
+      "title": "Auth Emails Point to Wrong Domain",
+      "question": "Before launch, how do I make sure that: Auth emails link to your real domain?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": "auth-redirect-localhost",
+      "rescue_format": "checklist",
+      "mode": "rescue",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "7rRRYRXlQl0",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6af01f80004e4879a79f5597",
+      "tiktok_caption": "Auth Emails Point to Wrong Domain\n\nLaunch checklist, number 9: Auth emails link to your real domain. Supabase Auth builds email links from its Site URL and allowed redirect URLs. If those still point at your development address, real users land on a page that does not exist.\n\nBuilt your app with Lovable, Bolt, v0 or Replit and it keeps breaking? Get it audited: https://rescue.codeaz.org\n\n#lovable #boltnew #supabase #vibecoding #nocode",
+      "instagram": true,
+      "instagram_post_id": "6af01f8b004e4879a79f5afa",
+      "linkedin": true,
+      "linkedin_post_id": "6af01f9651492b796e219b9a",
+      "archetype": "RescueSplit",
+      "ts": "2026-11-08T07:06:37"
     }
   ],
   "repos": {
@@ -5650,7 +5677,8 @@
       "star_rising",
       "rescue",
       "star_rising",
-      "star_rising"
+      "star_rising",
+      "rescue"
     ]
   },
   "rescue": {
@@ -5663,7 +5691,8 @@
         "stripe-success-page",
         "stripe-webhook-unverified",
         "price-from-client",
-        "admin-check-frontend"
+        "admin-check-frontend",
+        "auth-redirect-localhost"
       ],
       "explainer": [
         "oauth-redirect-mismatch",

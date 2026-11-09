@@ -257,7 +257,8 @@
       "Launch checklist #9: Auth emails link to your real domain",
       "Which no-code AI builder should I use for a cross\u2011platform mobile app?",
       "Stop Spam Emails in Your New Shopify Store \u2013 Quick Authentication Fix",
-      "Your app works in the builder and shows a blank page once deployed"
+      "Your app works in the builder and shows a blank page once deployed",
+      "The self-hosted DxO PhotoLab 10 desktop build that replaces your paid photo editing subscription"
     ]
   },
   "uploads": [
@@ -5421,6 +5422,32 @@
       "linkedin_post_id": null,
       "archetype": "RescueSplit",
       "ts": "2026-11-09T07:43:21"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "The self-hosted DxO PhotoLab 10 desktop build that replaces your paid photo editing subscription",
+      "title": "Replace Your Paid Photo Editing Subscription with This Self\u2011Hosted DxO PhotoLab 10 Desktop Buil",
+      "question": "What is flgomes/dxo-photolab-10-desktop and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "flgomes/dxo-photolab-10-desktop",
+      "repo_url": "https://github.com/flgomes/dxo-photolab-10-desktop",
+      "repo_stars": 450,
+      "repo_replaces": "DxO PhotoLab subscription",
+      "youtube": "gGkbGd0Qqvc",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6af22283a16d1f1c1e97df19",
+      "tiktok_caption": "Replace Your Paid Photo Editing Subscription with This Self\u2011Hosted DxO PhotoLab 10 Desktop Buil\n\nDiscover how the open\u2011source DxO PhotoLab 10 desktop build can replace pricey photo editing subscriptions. Watch the tutorial, try it yourself, and join the community!\n\nflgomes/dxo-photolab-10-desktop: https://github.com/flgomes/dxo-photolab-10-desktop\n\n#opensource #photography #selfhosted #photolab #desktop",
+      "instagram": true,
+      "instagram_post_id": "6af2228e29f60b1cda2ced1a",
+      "linkedin": true,
+      "linkedin_post_id": "6af22299a16d1f1c1e97e993",
+      "archetype": "StarRising",
+      "ts": "2026-11-09T19:43:59"
     }
   ],
   "repos": {
@@ -5571,7 +5598,9 @@
       "dragonwolfshovel/youtube-uploader",
       "200ok-ch/organice",
       "fail2ban/fail2ban",
-      "Gathin23/cleanyourtv"
+      "Gathin23/cleanyourtv",
+      "emanuele-em/kanzo",
+      "flgomes/dxo-photolab-10-desktop"
     ]
   },
   "modes": {
@@ -5763,7 +5792,8 @@
       "rescue",
       "question",
       "question",
-      "rescue"
+      "rescue",
+      "star_rising"
     ]
   },
   "rescue": {

@@ -260,7 +260,8 @@
       "Your app works in the builder and shows a blank page once deployed",
       "The self-hosted DxO PhotoLab 10 desktop build that replaces your paid photo editing subscription",
       "Aimeos Symfony bundle that replaces Shopify for self-hosted e-commerce",
-      "Your form checks happen only in the browser"
+      "Your form checks happen only in the browser",
+      "The AI job application bot that replaces manual job hunting"
     ]
   },
   "uploads": [
@@ -5502,6 +5503,32 @@
       "linkedin_post_id": "6af2d5f31586e43ae33d341f",
       "archetype": "mpt",
       "ts": "2026-11-10T08:29:15"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "The AI job application bot that replaces manual job hunting",
+      "title": "AI Bot That Automates Job Hunting \u2013 See How It Works!",
+      "question": "What is feder-cr/Jobs_Applier_AI_Agent and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "feder-cr/Jobs_Applier_AI_Agent",
+      "repo_url": "https://github.com/feder-cr/Jobs_Applier_AI_Agent",
+      "repo_stars": 32450,
+      "repo_replaces": "Paid job search services",
+      "youtube": "QWiK0xgNh40",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6af353cc5c5c3532713ede80",
+      "tiktok_caption": "AI Bot That Automates Job Hunting \u2013 See How It Works!\n\nDiscover how the feder\u2011cr/Jobs_Applier_AI_Agent open\u2011source project can replace manual job hunting with smart automation. Want more AI hacks? Hit follow for the latest insights!\n\nfeder-cr/Jobs_Applier_AI_Agent: https://github.com/feder-cr/Jobs_Applier_AI_Agent\n\n#nocodefounder #opensource #jobhunting #aiautomation #productivity",
+      "instagram": true,
+      "instagram_post_id": "6af353d7eca53e2861f517ea",
+      "linkedin": true,
+      "linkedin_post_id": "6af353e1eca53e2861f51b1e",
+      "archetype": "StarRising",
+      "ts": "2026-11-10T17:26:33"
     }
   ],
   "repos": {
@@ -5656,7 +5683,9 @@
       "emanuele-em/kanzo",
       "flgomes/dxo-photolab-10-desktop",
       "alextnetto/res",
-      "aimeos/aimeos-symfony"
+      "aimeos/aimeos-symfony",
+      "Anil-matcha/suparagent",
+      "feder-cr/Jobs_Applier_AI_Agent"
     ]
   },
   "modes": {
@@ -5851,7 +5880,8 @@
       "rescue",
       "star_rising",
       "star_rising",
-      "rescue"
+      "rescue",
+      "star_rising"
     ]
   },
   "rescue": {

@@ -261,7 +261,8 @@
       "The self-hosted DxO PhotoLab 10 desktop build that replaces your paid photo editing subscription",
       "Aimeos Symfony bundle that replaces Shopify for self-hosted e-commerce",
       "Your form checks happen only in the browser",
-      "The AI job application bot that replaces manual job hunting"
+      "The AI job application bot that replaces manual job hunting",
+      "Secure PDF Processor that replaces Adobe Acrobat Pro"
     ]
   },
   "uploads": [
@@ -5529,6 +5530,32 @@
       "linkedin_post_id": "6af353e1eca53e2861f51b1e",
       "archetype": "StarRising",
       "ts": "2026-11-10T17:26:33"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Secure PDF Processor that replaces Adobe Acrobat Pro",
+      "title": "Secure PDF Processor: The Free Alternative to Adobe Acrobat Pro",
+      "question": "What is mahmoudtawfik1998/secure-pdf-document-processor and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "mahmoudtawfik1998/secure-pdf-document-processor",
+      "repo_url": "https://github.com/mahmoudtawfik1998/secure-pdf-document-processor",
+      "repo_stars": 773,
+      "repo_replaces": "Adobe Acrobat Pro",
+      "youtube": "cIETZUip_Ko",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6af39c1a357b57fbf8bed6e8",
+      "tiktok_caption": "Secure PDF Processor: The Free Alternative to Adobe Acrobat Pro\n\nDiscover how this open-source project securely processes PDFs, encrypts data, and offers powerful editing features\u2014all without the cost of Adobe. Try it today and elevate your document workflow\u2014follow for more tech insights!\n\nmahmoudtawfik1998/secure-pdf-document-processor: https://github.com/mahmoudtawfik1998/secure-pdf-document-processor\n\n#opensource #pdfsecurity #nocodefounder #dataprotection #automation",
+      "instagram": true,
+      "instagram_post_id": "6af39c2532827e88e29c2039",
+      "linkedin": true,
+      "linkedin_post_id": "6af39c30e001088fbc7a3c73",
+      "archetype": "StarRising",
+      "ts": "2026-11-10T22:35:01"
     }
   ],
   "repos": {
@@ -5685,7 +5712,8 @@
       "alextnetto/res",
       "aimeos/aimeos-symfony",
       "Anil-matcha/suparagent",
-      "feder-cr/Jobs_Applier_AI_Agent"
+      "feder-cr/Jobs_Applier_AI_Agent",
+      "mahmoudtawfik1998/secure-pdf-document-processor"
     ]
   },
   "modes": {
@@ -5881,6 +5909,7 @@
       "star_rising",
       "star_rising",
       "rescue",
+      "star_rising",
       "star_rising"
     ]
   },

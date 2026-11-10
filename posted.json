@@ -258,7 +258,8 @@
       "Which no-code AI builder should I use for a cross\u2011platform mobile app?",
       "Stop Spam Emails in Your New Shopify Store \u2013 Quick Authentication Fix",
       "Your app works in the builder and shows a blank page once deployed",
-      "The self-hosted DxO PhotoLab 10 desktop build that replaces your paid photo editing subscription"
+      "The self-hosted DxO PhotoLab 10 desktop build that replaces your paid photo editing subscription",
+      "Aimeos Symfony bundle that replaces Shopify for self-hosted e-commerce"
     ]
   },
   "uploads": [
@@ -5448,6 +5449,32 @@
       "linkedin_post_id": "6af22299a16d1f1c1e97e993",
       "archetype": "StarRising",
       "ts": "2026-11-09T19:43:59"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Aimeos Symfony bundle that replaces Shopify for self-hosted e-commerce",
+      "title": "Replace Shopify with Aimeos Symfony \u2013 Self\u2011Hosted E\u2011Commerce Powerhouse",
+      "question": "What is aimeos/aimeos-symfony and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "aimeos/aimeos-symfony",
+      "repo_url": "https://github.com/aimeos/aimeos-symfony",
+      "repo_stars": 1560,
+      "repo_replaces": "Shopify",
+      "youtube": "24_tsLW36Oo",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6af270c7223aa16048dea5d8",
+      "tiktok_caption": "Replace Shopify with Aimeos Symfony \u2013 Self\u2011Hosted E\u2011Commerce Powerhouse\n\nDiscover how the Aimeos Symfony bundle can replace Shopify for a fully self\u2011hosted store, giving you full control and flexibility. Dive into features, setup tips, and why this open\u2011source project stands out. Follow for more e\u2011commerce insights!\n\naimeos/aimeos-symfony: https://github.com/aimeos/aimeos-symfony\n\n#ecommerce #opensource #symfony #shopifyalternative #selfhosted",
+      "instagram": true,
+      "instagram_post_id": "6af270d1e261c09acc908d55",
+      "linkedin": true,
+      "linkedin_post_id": "6af270dc223aa16048deab79",
+      "archetype": "StarRising",
+      "ts": "2026-11-10T01:17:54"
     }
   ],
   "repos": {
@@ -5600,7 +5627,9 @@
       "fail2ban/fail2ban",
       "Gathin23/cleanyourtv",
       "emanuele-em/kanzo",
-      "flgomes/dxo-photolab-10-desktop"
+      "flgomes/dxo-photolab-10-desktop",
+      "alextnetto/res",
+      "aimeos/aimeos-symfony"
     ]
   },
   "modes": {
@@ -5793,6 +5822,7 @@
       "question",
       "question",
       "rescue",
+      "star_rising",
       "star_rising"
     ]
   },

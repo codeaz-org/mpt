@@ -264,7 +264,8 @@
       "The AI job application bot that replaces manual job hunting",
       "Secure PDF Processor that replaces Adobe Acrobat Pro",
       "One bad prompt could delete your production data and you have no backup plan",
-      "Airwallex vs WorldFirst vs Unlimit: Which Payment Solution Wins for UK Sellers Buying from China?"
+      "Airwallex vs WorldFirst vs Unlimit: Which Payment Solution Wins for UK Sellers Buying from China?",
+      "Cilium: Self-hosted eBPF networking and security that replaces paid firewall and monitoring tools"
     ]
   },
   "uploads": [
@@ -5610,6 +5611,32 @@
       "linkedin_post_id": "6af50090304f8985c4720bb3",
       "archetype": "BuyOrBuild",
       "ts": "2026-11-11T23:55:36"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Cilium: Self-hosted eBPF networking and security that replaces paid firewall and monitoring tools",
+      "title": "Cilium: Free eBPF Networking & Security \u2013 No More Paid Firewalls",
+      "question": "What is cilium/cilium and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "cilium/cilium",
+      "repo_url": "https://github.com/cilium/cilium",
+      "repo_stars": 25822,
+      "repo_replaces": "Paid network security & monitoring services",
+      "youtube": "PiZTeiEtu2c",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6af574dbdf70eccdaac00f53",
+      "tiktok_caption": "Cilium: Free eBPF Networking & Security \u2013 No More Paid Firewalls\n\nDiscover how Cilium\u2019s self-hosted eBPF networking can replace expensive firewall and monitoring tools. Try it today and reclaim your budget!\n\ncilium/cilium: https://github.com/cilium/cilium\n\n#cilium #ebpf #opensource #networksecurity #devops",
+      "instagram": true,
+      "instagram_post_id": "6af574e63edeaff13c0a40e6",
+      "linkedin": true,
+      "linkedin_post_id": "6af574f1016d3b89d8b21558",
+      "archetype": "StarRising",
+      "ts": "2026-11-12T08:12:07"
     }
   ],
   "repos": {
@@ -5767,7 +5794,8 @@
       "aimeos/aimeos-symfony",
       "Anil-matcha/suparagent",
       "feder-cr/Jobs_Applier_AI_Agent",
-      "mahmoudtawfik1998/secure-pdf-document-processor"
+      "mahmoudtawfik1998/secure-pdf-document-processor",
+      "cilium/cilium"
     ]
   },
   "modes": {
@@ -5966,7 +5994,8 @@
       "star_rising",
       "star_rising",
       "rescue",
-      "question"
+      "question",
+      "star_rising"
     ]
   },
   "rescue": {

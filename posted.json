@@ -265,7 +265,8 @@
       "Secure PDF Processor that replaces Adobe Acrobat Pro",
       "One bad prompt could delete your production data and you have no backup plan",
       "Airwallex vs WorldFirst vs Unlimit: Which Payment Solution Wins for UK Sellers Buying from China?",
-      "Cilium: Self-hosted eBPF networking and security that replaces paid firewall and monitoring tools"
+      "Cilium: Self-hosted eBPF networking and security that replaces paid firewall and monitoring tools",
+      "Launch checklist #11: Every environment variable is set on your host"
     ]
   },
   "uploads": [
@@ -5637,6 +5638,32 @@
       "linkedin_post_id": "6af574f1016d3b89d8b21558",
       "archetype": "StarRising",
       "ts": "2026-11-12T08:12:07"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Launch checklist #11: Every environment variable is set on your host",
+      "title": "Launch Checklist #11: Every Environment Variable Is Set on Your Host",
+      "question": "Before launch, how do I make sure that: Every environment variable is set on your host?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": "env-missing-on-deploy",
+      "rescue_format": "checklist",
+      "mode": "rescue",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "fltwaL720Hg",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6af5fa5e6886c92cc4de9fcf",
+      "tiktok_caption": "Launch Checklist #11: Every Environment Variable Is Set on Your Host\n\nLaunch checklist, number 11: Every environment variable is set on your host. Environment variables set in the builder are not automatically copied to your host. Without them the app cannot reach its database or APIs, and often renders nothing at all.\n\nBuilt your app with Lovable, Bolt, v0 or Replit and it keeps breaking? Get it audited: https://rescue.codeaz.org\n\n#lovable #boltnew #supabase #vibecoding #nocode",
+      "instagram": true,
+      "instagram_post_id": "6af5fa69fd26e2f8bb0e9efa",
+      "linkedin": true,
+      "linkedin_post_id": "6af5fa74b07ca0ca16f0f386",
+      "archetype": "RescueSplit",
+      "ts": "2026-11-12T17:41:48"
     }
   ],
   "repos": {
@@ -5995,7 +6022,8 @@
       "star_rising",
       "rescue",
       "question",
-      "star_rising"
+      "star_rising",
+      "rescue"
     ]
   },
   "rescue": {
@@ -6009,7 +6037,9 @@
         "stripe-webhook-unverified",
         "price-from-client",
         "admin-check-frontend",
-        "auth-redirect-localhost"
+        "auth-redirect-localhost",
+        "oauth-redirect-mismatch",
+        "env-missing-on-deploy"
       ],
       "explainer": [
         "oauth-redirect-mismatch",

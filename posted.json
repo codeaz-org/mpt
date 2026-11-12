@@ -266,7 +266,8 @@
       "One bad prompt could delete your production data and you have no backup plan",
       "Airwallex vs WorldFirst vs Unlimit: Which Payment Solution Wins for UK Sellers Buying from China?",
       "Cilium: Self-hosted eBPF networking and security that replaces paid firewall and monitoring tools",
-      "Launch checklist #11: Every environment variable is set on your host"
+      "Launch checklist #11: Every environment variable is set on your host",
+      "The self-hosted AI teammate that replaces your paid ChatGPT subscription in Slack, Teams, Discord"
     ]
   },
   "uploads": [
@@ -5664,6 +5665,32 @@
       "linkedin_post_id": "6af5fa74b07ca0ca16f0f386",
       "archetype": "RescueSplit",
       "ts": "2026-11-12T17:41:48"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "The self-hosted AI teammate that replaces your paid ChatGPT subscription in Slack, Teams, Discord",
+      "title": "Replace Paid ChatGPT with a Self\u2011Hosted AI Teammate in Slack, Teams & Discord",
+      "question": "What is sandbox-quantum/switch and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "sandbox-quantum/switch",
+      "repo_url": "https://github.com/sandbox-quantum/switch",
+      "repo_stars": 4465,
+      "repo_replaces": "ChatGPT subscription",
+      "youtube": "ZNemEUGjXcY",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6af64820fb90ccefdd066b8b",
+      "tiktok_caption": "Replace Paid ChatGPT with a Self\u2011Hosted AI Teammate in Slack, Teams & Discord\n\nDiscover how the open\u2011source project sandbox\u2011quantum/switch can become your AI teammate without a subscription. Give it a try and follow for more open\u2011source AI hacks!\n\nsandbox-quantum/switch: https://github.com/sandbox-quantum/switch\n\n#opensource #ai #slackbot #discordbot #nocodefounder",
+      "instagram": true,
+      "instagram_post_id": "6af6482bfb90ccefdd066e58",
+      "linkedin": true,
+      "linkedin_post_id": "6af64835fb90ccefdd067001",
+      "archetype": "StarRising",
+      "ts": "2026-11-12T23:13:33"
     }
   ],
   "repos": {
@@ -5822,7 +5849,8 @@
       "Anil-matcha/suparagent",
       "feder-cr/Jobs_Applier_AI_Agent",
       "mahmoudtawfik1998/secure-pdf-document-processor",
-      "cilium/cilium"
+      "cilium/cilium",
+      "sandbox-quantum/switch"
     ]
   },
   "modes": {
@@ -6023,7 +6051,8 @@
       "rescue",
       "question",
       "star_rising",
-      "rescue"
+      "rescue",
+      "star_rising"
     ]
   },
   "rescue": {

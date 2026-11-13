@@ -267,7 +267,8 @@
       "Airwallex vs WorldFirst vs Unlimit: Which Payment Solution Wins for UK Sellers Buying from China?",
       "Cilium: Self-hosted eBPF networking and security that replaces paid firewall and monitoring tools",
       "Launch checklist #11: Every environment variable is set on your host",
-      "The self-hosted AI teammate that replaces your paid ChatGPT subscription in Slack, Teams, Discord"
+      "The self-hosted AI teammate that replaces your paid ChatGPT subscription in Slack, Teams, Discord",
+      "The self-hosted network reconnaissance tool that replaces paid security monitoring"
     ]
   },
   "uploads": [
@@ -5691,6 +5692,32 @@
       "linkedin_post_id": "6af64835fb90ccefdd067001",
       "archetype": "StarRising",
       "ts": "2026-11-12T23:13:33"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "The self-hosted network reconnaissance tool that replaces paid security monitoring",
+      "title": "Unleash Free Network Recon with Bettercap \u2013 No Paid Monitoring Needed",
+      "question": "What is bettercap/bettercap and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "bettercap/bettercap",
+      "repo_url": "https://github.com/bettercap/bettercap",
+      "repo_stars": 20279,
+      "repo_replaces": "Paid network security & monitoring services",
+      "youtube": "q1ZYEkiibNc",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6af6c2e1fb90ccefdd291611",
+      "tiktok_caption": "Unleash Free Network Recon with Bettercap \u2013 No Paid Monitoring Needed\n\nDiscover how Bettercap, the open\u2011source network reconnaissance tool, can replace costly security monitoring solutions. Dive in, learn its tricks, and elevate your network defense today! Follow for more security hacks.\n\nbettercap/bettercap: https://github.com/bettercap/bettercap\n\n#networksecurity #bettercap #opensource #cyberdefense #infosec",
+      "instagram": true,
+      "instagram_post_id": "6af6c2ec5ec1c9d5be6aa88b",
+      "linkedin": true,
+      "linkedin_post_id": "6af6c2f6ba218f32638865c5",
+      "archetype": "StarRising",
+      "ts": "2026-11-13T07:57:16"
     }
   ],
   "repos": {
@@ -5850,7 +5877,8 @@
       "feder-cr/Jobs_Applier_AI_Agent",
       "mahmoudtawfik1998/secure-pdf-document-processor",
       "cilium/cilium",
-      "sandbox-quantum/switch"
+      "sandbox-quantum/switch",
+      "bettercap/bettercap"
     ]
   },
   "modes": {
@@ -6052,6 +6080,7 @@
       "question",
       "star_rising",
       "rescue",
+      "star_rising",
       "star_rising"
     ]
   },

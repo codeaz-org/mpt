@@ -5878,7 +5878,8 @@
       "mahmoudtawfik1998/secure-pdf-document-processor",
       "cilium/cilium",
       "sandbox-quantum/switch",
-      "bettercap/bettercap"
+      "bettercap/bettercap",
+      "Pluviobyte/saas-growth-agents"
     ]
   },
   "modes": {
@@ -6106,7 +6107,8 @@
         "rls-on-no-policy",
         "n-plus-one",
         "openai-key-browser",
-        "env-missing-on-deploy"
+        "env-missing-on-deploy",
+        "double-charge"
       ],
       "check": [
         "edge-function-no-auth",
@@ -6134,7 +6136,8 @@
       "question": [
         "rls-off",
         "fix-loop",
-        "fix-or-rebuild"
+        "fix-or-rebuild",
+        "openai-key-browser"
       ]
     }
   }

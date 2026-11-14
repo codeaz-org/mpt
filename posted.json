@@ -269,7 +269,8 @@
       "Launch checklist #11: Every environment variable is set on your host",
       "The self-hosted AI teammate that replaces your paid ChatGPT subscription in Slack, Teams, Discord",
       "The self-hosted network reconnaissance tool that replaces paid security monitoring",
-      "The Supabase service role key is in your frontend code"
+      "The Supabase service role key is in your frontend code",
+      "The self-hosted Slack alternative that replaces paid team chat"
     ]
   },
   "uploads": [
@@ -5745,6 +5746,32 @@
       "linkedin_post_id": "6af88115b9a106584c53b8fc",
       "archetype": "RescueSplit",
       "ts": "2026-11-14T15:40:46"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "The self-hosted Slack alternative that replaces paid team chat",
+      "title": "Self\u2011Hosted Slack Alternative \u2013 Cut Costs, Keep Control",
+      "question": "What is agentes-chat/agentes-chat and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "agentes-chat/agentes-chat",
+      "repo_url": "https://github.com/agentes-chat/agentes-chat",
+      "repo_stars": 1392,
+      "repo_replaces": "Slack",
+      "youtube": "MENrjMyRWO0",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6af8d8ceb9a106584c7001e1",
+      "tiktok_caption": "Self\u2011Hosted Slack Alternative \u2013 Cut Costs, Keep Control\n\nExplore agentes\u2011chat, the open\u2011source project that lets you host your own team chat and ditch pricey subscriptions. Join the community, boost privacy, and start building today \u2013 follow for more tech insights!\n\nagentes-chat/agentes-chat: https://github.com/agentes-chat/agentes-chat\n\n#agenteschat #opensource #nocodefounder #selfhosted #chatapp",
+      "instagram": true,
+      "instagram_post_id": "6af8d8d9e86a5789a6d3a758",
+      "linkedin": true,
+      "linkedin_post_id": "6af8d8e4e86a5789a6d3a877",
+      "archetype": "StarRising",
+      "ts": "2026-11-14T21:55:22"
     }
   ],
   "repos": {
@@ -5906,7 +5933,9 @@
       "cilium/cilium",
       "sandbox-quantum/switch",
       "bettercap/bettercap",
-      "Pluviobyte/saas-growth-agents"
+      "Pluviobyte/saas-growth-agents",
+      "ebtsamalhakmy-sketch/desktop-backup-suite",
+      "agentes-chat/agentes-chat"
     ]
   },
   "modes": {
@@ -6110,7 +6139,8 @@
       "rescue",
       "star_rising",
       "star_rising",
-      "rescue"
+      "rescue",
+      "star_rising"
     ]
   },
   "rescue": {

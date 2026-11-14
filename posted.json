@@ -268,7 +268,8 @@
       "Cilium: Self-hosted eBPF networking and security that replaces paid firewall and monitoring tools",
       "Launch checklist #11: Every environment variable is set on your host",
       "The self-hosted AI teammate that replaces your paid ChatGPT subscription in Slack, Teams, Discord",
-      "The self-hosted network reconnaissance tool that replaces paid security monitoring"
+      "The self-hosted network reconnaissance tool that replaces paid security monitoring",
+      "The Supabase service role key is in your frontend code"
     ]
   },
   "uploads": [
@@ -5718,6 +5719,32 @@
       "linkedin_post_id": "6af6c2f6ba218f32638865c5",
       "archetype": "StarRising",
       "ts": "2026-11-13T07:57:16"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "The Supabase service role key is in your frontend code",
+      "title": "Supabase Service Role Key Exposed in Frontend Code",
+      "question": "My app has this problem: The Supabase service role key is in your frontend code. What is going on and how do I fix it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": "service-role-in-frontend",
+      "rescue_format": "explainer",
+      "mode": "rescue",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "4pievm7bNok",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6af88100e86a5789a6b6c1c3",
+      "tiktok_caption": "Supabase Service Role Key Exposed in Frontend Code\n\nThe Supabase service role key is in your frontend code. The service role key bypasses Row Level Security completely. It is meant for servers only. If it is in frontend code, anyone who opens dev tools has full read and write access to your database.\n\nBuilt your app with Lovable, Bolt, v0 or Replit and it keeps breaking? Get it audited: https://rescue.codeaz.org\n\n#lovable #boltnew #supabase #vibecoding #nocode",
+      "instagram": true,
+      "instagram_post_id": "6af8810b918fe79d2e8a1bc9",
+      "linkedin": true,
+      "linkedin_post_id": "6af88115b9a106584c53b8fc",
+      "archetype": "RescueSplit",
+      "ts": "2026-11-14T15:40:46"
     }
   ],
   "repos": {
@@ -6082,7 +6109,8 @@
       "star_rising",
       "rescue",
       "star_rising",
-      "star_rising"
+      "star_rising",
+      "rescue"
     ]
   },
   "rescue": {
@@ -6108,7 +6136,8 @@
         "n-plus-one",
         "openai-key-browser",
         "env-missing-on-deploy",
-        "double-charge"
+        "double-charge",
+        "service-role-in-frontend"
       ],
       "check": [
         "edge-function-no-auth",

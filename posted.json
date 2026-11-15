@@ -6207,7 +6207,10 @@
         "oauth-redirect-mismatch",
         "n-plus-one",
         "service-role-in-frontend",
-        "no-server-validation"
+        "no-server-validation",
+        "admin-check-frontend",
+        "rls-on-no-policy",
+        "vite-env-exposed"
       ],
       "prompt_fix": [
         "vite-env-exposed",

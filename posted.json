@@ -270,7 +270,8 @@
       "The self-hosted AI teammate that replaces your paid ChatGPT subscription in Slack, Teams, Discord",
       "The self-hosted network reconnaissance tool that replaces paid security monitoring",
       "The Supabase service role key is in your frontend code",
-      "The self-hosted Slack alternative that replaces paid team chat"
+      "The self-hosted Slack alternative that replaces paid team chat",
+      "Self\u2011Hosted ERP that replaces multiple SaaS like Shopify and QuickBooks"
     ]
   },
   "uploads": [
@@ -5772,6 +5773,32 @@
       "linkedin_post_id": "6af8d8e4e86a5789a6d3a877",
       "archetype": "StarRising",
       "ts": "2026-11-14T21:55:22"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Self\u2011Hosted ERP that replaces multiple SaaS like Shopify and QuickBooks",
+      "title": "Self\u2011Hosted ERP: One Tool for Shopify, QuickBooks & More",
+      "question": "What is frappe/frappe and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "frappe/frappe",
+      "repo_url": "https://github.com/frappe/frappe",
+      "repo_stars": 11099,
+      "repo_replaces": "Shopify, QuickBooks, other SaaS",
+      "youtube": "iKrxXl5dfvw",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6af962b6918fe79d2ecc3029",
+      "tiktok_caption": "Self\u2011Hosted ERP: One Tool for Shopify, QuickBooks & More\n\nDiscover how this open\u2011source ERP can replace multiple SaaS like Shopify and QuickBooks, giving you full control and lower costs. Hit follow for more deep dives into powerful self\u2011hosted solutions!\n\nfrappe/frappe: https://github.com/frappe/frappe\n\n#nocodefounder #opensource #selfhosted #erp #smallbusiness",
+      "instagram": true,
+      "instagram_post_id": "6af962c1c5b364e0623fbe03",
+      "linkedin": true,
+      "linkedin_post_id": "6af962cc918fe79d2ecc3386",
+      "archetype": "StarRising",
+      "ts": "2026-11-15T07:43:47"
     }
   ],
   "repos": {
@@ -5935,7 +5962,8 @@
       "bettercap/bettercap",
       "Pluviobyte/saas-growth-agents",
       "ebtsamalhakmy-sketch/desktop-backup-suite",
-      "agentes-chat/agentes-chat"
+      "agentes-chat/agentes-chat",
+      "frappe/frappe"
     ]
   },
   "modes": {
@@ -6140,6 +6168,7 @@
       "star_rising",
       "star_rising",
       "rescue",
+      "star_rising",
       "star_rising"
     ]
   },

@@ -271,7 +271,8 @@
       "The self-hosted network reconnaissance tool that replaces paid security monitoring",
       "The Supabase service role key is in your frontend code",
       "The self-hosted Slack alternative that replaces paid team chat",
-      "Self\u2011Hosted ERP that replaces multiple SaaS like Shopify and QuickBooks"
+      "Self\u2011Hosted ERP that replaces multiple SaaS like Shopify and QuickBooks",
+      "One bad prompt could delete your production data and you have no backup plan"
     ]
   },
   "uploads": [
@@ -5799,6 +5800,32 @@
       "linkedin_post_id": "6af962cc918fe79d2ecc3386",
       "archetype": "StarRising",
       "ts": "2026-11-15T07:43:47"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "One bad prompt could delete your production data and you have no backup plan",
+      "title": "A Single Prompt Can Erase Your Production Data",
+      "question": "How do I check whether my app has this problem: One bad prompt could delete your production data and you have no backup plan?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": "no-backups",
+      "rescue_format": "check",
+      "mode": "rescue",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "PW81IRwgojo",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6afab5af8e87c256a3bf79fe",
+      "tiktok_caption": "A Single Prompt Can Erase Your Production Data\n\nHow to check your own app for this: one bad prompt could delete your production data and you have no backup plan. If development changes run against the same database real users depend on, one wrong migration can delete real data. A backup you have never restored is a hope, not a plan.\n\nBuilt your app with Lovable, Bolt, v0 or Replit and it keeps breaking? Get it audited: https://rescue.codeaz.org\n\n#lovable #boltnew #supabase #vibecoding #nocode",
+      "instagram": true,
+      "instagram_post_id": "6afab5b9d7e5fee638acc223",
+      "linkedin": true,
+      "linkedin_post_id": "6afab5c48e87c256a3bf7f8c",
+      "archetype": "RescueSplit",
+      "ts": "2026-11-16T07:50:04"
     }
   ],
   "repos": {
@@ -6169,7 +6196,8 @@
       "star_rising",
       "rescue",
       "star_rising",
-      "star_rising"
+      "star_rising",
+      "rescue"
     ]
   },
   "rescue": {
@@ -6210,7 +6238,8 @@
         "no-server-validation",
         "admin-check-frontend",
         "rls-on-no-policy",
-        "vite-env-exposed"
+        "vite-env-exposed",
+        "no-backups"
       ],
       "prompt_fix": [
         "vite-env-exposed",

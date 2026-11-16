@@ -272,7 +272,8 @@
       "The Supabase service role key is in your frontend code",
       "The self-hosted Slack alternative that replaces paid team chat",
       "Self\u2011Hosted ERP that replaces multiple SaaS like Shopify and QuickBooks",
-      "One bad prompt could delete your production data and you have no backup plan"
+      "One bad prompt could delete your production data and you have no backup plan",
+      "The self-hosted office suite that replaces Microsoft 365"
     ]
   },
   "uploads": [
@@ -5826,6 +5827,32 @@
       "linkedin_post_id": "6afab5c48e87c256a3bf7f8c",
       "archetype": "RescueSplit",
       "ts": "2026-11-16T07:50:04"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "The self-hosted office suite that replaces Microsoft 365",
+      "title": "Self\u2011Hosted Office Suite That Beats Microsoft 365 \u2013 OnlyOFFICE",
+      "question": "What is ONLYOFFICE/CommunityServer and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "ONLYOFFICE/CommunityServer",
+      "repo_url": "https://github.com/ONLYOFFICE/CommunityServer",
+      "repo_stars": 3181,
+      "repo_replaces": "Microsoft 365",
+      "youtube": "Xgkc4m1oLGU",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6afb57f1be9cb91737f3246c",
+      "tiktok_caption": "Self\u2011Hosted Office Suite That Beats Microsoft 365 \u2013 OnlyOFFICE\n\nDiscover how OnlyOFFICE, the open\u2011source alternative to Microsoft 365, lets you host your own office suite with full document editing, collaboration, and security. Follow for more deep dives into powerful free software tools!\n\nONLYOFFICE/CommunityServer: https://github.com/ONLYOFFICE/CommunityServer\n\n#onlyoffice #opensource #selfhosted #officesuite #techtips",
+      "instagram": true,
+      "instagram_post_id": "6afb57fcf85f9c853dae4273",
+      "linkedin": true,
+      "linkedin_post_id": "6afb580708dd0180500b6eca",
+      "archetype": "StarRising",
+      "ts": "2026-11-16T19:22:21"
     }
   ],
   "repos": {
@@ -5990,7 +6017,8 @@
       "Pluviobyte/saas-growth-agents",
       "ebtsamalhakmy-sketch/desktop-backup-suite",
       "agentes-chat/agentes-chat",
-      "frappe/frappe"
+      "frappe/frappe",
+      "ONLYOFFICE/CommunityServer"
     ]
   },
   "modes": {
@@ -6197,7 +6225,8 @@
       "rescue",
       "star_rising",
       "star_rising",
-      "rescue"
+      "rescue",
+      "star_rising"
     ]
   },
   "rescue": {

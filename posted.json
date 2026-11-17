@@ -273,7 +273,8 @@
       "The self-hosted Slack alternative that replaces paid team chat",
       "Self\u2011Hosted ERP that replaces multiple SaaS like Shopify and QuickBooks",
       "One bad prompt could delete your production data and you have no backup plan",
-      "The self-hosted office suite that replaces Microsoft 365"
+      "The self-hosted office suite that replaces Microsoft 365",
+      "AI Website Cloner that replaces your website builder subscription"
     ]
   },
   "uploads": [
@@ -5853,6 +5854,32 @@
       "linkedin_post_id": "6afb580708dd0180500b6eca",
       "archetype": "StarRising",
       "ts": "2026-11-16T19:22:21"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "AI Website Cloner that replaces your website builder subscription",
+      "title": "AI Website Cloner: End Your Builder Subscription Today!",
+      "question": "What is JCodesMore/ai-website-cloner-template and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "JCodesMore/ai-website-cloner-template",
+      "repo_url": "https://github.com/JCodesMore/ai-website-cloner-template",
+      "repo_stars": 39294,
+      "repo_replaces": "website builder SaaS (e.g., Wix, Squarespace)",
+      "youtube": "SyS55Mt6V7w",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6afba797797935b975d1307a",
+      "tiktok_caption": "AI Website Cloner: End Your Builder Subscription Today!\n\nDiscover how this open\u2011source project can instantly clone your website and save you on subscriptions. Hit follow for more AI hacks that boost your online presence!\n\nJCodesMore/ai-website-cloner-template: https://github.com/JCodesMore/ai-website-cloner-template\n\n#nocodefounder #aitechnology #opensource #webdesign #automation",
+      "instagram": true,
+      "instagram_post_id": "6afba7a3f83aaca8f39cea72",
+      "linkedin": true,
+      "linkedin_post_id": "6afba7ae4b26315855b065e0",
+      "archetype": "StarRising",
+      "ts": "2026-11-17T01:02:11"
     }
   ],
   "repos": {
@@ -6018,7 +6045,8 @@
       "ebtsamalhakmy-sketch/desktop-backup-suite",
       "agentes-chat/agentes-chat",
       "frappe/frappe",
-      "ONLYOFFICE/CommunityServer"
+      "ONLYOFFICE/CommunityServer",
+      "JCodesMore/ai-website-cloner-template"
     ]
   },
   "modes": {
@@ -6226,6 +6254,7 @@
       "star_rising",
       "star_rising",
       "rescue",
+      "star_rising",
       "star_rising"
     ]
   },

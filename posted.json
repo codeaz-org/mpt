@@ -6073,7 +6073,9 @@
       "agentes-chat/agentes-chat",
       "frappe/frappe",
       "ONLYOFFICE/CommunityServer",
-      "JCodesMore/ai-website-cloner-template"
+      "JCodesMore/ai-website-cloner-template",
+      "Vesuvio1/display-fusion",
+      "dagster-io/dagster"
     ]
   },
   "modes": {

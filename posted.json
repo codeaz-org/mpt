@@ -276,7 +276,8 @@
       "The self-hosted office suite that replaces Microsoft 365",
       "AI Website Cloner that replaces your website builder subscription",
       "You have no way to undo the change that broke your app",
-      "Which paid social media management tool gives the best ROI for small businesses?"
+      "Which paid social media management tool gives the best ROI for small businesses?",
+      "How much does it cost to charge a smartphone on a $5/month plan?"
     ]
   },
   "uploads": [
@@ -5934,6 +5935,32 @@
       "linkedin_post_id": "6afceee2ab47737bddb61518",
       "archetype": "BuyOrBuild",
       "ts": "2026-11-18T00:18:17"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "How much does it cost to charge a smartphone on a $5/month plan?",
+      "title": "Charge Your Phone on a $5/Month Plan\u2014Surprise Savings!",
+      "question": "How much does it cost to charge a phone to 100%?",
+      "question_id": "yt:FxiTyq3zyXU",
+      "question_url": "https://youtube.com/watch?v=FxiTyq3zyXU",
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "question",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "RP_e1bFG8Ak",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6afd62121da11ba017993bc8",
+      "tiktok_caption": "Charge Your Phone on a $5/Month Plan\u2014Surprise Savings!\n\nEver wondered how much it costs to keep your phone charged on a budget plan? Watch to find out the real cost and save money today! Don\u2019t forget to follow for more smart savings tips.\n\n#budgettech #smartphone #savemoney #mobileplan #frugaltech",
+      "instagram": true,
+      "instagram_post_id": "6afd621d45783105f4389d6a",
+      "linkedin": true,
+      "linkedin_post_id": "6afd62270a3b499742021e3b",
+      "archetype": "StatCard",
+      "ts": "2026-11-18T08:30:06"
     }
   ],
   "repos": {
@@ -6313,6 +6340,7 @@
       "star_rising",
       "star_rising",
       "rescue",
+      "question",
       "question"
     ]
   },

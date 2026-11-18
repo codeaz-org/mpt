@@ -277,7 +277,8 @@
       "AI Website Cloner that replaces your website builder subscription",
       "You have no way to undo the change that broke your app",
       "Which paid social media management tool gives the best ROI for small businesses?",
-      "How much does it cost to charge a smartphone on a $5/month plan?"
+      "How much does it cost to charge a smartphone on a $5/month plan?",
+      "Launch checklist #12: Private files are in private buckets"
     ]
   },
   "uploads": [
@@ -5961,6 +5962,32 @@
       "linkedin_post_id": "6afd62270a3b499742021e3b",
       "archetype": "StatCard",
       "ts": "2026-11-18T08:30:06"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Launch checklist #12: Private files are in private buckets",
+      "title": "Private files are in private buckets",
+      "question": "Before launch, how do I make sure that: Private files are in private buckets?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": "public-storage-bucket",
+      "rescue_format": "checklist",
+      "mode": "rescue",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "Ok6TwGHlkz8",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6afe35ecc462756e9e28d054",
+      "tiktok_caption": "Private files are in private buckets\n\nLaunch checklist, number 12: Private files are in private buckets. A public storage bucket serves every file to anyone who has or guesses the URL. Private files need a private bucket and short-lived signed URLs.\n\nBuilt your app with Lovable, Bolt, v0 or Replit and it keeps breaking? Get it audited: https://rescue.codeaz.org\n\n#lovable #boltnew #supabase #vibecoding #nocode",
+      "instagram": true,
+      "instagram_post_id": "6afe35f7a588bd6687a5517e",
+      "linkedin": true,
+      "linkedin_post_id": "6afe3602a588bd6687a55345",
+      "archetype": "RescueSplit",
+      "ts": "2026-11-18T23:34:02"
     }
   ],
   "repos": {
@@ -6341,7 +6368,8 @@
       "star_rising",
       "rescue",
       "question",
-      "question"
+      "question",
+      "rescue"
     ]
   },
   "rescue": {
@@ -6357,7 +6385,8 @@
         "admin-check-frontend",
         "auth-redirect-localhost",
         "oauth-redirect-mismatch",
-        "env-missing-on-deploy"
+        "env-missing-on-deploy",
+        "public-storage-bucket"
       ],
       "explainer": [
         "oauth-redirect-mismatch",

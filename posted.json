@@ -278,7 +278,8 @@
       "You have no way to undo the change that broke your app",
       "Which paid social media management tool gives the best ROI for small businesses?",
       "How much does it cost to charge a smartphone on a $5/month plan?",
-      "Launch checklist #12: Private files are in private buckets"
+      "Launch checklist #12: Private files are in private buckets",
+      "HolyArrs: Self-hosted media server that replaces paid streaming subscriptions"
     ]
   },
   "uploads": [
@@ -5988,6 +5989,32 @@
       "linkedin_post_id": "6afe3602a588bd6687a55345",
       "archetype": "RescueSplit",
       "ts": "2026-11-18T23:34:02"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "HolyArrs: Self-hosted media server that replaces paid streaming subscriptions",
+      "title": "HolyArrs: Free Media Server That Beats Streaming Subscriptions",
+      "question": "What is HolyArrs/HolyArrs and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "HolyArrs/HolyArrs",
+      "repo_url": "https://github.com/HolyArrs/HolyArrs",
+      "repo_stars": 2088,
+      "repo_replaces": "Paid streaming services",
+      "youtube": "xu3cA81EiKw",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6afeb7e04ad8a97b3a2b9440",
+      "tiktok_caption": "HolyArrs: Free Media Server That Beats Streaming Subscriptions\n\nDiscover HolyArrs, the open\u2011source media server that replaces costly streaming services. Try it today and reclaim your entertainment budget \u2013 hit follow for more open\u2011source tech tips!\n\nHolyArrs/HolyArrs: https://github.com/HolyArrs/HolyArrs\n\n#holyarrs #opensource #selfhosted #streamingalternative #mediaserver",
+      "instagram": true,
+      "instagram_post_id": "6afeb7eb4ad8a97b3a2b96c8",
+      "linkedin": true,
+      "linkedin_post_id": "6afeb7f573dee4185933afb4",
+      "archetype": "StarRising",
+      "ts": "2026-11-19T08:48:29"
     }
   ],
   "repos": {
@@ -6156,7 +6183,8 @@
       "ONLYOFFICE/CommunityServer",
       "JCodesMore/ai-website-cloner-template",
       "Vesuvio1/display-fusion",
-      "dagster-io/dagster"
+      "dagster-io/dagster",
+      "HolyArrs/HolyArrs"
     ]
   },
   "modes": {
@@ -6369,7 +6397,8 @@
       "rescue",
       "question",
       "question",
-      "rescue"
+      "rescue",
+      "star_rising"
     ]
   },
   "rescue": {

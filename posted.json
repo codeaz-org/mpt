@@ -279,7 +279,8 @@
       "Which paid social media management tool gives the best ROI for small businesses?",
       "How much does it cost to charge a smartphone on a $5/month plan?",
       "Launch checklist #12: Private files are in private buckets",
-      "HolyArrs: Self-hosted media server that replaces paid streaming subscriptions"
+      "HolyArrs: Self-hosted media server that replaces paid streaming subscriptions",
+      "Harness Anything \u2013 AI Agent that Automates Microsoft Office and Photoshop"
     ]
   },
   "uploads": [
@@ -6015,6 +6016,32 @@
       "linkedin_post_id": "6afeb7f573dee4185933afb4",
       "archetype": "StarRising",
       "ts": "2026-11-19T08:48:29"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Harness Anything \u2013 AI Agent that Automates Microsoft Office and Photoshop",
+      "title": "Automate Office & Photoshop with the Harness Anything AI Agent",
+      "question": "What is yb2460/harness-anything and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "yb2460/harness-anything",
+      "repo_url": "https://github.com/yb2460/harness-anything",
+      "repo_stars": 3193,
+      "repo_replaces": "Microsoft Office, Photoshop",
+      "youtube": "bWpUgkcwoAU",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aff3d31e3b77fad3b472e89",
+      "tiktok_caption": "Automate Office & Photoshop with the Harness Anything AI Agent\n\nDiscover how Harness Anything can turn your Microsoft Office and Photoshop tasks into automated workflows in seconds. Dive into the open\u2011source project and see how it can boost your productivity\u2014follow for more AI automation hacks!\n\nyb2460/harness-anything: https://github.com/yb2460/harness-anything\n\n#nocodefounder #automation #opensource #aitools #productivity",
+      "instagram": true,
+      "instagram_post_id": "6aff3d3ce3b77fad3b473f72",
+      "linkedin": true,
+      "linkedin_post_id": "6aff3d46e3b77fad3b47455e",
+      "archetype": "StarRising",
+      "ts": "2026-11-19T18:17:17"
     }
   ],
   "repos": {
@@ -6184,7 +6211,8 @@
       "JCodesMore/ai-website-cloner-template",
       "Vesuvio1/display-fusion",
       "dagster-io/dagster",
-      "HolyArrs/HolyArrs"
+      "HolyArrs/HolyArrs",
+      "yb2460/harness-anything"
     ]
   },
   "modes": {
@@ -6398,6 +6426,7 @@
       "question",
       "question",
       "rescue",
+      "star_rising",
       "star_rising"
     ]
   },

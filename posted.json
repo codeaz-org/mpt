@@ -280,7 +280,8 @@
       "How much does it cost to charge a smartphone on a $5/month plan?",
       "Launch checklist #12: Private files are in private buckets",
       "HolyArrs: Self-hosted media server that replaces paid streaming subscriptions",
-      "Harness Anything \u2013 AI Agent that Automates Microsoft Office and Photoshop"
+      "Harness Anything \u2013 AI Agent that Automates Microsoft Office and Photoshop",
+      "Your app unlocks paid features when someone visits the Stripe success page"
     ]
   },
   "uploads": [
@@ -6042,6 +6043,32 @@
       "linkedin_post_id": "6aff3d46e3b77fad3b47455e",
       "archetype": "StarRising",
       "ts": "2026-11-19T18:17:17"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Your app unlocks paid features when someone visits the Stripe success page",
+      "title": "App Grants Paid Features After Stripe Success Page Visit",
+      "question": "My app has this problem: Your app unlocks paid features when someone visits the Stripe success page. What is going on and how do I fix it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": "stripe-success-page",
+      "rescue_format": "explainer",
+      "mode": "rescue",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "DjRTHHUGtMo",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6aff8aced5f8acdd0d56ece9",
+      "tiktok_caption": "App Grants Paid Features After Stripe Success Page Visit\n\nYour app unlocks paid features when someone visits the Stripe success page. A success page URL can be opened by anyone, paid or not. The trustworthy signal is Stripe's webhook, sent server to server and checked with a signing secret.\n\nBuilt your app with Lovable, Bolt, v0 or Replit and it keeps breaking? Get it audited: https://rescue.codeaz.org\n\n#lovable #boltnew #supabase #vibecoding #nocode",
+      "instagram": true,
+      "instagram_post_id": "6aff8ad90f5eda1a57a70e4e",
+      "linkedin": true,
+      "linkedin_post_id": "6aff8ae3ca85ebefb0de1cfb",
+      "archetype": "RescueSplit",
+      "ts": "2026-11-19T23:48:27"
     }
   ],
   "repos": {
@@ -6427,7 +6454,8 @@
       "question",
       "rescue",
       "star_rising",
-      "star_rising"
+      "star_rising",
+      "rescue"
     ]
   },
   "rescue": {
@@ -6455,7 +6483,8 @@
         "openai-key-browser",
         "env-missing-on-deploy",
         "double-charge",
-        "service-role-in-frontend"
+        "service-role-in-frontend",
+        "stripe-success-page"
       ],
       "check": [
         "edge-function-no-auth",

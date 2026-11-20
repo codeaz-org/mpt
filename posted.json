@@ -281,7 +281,8 @@
       "Launch checklist #12: Private files are in private buckets",
       "HolyArrs: Self-hosted media server that replaces paid streaming subscriptions",
       "Harness Anything \u2013 AI Agent that Automates Microsoft Office and Photoshop",
-      "Your app unlocks paid features when someone visits the Stripe success page"
+      "Your app unlocks paid features when someone visits the Stripe success page",
+      "VictoriaMetrics: Self-hosted monitoring that replaces paid SaaS like Datadog"
     ]
   },
   "uploads": [
@@ -6069,6 +6070,32 @@
       "linkedin_post_id": "6aff8ae3ca85ebefb0de1cfb",
       "archetype": "RescueSplit",
       "ts": "2026-11-19T23:48:27"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "VictoriaMetrics: Self-hosted monitoring that replaces paid SaaS like Datadog",
+      "title": "VictoriaMetrics: Free Self\u2011Hosted Monitoring vs Datadog",
+      "question": "What is VictoriaMetrics/VictoriaMetrics and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "VictoriaMetrics/VictoriaMetrics",
+      "repo_url": "https://github.com/VictoriaMetrics/VictoriaMetrics",
+      "repo_stars": 18138,
+      "repo_replaces": "Datadog",
+      "youtube": "aSYo55CbQb8",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6b0001910f5eda1a57d2eb9a",
+      "tiktok_caption": "VictoriaMetrics: Free Self\u2011Hosted Monitoring vs Datadog\n\nDiscover how VictoriaMetrics can replace paid SaaS like Datadog, saving costs while keeping full control of your metrics. Want more open\u2011source tips? Hit follow for the latest updates!\n\nVictoriaMetrics/VictoriaMetrics: https://github.com/VictoriaMetrics/VictoriaMetrics\n\n#monitoring #opensource #selfhosted #datadog #metrics",
+      "instagram": true,
+      "instagram_post_id": "6b00019c4c1afd05de03f722",
+      "linkedin": true,
+      "linkedin_post_id": "6b0001a70f5eda1a57d2f5a2",
+      "archetype": "StarRising",
+      "ts": "2026-11-20T08:15:08"
     }
   ],
   "repos": {
@@ -6239,7 +6266,8 @@
       "Vesuvio1/display-fusion",
       "dagster-io/dagster",
       "HolyArrs/HolyArrs",
-      "yb2460/harness-anything"
+      "yb2460/harness-anything",
+      "VictoriaMetrics/VictoriaMetrics"
     ]
   },
   "modes": {
@@ -6455,7 +6483,8 @@
       "rescue",
       "star_rising",
       "star_rising",
-      "rescue"
+      "rescue",
+      "star_rising"
     ]
   },
   "rescue": {

@@ -282,7 +282,8 @@
       "HolyArrs: Self-hosted media server that replaces paid streaming subscriptions",
       "Harness Anything \u2013 AI Agent that Automates Microsoft Office and Photoshop",
       "Your app unlocks paid features when someone visits the Stripe success page",
-      "VictoriaMetrics: Self-hosted monitoring that replaces paid SaaS like Datadog"
+      "VictoriaMetrics: Self-hosted monitoring that replaces paid SaaS like Datadog",
+      "Kestra: the self-hosted workflow engine that replaces Zapier"
     ]
   },
   "uploads": [
@@ -6096,6 +6097,32 @@
       "linkedin_post_id": "6b0001a70f5eda1a57d2f5a2",
       "archetype": "StarRising",
       "ts": "2026-11-20T08:15:08"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Kestra: the self-hosted workflow engine that replaces Zapier",
+      "title": "Say Goodbye to Zapier\u2014Meet Kestra, the Self\u2011Hosted Workflow Engine",
+      "question": "What is kestra-io/kestra and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "kestra-io/kestra",
+      "repo_url": "https://github.com/kestra-io/kestra",
+      "repo_stars": 30296,
+      "repo_replaces": "Zapier",
+      "youtube": "LmUMNyVLojg",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6b00894fe3772ee0cf54ef3d",
+      "tiktok_caption": "Say Goodbye to Zapier\u2014Meet Kestra, the Self\u2011Hosted Workflow Engine\n\nDiscover how Kestra lets you automate tasks without the cost or lock\u2011in of Zapier. Try it out, share your experience, and follow for more open\u2011source automation hacks!\n\nkestra-io/kestra: https://github.com/kestra-io/kestra\n\n#automation #workflow #selfhosted #opensource #productivity",
+      "instagram": true,
+      "instagram_post_id": "6b00895944c36191134ceb75",
+      "linkedin": true,
+      "linkedin_post_id": "6b008964861298c9b13e65b9",
+      "archetype": "StarRising",
+      "ts": "2026-11-20T17:54:19"
     }
   ],
   "repos": {
@@ -6267,7 +6294,9 @@
       "dagster-io/dagster",
       "HolyArrs/HolyArrs",
       "yb2460/harness-anything",
-      "VictoriaMetrics/VictoriaMetrics"
+      "VictoriaMetrics/VictoriaMetrics",
+      "janhq/jan",
+      "kestra-io/kestra"
     ]
   },
   "modes": {
@@ -6484,6 +6513,7 @@
       "star_rising",
       "star_rising",
       "rescue",
+      "star_rising",
       "star_rising"
     ]
   },

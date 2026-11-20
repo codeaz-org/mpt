@@ -283,7 +283,8 @@
       "Harness Anything \u2013 AI Agent that Automates Microsoft Office and Photoshop",
       "Your app unlocks paid features when someone visits the Stripe success page",
       "VictoriaMetrics: Self-hosted monitoring that replaces paid SaaS like Datadog",
-      "Kestra: the self-hosted workflow engine that replaces Zapier"
+      "Kestra: the self-hosted workflow engine that replaces Zapier",
+      "You have no way to undo the change that broke your app"
     ]
   },
   "uploads": [
@@ -6123,6 +6124,32 @@
       "linkedin_post_id": "6b008964861298c9b13e65b9",
       "archetype": "StarRising",
       "ts": "2026-11-20T17:54:19"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "You have no way to undo the change that broke your app",
+      "title": "Can't Revert a Broken Change in Your AI App Builder",
+      "question": "How do I check whether my app has this problem: You have no way to undo the change that broke your app?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": "no-version-control",
+      "rescue_format": "check",
+      "mode": "rescue",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "IuzO2dY279E",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6b00d56220a2d09a0aba35fb",
+      "tiktok_caption": "Can't Revert a Broken Change in Your AI App Builder\n\nHow to check your own app for this: you have no way to undo the change that broke your app. Without version control there is no record of what changed or a clean way back. Connecting the project to GitHub keeps every change and lets you roll back to the last working state.\n\nBuilt your app with Lovable, Bolt, v0 or Replit and it keeps breaking? Get it audited: https://rescue.codeaz.org\n\n#lovable #boltnew #supabase #vibecoding #nocode",
+      "instagram": true,
+      "instagram_post_id": "6b00d56cd9cbb430a103eac7",
+      "linkedin": true,
+      "linkedin_post_id": "6b00d5775e993799d8374ffe",
+      "archetype": "RescueSplit",
+      "ts": "2026-11-20T23:18:55"
     }
   ],
   "repos": {
@@ -6514,7 +6541,8 @@
       "star_rising",
       "rescue",
       "star_rising",
-      "star_rising"
+      "star_rising",
+      "rescue"
     ]
   },
   "rescue": {
@@ -6558,7 +6586,8 @@
         "admin-check-frontend",
         "rls-on-no-policy",
         "vite-env-exposed",
-        "no-backups"
+        "no-backups",
+        "no-version-control"
       ],
       "prompt_fix": [
         "vite-env-exposed",

@@ -286,7 +286,8 @@
       "Kestra: the self-hosted workflow engine that replaces Zapier",
       "You have no way to undo the change that broke your app",
       "The self-hosted Django CMS that replaces WordPress and other SaaS content platforms",
-      "Self-hosted CLI time tracker that replaces Toggl"
+      "Self-hosted CLI time tracker that replaces Toggl",
+      "Your app was fast with 10 users and crawls with 1,000 rows"
     ]
   },
   "uploads": [
@@ -6204,6 +6205,32 @@
       "linkedin_post_id": "6b01d5a8142c957519301b46",
       "archetype": "StarRising",
       "ts": "2026-11-21T17:31:59"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Your app was fast with 10 users and crawls with 1,000 rows",
+      "title": "App Speed Drops When Data Scales From 10 to 1,000 Rows",
+      "question": "Why hasn't prompting the AI fixed this: Your app was fast with 10 users and crawls with 1,000 rows?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": "slow-no-index",
+      "rescue_format": "prompt_fix",
+      "mode": "rescue",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "-S5pSSDkpy0",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6b021afecc364169c10ca0f4",
+      "tiktok_caption": "App Speed Drops When Data Scales From 10 to 1,000 Rows\n\nYour app was fast with 10 users and crawls with 1,000 rows. Speed problems from missing indexes live in the database. Rewriting the page around them barely moves the number.\n\nBuilt your app with Lovable, Bolt, v0 or Replit and it keeps breaking? Get it audited: https://rescue.codeaz.org\n\n#lovable #boltnew #supabase #vibecoding #nocode",
+      "instagram": true,
+      "instagram_post_id": "6b021b090247969092079b4b",
+      "linkedin": true,
+      "linkedin_post_id": "6b021b13846b0ee907411dc4",
+      "archetype": "RescueSplit",
+      "ts": "2026-11-21T22:28:11"
     }
   ],
   "repos": {
@@ -6601,7 +6628,8 @@
       "star_rising",
       "rescue",
       "star_rising",
-      "star_rising"
+      "star_rising",
+      "rescue"
     ]
   },
   "rescue": {
@@ -6659,7 +6687,8 @@
         "no-server-validation",
         "rls-on-no-policy",
         "no-backups",
-        "no-version-control"
+        "no-version-control",
+        "slow-no-index"
       ],
       "question": [
         "rls-off",

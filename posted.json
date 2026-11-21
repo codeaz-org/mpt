@@ -285,7 +285,8 @@
       "VictoriaMetrics: Self-hosted monitoring that replaces paid SaaS like Datadog",
       "Kestra: the self-hosted workflow engine that replaces Zapier",
       "You have no way to undo the change that broke your app",
-      "The self-hosted Django CMS that replaces WordPress and other SaaS content platforms"
+      "The self-hosted Django CMS that replaces WordPress and other SaaS content platforms",
+      "Self-hosted CLI time tracker that replaces Toggl"
     ]
   },
   "uploads": [
@@ -6177,6 +6178,32 @@
       "linkedin_post_id": "6b01542520a2d09a0ae47470",
       "archetype": "StarRising",
       "ts": "2026-11-21T08:19:24"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Self-hosted CLI time tracker that replaces Toggl",
+      "title": "Replace Toggl with a Self\u2011Hosted CLI Time Tracker \ud83d\ude80",
+      "question": "What is jmaupetit/Watson and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "jmaupetit/Watson",
+      "repo_url": "https://github.com/jmaupetit/Watson",
+      "repo_stars": 2548,
+      "repo_replaces": "Toggl",
+      "youtube": "i9-55AevNxs",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6b01d5920247969092ed7c37",
+      "tiktok_caption": "Replace Toggl with a Self\u2011Hosted CLI Time Tracker \ud83d\ude80\n\nDiscover how this open-source project lets you track time right from your terminal, cutting out the need for cloud services. Try it today and take control of your productivity\u2014follow for more tools like this!\n\njmaupetit/Watson: https://github.com/jmaupetit/Watson\n\n#opensource #timetracking #cli #selfhosted #nocode",
+      "instagram": true,
+      "instagram_post_id": "6b01d59ed5eabfb8cc4b1df1",
+      "linkedin": true,
+      "linkedin_post_id": "6b01d5a8142c957519301b46",
+      "archetype": "StarRising",
+      "ts": "2026-11-21T17:31:59"
     }
   ],
   "repos": {
@@ -6351,7 +6378,9 @@
       "VictoriaMetrics/VictoriaMetrics",
       "janhq/jan",
       "kestra-io/kestra",
-      "django-cms/django-cms"
+      "django-cms/django-cms",
+      "dbt-labs/dbt",
+      "jmaupetit/Watson"
     ]
   },
   "modes": {
@@ -6571,6 +6600,7 @@
       "star_rising",
       "star_rising",
       "rescue",
+      "star_rising",
       "star_rising"
     ]
   },

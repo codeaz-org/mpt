@@ -284,7 +284,8 @@
       "Your app unlocks paid features when someone visits the Stripe success page",
       "VictoriaMetrics: Self-hosted monitoring that replaces paid SaaS like Datadog",
       "Kestra: the self-hosted workflow engine that replaces Zapier",
-      "You have no way to undo the change that broke your app"
+      "You have no way to undo the change that broke your app",
+      "The self-hosted Django CMS that replaces WordPress and other SaaS content platforms"
     ]
   },
   "uploads": [
@@ -6150,6 +6151,32 @@
       "linkedin_post_id": "6b00d5775e993799d8374ffe",
       "archetype": "RescueSplit",
       "ts": "2026-11-20T23:18:55"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "The self-hosted Django CMS that replaces WordPress and other SaaS content platforms",
+      "title": "Django CMS: The Self\u2011Hosted WordPress Killer",
+      "question": "What is django-cms/django-cms and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "django-cms/django-cms",
+      "repo_url": "https://github.com/django-cms/django-cms",
+      "repo_stars": 10680,
+      "repo_replaces": "WordPress / other SaaS CMS",
+      "youtube": "XSglt9-8RXA",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6b0154109ffbc8503c0c59ee",
+      "tiktok_caption": "Django CMS: The Self\u2011Hosted WordPress Killer\n\nDiscover how this open\u2011source project gives you full control without SaaS fees. Learn why developers are switching today \u2013 hit follow for more tech insights!\n\ndjango-cms/django-cms: https://github.com/django-cms/django-cms\n\n#django #cms #opensource #webdev #selfhosted",
+      "instagram": true,
+      "instagram_post_id": "6b01541bdd205ed779cd9fa2",
+      "linkedin": true,
+      "linkedin_post_id": "6b01542520a2d09a0ae47470",
+      "archetype": "StarRising",
+      "ts": "2026-11-21T08:19:24"
     }
   ],
   "repos": {
@@ -6323,7 +6350,8 @@
       "yb2460/harness-anything",
       "VictoriaMetrics/VictoriaMetrics",
       "janhq/jan",
-      "kestra-io/kestra"
+      "kestra-io/kestra",
+      "django-cms/django-cms"
     ]
   },
   "modes": {
@@ -6542,7 +6570,8 @@
       "rescue",
       "star_rising",
       "star_rising",
-      "rescue"
+      "rescue",
+      "star_rising"
     ]
   },
   "rescue": {

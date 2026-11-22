@@ -289,7 +289,8 @@
       "Self-hosted CLI time tracker that replaces Toggl",
       "Your app was fast with 10 users and crawls with 1,000 rows",
       "Self-hosted server control panel that replaces cPanel",
-      "Veeqo vs Competitors: Find a Non-Amazon\u2011Tied Inventory Tool for Your Store"
+      "Veeqo vs Competitors: Find a Non-Amazon\u2011Tied Inventory Tool for Your Store",
+      "Launch checklist #13: Every backend function checks who is calling"
     ]
   },
   "uploads": [
@@ -6285,6 +6286,32 @@
       "linkedin_post_id": "6b032205c72676f5e946cfa9",
       "archetype": "BuyOrBuild",
       "ts": "2026-11-22T17:10:04"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Launch checklist #13: Every backend function checks who is calling",
+      "title": "Launch Checklist #13: Verify Caller on Every Backend Function",
+      "question": "Before launch, how do I make sure that: Every backend function checks who is calling?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": "edge-function-no-auth",
+      "rescue_format": "checklist",
+      "mode": "rescue",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "tO-alaKLL_s",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6b036ec6cc364169c18eb230",
+      "tiktok_caption": "Launch Checklist #13: Verify Caller on Every Backend Function\n\nLaunch checklist, number 13: Every backend function checks who is calling. A serverless function that does not check who is calling it will do its work for anyone who finds the URL, including sending emails or spending credits.\n\nBuilt your app with Lovable, Bolt, v0 or Replit and it keeps breaking? Get it audited: https://rescue.codeaz.org\n\n#lovable #boltnew #supabase #vibecoding #nocode",
+      "instagram": true,
+      "instagram_post_id": "6b036ed1846b0ee907c2a814",
+      "linkedin": true,
+      "linkedin_post_id": "6b036edcd5eabfb8cce5b47b",
+      "archetype": "RescueSplit",
+      "ts": "2026-11-22T22:37:55"
     }
   ],
   "repos": {
@@ -6686,7 +6713,8 @@
       "star_rising",
       "rescue",
       "star_rising",
-      "question"
+      "question",
+      "rescue"
     ]
   },
   "rescue": {
@@ -6703,7 +6731,8 @@
         "auth-redirect-localhost",
         "oauth-redirect-mismatch",
         "env-missing-on-deploy",
-        "public-storage-bucket"
+        "public-storage-bucket",
+        "edge-function-no-auth"
       ],
       "explainer": [
         "oauth-redirect-mismatch",

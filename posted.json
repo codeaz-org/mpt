@@ -287,7 +287,8 @@
       "You have no way to undo the change that broke your app",
       "The self-hosted Django CMS that replaces WordPress and other SaaS content platforms",
       "Self-hosted CLI time tracker that replaces Toggl",
-      "Your app was fast with 10 users and crawls with 1,000 rows"
+      "Your app was fast with 10 users and crawls with 1,000 rows",
+      "Self-hosted server control panel that replaces cPanel"
     ]
   },
   "uploads": [
@@ -6231,6 +6232,32 @@
       "linkedin_post_id": "6b021b13846b0ee907411dc4",
       "archetype": "RescueSplit",
       "ts": "2026-11-21T22:28:11"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Self-hosted server control panel that replaces cPanel",
+      "title": "Stop Paying for cPanel\u2014Meet the Free Open\u2011Source Alternative",
+      "question": "What is serveroshq/panel and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "serveroshq/panel",
+      "repo_url": "https://github.com/serveroshq/panel",
+      "repo_stars": 1181,
+      "repo_replaces": "cPanel",
+      "youtube": "pIBczFumVL4",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6b02a259cc364169c13a1428",
+      "tiktok_caption": "Stop Paying for cPanel\u2014Meet the Free Open\u2011Source Alternative\n\nDiscover how this self\u2011hosted server control panel can replace cPanel and cut your costs. Watch the demo and learn how to set it up today\u2014follow for more tech hacks!\n\nserveroshq/panel: https://github.com/serveroshq/panel\n\n#nocodefounder #opensource #sysadmin #webdev #smallbusiness",
+      "instagram": true,
+      "instagram_post_id": "6b02a263cc364169c13a16b2",
+      "linkedin": true,
+      "linkedin_post_id": "6b02a26ecc364169c13a1907",
+      "archetype": "StarRising",
+      "ts": "2026-11-22T08:05:40"
     }
   ],
   "repos": {
@@ -6407,7 +6434,8 @@
       "kestra-io/kestra",
       "django-cms/django-cms",
       "dbt-labs/dbt",
-      "jmaupetit/Watson"
+      "jmaupetit/Watson",
+      "serveroshq/panel"
     ]
   },
   "modes": {
@@ -6629,7 +6657,8 @@
       "rescue",
       "star_rising",
       "star_rising",
-      "rescue"
+      "rescue",
+      "star_rising"
     ]
   },
   "rescue": {

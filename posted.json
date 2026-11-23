@@ -290,7 +290,8 @@
       "Your app was fast with 10 users and crawls with 1,000 rows",
       "Self-hosted server control panel that replaces cPanel",
       "Veeqo vs Competitors: Find a Non-Amazon\u2011Tied Inventory Tool for Your Store",
-      "Launch checklist #13: Every backend function checks who is calling"
+      "Launch checklist #13: Every backend function checks who is calling",
+      "Kwant: Self-hosted AI bot team that replaces paid AI assistants"
     ]
   },
   "uploads": [
@@ -6312,6 +6313,32 @@
       "linkedin_post_id": "6b036edcd5eabfb8cce5b47b",
       "archetype": "RescueSplit",
       "ts": "2026-11-22T22:37:55"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Kwant: Self-hosted AI bot team that replaces paid AI assistants",
+      "title": "Meet Kwant: The Self\u2011Hosted AI Team That Cuts Your Assistant Costs",
+      "question": "What is alexsergivan/kwant and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "alexsergivan/kwant",
+      "repo_url": "https://github.com/alexsergivan/kwant",
+      "repo_stars": 694,
+      "repo_replaces": "Grok Bot / Claude Duet",
+      "youtube": "OUXnsiN82iU",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6b03fe0dbeaafcdbe0d938c5",
+      "tiktok_caption": "Meet Kwant: The Self\u2011Hosted AI Team That Cuts Your Assistant Costs\n\nDiscover how Kwant, a free open\u2011source project, can replace pricey AI assistants with a fully self\u2011hosted team. Learn the setup steps and start saving today! Follow for more AI hacks.\n\nalexsergivan/kwant: https://github.com/alexsergivan/kwant\n\n#opensource #aiassistant #selfhosted #nocode #automation",
+      "instagram": true,
+      "instagram_post_id": "6b03fe189c207fed958940ca",
+      "linkedin": true,
+      "linkedin_post_id": "6b03fe23beaafcdbe0d94235",
+      "archetype": "mpt",
+      "ts": "2026-11-23T08:49:13"
     }
   ],
   "repos": {
@@ -6489,7 +6516,8 @@
       "django-cms/django-cms",
       "dbt-labs/dbt",
       "jmaupetit/Watson",
-      "serveroshq/panel"
+      "serveroshq/panel",
+      "alexsergivan/kwant"
     ]
   },
   "modes": {
@@ -6714,7 +6742,8 @@
       "rescue",
       "star_rising",
       "question",
-      "rescue"
+      "rescue",
+      "star_rising"
     ]
   },
   "rescue": {

@@ -291,7 +291,8 @@
       "Self-hosted server control panel that replaces cPanel",
       "Veeqo vs Competitors: Find a Non-Amazon\u2011Tied Inventory Tool for Your Store",
       "Launch checklist #13: Every backend function checks who is calling",
-      "Kwant: Self-hosted AI bot team that replaces paid AI assistants"
+      "Kwant: Self-hosted AI bot team that replaces paid AI assistants",
+      "Speed Up Your Laptop: 3 Paid Tools That Actually Work"
     ]
   },
   "uploads": [
@@ -6339,6 +6340,32 @@
       "linkedin_post_id": "6b03fe23beaafcdbe0d94235",
       "archetype": "mpt",
       "ts": "2026-11-23T08:49:13"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Speed Up Your Laptop: 3 Paid Tools That Actually Work",
+      "title": "Speed Up Your Laptop Fast: 3 Paid Tools That Actually Work!",
+      "question": "How to Speed up Your Laptop",
+      "question_id": "yt:UJBtWEfHlro",
+      "question_url": "https://youtube.com/watch?v=UJBtWEfHlro",
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "question",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "DH5ywulDJW4",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6b04adc3f72f10e1883327d9",
+      "tiktok_caption": "Speed Up Your Laptop Fast: 3 Paid Tools That Actually Work!\n\nTired of a sluggish laptop? Discover three premium tools that boost performance instantly and keep your machine running smooth. Hit follow for more tech hacks!\n\n#laptopboost #techtools #speedup #productivity #computerrepair",
+      "instagram": true,
+      "instagram_post_id": "6b04adcdf72f10e188332a52",
+      "linkedin": true,
+      "linkedin_post_id": "6b04add858d65b8ef8cc4384",
+      "archetype": "CostTeardown",
+      "ts": "2026-11-23T21:18:55"
     }
   ],
   "repos": {
@@ -6743,7 +6770,8 @@
       "star_rising",
       "question",
       "rescue",
-      "star_rising"
+      "star_rising",
+      "question"
     ]
   },
   "rescue": {

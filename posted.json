@@ -293,7 +293,8 @@
       "Launch checklist #13: Every backend function checks who is calling",
       "Kwant: Self-hosted AI bot team that replaces paid AI assistants",
       "Speed Up Your Laptop: 3 Paid Tools That Actually Work",
-      "AI-built apps on Supabase: how do you keep the database safe when the AI adds features after launch?"
+      "AI-built apps on Supabase: how do you keep the database safe when the AI adds features after launch?",
+      "Nocobase: Self-hosted platform that replaces Airtable and Notion for business workflows"
     ]
   },
   "uploads": [
@@ -6393,6 +6394,32 @@
       "linkedin_post_id": "6b0504069a4bd32ca3ed9eb6",
       "archetype": "RescueSplit",
       "ts": "2026-11-24T03:26:38"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Nocobase: Self-hosted platform that replaces Airtable and Notion for business workflows",
+      "title": "Nocobase: The Airtable & Notion Alternative You Can Host Yourself",
+      "question": "What is nocobase/nocobase and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "nocobase/nocobase",
+      "repo_url": "https://github.com/nocobase/nocobase",
+      "repo_stars": 24997,
+      "repo_replaces": "Airtable / Notion",
+      "youtube": "qcev8E6_qxA",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6b056c7f68cddfc6ee55f327",
+      "tiktok_caption": "Nocobase: The Airtable & Notion Alternative You Can Host Yourself\n\nDiscover how Nocobase lets you build powerful business workflows without the cost or vendor lock\u2011in. Hit follow for more deep dives into open\u2011source tools that change the game!\n\nnocobase/nocobase: https://github.com/nocobase/nocobase\n\n#nocodefounder #nocobase #opensource #workflowautomation #selfhosted",
+      "instagram": true,
+      "instagram_post_id": "6b056c8af2684b72514b9b8c",
+      "linkedin": true,
+      "linkedin_post_id": "6b056c9468cddfc6ee55fb4e",
+      "archetype": "StarRising",
+      "ts": "2026-11-24T10:52:43"
     }
   ],
   "repos": {
@@ -6571,7 +6598,8 @@
       "dbt-labs/dbt",
       "jmaupetit/Watson",
       "serveroshq/panel",
-      "alexsergivan/kwant"
+      "alexsergivan/kwant",
+      "nocobase/nocobase"
     ]
   },
   "modes": {
@@ -6799,7 +6827,8 @@
       "rescue",
       "star_rising",
       "question",
-      "rescue"
+      "rescue",
+      "star_rising"
     ]
   },
   "rescue": {

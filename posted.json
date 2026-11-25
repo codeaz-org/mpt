@@ -297,7 +297,8 @@
       "Nocobase: Self-hosted platform that replaces Airtable and Notion for business workflows",
       "Retool Alternatives: Which Low-Code Platform Fits a Small Business Budget?",
       "Your password reset and signup emails send people to localhost",
-      "The free model plugin that replaces your paid LLM subscription"
+      "The free model plugin that replaces your paid LLM subscription",
+      "Peach: Local-first video metadata manager that replaces manual tagging"
     ]
   },
   "uploads": [
@@ -6501,6 +6502,32 @@
       "linkedin_post_id": "6b06b0479b09b0a4a8ad8771",
       "archetype": "StarRising",
       "ts": "2026-11-25T09:53:48"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Peach: Local-first video metadata manager that replaces manual tagging",
+      "title": "Peach: The Local-First Video Tagging Revolution",
+      "question": "What is peach-mitao/peach and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "peach-mitao/peach",
+      "repo_url": "https://github.com/peach-mitao/peach",
+      "repo_stars": 15326,
+      "repo_replaces": "manual video tagging",
+      "youtube": "-aTXrnH83CU",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6b073497b1da0f86e4974d23",
+      "tiktok_caption": "Peach: The Local-First Video Tagging Revolution\n\nDiscover how Peach automates video metadata, cutting down manual tagging hours. Try it out and see the difference\u2014follow for more open-source insights!\n\npeach-mitao/peach: https://github.com/peach-mitao/peach\n\n#peach #videometadata #opensource #nocodefounder #productivity",
+      "instagram": true,
+      "instagram_post_id": "6b0734a2c06d6883dad974c0",
+      "linkedin": true,
+      "linkedin_post_id": "6b0734ad636c52154b9a123e",
+      "archetype": "StarRising",
+      "ts": "2026-11-25T19:18:43"
     }
   ],
   "repos": {
@@ -6681,7 +6708,8 @@
       "serveroshq/panel",
       "alexsergivan/kwant",
       "nocobase/nocobase",
-      "Ebony-Vinyl/dsh-our-free-model"
+      "Ebony-Vinyl/dsh-our-free-model",
+      "peach-mitao/peach"
     ]
   },
   "modes": {
@@ -6913,6 +6941,7 @@
       "star_rising",
       "question",
       "rescue",
+      "star_rising",
       "star_rising"
     ]
   },

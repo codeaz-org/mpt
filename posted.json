@@ -295,7 +295,8 @@
       "Speed Up Your Laptop: 3 Paid Tools That Actually Work",
       "AI-built apps on Supabase: how do you keep the database safe when the AI adds features after launch?",
       "Nocobase: Self-hosted platform that replaces Airtable and Notion for business workflows",
-      "Retool Alternatives: Which Low-Code Platform Fits a Small Business Budget?"
+      "Retool Alternatives: Which Low-Code Platform Fits a Small Business Budget?",
+      "Your password reset and signup emails send people to localhost"
     ]
   },
   "uploads": [
@@ -6447,6 +6448,32 @@
       "linkedin_post_id": "6b05f36aad5aa59f729baf59",
       "archetype": "mpt",
       "ts": "2026-11-24T20:28:01"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Your password reset and signup emails send people to localhost",
+      "title": "Password Reset and Signup Emails Send Users to localhost",
+      "question": "My app has this problem: Your password reset and signup emails send people to localhost. What is going on and how do I fix it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": "auth-redirect-localhost",
+      "rescue_format": "explainer",
+      "mode": "rescue",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "9l0CE7fFsXI",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6b0639f9a8becebb774e7a29",
+      "tiktok_caption": "Password Reset and Signup Emails Send Users to localhost\n\nYour password reset and signup emails send people to localhost. Supabase Auth builds email links from its Site URL and allowed redirect URLs. If those still point at your development address, real users land on a page that does not exist.\n\nBuilt your app with Lovable, Bolt, v0 or Replit and it keeps breaking? Get it audited: https://rescue.codeaz.org\n\n#lovable #boltnew #supabase #vibecoding #nocode",
+      "instagram": true,
+      "instagram_post_id": "6b063a0391929194132e34d8",
+      "linkedin": true,
+      "linkedin_post_id": "6b063a0ef0b405190acd8d29",
+      "archetype": "RescueSplit",
+      "ts": "2026-11-25T01:29:25"
     }
   ],
   "repos": {
@@ -6856,7 +6883,8 @@
       "question",
       "rescue",
       "star_rising",
-      "question"
+      "question",
+      "rescue"
     ]
   },
   "rescue": {
@@ -6886,7 +6914,8 @@
         "env-missing-on-deploy",
         "double-charge",
         "service-role-in-frontend",
-        "stripe-success-page"
+        "stripe-success-page",
+        "auth-redirect-localhost"
       ],
       "check": [
         "edge-function-no-auth",

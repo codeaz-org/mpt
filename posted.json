@@ -296,7 +296,8 @@
       "AI-built apps on Supabase: how do you keep the database safe when the AI adds features after launch?",
       "Nocobase: Self-hosted platform that replaces Airtable and Notion for business workflows",
       "Retool Alternatives: Which Low-Code Platform Fits a Small Business Budget?",
-      "Your password reset and signup emails send people to localhost"
+      "Your password reset and signup emails send people to localhost",
+      "The free model plugin that replaces your paid LLM subscription"
     ]
   },
   "uploads": [
@@ -6474,6 +6475,32 @@
       "linkedin_post_id": "6b063a0ef0b405190acd8d29",
       "archetype": "RescueSplit",
       "ts": "2026-11-25T01:29:25"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "The free model plugin that replaces your paid LLM subscription",
+      "title": "Free Model Plugin: Cut Your LLM Subscription Costs in Half",
+      "question": "What is Ebony-Vinyl/dsh-our-free-model and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "Ebony-Vinyl/dsh-our-free-model",
+      "repo_url": "https://github.com/Ebony-Vinyl/dsh-our-free-model",
+      "repo_stars": 86618,
+      "repo_replaces": "Paid LLM API",
+      "youtube": "9_wgMgVx4to",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6b06b0319b09b0a4a8ad7f85",
+      "tiktok_caption": "Free Model Plugin: Cut Your LLM Subscription Costs in Half\n\nDiscover how Ebony-Vinyl/dsh-our-free-model lets you replace pricey LLMs with a free, open\u2011source alternative. Try it today and see the savings for yourself\u2014follow for more AI hacks!\n\nEbony-Vinyl/dsh-our-free-model: https://github.com/Ebony-Vinyl/dsh-our-free-model\n\n#aitool #opensource #nocode #devhacks #freeai",
+      "instagram": true,
+      "instagram_post_id": "6b06b03c6212ba833cb06e98",
+      "linkedin": true,
+      "linkedin_post_id": "6b06b0479b09b0a4a8ad8771",
+      "archetype": "StarRising",
+      "ts": "2026-11-25T09:53:48"
     }
   ],
   "repos": {
@@ -6653,7 +6680,8 @@
       "jmaupetit/Watson",
       "serveroshq/panel",
       "alexsergivan/kwant",
-      "nocobase/nocobase"
+      "nocobase/nocobase",
+      "Ebony-Vinyl/dsh-our-free-model"
     ]
   },
   "modes": {
@@ -6884,7 +6912,8 @@
       "rescue",
       "star_rising",
       "question",
-      "rescue"
+      "rescue",
+      "star_rising"
     ]
   },
   "rescue": {

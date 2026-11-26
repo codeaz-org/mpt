@@ -298,7 +298,8 @@
       "Retool Alternatives: Which Low-Code Platform Fits a Small Business Budget?",
       "Your password reset and signup emails send people to localhost",
       "The free model plugin that replaces your paid LLM subscription",
-      "Peach: Local-first video metadata manager that replaces manual tagging"
+      "Peach: Local-first video metadata manager that replaces manual tagging",
+      "Customers get charged twice when they double-click pay"
     ]
   },
   "uploads": [
@@ -6528,6 +6529,32 @@
       "linkedin_post_id": "6b0734ad636c52154b9a123e",
       "archetype": "StarRising",
       "ts": "2026-11-25T19:18:43"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "Customers get charged twice when they double-click pay",
+      "title": "Double\u2011clicking Pay Charges Customers Twice",
+      "question": "How do I check whether my app has this problem: Customers get charged twice when they double-click pay?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": "double-charge",
+      "rescue_format": "check",
+      "mode": "rescue",
+      "repo": null,
+      "repo_url": null,
+      "repo_stars": null,
+      "repo_replaces": null,
+      "youtube": "TvMvfzLarJI",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6b07865907071a606741b9a5",
+      "tiktok_caption": "Double\u2011clicking Pay Charges Customers Twice\n\nHow to check your own app for this: customers get charged twice when they double-click pay. If nothing makes the payment request idempotent, two clicks or a retried request create two charges. Stripe supports idempotency keys for exactly this.\n\nBuilt your app with Lovable, Bolt, v0 or Replit and it keeps breaking? Get it audited: https://rescue.codeaz.org\n\n#lovable #boltnew #supabase #vibecoding #nocode",
+      "instagram": true,
+      "instagram_post_id": "6b078664b8e2338b857a5091",
+      "linkedin": true,
+      "linkedin_post_id": "6b07866eb8e2338b857a5943",
+      "archetype": "RescueSplit",
+      "ts": "2026-11-26T01:07:34"
     }
   ],
   "repos": {
@@ -6942,7 +6969,8 @@
       "question",
       "rescue",
       "star_rising",
-      "star_rising"
+      "star_rising",
+      "rescue"
     ]
   },
   "rescue": {
@@ -6989,7 +7017,8 @@
         "rls-on-no-policy",
         "vite-env-exposed",
         "no-backups",
-        "no-version-control"
+        "no-version-control",
+        "double-charge"
       ],
       "prompt_fix": [
         "vite-env-exposed",

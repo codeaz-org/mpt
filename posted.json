@@ -299,7 +299,8 @@
       "Your password reset and signup emails send people to localhost",
       "The free model plugin that replaces your paid LLM subscription",
       "Peach: Local-first video metadata manager that replaces manual tagging",
-      "Customers get charged twice when they double-click pay"
+      "Customers get charged twice when they double-click pay",
+      "OpenSet LLM: Self-hosted local LLM inference that replaces your OpenAI API subscription"
     ]
   },
   "uploads": [
@@ -6555,6 +6556,32 @@
       "linkedin_post_id": "6b07866eb8e2338b857a5943",
       "archetype": "RescueSplit",
       "ts": "2026-11-26T01:07:34"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "OpenSet LLM: Self-hosted local LLM inference that replaces your OpenAI API subscription",
+      "title": "Drop Your OpenAI Bill with OpenSet LLM \u2013 Self\u2011Hosted Power!",
+      "question": "What is opensetlabs/openset-llm and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "opensetlabs/openset-llm",
+      "repo_url": "https://github.com/opensetlabs/openset-llm",
+      "repo_stars": 1232,
+      "repo_replaces": "OpenAI API",
+      "youtube": "bBW4GSKUAoo",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6b07fbbbaca861248097bddd",
+      "tiktok_caption": "Drop Your OpenAI Bill with OpenSet LLM \u2013 Self\u2011Hosted Power!\n\nExplore how OpenSet LLM lets you run a local LLM without paying for an API subscription. Dive into the open\u2011source project and see how it can transform your workflow. Follow for more AI hacks!\n\nopensetlabs/openset-llm: https://github.com/opensetlabs/openset-llm\n\n#opensource #llm #nocodefounder #aihacks #selfhosted",
+      "instagram": true,
+      "instagram_post_id": "6b07fbc6f13f49a925abb966",
+      "linkedin": true,
+      "linkedin_post_id": "6b07fbd1d96a331f4a793692",
+      "archetype": "StarRising",
+      "ts": "2026-11-26T09:28:24"
     }
   ],
   "repos": {
@@ -6736,7 +6763,8 @@
       "alexsergivan/kwant",
       "nocobase/nocobase",
       "Ebony-Vinyl/dsh-our-free-model",
-      "peach-mitao/peach"
+      "peach-mitao/peach",
+      "opensetlabs/openset-llm"
     ]
   },
   "modes": {
@@ -6970,7 +6998,8 @@
       "rescue",
       "star_rising",
       "star_rising",
-      "rescue"
+      "rescue",
+      "star_rising"
     ]
   },
   "rescue": {

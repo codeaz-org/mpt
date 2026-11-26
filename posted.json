@@ -300,7 +300,8 @@
       "The free model plugin that replaces your paid LLM subscription",
       "Peach: Local-first video metadata manager that replaces manual tagging",
       "Customers get charged twice when they double-click pay",
-      "OpenSet LLM: Self-hosted local LLM inference that replaces your OpenAI API subscription"
+      "OpenSet LLM: Self-hosted local LLM inference that replaces your OpenAI API subscription",
+      "ARTEX: Self-hosted AI penetration testing that replaces paid pentest services"
     ]
   },
   "uploads": [
@@ -6582,6 +6583,32 @@
       "linkedin_post_id": "6b07fbd1d96a331f4a793692",
       "archetype": "StarRising",
       "ts": "2026-11-26T09:28:24"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "ARTEX: Self-hosted AI penetration testing that replaces paid pentest services",
+      "title": "ARTEX: Free Self\u2011Hosted AI Pentest Tool \ud83d\ude80",
+      "question": "What is BaaRai/ARTEX and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "BaaRai/ARTEX",
+      "repo_url": "https://github.com/BaaRai/ARTEX",
+      "repo_stars": 22003,
+      "repo_replaces": "paid pentest services",
+      "youtube": "FBbqjcvywaY",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6b088161f0a96d0f21811bb5",
+      "tiktok_caption": "ARTEX: Free Self\u2011Hosted AI Pentest Tool \ud83d\ude80\n\nDiscover how ARTEX, the open\u2011source AI pentest platform, can replace expensive security services. Try it now and level up your cybersecurity\u2014follow for more cutting\u2011edge insights!\n\nBaaRai/ARTEX: https://github.com/BaaRai/ARTEX\n\n#pentest #aisecurity #opensource #selfhosted #nocodefounder",
+      "instagram": true,
+      "instagram_post_id": "6b08816b9068b6e079579517",
+      "linkedin": true,
+      "linkedin_post_id": "6b088176f0a96d0f218128ea",
+      "archetype": "StarRising",
+      "ts": "2026-11-26T18:58:36"
     }
   ],
   "repos": {
@@ -6764,7 +6791,8 @@
       "nocobase/nocobase",
       "Ebony-Vinyl/dsh-our-free-model",
       "peach-mitao/peach",
-      "opensetlabs/openset-llm"
+      "opensetlabs/openset-llm",
+      "BaaRai/ARTEX"
     ]
   },
   "modes": {
@@ -6999,6 +7027,7 @@
       "star_rising",
       "star_rising",
       "rescue",
+      "star_rising",
       "star_rising"
     ]
   },

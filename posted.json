@@ -302,7 +302,8 @@
       "Customers get charged twice when they double-click pay",
       "OpenSet LLM: Self-hosted local LLM inference that replaces your OpenAI API subscription",
       "ARTEX: Self-hosted AI penetration testing that replaces paid pentest services",
-      "Your checkout trusts the price the browser sends"
+      "Your checkout trusts the price the browser sends",
+      "RegisterHub \u2013 Automate account registrations to replace manual sign\u2011ups"
     ]
   },
   "uploads": [
@@ -6636,6 +6637,32 @@
       "linkedin_post_id": "6b0a23f241454797ead95708",
       "archetype": "mpt",
       "ts": "2026-11-28T00:44:09"
+    },
+    {
+      "niche": "codeaz",
+      "topic": "RegisterHub \u2013 Automate account registrations to replace manual sign\u2011ups",
+      "title": "RegisterHub: Automate Sign\u2011Ups in Seconds!",
+      "question": "What is waw666waw666/RegisterHub and should I run it?",
+      "question_id": null,
+      "question_url": null,
+      "rescue": null,
+      "rescue_format": null,
+      "mode": "star_rising",
+      "repo": "waw666waw666/RegisterHub",
+      "repo_url": "https://github.com/waw666waw666/RegisterHub",
+      "repo_stars": 415,
+      "repo_replaces": "Manual account creation process",
+      "youtube": "7qjGUZz7fgo",
+      "tiktok": true,
+      "tiktok_via": "buffer",
+      "tiktok_post_id": "6b0a986351953b45593a6224",
+      "tiktok_caption": "RegisterHub: Automate Sign\u2011Ups in Seconds!\n\nDiscover how RegisterHub streamlines account registrations, saving hours of manual work. Follow for more automation hacks!\n\nwaw666waw666/RegisterHub: https://github.com/waw666waw666/RegisterHub\n\n#automation #opensource #devtools #nocodefounder #productivity",
+      "instagram": true,
+      "instagram_post_id": "6b0a986e6f5b4d9c17ce35ee",
+      "linkedin": true,
+      "linkedin_post_id": "6b0a9879057799d308b201dd",
+      "archetype": "StarRising",
+      "ts": "2026-11-28T09:01:18"
     }
   ],
   "repos": {
@@ -6819,7 +6846,8 @@
       "Ebony-Vinyl/dsh-our-free-model",
       "peach-mitao/peach",
       "opensetlabs/openset-llm",
-      "BaaRai/ARTEX"
+      "BaaRai/ARTEX",
+      "waw666waw666/RegisterHub"
     ]
   },
   "modes": {
@@ -7056,7 +7084,8 @@
       "rescue",
       "star_rising",
       "star_rising",
-      "rescue"
+      "rescue",
+      "star_rising"
     ]
   },
   "rescue": {
